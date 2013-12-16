@@ -1,0 +1,950 @@
+# Copyright (C) 2010 Gerald Schmidhuber
+# This file is distributed under the same license as the PACKAGE package.
+# Gerald Schmidhuber &lt;gerald.schmidhuber@googlemail.com&gt;, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Hotot 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-05 02:58+0800\n"
+"PO-Revision-Date: 2010-10-25 01:05+0200\n"
+"Last-Translator: Yusuf BARAN <info@barancolor.net>\n"
+"Language-Team: Deutsch/Deutschland\n"
+"Language: Deutsch/Deutschland\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/qttraybackend.cpp:72
+#, fuzzy
+msgid "%1 unread Messages"
+msgstr "Mesaj"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:97
+#, fuzzy
+msgid "&Compose"
+msgstr "Gönderi Biçimi"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:117
+msgid "&Developer Tool"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:112
+msgid "&Exit"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:67
+msgid "&Minimize to Tray"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:67
+msgid "(c) 2009-2012 Shellex Wai\n"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
+msgid "1 unread post"
+msgid_plural "%1 unread posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+#, fuzzy
+msgid "Artwork"
+msgstr "Görsel içerik "
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+msgid "Developer"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+msgid "Developer and Artwork"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+#, fuzzy
+msgid "Document"
+msgstr "Belge "
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:83
+msgid "Enable developer Tool"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+msgid "Evan"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:35
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:98
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:70
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:49
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:53
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:63
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:77
+#: ../..//misc/hotot.desktop.in.h:1
+msgid "Hotot"
+msgstr "Hotot"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:37
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:45
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:38
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:46
+#, fuzzy
+msgid "Hotot Notification"
+msgstr "- Hatırlatma -"
+
+#: ../..//misc/hotot-qt.desktop.in.h:1
+#, fuzzy
+msgid "Hotot Qt"
+msgstr "Hotot"
+
+#: ../..//misc/hotot.desktop.in.h:2
+msgid "Hotot Twitter Client"
+msgstr "Hotot Twitter İstemcisi"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:180
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:323
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:175
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:320
+#, fuzzy
+msgid "Hotot: Click to Active."
+msgstr "Bana tıkla ve devam et"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
+msgid "Jiahua Huang"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
+msgid "Jimmy Xu"
+msgstr ""
+
+#: ../..//misc/hotot.desktop.in.h:3
+msgid "Lightweight Twitter Client base on Gtk and Webkit"
+msgstr "Gtk ve Webkit Tabanlı Hafif Twitter İstemcisi"
+
+#: ../..//misc/hotot-qt.desktop.in.h:2
+msgid "Lightweight Twitter Client base on Qt and Webkit"
+msgstr "Qt ve Webkit Tabanlı Hafif Twitter İstemcisi"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:65
+msgid "Lightweight, Flexible Microblogging"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:186
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:181
+#, c-format
+msgid "Loading Search result %s ..."
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+msgid "Marguerite Su"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+msgid "Shellex Wai"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:108
+msgid "Show &MainWindow"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
+msgid "Tualatrix Chou"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:85
+msgid "Use Proxy as Socks Proxy instead of HTTP Proxy"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+msgid "Xu Zhen"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:116
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:139
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:97
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:125
+#, fuzzy
+msgid "_Compose"
+msgstr "Gönderi Biçimi"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:133
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:120
+msgid "_File"
+msgstr "_Dosya"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:152
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:142
+msgid "_Help"
+msgstr "_Yardım"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:94
+msgid "_Hide"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:101
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:132
+msgid "_Inspector"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:113
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:136
+msgid "_Resume/Hide"
+msgstr "_Devam Et/Gizle"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:91
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:122
+msgid "_Show"
+msgstr ""
+
+#~ msgid " - did not match any result."
+#~ msgstr " - herhangi bir sonuç bulunamadı."
+
+#~ msgid " has protected his/her tweets."
+#~ msgstr "Kişinin twitleri korunuyor."
+
+#~ msgid " microblogging service"
+#~ msgstr "hafif istemci uygulaması"
+
+#~ msgid "'API Base'"
+#~ msgstr "'API Tabanı'"
+
+#~ msgid "'Bio'"
+#~ msgstr "'Özgeçmiş'"
+
+#~ msgid "'Click here to Compose a Meassage ...'"
+#~ msgstr "'Buraya Tıklayıp Mesajınızı Yazın ...'"
+
+#~ msgid "'Direct Messages'"
+#~ msgstr "'Doğrudan Mesaj'"
+
+#~ msgid "'Extensions ... '"
+#~ msgstr "'Uzantılar ...'"
+
+#~ msgid "'Find someone you love.'"
+#~ msgstr "'Sizi seven birilerini bulun'"
+
+#~ msgid "'Font Family'"
+#~ msgstr "'Yazıtipi Ailesi'"
+
+#~ msgid "'Font Size'"
+#~ msgstr "'Yazıtipi Boyutu'"
+
+#~ msgid "'HTTP Proxy Host'"
+#~ msgstr "'Ağ Vekili Sunucusu'"
+
+#~ msgid "'HTTP Proxy Port'"
+#~ msgstr "'Ağ Vekili Veriyolu'"
+
+#~ msgid "'Hover to open tweet box.'"
+#~ msgstr "'Twit kutusunu açmak için üzerinde bekle.'"
+
+#~ msgid "'Location'"
+#~ msgstr "'Konum'"
+
+#~ msgid "'More ...'"
+#~ msgstr "'Ayarlar ...'"
+
+#~ msgid "'Name'"
+#~ msgstr "'İsim'"
+
+#~ msgid "'Notify when home page has new tweets'"
+#~ msgstr "'Ana sayfaya düşen yeni twit hatırlatması'"
+
+#~ msgid "'Notify when some new direct messages coming.'"
+#~ msgstr "'Yeni doğrudan mesajlarda bana hatırlat.'"
+
+#~ msgid "'Notify when some new tweets mention me.'"
+#~ msgstr "'Yeni twitlerde bana haber ver .'"
+
+#~ msgid "'OAuth Base'"
+#~ msgstr "'OAuth Tabanı'"
+
+#~ msgid "'Play sound when home page has new tweets'"
+#~ msgstr "'Ana sayfaya twit düşünce sesli olarak uyar'"
+
+#~ msgid "'Play swhen some new tweets mention me.'"
+#~ msgstr "'Yeni twitlerde bana sesli uyarı ver.'"
+
+#~ msgid "'Play when some new direct messages coming.'"
+#~ msgstr "'Yeni doğrudan mesajlarda sesli olarak uyar.'"
+
+#~ msgid "'Preload latest tweet in a conversation if it is cached.'"
+#~ msgstr "'Eğer önbellekte ise son twiti tekrar yükle.'"
+
+#~ msgid "'Reload timeline.'"
+#~ msgstr "'Zaman Çizgisini Tekrar Yükle.'"
+
+#~ msgid "'Remember Password'"
+#~ msgstr "'Şifreyi Hatırla'"
+
+#~ msgid "'Search API Base'"
+#~ msgstr "'API Tabanı Ara'"
+
+#~ msgid "'Search for ... '"
+#~ msgstr "'Ara ...'"
+
+#~ msgid "'Sign in with Twitter'"
+#~ msgstr "'Twitter ile giriş yap'"
+
+#~ msgid "'Signing API Base'"
+#~ msgstr "'Giriş API tabanı'"
+
+#~ msgid "'Signing OAuth Base'"
+#~ msgstr "'OAuth Tabanı İle Giriliyor'"
+
+#~ msgid "'Socks Proxy Port'"
+#~ msgstr "'Soket Vekil Veriyolu'"
+
+#~ msgid "'Summon Hot Key'"
+#~ msgstr "'Çağırma Kısayolu'"
+
+#~ msgid "'Use HTTP Proxy'"
+#~ msgstr "'Ağ Vekili Kullan'"
+
+#~ msgid "'Use Native Input'"
+#~ msgstr "'Yerel Girişleri Kullan'"
+
+#~ msgid "'Use Native Notify'"
+#~ msgstr "'Yerel Hatırlatmaları Kullan'"
+
+#~ msgid "'Use Socks Proxy'"
+#~ msgstr "'Soket Vekil Kullan'"
+
+#~ msgid "'Use Ubuntu Indicator'"
+#~ msgstr "'Ubuntu Göstergelerini Kullan'"
+
+#~ msgid "'Use same Signing Api'"
+#~ msgstr "'Aynı giriş API'sini kullan'"
+
+#~ msgid "'Use same Signing OAuth Base'"
+#~ msgstr "'Girişte Aynı OAuth Tabanını Kullan'"
+
+#~ msgid "'Website'"
+#~ msgstr "'As sayfası'"
+
+#~ msgid "'What is happening?'"
+#~ msgstr "'Ne Yapıyorsunuz?'"
+
+#~ msgid "- Credits -"
+#~ msgstr "- Yapımcılar -"
+
+#~ msgid "- Display and Behavior -"
+#~ msgstr "- Ekran ve Davranış -"
+
+#~ msgid "- Font Settings -"
+#~ msgstr "- Yazıtipi Ayarları -"
+
+#~ msgid "- Information -"
+#~ msgstr "- Bilgi -"
+
+#~ msgid "- License -"
+#~ msgstr "- Lisans -"
+
+#~ msgid "- Make sure all words are spelled correctly."
+#~ msgstr "- Tüm kelimelerin doğru yazıldığından emin olun."
+
+#~ msgid "- Picture -"
+#~ msgstr "- Resim -"
+
+#~ msgid "- Proxy Settings -"
+#~ msgstr "- Vekil Ayarları -"
+
+#~ msgid "- Stat -"
+#~ msgstr "- istatistik -"
+
+#~ msgid "- Try different keywords."
+#~ msgstr "- Farklı bir anahtar kelime deneyin."
+
+#~ msgid "- Try more general keywords."
+#~ msgstr "- Daha fazla genel anahtar kelime deneyin."
+
+#~ msgid "API Base"
+#~ msgstr "API Tabanı"
+
+#, fuzzy
+#~ msgid "API Setting"
+#~ msgstr "- API Ayarları -"
+
+#~ msgid "About"
+#~ msgstr "Hakkında"
+
+#, fuzzy
+#~ msgid "About & Help"
+#~ msgstr "Hakkında &amp;amp; Yardım"
+
+#~ msgid "Account"
+#~ msgstr "Hesap"
+
+#~ msgid "Action"
+#~ msgstr "Eylem"
+
+#~ msgid "Action Mode"
+#~ msgstr "Hareket Biçimi"
+
+#~ msgid "Appearance"
+#~ msgstr "Görünüm"
+
+#~ msgid "Apply keywords"
+#~ msgstr "Anahtar kelimeleri uygula"
+
+#, fuzzy
+#~ msgid "Authentication"
+#~ msgstr "Eylem"
+
+#, fuzzy
+#~ msgid "Auto Update"
+#~ msgstr "Güncelle"
+
+#~ msgid "Bio"
+#~ msgstr "Özgeçmiş"
+
+#~ msgid "Block"
+#~ msgstr "Engelle"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "Change avator"
+#~ msgstr "Resim değiştir"
+
+#~ msgid "Clear"
+#~ msgstr "Temizle"
+
+#, fuzzy
+#~ msgid "Click Me to Continue"
+#~ msgstr "Bana tıkla ve devam et"
+
+#, fuzzy
+#~ msgid "Click to compose message"
+#~ msgstr "'Tıplayıp mesajınızı gönderin'"
+
+#, fuzzy
+#~ msgid "Click to show"
+#~ msgstr "Bana tıkla ve devam et"
+
+#~ msgid "Close"
+#~ msgstr "Kapat"
+
+#~ msgid "Console"
+#~ msgstr "Panel"
+
+#~ msgid "Consumer Key"
+#~ msgstr "Benutzerschlüssel"
+
+#~ msgid "Consumer Secret"
+#~ msgstr "Benutzer Geheimnis"
+
+#, fuzzy
+#~ msgid "Copy the PIN Code and paste it into the box below"
+#~ msgstr "Adım 2: Güvenlik kodunu kopyalayıp boş kutucuğa yapıştırın;"
+
+#, fuzzy
+#~ msgid "Create A List"
+#~ msgstr "Twit Listesi"
+
+#, fuzzy
+#~ msgid "Create Profile"
+#~ msgstr "'Yeni Hesap Oluştur'"
+
+#~ msgid "Credits"
+#~ msgstr "Yapımcılar"
+
+#~ msgid "DM"
+#~ msgstr "DM"
+
+#~ msgid "Delete"
+#~ msgstr "Sil"
+
+#~ msgid "Enter action mode"
+#~ msgstr "Hareket biçimine gir"
+
+#~ msgid "Enter compose mode"
+#~ msgstr "Gönderi biçimine gir"
+
+#~ msgid "Enter filter mode"
+#~ msgstr "Süzme biçimine gir"
+
+#~ msgid "Exit action mode"
+#~ msgstr "Hareket biçiminden çık"
+
+#~ msgid "Exit compose mode"
+#~ msgstr "Gönderi biçiminden çık"
+
+#~ msgid "Exit filter mode"
+#~ msgstr "Süzme biçiminden çık"
+
+#~ msgid "Extensions"
+#~ msgstr "Uzantılar"
+
+#~ msgid "Extenstions"
+#~ msgstr "Uzantılar"
+
+#, fuzzy
+#~ msgid "Favorite this tweet ..."
+#~ msgstr "'En sevdiğim twitler'"
+
+#, fuzzy
+#~ msgid "Favorites View"
+#~ msgstr "En sevilenler:"
+
+#, fuzzy
+#~ msgid "Filter Like It"
+#~ msgstr "Süzme Biçimi"
+
+#~ msgid "First time to Sign in with Twitter"
+#~ msgstr "Twitter ile ilk girişim"
+
+#~ msgid "Follow"
+#~ msgstr "Takip Et"
+
+#, fuzzy
+#~ msgid "Follow @"
+#~ msgstr "Takip Et"
+
+#, fuzzy
+#~ msgid "Follower"
+#~ msgstr "Takip Et"
+
+#, fuzzy
+#~ msgid "Followers"
+#~ msgstr "Takipçiler:"
+
+#, fuzzy
+#~ msgid "Font"
+#~ msgstr "Yazıtipi Boyutu"
+
+#~ msgid "Font Family"
+#~ msgstr "Yazıtipi Ailesi"
+
+#~ msgid "Font Size"
+#~ msgstr "Yazıtipi Boyutu"
+
+#, fuzzy
+#~ msgid "Friend"
+#~ msgstr "Arkadaşlar:"
+
+#, fuzzy
+#~ msgid "Friends"
+#~ msgstr "Arkadaşlar:"
+
+#~ msgid "GO"
+#~ msgstr "Git"
+
+#, fuzzy
+#~ msgid "Gain access token"
+#~ msgstr "Erişim Kimliğini Tekrar Doğrula"
+
+#~ msgid "Global"
+#~ msgstr "Genel"
+
+#, fuzzy
+#~ msgid "Globals"
+#~ msgstr "Genel"
+
+#, fuzzy
+#~ msgid "Greetings!"
+#~ msgstr "Selamlar!"
+
+#, fuzzy
+#~ msgid "HTTP Proxy"
+#~ msgstr "Ağ Vekili Kullan"
+
+#~ msgid "Help"
+#~ msgstr "Yardım"
+
+#~ msgid "Help &amp;amp; About"
+#~ msgstr "Yardım &amp;amp; Hakkında"
+
+#~ msgid "Home"
+#~ msgstr "Giriş"
+
+#, fuzzy
+#~ msgid "Home Timeline"
+#~ msgstr "'Giriş Zaman Çizgisi'"
+
+#~ msgid "Home | Hotot"
+#~ msgstr "Giriş | Hotot"
+
+#~ msgid "Host"
+#~ msgstr "Sunucu"
+
+#~ msgid "Hover to open tweet box"
+#~ msgstr "Twit kutusunu açmak için üzerinde bekle"
+
+#~ msgid "Inbox"
+#~ msgstr "Gelen Kutusu"
+
+#, fuzzy
+#~ msgid "Join"
+#~ msgstr "Gir:"
+
+#, fuzzy
+#~ msgid "Keybinding"
+#~ msgstr "- Genel Tuş Kombinasyonları -"
+
+#~ msgid "Keyboard"
+#~ msgstr "Klavye"
+
+#, fuzzy
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "- Klavye kısayolları -"
+
+#~ msgid "License"
+#~ msgstr "Lisans"
+
+#~ msgid "Load more"
+#~ msgstr "Daha çok göster"
+
+#~ msgid "Location"
+#~ msgstr "Konum"
+
+#~ msgid "Location: "
+#~ msgstr "Konum:"
+
+#~ msgid "Look up: "
+#~ msgstr "Ara:"
+
+#, fuzzy
+#~ msgid "Mention"
+#~ msgstr "'Söz et'"
+
+#, fuzzy
+#~ msgid "Mentions"
+#~ msgstr "'Söz et'"
+
+#, fuzzy
+#~ msgid "Mentions View"
+#~ msgstr "'Söz et'"
+
+#, fuzzy
+#~ msgid "Messages"
+#~ msgstr "Mesaj"
+
+#, fuzzy
+#~ msgid "Messages View"
+#~ msgstr "Mesaj"
+
+#~ msgid "Move to bottom"
+#~ msgstr "En alta taşı"
+
+#~ msgid "Move to next tweet"
+#~ msgstr "Sonraki twite git"
+
+#~ msgid "Move to prev tweet"
+#~ msgstr "Önceki twite git"
+
+#~ msgid "Move to top"
+#~ msgstr "En üste taşı"
+
+#, fuzzy
+#~ msgid "My Favorites"
+#~ msgstr "En sevilenler:"
+
+#~ msgid "My Tweets, Retweeted"
+#~ msgstr "Twitlerim, İletilenler"
+
+#~ msgid "Name"
+#~ msgstr "İsim"
+
+#~ msgid "Name: "
+#~ msgstr "İsim:"
+
+#~ msgid "Networks"
+#~ msgstr "Ağlar"
+
+#, fuzzy
+#~ msgid "No Extension"
+#~ msgstr "Uzantı Simgesi Yok"
+
+#~ msgid "Notify"
+#~ msgstr "Hatırlatma"
+
+#~ msgid "OAuth Base"
+#~ msgstr "OAuth Tabanı"
+
+#~ msgid "OK"
+#~ msgstr "Tamam"
+
+#, fuzzy
+#~ msgid "Options"
+#~ msgstr "Eylem"
+
+#, fuzzy
+#~ msgid "Or copy the address and open it in your browser."
+#~ msgstr "Adım 1: Tuşa tıklayın veya adresi kopyalayıp tarayıcıda açın."
+
+#~ msgid "Outbox"
+#~ msgstr "Giden Kutusu"
+
+#, fuzzy
+#~ msgid "PIN Code"
+#~ msgstr "Güvenlik Kodu:"
+
+#~ msgid "Page"
+#~ msgstr "Sayfa"
+
+#, fuzzy
+#~ msgid "Password"
+#~ msgstr "Şifre:"
+
+#~ msgid "Port"
+#~ msgstr "Veriyolu (Port)"
+
+#~ msgid "Preferences"
+#~ msgstr "Özellikler"
+
+#, fuzzy
+#~ msgid "Preload latest tweets in conversations if possible."
+#~ msgstr "Eğer önbellekte ise son twiti tekrar yükle"
+
+#, fuzzy
+#~ msgid "Press Ctrl + Enter to Update"
+#~ msgstr "Ctrl+Giriş Tuşuna Basıp Güncelleyin"
+
+#~ msgid "Preview"
+#~ msgstr "Öngörünüm"
+
+#~ msgid "Profile"
+#~ msgstr "Bilgi"
+
+#, fuzzy
+#~ msgid "Profile Name"
+#~ msgstr "Hesap İsmi:"
+
+#, fuzzy
+#~ msgid "Quick References"
+#~ msgstr "Özellikler"
+
+#~ msgid "Quit Hotot"
+#~ msgstr "Hotot'tan Çık"
+
+#~ msgid "Regain Access Token"
+#~ msgstr "Erişim Kimliğini Tekrar Doğrula"
+
+#, fuzzy
+#~ msgid "Regain Access Token with Twitter"
+#~ msgstr "Erişim Kimliğini Tekrar Doğrula"
+
+#, fuzzy
+#~ msgid "Relation"
+#~ msgstr "Geri hareket"
+
+#~ msgid "Reload"
+#~ msgstr "Tekrar Yükle"
+
+#~ msgid "Remember Password"
+#~ msgstr "Şifreyi Hatırla"
+
+#~ msgid "Restore Defaults"
+#~ msgstr "Varsayılana Döndür"
+
+#, fuzzy
+#~ msgid "Retweet"
+#~ msgstr "Benden İletilenler"
+
+#, fuzzy
+#~ msgid "Retweet/Un-retweet"
+#~ msgstr "'İletilenler ve iletilmişler'"
+
+#~ msgid "Retweeted By Others"
+#~ msgstr "Diğerlerinden İletilenler"
+
+#, fuzzy
+#~ msgid "Retweeted by"
+#~ msgstr "Benden İletilenler"
+
+#, fuzzy
+#~ msgid "Retweets"
+#~ msgstr "Twitler:"
+
+#, fuzzy
+#~ msgid "Retweets View"
+#~ msgstr "Benden İletilenler"
+
+#, fuzzy
+#~ msgid "Rule Name"
+#~ msgstr "Hesap İsmi:"
+
+#, fuzzy
+#~ msgid "Same Signing API Base"
+#~ msgstr "Giriş API tabanı"
+
+#, fuzzy
+#~ msgid "Same Signing OAuth Base"
+#~ msgstr " OAuth Tabanı İle Giriliyor"
+
+#~ msgid "Same signing API base: "
+#~ msgstr "Aynı giriş API'sini kullan:"
+
+#~ msgid "Same signing OAuth base: "
+#~ msgstr "Girişte Aynı OAuth Tabanını Kullan:"
+
+#, fuzzy
+#~ msgid "Search"
+#~ msgstr "Bunun için ara:"
+
+#, fuzzy
+#~ msgid "Search @ in Google"
+#~ msgstr "Google'da ara"
+
+#, fuzzy
+#~ msgid "Search @ in Twitter"
+#~ msgstr "Twitter'da Ara"
+
+#~ msgid "Search API Base"
+#~ msgstr "API Tabanı Ara"
+
+#, fuzzy
+#~ msgid "Select actions"
+#~ msgstr "İleri hareket"
+
+#~ msgid "Send Request"
+#~ msgstr "İstek Gönder"
+
+#, fuzzy
+#~ msgid "Shortcuts"
+#~ msgstr "Kısayol"
+
+#~ msgid "Sign In"
+#~ msgstr "Giriş Yap"
+
+#, fuzzy
+#~ msgid "Sign Out"
+#~ msgstr "Çıkış Yap"
+
+#, fuzzy
+#~ msgid "Sign in ..."
+#~ msgstr "Giriş Yap"
+
+#~ msgid "Sign in with Twitter"
+#~ msgstr "Twitter ile giriş yap"
+
+#~ msgid "Slide to next page"
+#~ msgstr "Sonraki ekrana kaydır"
+
+#~ msgid "Slide to prev page"
+#~ msgstr "Önceki ekrana kaydır"
+
+#~ msgid "Sound"
+#~ msgstr "Ses"
+
+#~ msgid "Suggestions:"
+#~ msgstr "Öneriler:"
+
+#, fuzzy
+#~ msgid "Summon Hotot (like: <ALT>C)"
+#~ msgstr "Hotot'u Çağır (Örn: &amp;lt;ALT&amp;gt;C)"
+
+#, fuzzy
+#~ msgid "System Font"
+#~ msgstr "Sistem"
+
+#~ msgid "Toggle nav tabs"
+#~ msgstr "Gezinti sekmesini değiştir"
+
+#~ msgid "Toggle toolbar"
+#~ msgstr "Araç çubuğunu değiştir"
+
+#~ msgid "Trigger action"
+#~ msgstr "Başlatma hareketi"
+
+#, fuzzy
+#~ msgid "Tweet"
+#~ msgstr "Twitler:"
+
+#, fuzzy
+#~ msgid "Tweet View"
+#~ msgstr "Twit Listesi"
+
+#, fuzzy
+#~ msgid "Tweets"
+#~ msgstr "Twitler:"
+
+#~ msgid "Tweets per Day: "
+#~ msgstr "Gün Başına Twit:"
+
+#, fuzzy
+#~ msgid "Twitter"
+#~ msgstr "twitter"
+
+#, fuzzy
+#~ msgid "URL shortener"
+#~ msgstr "'Adres Kısaltıcı'"
+
+#, fuzzy
+#~ msgid "Un-favorite this tweet ..."
+#~ msgstr "'En sevdiğim twitler'"
+
+#~ msgid "Unblock"
+#~ msgstr "Engeli Kaldır"
+
+#, fuzzy
+#~ msgid "Unfollow @"
+#~ msgstr "Takip Et"
+
+#~ msgid "Update"
+#~ msgstr "Güncelle"
+
+#, fuzzy
+#~ msgid "Upload"
+#~ msgstr "Tekrar Yükle"
+
+#~ msgid "Use Native Input Dialog"
+#~ msgstr "Yerel Girişli Diyalog Kullan"
+
+#~ msgid "Use Socks Proxy"
+#~ msgstr "Soket Vekil Kullan"
+
+#~ msgid "Use Ubuntu Indicator"
+#~ msgstr "Ubuntu Göstergelerini Kullan"
+
+#, fuzzy
+#~ msgid "Use native notify system"
+#~ msgstr "Yerel Hatırlatma Sistemini Kullan"
+
+#, fuzzy
+#~ msgid "Username"
+#~ msgstr "Kullanıcı Adı:"
+
+#, fuzzy
+#~ msgid "Web"
+#~ msgstr "Ağ:"
+
+#~ msgid "Website"
+#~ msgstr "Ağ sayfası"
+
+#~ msgid "What's happening?"
+#~ msgstr "Ne Yapıyorsun?"
+
+#~ msgid "Written by"
+#~ msgstr "Yazar "
+
+#, fuzzy
+#~ msgid ""
+#~ "You MUST restart Hotot for some changes below to take effect. And these "
+#~ "changes will affect ALL accounts"
+#~ msgstr ""
+#~ "* Değişikliklerin etkin olabilmesi için Hotot'u tekrar başlatmalısınız."
+
+#~ msgid ""
+#~ "You need to go to twitter.com to send a request before you can start "
+#~ "following this person..."
+#~ msgstr ""
+#~ "Bu kişiyi takibe başlamadan önce twitter.com adresinden kişiye istek "
+#~ "göndermelisiniz..."
+
+#~ msgid "Your search - "
+#~ msgstr "Aramanız - "
+
+#~ msgid "abcdefghijk ABCDEFGHIJK"
+#~ msgstr "abcdefghijk ABCDEFGHIJK"
+
+#~ msgid "is a lightweight client for the "
+#~ msgstr "Günlükleme işlemleri için"
+
+#~ msgid "px"
+#~ msgstr "px"

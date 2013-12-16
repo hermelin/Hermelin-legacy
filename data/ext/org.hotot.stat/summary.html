@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Empty HTML5 File</title>
+    <style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    line-height: 1;
+    background: white;
+}
+#container {
+    width: 560px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.chart {
+    width: 560px;
+    height: 200px;
+}
+h2 {
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0 10px 0;
+}
+#progress_bar_mask {
+    position: fixed;
+    top: 50px;
+    margin-left: 105px;
+    box-shadow: 0 0 10px #333;
+    width: 340px;
+    padding: 10px;
+    display: none;
+}
+
+#progress_bar {
+    background: rgba(0, 0, 0, 0.9);
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+
+#progress_bar .label {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+#user_stat_charts, #home_stat_charts {
+    display: none;
+}
+    </style> 
+    <script src="../../js/jquery.js"></script>
+    <script src="jquery.flot.min.js"></script>
+    <script src="jquery.flot.pie.min.js"></script>
+    <script src="summary.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="progress_bar_mask">
+        <div id="progress_bar">
+            <img src="ani_loading_bar_gray.gif"/>
+            <br/>
+            <div class="label">100/600</div>
+        </div>
+    </div>
+    <div id="user_stat_charts">
+        <h2>Tweet Stat</h2>
+        <div id="tweet_chart" class="chart" style="height:150px;"></div>
+        <h2>Tweets per Hour</h2>
+        <div id="hour_stat_chart" class="chart"></div>
+        <h2>Tweets per Day</h2>
+        <div id="day_stat_chart" class="chart"></div> 
+        <h2>Top 8 Talkers</h2>
+        <div id="top10_talkers_stat_chart" class="chart"></div> 
+        <h2>Top 8 RT Users</h2>
+        <div id="top10_rt_user_stat_chart" class="chart"></div> 
+        <h2>Top 8 Clients</h2>
+        <div id="top10_clients_stat_chart" class="chart"></div> 
+        <h2>Follower Trend</h2>
+        <div id="follower_trend_stat_chart" class="chart"></div> 
+    </div>    
+
+    <div id="home_stat_charts">
+        <h2>Top 8 Talkaholic</h2>
+        <div id="top10_speakers_home_stat_chart" class="chart"></div> 
+    </div>
+</div>
+</body>
+</html>
+

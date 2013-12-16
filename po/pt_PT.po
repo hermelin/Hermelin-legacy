@@ -1,0 +1,1175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) ogalho 2010
+# This file is distributed under the same license as the PACKAGE package.
+# Carlos Fernando Dias Martins(ogalho) <ogalho@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Hotot 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-05 02:58+0800\n"
+"Last-Translator: Carlos Fernando Dias Martins(ogalho) <ogalho@gmail.com>\n"
+"Language: Português/Portugal \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/qttraybackend.cpp:72
+#, fuzzy
+msgid "%1 unread Messages"
+msgstr "Enviar mensagem"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:97
+#, fuzzy
+msgid "&Compose"
+msgstr "Modo de composição"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:117
+msgid "&Developer Tool"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:112
+msgid "&Exit"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:67
+msgid "&Minimize to Tray"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:67
+msgid "(c) 2009-2012 Shellex Wai\n"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
+msgid "1 unread post"
+msgid_plural "%1 unread posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+#, fuzzy
+msgid "Artwork"
+msgstr "Grafismo por"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+msgid "Developer"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+msgid "Developer and Artwork"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+#, fuzzy
+msgid "Document"
+msgstr "Documentado por"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:83
+msgid "Enable developer Tool"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+msgid "Evan"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:35
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:98
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:70
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:49
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:53
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:63
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:77
+#: ../..//misc/hotot.desktop.in.h:1
+msgid "Hotot"
+msgstr "Hotot"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:37
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:45
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:38
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:46
+msgid "Hotot Notification"
+msgstr "Notificação do Hotot"
+
+#: ../..//misc/hotot-qt.desktop.in.h:1
+#, fuzzy
+msgid "Hotot Qt"
+msgstr "Hotot "
+
+#: ../..//misc/hotot.desktop.in.h:2
+msgid "Hotot Twitter Client"
+msgstr "Hotot Cliente Twitter"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:180
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:323
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:175
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:320
+msgid "Hotot: Click to Active."
+msgstr "Hotot: Clique para Activar"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
+msgid "Jiahua Huang"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
+msgid "Jimmy Xu"
+msgstr ""
+
+#: ../..//misc/hotot.desktop.in.h:3
+msgid "Lightweight Twitter Client base on Gtk and Webkit"
+msgstr "Cliente Leve de Twitter baseado em Gtk e Webkit"
+
+#: ../..//misc/hotot-qt.desktop.in.h:2
+msgid "Lightweight Twitter Client base on Qt and Webkit"
+msgstr "Cliente Leve de Twitter baseado em Qt e Webkit"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:65
+msgid "Lightweight, Flexible Microblogging"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:186
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:181
+#, fuzzy, c-format
+msgid "Loading Search result %s ..."
+msgstr "A carregar Tweets"
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+msgid "Marguerite Su"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+msgid "Shellex Wai"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:108
+msgid "Show &MainWindow"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
+msgid "Tualatrix Chou"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:85
+msgid "Use Proxy as Socks Proxy instead of HTTP Proxy"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+msgid "Xu Zhen"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:116
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:139
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:97
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:125
+#, fuzzy
+msgid "_Compose"
+msgstr "Modo de composição"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:133
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:120
+msgid "_File"
+msgstr "_Ficheiro"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:152
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:142
+msgid "_Help"
+msgstr "_Ajuda"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:94
+msgid "_Hide"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:101
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:132
+msgid "_Inspector"
+msgstr ""
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:113
+#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:136
+msgid "_Resume/Hide"
+msgstr "_Continuar/Activar"
+
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:91
+#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:122
+msgid "_Show"
+msgstr ""
+
+#~ msgid " - did not match any result."
+#~ msgstr " - não obeteve resultados."
+
+#~ msgid " Successfully!"
+#~ msgstr " Sucesso!"
+
+#~ msgid " errors in your change. Abort..."
+#~ msgstr " erros na sua alteração. Abortar..."
+
+#~ msgid " has protected his/her tweets."
+#~ msgstr " protegeu os seus tweets."
+
+#~ msgid " microblogging service"
+#~ msgstr " serviço de microblogging"
+
+#~ msgid "'API Base'"
+#~ msgstr "'API Base'"
+
+#~ msgid "'Bio'"
+#~ msgstr "'Bio'"
+
+#~ msgid "'Click here to Compose a Meassage ...'"
+#~ msgstr "'Clica aqui para escrever uma mensagem ...'"
+
+#~ msgid "'Direct Messages'"
+#~ msgstr "'Mensagens Directas'"
+
+#~ msgid "'Extensions ... '"
+#~ msgstr "'Extensões ... '"
+
+#~ msgid "'Find someone you love.'"
+#~ msgstr "'Procure alguém que goste.'"
+
+#~ msgid "'Font Family'"
+#~ msgstr "'Familia do Tipo de Letra'"
+
+#~ msgid "'Font Size'"
+#~ msgstr "'Tamanho do Tipo de Letra'"
+
+#~ msgid "'HTTP Proxy Host'"
+#~ msgstr "'HTTP Proxy Host'"
+
+#~ msgid "'HTTP Proxy Port'"
+#~ msgstr "'Porta HTTP Proxy'"
+
+#~ msgid "'Hover to open tweet box'"
+#~ msgstr "'Passar cursor para abrir caixa de tweet'"
+
+#~ msgid "'Loading Tweets...'"
+#~ msgstr "'A Carregar Tweets'"
+
+#~ msgid "'Location'"
+#~ msgstr "'Localização'"
+
+#~ msgid "'More ...'"
+#~ msgstr "'Mais ...'"
+
+#~ msgid "'Name'"
+#~ msgstr "'Nome'"
+
+#~ msgid "'Notify when home page has new tweets'"
+#~ msgstr "Notificar quando a linha cronológica tem novos tweets'"
+
+#~ msgid "'Notify when some new direct messages coming.'"
+#~ msgstr "'Notificar quando receber alguma mensagem directa.'"
+
+#~ msgid "'Notify when some new tweets mention me.'"
+#~ msgstr "'Notificar quando algum novo tweet me mencionar.'"
+
+#~ msgid "'OAuth Base'"
+#~ msgstr "'OAuth Base'"
+
+#~ msgid "'Play sound when home page has new tweets'"
+#~ msgstr "'Tocar um som quando a linha cronológica tiver novos tweets'"
+
+#~ msgid "'Play when some new direct messages coming.'"
+#~ msgstr "'Tocar um som quando receber alguma mensagem directa.'"
+
+#~ msgid "'Play when some new tweets mention me.'"
+#~ msgstr "'Tocar um som quando algum novo tweet me mencionar."
+
+#~ msgid "'Preload latest tweet in a conversation if it is cached.'"
+#~ msgstr ""
+#~ "'Carregar primeiro os últimos tweets de uma conversação se estiver na "
+#~ "cache.'"
+
+#~ msgid "'Reload timeline.'"
+#~ msgstr "'Recarregar Linha cronológica.'"
+
+#~ msgid "'Remember Password'"
+#~ msgstr "'Lembrar Palavra-passe'"
+
+#~ msgid "'Search API Base'"
+#~ msgstr "'Pesquisar API Base'"
+
+#~ msgid "'Search for ... '"
+#~ msgstr "'Procurar por ... '"
+
+#~ msgid "'Sign in with Twitter'"
+#~ msgstr "'Ligar com Twitter'"
+
+#~ msgid "'Signing API Base'"
+#~ msgstr "'Autenticação API Base'"
+
+#~ msgid "'Signing OAuth Base'"
+#~ msgstr "'Autenticação OAuth Base'"
+
+#~ msgid "'Socks Proxy Port'"
+#~ msgstr "'Porta Proxy do Socket '"
+
+#~ msgid "'Summon Hot Key'"
+#~ msgstr "'Invocar Tecla Rápida'"
+
+#~ msgid "'Type'"
+#~ msgstr "'Tipo'"
+
+#~ msgid "'Use HTTP Proxy'"
+#~ msgstr "'Usar HTTP Proxy'"
+
+#~ msgid "'Use Native Input'"
+#~ msgstr "'Usar Entrada Nativa'"
+
+#~ msgid "'Use Native Notify'"
+#~ msgstr "'Usar Notificação Nativa'"
+
+#~ msgid "'Use Socks Proxy'"
+#~ msgstr "'Usar Sockets Proxy'"
+
+#~ msgid "'Use Ubuntu Indicator'"
+#~ msgstr "'Usar o Indicador do Ubuntu'"
+
+#~ msgid "'Use same Signing Api'"
+#~ msgstr "'Usar a mesma API de Autenticação'"
+
+#~ msgid "'Use same Signing OAuth Base'"
+#~ msgstr "'Usar a mesma Autenticação OAuth Base'"
+
+#~ msgid "'Website'"
+#~ msgstr "'Sitio Web'"
+
+#~ msgid "'What is happening?'"
+#~ msgstr "'O que está a acontecer?'"
+
+#~ msgid "- Credits -"
+#~ msgstr "- Créditos -"
+
+#~ msgid "- Display and Behavior -"
+#~ msgstr " - Configuração de Janela -"
+
+#~ msgid "- Font Settings -"
+#~ msgstr "- Configurações do Tipo de Letra -"
+
+#~ msgid "- Information -"
+#~ msgstr "- Informação -"
+
+#~ msgid "- License -"
+#~ msgstr "- Licensa -"
+
+#~ msgid "- Make sure all words are spelled correctly."
+#~ msgstr " - Assegure-se que todas as palavras estão bem escritas."
+
+#~ msgid "- Notification -"
+#~ msgstr " - Notificação - "
+
+#~ msgid "- Picture -"
+#~ msgstr "- Imagem -"
+
+#~ msgid "- Proxy Settings -"
+#~ msgstr "- Configuração de Proxy-"
+
+#~ msgid "- Stat -"
+#~ msgstr "- Stat -"
+
+#~ msgid "- Try different keywords."
+#~ msgstr " - Tente palavras-chave diferentes."
+
+#~ msgid "- Try more general keywords."
+#~ msgstr " - Tente palavras-chave mais comuns."
+
+#, fuzzy
+#~ msgid "..."
+#~ msgstr " ..."
+
+#~ msgid ""
+#~ "<p>There are something wrong in what your changes.<br/>Please check "
+#~ "errors in the options below:<br/> - "
+#~ msgstr ""
+#~ "<p>Há algo errado nas suas alterações.<br/>Por favor, verifique os "
+#~ "errosnas opções abaixo:</br> - "
+
+#~ msgid "?!\n"
+#~ msgstr "?!\n"
+
+#~ msgid "API Base"
+#~ msgstr "API Base"
+
+#, fuzzy
+#~ msgid "API Setting"
+#~ msgstr "- Configuração de API -"
+
+#~ msgid "About"
+#~ msgstr "Acerca de ..."
+
+#, fuzzy
+#~ msgid "About & Help"
+#~ msgstr "Acerca &amp; Ajuda"
+
+#~ msgid "Account"
+#~ msgstr "Conta"
+
+#~ msgid "Action"
+#~ msgstr "Acção"
+
+#~ msgid "Action Mode"
+#~ msgstr "Modo de acção"
+
+#, fuzzy
+#~ msgid "Add new views"
+#~ msgstr " nocos itens."
+
+#~ msgid "Appearance"
+#~ msgstr "Aparência"
+
+#~ msgid "Apply keywords"
+#~ msgstr "Aplicar palavras-chave"
+
+#~ msgid "Are you sure you want to block @"
+#~ msgstr "Tem a certeza que deseja bloquear @"
+
+#, fuzzy
+#~ msgid "Authentication"
+#~ msgstr "Autenticação OK!"
+
+#~ msgid "Authentication OK!"
+#~ msgstr "Autenticação OK!"
+
+#, fuzzy
+#~ msgid "Auto Update"
+#~ msgstr "Actualizar"
+
+#~ msgid "Begin to OAuth ..."
+#~ msgstr "A começar OAuth ..."
+
+#~ msgid "Bio"
+#~ msgstr "Bio"
+
+#~ msgid "Block"
+#~ msgstr "Bloquear"
+
+#~ msgid "Block @"
+#~ msgstr "Bloquear @"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot authenticate you! Please check your username/password and API Base"
+#~ msgstr ""
+#~ "Não foi possível autenticá-lo! Por favor, verifique o nome de utilizador/"
+#~ "palavra-passe e a base da API</p>"
+
+#~ msgid "Change avator"
+#~ msgstr "Alterar avatar"
+
+#, fuzzy
+#~ msgid "Character `@` is not allowed in profile prefix"
+#~ msgstr "O caracter `@` não é permitido no nome do perfil!"
+
+#~ msgid "Clear"
+#~ msgstr "Limpar"
+
+#, fuzzy
+#~ msgid "Click Me to Continue"
+#~ msgstr "Faça clique para continuar"
+
+#, fuzzy
+#~ msgid "Click to compose message"
+#~ msgstr "'Clique para compor mensagem'"
+
+#, fuzzy
+#~ msgid "Click to show"
+#~ msgstr "Faça clique para continuar"
+
+#~ msgid "Close"
+#~ msgstr "Fechar"
+
+#~ msgid "Console"
+#~ msgstr "Consola"
+
+#~ msgid "Consumer Key"
+#~ msgstr "Consumer Key"
+
+#~ msgid "Consumer Secret"
+#~ msgstr "Consumer Secret"
+
+#, fuzzy
+#~ msgid "Copy the PIN Code and paste it into the box below"
+#~ msgstr "Passo 2: copie o código PIN e cole-o na caixa abaixo;"
+
+#, fuzzy
+#~ msgid "Create A List"
+#~ msgstr "Lista de Tweets"
+
+#, fuzzy
+#~ msgid "Create Profile"
+#~ msgstr "'Criar um perfil novo'"
+
+#~ msgid "Credits"
+#~ msgstr "Créditos"
+
+#~ msgid "DM"
+#~ msgstr "DM"
+
+#~ msgid "Delete"
+#~ msgstr "Apagar"
+
+#~ msgid "Delete this tweet"
+#~ msgstr "Apagar este tweet"
+
+#, fuzzy
+#~ msgid "Destroyed Successfully!"
+#~ msgstr "Postado com Sucesso!"
+
+#~ msgid "Disable"
+#~ msgstr "Desactivar"
+
+#, fuzzy
+#~ msgid "Disabled"
+#~ msgstr "Desactivar"
+
+#~ msgid "Enable"
+#~ msgstr "Activar"
+
+#, fuzzy
+#~ msgid "Enable Proxy"
+#~ msgstr "Activar"
+
+#, fuzzy
+#~ msgid "Enabled"
+#~ msgstr "Activar"
+
+#~ msgid "Enter action mode"
+#~ msgstr "Entrar no modo de acção"
+
+#~ msgid "Enter compose mode"
+#~ msgstr "Entrar no modo de composição"
+
+#~ msgid "Enter filter mode"
+#~ msgstr "Entrar em modo filtro"
+
+#~ msgid "Exit action mode"
+#~ msgstr "Sair de modo de acção"
+
+#~ msgid "Exit compose mode"
+#~ msgstr "Sair do modo de composição"
+
+#~ msgid "Exit filter mode"
+#~ msgstr "Sair do modo de filtro"
+
+#~ msgid "Extensions"
+#~ msgstr "Extensões"
+
+#~ msgid "Extenstions"
+#~ msgstr "Extensões"
+
+#~ msgid "Fav it!"
+#~ msgstr "Pôr nos Favoritos"
+
+#, fuzzy
+#~ msgid "Favorite this tweet ..."
+#~ msgstr "Apagar este tweet"
+
+#, fuzzy
+#~ msgid "Favorites View"
+#~ msgstr "Favoritos"
+
+#, fuzzy
+#~ msgid "Filter Like It"
+#~ msgstr "Modo de Filtro"
+
+#~ msgid "First time to Sign in with Twitter"
+#~ msgstr "Primeira vez a ligar-se ao Twitter"
+
+#~ msgid "Follow"
+#~ msgstr "Seguir"
+
+#~ msgid "Follow @"
+#~ msgstr "Seguir @"
+
+#, fuzzy
+#~ msgid "Follower"
+#~ msgstr "Seguir"
+
+#, fuzzy
+#~ msgid "Followers"
+#~ msgstr "Seguidores: "
+
+#, fuzzy
+#~ msgid "Font"
+#~ msgstr "Tamanho do Tipo de Letra"
+
+#~ msgid "Font Family"
+#~ msgstr "Familia do Tipo de Letra"
+
+#~ msgid "Font Size"
+#~ msgstr "Tamanho do Tipo de Letra"
+
+#, fuzzy
+#~ msgid "Friend"
+#~ msgstr "Amigos: "
+
+#, fuzzy
+#~ msgid "Friends"
+#~ msgstr "Amigos: "
+
+#~ msgid "GO"
+#~ msgstr "Ir"
+
+#, fuzzy
+#~ msgid "Gain access token"
+#~ msgstr "Readquirir Token de Acesso"
+
+#~ msgid "Global"
+#~ msgstr "Global"
+
+#, fuzzy
+#~ msgid "Globals"
+#~ msgstr "Global"
+
+#, fuzzy
+#~ msgid "Greetings!"
+#~ msgstr "Seja Bem-Vindo!"
+
+#, fuzzy
+#~ msgid "HTTP Proxy"
+#~ msgstr "Usar HTTP Proxy"
+
+#~ msgid "Help"
+#~ msgstr "Ajuda"
+
+#~ msgid "Help &amp; About"
+#~ msgstr "Ajuda e Sobre a aplicação ..."
+
+#~ msgid "Home"
+#~ msgstr "Início"
+
+#, fuzzy
+#~ msgid "Home Timeline"
+#~ msgstr "'Linha Cronológica'"
+
+#~ msgid "Home | Hotot"
+#~ msgstr "Inicio | Hotot"
+
+#~ msgid "Host"
+#~ msgstr "Host"
+
+#~ msgid "Hover to open tweet box"
+#~ msgstr "Passar cursor para abrir caixa de tweet"
+
+#~ msgid "Inbox"
+#~ msgstr "Recebidos"
+
+#~ msgid "Join"
+#~ msgstr "Subscrever"
+
+#~ msgid "Join: "
+#~ msgstr "Subscrever: "
+
+#, fuzzy
+#~ msgid "Keybinding"
+#~ msgstr "- Atalho de Teclado Global -"
+
+#~ msgid "Keyboard"
+#~ msgstr "Teclado"
+
+#, fuzzy
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Atalhos do teclado"
+
+#~ msgid "License"
+#~ msgstr "Licença"
+
+#~ msgid "Load more"
+#~ msgstr "Carregar mais"
+
+#, fuzzy
+#~ msgid "Loading ... "
+#~ msgstr "A carregar"
+
+#~ msgid "Location"
+#~ msgstr "Localização"
+
+#~ msgid "Location: "
+#~ msgstr "Localização: "
+
+#~ msgid "Login to Hotot"
+#~ msgstr "Ligar a Hotot"
+
+#~ msgid "Look up: "
+#~ msgstr "Pesquisar: "
+
+#, fuzzy
+#~ msgid "Mention"
+#~ msgstr "'Menções'"
+
+#, fuzzy
+#~ msgid "Mentions"
+#~ msgstr "'Menções'"
+
+#, fuzzy
+#~ msgid "Mentions View"
+#~ msgstr "'Menções'"
+
+#, fuzzy
+#~ msgid "Messages"
+#~ msgstr "Mensagem"
+
+#, fuzzy
+#~ msgid "Messages View"
+#~ msgstr "Mensagem"
+
+#~ msgid "Move to bottom"
+#~ msgstr "Ir para o final"
+
+#~ msgid "Move to next tweet"
+#~ msgstr "Ir para tweet seguinte"
+
+#~ msgid "Move to prev tweet"
+#~ msgstr "Ir para tweet anterior"
+
+#~ msgid "Move to top"
+#~ msgstr "Ir para o inicio"
+
+#, fuzzy
+#~ msgid "My Favorites"
+#~ msgstr "Favoritos"
+
+#~ msgid "My Tweets, Retweeted"
+#~ msgstr "Meus Tweets, Retweettados"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Name: "
+#~ msgstr "Nome: "
+
+#~ msgid "Networks"
+#~ msgstr "Redes"
+
+#, fuzzy
+#~ msgid "No Extension"
+#~ msgstr "Extensão sem Ícone"
+
+#~ msgid "Notify"
+#~ msgstr "Notificar"
+
+#~ msgid "OAuth Base"
+#~ msgstr "OAuth Base"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#, fuzzy
+#~ msgid "Official retweet this tweet"
+#~ msgstr "Retweet oficial deste twwet"
+
+#, fuzzy
+#~ msgid "Open a Profile ..."
+#~ msgstr "A actualizar perfil ..."
+
+#, fuzzy
+#~ msgid "Options"
+#~ msgstr "Acção"
+
+#, fuzzy
+#~ msgid "Or copy the address and open it in your browser."
+#~ msgstr ""
+#~ "Passo 1: clique no botão abaixo ou copie o enderesso e abra-o no seu "
+#~ "navegar de internet."
+
+#~ msgid "Outbox"
+#~ msgstr "Enviados"
+
+#, fuzzy
+#~ msgid "PIN Code"
+#~ msgstr "Código PIN:"
+
+#~ msgid "Page"
+#~ msgstr "Página"
+
+#, fuzzy
+#~ msgid "Password"
+#~ msgstr "Palavra-passe:"
+
+#, fuzzy
+#~ msgid "Please enter a profile prefix"
+#~ msgstr "Por favor, indique um nome de perfil!"
+
+#~ msgid "Port"
+#~ msgstr "Porta"
+
+#, fuzzy
+#~ msgid "Posted Successfully!"
+#~ msgstr "Postado com Sucesso!"
+
+#, fuzzy
+#~ msgid "Posting ..."
+#~ msgstr "A postar"
+
+#~ msgid "Preferences"
+#~ msgstr "Definições"
+
+#, fuzzy
+#~ msgid "Preload latest tweets in conversations if possible."
+#~ msgstr "Carregar primeiro os últimos tweets de uma conversação se possível."
+
+#, fuzzy
+#~ msgid "Press Ctrl + Enter to Update"
+#~ msgstr "Pressione Crtl+Enter para Actualizar"
+
+#~ msgid "Preview"
+#~ msgstr "Pré-Visualização"
+
+#~ msgid "Profile"
+#~ msgstr "Perfil"
+
+#, fuzzy
+#~ msgid "Profile Name"
+#~ msgstr "Nome de Perfil:"
+
+#, fuzzy
+#~ msgid "Quick References"
+#~ msgstr "Definições"
+
+#~ msgid "Quit Hotot"
+#~ msgstr "Fechar Hotot"
+
+#~ msgid "RT @"
+#~ msgstr "RT @"
+
+#, fuzzy
+#~ msgid "RT this tweet"
+#~ msgstr "RT este tweet."
+
+#~ msgid "Reduce Successfully!"
+#~ msgstr "Redução com sucesso!"
+
+#~ msgid "Reducing ... "
+#~ msgstr "A reduzir ... "
+
+#~ msgid "Regain Access Token"
+#~ msgstr "Readquirir Token de Acesso"
+
+#, fuzzy
+#~ msgid "Regain Access Token with Twitter"
+#~ msgstr "Readquirir Token de Acesso"
+
+#, fuzzy
+#~ msgid "Relation"
+#~ msgstr "Acção anterior"
+
+#~ msgid "Reload"
+#~ msgstr "Recarregar"
+
+#~ msgid "Remember Password"
+#~ msgstr "Memorizar Palavra-passe"
+
+#, fuzzy
+#~ msgid "Reply"
+#~ msgstr "Responder a Todos"
+
+#, fuzzy
+#~ msgid "Reply All"
+#~ msgstr "Responder a Todos"
+
+#~ msgid "Reply Them."
+#~ msgstr "Responder-lhes"
+
+#, fuzzy
+#~ msgid "Reply this tweet"
+#~ msgstr "Responder a este tweet."
+
+#~ msgid "Restore Defaults"
+#~ msgstr "Restaurar pré-definição"
+
+#~ msgid ""
+#~ "Restore defaults will erases all changes you make.\n"
+#~ " Are you sure you want to continue?!\n"
+#~ msgstr ""
+#~ "Voltar às definições iniciais eliminará qualquer alteração que tenha "
+#~ "feito.\n"
+#~ " Tem a certeza que quer continuar?!\n"
+
+#, fuzzy
+#~ msgid "Retweet"
+#~ msgstr "A retweetar..."
+
+#, fuzzy
+#~ msgid "Retweet Successful!"
+#~ msgstr "Retweet com sucesso!"
+
+#, fuzzy
+#~ msgid "Retweet/Un-retweet"
+#~ msgstr "'Retweets e Retweetados'"
+
+#~ msgid "Retweeted By Others"
+#~ msgstr "Retweetados por Outros"
+
+#, fuzzy
+#~ msgid "Retweeted by"
+#~ msgstr "retuitado por"
+
+#~ msgid "Retweeting ..."
+#~ msgstr "A retweetar..."
+
+#, fuzzy
+#~ msgid "Retweets"
+#~ msgstr "Tweets"
+
+#, fuzzy
+#~ msgid "Retweets View"
+#~ msgstr "Retweettados por Mim"
+
+#, fuzzy
+#~ msgid "Rule Name"
+#~ msgstr "Nome de Perfil:"
+
+#, fuzzy
+#~ msgid "Same Signing API Base"
+#~ msgstr "Autenticação API Base"
+
+#, fuzzy
+#~ msgid "Same Signing OAuth Base"
+#~ msgstr "Autenticação OAuth Base"
+
+#~ msgid "Same signing API base: "
+#~ msgstr "Mesma Autenticação OAuth base:"
+
+#~ msgid "Same signing OAuth base: "
+#~ msgstr "Mesma Autenticação OAuth base:"
+
+#, fuzzy
+#~ msgid "Search"
+#~ msgstr "Pesquisar por: "
+
+#, fuzzy
+#~ msgid "Search @ in Google"
+#~ msgstr "Pesquisar no Google"
+
+#, fuzzy
+#~ msgid "Search @ in Twitter"
+#~ msgstr "Pesquisar no Twitter"
+
+#~ msgid "Search API Base"
+#~ msgstr "Pesquisar API Base"
+
+#, fuzzy
+#~ msgid "Select actions"
+#~ msgstr "Acção seguinte"
+
+#~ msgid "Send Request"
+#~ msgstr "Enviar Pedido"
+
+#~ msgid "Send message to them"
+#~ msgstr "Enviar-lhes mensagem"
+
+#, fuzzy
+#~ msgid "Shortcuts"
+#~ msgstr "Atalho"
+
+#~ msgid "Sign In"
+#~ msgstr "Ligar"
+
+#, fuzzy
+#~ msgid "Sign Out"
+#~ msgstr "Sair"
+
+#~ msgid "Sign in ..."
+#~ msgstr "Conectar ..."
+
+#~ msgid "Sign in with Twitter"
+#~ msgstr "Ligar com Twitter"
+
+#~ msgid "Slide to next page"
+#~ msgstr "Deslizar para a página seguinte"
+
+#~ msgid "Slide to prev page"
+#~ msgstr "Deslizar para a página anterior"
+
+#~ msgid "Sound"
+#~ msgstr "Som"
+
+#, fuzzy
+#~ msgid "Status is over 140 characters!"
+#~ msgstr "A mensagem tem mais do que 140 caracteres"
+
+#, fuzzy
+#~ msgid "Successfully"
+#~ msgstr " Sucesso!"
+
+#~ msgid "Suggestions:"
+#~ msgstr "Sugestões:"
+
+#, fuzzy
+#~ msgid "Summon Hotot (like: <ALT>C)"
+#~ msgstr "Invocar Hotot (como: &lt;ALT&gt;C)"
+
+#, fuzzy
+#~ msgid "System Font"
+#~ msgstr "Sistema"
+
+#~ msgid "There are "
+#~ msgstr "Há"
+
+#~ msgid "Toggle nav tabs"
+#~ msgstr "Alternar tabs de navegação"
+
+#~ msgid "Toggle toolbar"
+#~ msgstr "Alternar barra de ferramentas"
+
+#~ msgid "Trigger action"
+#~ msgstr "Executar acção"
+
+#, fuzzy
+#~ msgid "Tweet"
+#~ msgstr "Tweets"
+
+#, fuzzy
+#~ msgid "Tweet View"
+#~ msgstr "Lista de Tweets"
+
+#~ msgid "Tweets"
+#~ msgstr "Tweets"
+
+#~ msgid "Tweets per Day"
+#~ msgstr "Tweets por dia"
+
+#~ msgid "Tweets per Day: "
+#~ msgstr "Tweets por dia: "
+
+#~ msgid "Tweets: "
+#~ msgstr "Tweets: "
+
+#, fuzzy
+#~ msgid "Twitter"
+#~ msgstr "twitter"
+
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#, fuzzy
+#~ msgid "URL shortener"
+#~ msgstr "'Redutor de URL'"
+
+#, fuzzy
+#~ msgid "Un-favorite this tweet ..."
+#~ msgstr "'Os meus tweets favoritos'"
+
+#~ msgid "Unblock"
+#~ msgstr "Desbloquear"
+
+#~ msgid "Unblock @"
+#~ msgstr "Desbloquear @"
+
+#, fuzzy
+#~ msgid "Undo Successful!"
+#~ msgstr "Desfeito com sucesso!"
+
+#~ msgid "Undo retweet."
+#~ msgstr "Desfazer retweet."
+
+#, fuzzy
+#~ msgid "Undo retweeting ..."
+#~ msgstr "Desfazer o Retweet ..."
+
+#~ msgid "Unfav it."
+#~ msgstr "Remover dos favoritos"
+
+#~ msgid "Unfollow @"
+#~ msgstr "Deixar de seguir @"
+
+#~ msgid "Update"
+#~ msgstr "Actualizar"
+
+#~ msgid "Update page "
+#~ msgstr "Actualizar página "
+
+#~ msgid "Update profile successfully!"
+#~ msgstr "Sucesso na actualização de perfil!"
+
+#, fuzzy
+#~ msgid "Updated Successfully!"
+#~ msgstr "Actualização com Sucesso"
+
+#, fuzzy
+#~ msgid "Updating ..."
+#~ msgstr "A actualizar"
+
+#, fuzzy
+#~ msgid "Upload"
+#~ msgstr "Recarregar"
+
+#~ msgid "Use Native Input Dialog"
+#~ msgstr "Usar Dialogo de Entrada Nativo"
+
+#~ msgid "Use Socks Proxy"
+#~ msgstr "Usar Sockets Proxy"
+
+#~ msgid "Use Ubuntu Indicator"
+#~ msgstr "Usar o Indicador do Ubuntu"
+
+#, fuzzy
+#~ msgid "Use native notify system"
+#~ msgstr "Usar Notificação Nativa do Sistema"
+
+#, fuzzy
+#~ msgid "Username"
+#~ msgstr "Utilizador:"
+
+#, fuzzy
+#~ msgid "View more conversation"
+#~ msgstr "ver mais conversação"
+
+#, fuzzy
+#~ msgid "Web"
+#~ msgstr "Web: "
+
+#~ msgid "Website"
+#~ msgstr "Sítio Web"
+
+#~ msgid "What's happening?"
+#~ msgstr "O que está a acontecer?"
+
+#~ msgid "Written by"
+#~ msgstr "Escrito por"
+
+#, fuzzy
+#~ msgid ""
+#~ "You MUST restart Hotot for some changes below to take effect. And these "
+#~ "changes will affect ALL accounts"
+#~ msgstr ""
+#~ "' Hotot tem de ser reiniciado para que as alterações tenham efeito.'"
+
+#~ msgid ""
+#~ "You need to go to twitter.com to send a request before you can start "
+#~ "following this person..."
+#~ msgstr ""
+#~ "Necessita de ir a twitter.com fazer um pedido antes de poder seguir esta "
+#~ "pessoa..."
+
+#~ msgid "Your search - "
+#~ msgstr "A sua pesquisa - "
+
+#~ msgid "abcdefghijk ABCDEFGHIJK"
+#~ msgstr "abcdefghijk ABCDEFGHIJK"
+
+#~ msgid "is a lightweight client for the "
+#~ msgstr "é um cliente leve para o "
+
+#~ msgid "or use Basic Auth"
+#~ msgstr "Ou usar Twitter OAuth"
+
+#, fuzzy
+#~ msgid "please enter the recipient!"
+#~ msgstr "Por favor, indique o destinatário"
+
+#~ msgid "px"
+#~ msgstr "px"
+
+#, fuzzy
+#~ msgid "reply to"
+#~ msgstr "resporder a"
+
+#~ msgid "via"
+#~ msgstr "via"
