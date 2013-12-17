@@ -535,6 +535,7 @@ function bind_tweet_action(id) {
             var id = '#' + this.id;
             $(ui.Main.selected_tweet_id).removeClass('selected');
             ui.Main.selected_tweet_id = id;
+            ui.Main.selected_tweet_id2 = id.slice(1,id.length);
             $(id).addClass('selected');
             ui.ContextMenu.hide();
             ui.Main.closeTweetMoreMenu();

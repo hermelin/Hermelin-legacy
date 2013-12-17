@@ -47,7 +47,6 @@
       var preloader,
         _this = this;
       preloader = new Image;
-      preloader.onload
       var loaded = function() {
         var height, preload, width;
         _this.image.attr('src', image_url);

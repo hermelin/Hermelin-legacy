@@ -2410,3 +2410,18 @@ td {
 .ic_delete {
 	background: transparent url(../image/ic16_delete.png) no-repeat;
 }
+
+.fade{
+  opacity: 0;
+  transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -webkit-transition: opacity .4s ease-in-out;
+}
+
+.fadein{
+  opacity: 1;
+}
+
+.away{
+  display: none;
+}
