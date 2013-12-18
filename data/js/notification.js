@@ -10,17 +10,7 @@ var notification = {
     if (notification._queue.length) {
       var tuple = notification._queue.shift();
       notification.notify(tuple[0], tuple[1], tuple[2], tuple[3]);
-      if (!notification._queue.length) {
-        clearInterval(notification.notificationTimer);
-        notification.notificationTimer = null;
-      }
     }
-  },
-
-  notificationTimer: null,
-
-  startTimer: function () {
-    notification.notificationTimer = setInterval(notification.check_proc, 100);
   },
 
   notify: function (title, summary, image, type) {
@@ -40,10 +30,7 @@ var notification = {
 
   push: function (title, summary, image, type) {
     notification._queue.push([title, summary, image, type]);
-    if (!notification.notificationTimer) {
-      notification.check_proc();
-      notification.notificationTimer = notification.timerFunction;
-    }
+    notification.check_proc();
   },
 
   init: function () {
