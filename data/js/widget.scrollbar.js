@@ -1,7 +1,7 @@
-(function() {
+(function () {
   var Scrollbar, root, _ref;
 
-  Scrollbar = (function() {
+  Scrollbar = (function () {
 
     function Scrollbar(track, content, margin) {
       if (typeof track !== 'string') {
@@ -26,7 +26,7 @@
       this.bind();
     }
 
-    Scrollbar.prototype.disable = function() {
+    Scrollbar.prototype.disable = function () {
       this.disabled = true;
       this.content.css({
         'overflow-y': 'auto',
@@ -35,7 +35,7 @@
       return this.track.hide();
     };
 
-    Scrollbar.prototype.enable = function() {
+    Scrollbar.prototype.enable = function () {
       this.disabled = false;
       this.content.css({
         'overflow-y': 'hidden',
@@ -44,7 +44,7 @@
       return this.track.show();
     };
 
-    Scrollbar.prototype.recalculate_layout = function() {
+    Scrollbar.prototype.recalculate_layout = function () {
       var pos;
       if (this.disabled) return;
       this.content_height = this.content.height();
@@ -61,7 +61,7 @@
       this.handle.css('top', pos + 'px');
     };
 
-    Scrollbar.prototype.on_wheel = function(ev) {
+    Scrollbar.prototype.on_wheel = function (ev) {
       var delta, offsetY;
       if (this.disabled) return;
       if (event.wheelDeltaY > 1 || event.wheelDeltaY < -1) {
@@ -74,40 +74,40 @@
       }
     };
 
-    Scrollbar.prototype.activate = function() {
+    Scrollbar.prototype.activate = function () {
       this.on_active = true;
       return this.track.addClass('active');
     };
 
-    Scrollbar.prototype.deactivate = function() {
+    Scrollbar.prototype.deactivate = function () {
       this.on_active = false;
       return this.track.removeClass('active');
     };
 
-    Scrollbar.prototype.show = function() {
+    Scrollbar.prototype.show = function () {
       return this.track.show();
     };
 
-    Scrollbar.prototype.hide = function() {
+    Scrollbar.prototype.hide = function () {
       return this.track.hide();
     };
 
-    Scrollbar.prototype.scroll_to = function(pos) {
+    Scrollbar.prototype.scroll_to = function (pos) {
       return this.content.get(0).scrollTop = pos;
     };
 
-    Scrollbar.prototype.scroll = function(offset) {
+    Scrollbar.prototype.scroll = function (offset) {
       var pos;
       pos = this.content_pos_check(this.content.get(0).scrollTop + offset);
       return this.content.get(0).scrollTop = pos;
     };
 
-    Scrollbar.prototype.scroll_by_handle = function(pos) {
+    Scrollbar.prototype.scroll_by_handle = function (pos) {
       this.handle.css('top', pos + 'px');
       return this.content.get(0).scrollTop = pos * this.content.get(0).scrollHeight / (this.track_height - this.handle_height);
     };
 
-    Scrollbar.prototype.handle_pos_check = function(pos) {
+    Scrollbar.prototype.handle_pos_check = function (pos) {
       if (pos < 0) pos = 0;
       if (pos > this.track_height - this.handle_height) {
         pos = this.track_height - this.handle_height;
@@ -115,7 +115,7 @@
       return pos;
     };
 
-    Scrollbar.prototype.content_pos_check = function(pos) {
+    Scrollbar.prototype.content_pos_check = function (pos) {
       if (pos < 0) pos = 0;
       if (pos > this.content.get(0).scrollHeight) {
         pos = this.content.get(0).scrollHeight;
@@ -123,32 +123,32 @@
       return pos;
     };
 
-    Scrollbar.prototype.bind = function() {
+    Scrollbar.prototype.bind = function () {
       var _this = this;
-      this.handle.mousedown(function(ev) {
+      this.handle.mousedown(function (ev) {
         _this.activate();
         _this.track_scroll_y = ev.clientY - _this.track.get(0).offsetTop - _this.handle.get(0).offsetTop;
         root._active_scrollbar = _this;
         return false;
-      }).mouseup(function(ev) {
+      }).mouseup(function (ev) {
         return _this.deactivate();
       });
-      this.track.mousedown(function(ev) {
+      this.track.mousedown(function (ev) {
         var pos;
         _this.activate();
         pos = _this.handle_pos_check(ev.clientY - _this.track.offset().top - _this.handle_height * 0.5);
         _this.scroll_by_handle(pos);
         return false;
-      }).mouseup(function(ev) {
+      }).mouseup(function (ev) {
         return _this.deactivate();
       });
-      this.content.on('mousewheel', function(ev) {
+      this.content.on('mousewheel', function (ev) {
         return _this.on_wheel(ev);
       });
-      this.content.on('DOMMouseScroll', function(ev) {
+      this.content.on('DOMMouseScroll', function (ev) {
         return _this.on_wheel(ev);
       });
-      return this.content.scroll(function(ev) {
+      return this.content.scroll(function (ev) {
         var pos;
         if (!_this.on_active && !_this.disabled) {
           pos = _this.content.get(0).scrollTop * (_this.track_height - _this.handle_height) / _this.content.get(0).scrollHeight;
@@ -157,7 +157,7 @@
       });
     };
 
-    Scrollbar.prototype.destory = function() {
+    Scrollbar.prototype.destory = function () {
       this.track.off();
       this.track = null;
       this.handle.off();
@@ -176,9 +176,9 @@
 
   root.widget.Scrollbar = Scrollbar;
 
-  root.widget.Scrollbar.register = function() {
+  root.widget.Scrollbar.register = function () {
     var _this = this;
-    $(document).mousemove(function(ev) {
+    $(document).mousemove(function (ev) {
       var pos, sb;
       if (root._active_scrollbar) {
         sb = root._active_scrollbar;
@@ -188,7 +188,7 @@
         }
         return false;
       }
-    }).mouseup(function(ev) {
+    }).mouseup(function (ev) {
       var sb;
       if (root._active_scrollbar) {
         sb = root._active_scrollbar;

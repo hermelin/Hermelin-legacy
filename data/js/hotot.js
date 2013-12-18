@@ -124,7 +124,7 @@ function hotot_action(uri) {
 }
 
 function quit() {
-  
+
   function closewindow() {
     if (!util.is_native_platform()) {
       if (conf.vars.platform === 'Chrome') {
@@ -138,7 +138,7 @@ function quit() {
       hotot_action('system/quit');
     }
   }
-  
+
   conf.save_settings(function () {
     //check if something was written to the config 
     if (conf.current_name.length != 0) {
@@ -341,10 +341,10 @@ function init(callback) {
   globals.twitterClient.oauth = new lib.OAuth();
   globals.twitterClient.oauth.network = globals.network;
   globals.readLaterServ = new ReadLaterServ();
-  
+
   db.init(function () {
     daemon.init();
-    conf.init(function() {
+    conf.init(function () {
       ext.init();
       on_load_finish();
     });
@@ -611,7 +611,7 @@ function init_hotkey() {
   hotkey.register("zc", function () {
     if (ui.Main.selected_tweet_id != null) {
       var btn = document.getElementById(ui.Main.selected_tweet_id2).getElementsByClassName('btn_tweet_thread')[0];
-      if (btn.style.display !== 'none'){
+      if (btn.style.display !== 'none') {
         btn.click();
       }
     }
@@ -626,7 +626,7 @@ function init_hotkey() {
   // :)
   hotkey.register("#@!^&", function () {
     var profileimages = document.getElementsByClassName('profile_img_wrapper');
-    for(var i = 0; i < profileimages.length; i++){
+    for (var i = 0; i < profileimages.length; i++) {
       profileimages[i].style.backgroundImage = 'url(image/ic48_profile_image.png)';
     }
   });
@@ -900,13 +900,13 @@ jQuery(function ($) {
       }
     }
   }
-  var resize_timer = false;  
-  window.onresize = function() {
+  var resize_timer = false;
+  window.onresize = function () {
     if (resize_timer !== false)
       clearTimeout(resize_timer);
     resize_timer = setTimeout(on_resize, 200);
   }
-  
+
   $("#count").hover(function () {
     $("#count > ul").show();
   }, function () {

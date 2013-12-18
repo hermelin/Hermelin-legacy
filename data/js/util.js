@@ -86,7 +86,7 @@ util = {
   },
 
   native_platform: ['Linux', 'Windows', 'Mac'],
-  
+
   compare_id: function (id1, id2) {
     if (id1.length < id2.length) {
       return -1;

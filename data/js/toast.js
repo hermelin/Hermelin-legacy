@@ -1,43 +1,38 @@
 if (typeof ui == 'undefined') var ui = {};
 toast = {
 
-id: '',
+  id: '',
 
-me: {},
+  me: {},
 
-init: 
-function init() {
+  init: function init() {
     this.id = '#notification';
     this.me = $('#notification');
     return this;
-},
+  },
 
-set:
-function set(msg) {
+  set: function set(msg) {
     this.me.text(msg);
     return this;
-},
+  },
 
-clear:
-function clear() {
+  clear: function clear() {
     this.me.empty();
     return this;
-},
+  },
 
-show:
-function show(ttl) {
+  show: function show(ttl) {
     ttl = 3000 || isNaN(ttl);
     this.me.fadeIn();
     if (ttl != -1) {
-        setTimeout(this.hide, ttl);
+      setTimeout(this.hide, ttl);
     }
     return this;
-},
+  },
 
-hide:
-function hide() {
+  hide: function hide() {
     toast.me.fadeOut();
     return this;
-}
+  }
 
 };

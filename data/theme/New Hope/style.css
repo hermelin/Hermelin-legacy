@@ -1,115 +1,104 @@
 #header_inner {
-    background: #333 url(../../image/mask.png);
-    border-bottom: 1px #2d2d2d solid;
+  background: #333 url(../../image/mask.png);
+  border-bottom: 1px #2d2d2d solid;
 }
 #indication {
-    -webkit-box-shadow: inset 0 0 5px black;
-    -moz-box-shadow: inset 0 0 5px black;
-    box-shadow: inset 0 0 5px black;
+  -webkit-box-shadow: inset 0 0 5px black;
+  -moz-box-shadow: inset 0 0 5px black;
+  box-shadow: inset 0 0 5px black;
 }
 #main_page {
-    background: #fafafa; 
+  background: #fafafa;
 }
-
 .people_vcard {
-    color: #333;
-    padding: 5px;
+  color: #333;
+  padding: 5px;
 }
 .tweet_bar_btn {
-    background-position-y: -48px;
+  background-position-y: -48px;
 }
 .tweet_bar_btn:hover {
-    background-position-y: -72px;
+  background-position-y: -72px;
 }
 .tweet_meta a {
-    color: #888 !important;
+  color: #888 !important;
 }
 .vcard_action_btns {
-    border-top: 1px #ccc solid;
+  border-top: 1px #ccc solid;
 }
 .header_content {
-    border-left: 1px #ddd solid;
+  border-left: 1px #ddd solid;
 }
 .search_box, .vcard, .header_inner {
-	background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F8), to(#EDEDED));
+  background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F8), to(#EDEDED));
   border: #E5E5E5 solid 1px;
 }
 .card {
-    border-top: 1px #ddd solid;
-    color: black;
-    border-bottom: 1px #fafafa solid;
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#fafafa));
+  border-top: 1px #ddd solid;
+  color: black;
+  border-bottom: 1px #fafafa solid;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fefefe), color-stop(100%, #fafafa));
 }
-
 .card:first-child {
-    border-top: 0; 
+  border-top: 0;
 }
-
 .card.selected {
-    background-color: #fafafa;
-    border-bottom: 1px #bbb solid;
+  background-color: #fafafa;
+  border-bottom: 1px #bbb solid;
 }
-
 .card > .tweet_selected_indicator {
-    background-color: #4C6CF5;
+  background-color: #4C6CF5;
 }
 .card.normal a {
-    color: #36c;
+  color: #36c;
 }
 .card.me a {
-    color: #63c;
+  color: #63c;
 }
-
 .card.message a {
-    color: #c63;
+  color: #c63;
 }
-
 .card.mention a {
-    color: #492;
+  color: #492;
 }
 .card.deleted a {
-    color: gray;
+  color: gray;
 }
 .card.deleted .text {
-    color: gray;
+  color: gray;
 }
 .btn_tweet_thread_more {
-    border-top: 1px #ddd solid;
+  border-top: 1px #ddd solid;
 }
 .profile_img_wrapper {
-	border-radius: 3px;
-	box-shadow: 1px 1px 3px #aaa;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px #aaa;
 }
 ::selection {
-    background: #a8d1ff;
+  background: #a8d1ff;
 }
-
 #indication_light {
-    background: #73f;
+  background: #73f;
 }
-.scrollbar_track {  
-	width: 10px;
+.scrollbar_track {
+  width: 10px;
 }
-
-.scrollbar_track .scrollbar_slot { 
-	width: 3px;
-	margin: 0 3px 0 4px;
-	background: transparent;
+.scrollbar_track .scrollbar_slot {
+  width: 3px;
+  margin: 0 3px 0 4px;
+  background: transparent;
 }
-
-.scrollbar_handle {  
-	background-color: orange;  
-	width: 3px;  
-	opacity: 0.8;
+.scrollbar_handle {
+  background-color: orange;
+  width: 3px;
+  opacity: 0.8;
 }
-.scrollbar_track.active .scrollbar_slot,
-.scrollbar_track:hover .scrollbar_slot { 
-	width: 10px;
-	margin: 0;
-	background: rgba(0,0,0,0.1);
+.scrollbar_track.active .scrollbar_slot, .scrollbar_track:hover .scrollbar_slot {
+  width: 10px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.1);
 }
-.scrollbar_track.active .scrollbar_handle,
-.scrollbar_track:hover .scrollbar_handle { 
-	width: 10px;
-	opacity: 0.8;
+.scrollbar_track.active .scrollbar_handle, .scrollbar_track:hover .scrollbar_handle {
+  width: 10px;
+  opacity: 0.8;
 }
