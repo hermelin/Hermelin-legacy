@@ -22,9 +22,11 @@ var notification = {
       var img_url = image ? image : './image/ic64_hotot.png';
       var notification = webkitNotifications.createNotification(img_url, title, summary);
       notification.show();
-      setTimeout(function () {
-        notification.cancel()
-      }, 5000);
+      notification.ondisplay = function () {
+        setTimeout(function () {
+          notification.cancel()
+        }, 5000);
+      }
     }
   },
 
