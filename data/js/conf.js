@@ -76,13 +76,13 @@ conf = {
       'readlater_password': ''
       // Advanced:
       ,
-      'api_base': 'https://api.twitter.com/1/',
-      'sign_api_base': 'https://api.twitter.com/1/',
+      'api_base': 'https://api.twitter.com/1.1/',
+      'sign_api_base': 'https://api.twitter.com/1.1/',
       'use_same_sign_api_base': true,
       'oauth_base': 'https://api.twitter.com/oauth/',
       'sign_oauth_base': 'https://api.twitter.com/oauth/',
       'use_same_sign_oauth_base': true,
-      'upload_api_base': 'https://upload.twitter.com/1/'
+      'upload_api_base': 'https://upload.twitter.com/1.1/'
       // extensions and others
       ,
       'exts_enabled': ["org.hotot.imagepreview", "org.hotot.gmap", "org.hotot.translate", "org.hotot.imageupload", "org.hotot.videopreview", "org.hotot.shorturl", "org.hotot.cfw"],
@@ -318,15 +318,7 @@ conf = {
       $.fn.transition = $.fn.animate;
     }
 
-    globals.twitterClient.api_base = (function (api_base) {
-      if (api_base.indexOf('/1/') !== -1) {
-        return api_base.replace(/\/1\/$/, '/');
-      } else if (api_base.indexOf('/1.1/') !== -1) {
-        return api_base.replace(/\/1\.1\/$/, '/');
-      } else {
-        return api_base;
-      }
-    })(prefs.api_base);
+    globals.twitterClient.api_base = prefs.api_base;
     globals.twitterClient.sign_api_base = prefs.sign_api_base;
     globals.twitterClient.upload_api_base = prefs.upload_api_base;
     globals.twitterClient.use_same_sign_api_base = prefs.use_same_sign_api_base;

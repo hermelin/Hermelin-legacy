@@ -162,7 +162,7 @@ function TwitterClient() {
   };
 
   self.update_status = function update_status(text, reply_to_id, on_success, on_error) {
-    var url = self.api_base + '1.1/statuses/update.json';
+    var url = self.api_base + 'statuses/update.json';
     var params = {
       'status': text,
       'include_entities': '1'
@@ -222,19 +222,19 @@ function TwitterClient() {
   };
 
   self.retweet_status = function retweet_status(retweet_id, on_success) {
-    var url = self.api_base + '1.1/statuses/retweet/' + retweet_id + '.json';
+    var url = self.api_base + 'statuses/retweet/' + retweet_id + '.json';
     self.post(url, {},
       on_success);
   };
 
   self.destroy_status = function destroy_status(retweet_id, on_success) {
-    var url = self.api_base + '1.1/statuses/destroy/' + retweet_id + '.json';
+    var url = self.api_base + 'statuses/destroy/' + retweet_id + '.json';
     self.post(url, {},
       on_success);
   };
 
   self.new_direct_messages = function new_direct_messages(text, user_id, screen_name, on_success, on_error) {
-    var url = self.api_base + '1.1/direct_messages/new.json';
+    var url = self.api_base + 'direct_messages/new.json';
     var params = {
       'text': text,
       'screen_name': screen_name
@@ -244,7 +244,7 @@ function TwitterClient() {
   };
 
   self.destroy_direct_messages = function destroy_direct_messages(id, on_success) {
-    var url = self.api_base + '1.1/direct_messages/destroy.json';
+    var url = self.api_base + 'direct_messages/destroy.json';
     var params = {
       'id': id,
       'include_entities': '1'
@@ -253,7 +253,7 @@ function TwitterClient() {
   };
 
   self.create_favorite = function create_favorite(fav_id, on_success) {
-    var url = self.api_base + '1.1/favorites/create.json';
+    var url = self.api_base + 'favorites/create.json';
     var params = {
       'id': fav_id,
       'include_entities': '1'
@@ -262,7 +262,7 @@ function TwitterClient() {
   };
 
   self.destroy_favorite = function destroy_favorite(fav_id, on_success) {
-    var url = self.api_base + '1.1/favorites/destroy.json';
+    var url = self.api_base + 'favorites/destroy.json';
     var params = {
       'id': fav_id,
       'include_entities': '1'
@@ -271,7 +271,7 @@ function TwitterClient() {
   };
 
   self.get_home_timeline = function get_home_timeline(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1.1/statuses/home_timeline.json';
+    var url = self.api_base + 'statuses/home_timeline.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -285,7 +285,7 @@ function TwitterClient() {
   };
 
   self.get_mentions = function get_mentions(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1.1/statuses/mentions_timeline.json';
+    var url = self.api_base + 'statuses/mentions_timeline.json';
     var params = {
       'include_entities': '1',
       // 'include_rts': '1',      // include_rts has been removed in API v1.1
@@ -299,7 +299,7 @@ function TwitterClient() {
   };
 
   self.get_favorites = function get_favorites(screen_name, page, on_success) {
-    var url = self.api_base + '1.1/favorites/list.json';
+    var url = self.api_base + 'favorites/list.json';
     var params = {
       'screen_name': screen_name,
       'include_entities': '1',
@@ -310,7 +310,7 @@ function TwitterClient() {
   };
 
   self.get_trending_topics = function get_trending_topics(woeid, on_success) {
-    var url = self.api_base + '1.1/trends/place.json';
+    var url = self.api_base + 'trends/place.json';
     var params = {
       'id': woeid,
     };
@@ -319,7 +319,7 @@ function TwitterClient() {
   };
 
   self.get_direct_messages = function get_direct_messages(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1.1/direct_messages.json';
+    var url = self.api_base + 'direct_messages.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -332,7 +332,7 @@ function TwitterClient() {
   };
 
   self.get_sent_direct_messages = function get_sent_direct_messages(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1.1/direct_messages/sent.json';
+    var url = self.api_base + 'direct_messages/sent.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -345,7 +345,7 @@ function TwitterClient() {
   };
 
   self.get_retweeted_by_me = function get_retweeted_by_me(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1/statuses/retweeted_by_me.json';
+    var url = self.api_base + 'statuses/retweeted_by_me.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -360,7 +360,7 @@ function TwitterClient() {
   };
 
   self.get_retweeted_to_me = function get_retweeted_to_me(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1/statuses/retweeted_to_me.json';
+    var url = self.api_base + 'statuses/retweeted_to_me.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -375,7 +375,7 @@ function TwitterClient() {
   };
 
   self.get_retweets_of_me = function get_retweets_of_me(since_id, max_id, count, on_success) {
-    var url = self.api_base + '1.1/statuses/retweets_of_me.json';
+    var url = self.api_base + 'statuses/retweets_of_me.json';
     var params = {
       'include_entities': '1',
       'page': '0',
@@ -388,7 +388,7 @@ function TwitterClient() {
   };
 
   self.get_retweeted_by_whom = function get_retweeted_by_whom(tweet_id, count, on_success) {
-    var url = self.api_base + '1.1/statuses/retweets/' + tweet_id + '.json';
+    var url = self.api_base + 'statuses/retweets/' + tweet_id + '.json';
     var params = {
       'count': count
     };
@@ -400,7 +400,7 @@ function TwitterClient() {
   };
 
   self.get_user_timeline = function get_user_timeline(user_id, screen_name, since_id, max_id, count, on_success, on_error) {
-    var url = self.api_base + '1.1/statuses/user_timeline.json';
+    var url = self.api_base + 'statuses/user_timeline.json';
     var params = {
       'include_entities': '1',
       'include_rts': '1',
@@ -416,7 +416,7 @@ function TwitterClient() {
   };
 
   self.show_status = function show_status(id, on_success, on_error) {
-    var url = self.api_base + '1.1/statuses/show/' + id + '.json';
+    var url = self.api_base + 'statuses/show/' + id + '.json';
     var params = {
       'include_entities': '1'
     };
@@ -424,7 +424,7 @@ function TwitterClient() {
   };
 
   self.show_user = function show_user(screen_name, on_success, on_error) {
-    var url = self.api_base + '1.1/users/show.json';
+    var url = self.api_base + 'users/show.json';
     var params = {
       'include_entities': '1',
       'screen_name': screen_name
@@ -433,7 +433,7 @@ function TwitterClient() {
   };
 
   self.search_user = function search_user(query, page, on_success, on_error) {
-    var url = self.api_base + '1.1/users/search.json';
+    var url = self.api_base + 'users/search.json';
     var params = {
       'q': query,
       'page': page,
@@ -444,7 +444,7 @@ function TwitterClient() {
   };
 
   self.get_user_friends = function get_user_friends(screen_name, cursor, on_success) {
-    var url = self.api_base + '1.1/friends/list.json';
+    var url = self.api_base + 'friends/list.json';
     var params = {
       'include_entities': '1',
       'screen_name': screen_name,
@@ -454,7 +454,7 @@ function TwitterClient() {
   };
 
   self.get_user_followers = function get_user_followers(screen_name, cursor, on_success) {
-    var url = self.api_base + '1.1/followers/list.json';
+    var url = self.api_base + 'followers/list.json';
     var params = {
       'include_entities': '1',
       'screen_name': screen_name,
