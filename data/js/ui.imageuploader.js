@@ -1,5 +1,7 @@
 if (typeof ui == 'undefined') var ui = {};
 ui.ImageUploader = {
+  twitter_api_base: conf.default_prefs.twitter.api_base,
+  
   services: {
     'img.ly': {
       url: 'http://img.ly/api/2/upload.json'
@@ -13,7 +15,7 @@ ui.ImageUploader = {
       key: 'a3beab3a-d1ae-46c0-a4ab-5ac73d8eb43a'
     },
     'twitter.com': {
-      url: 'https://upload.twitter.com/1/update_with_media.json'
+      url: ''
     }
   },
 
@@ -99,12 +101,12 @@ ui.ImageUploader = {
     }
 
     var signed_params = globals.twitterClient.oauth.form_signed_params(
-      'https://api.twitter.com/1/account/verify_credentials.json', globals.twitterClient.oauth.access_token, 'GET', {}, true);
+      ui.ImageUploader.twitter_api_base + 'account/verify_credentials.json', globals.twitterClient.oauth.access_token, 'GET', {}, true);
     var auth_str = 'OAuth realm="http://api.twitter.com/"' + ', oauth_consumer_key="' + signed_params.oauth_consumer_key + '"' + ', oauth_signature_method="' + signed_params.oauth_signature_method + '"' + ', oauth_token="' + signed_params.oauth_token + '"' + ', oauth_timestamp="' + signed_params.oauth_timestamp + '"' + ', oauth_nonce="' + signed_params.oauth_nonce + '"' + ', oauth_version="' + signed_params.oauth_version + '"' + ', oauth_signature="' + encodeURIComponent(signed_params.oauth_signature) + '"';
 
     var headers = {
       'X-Verify-Credentials-Authorization': auth_str,
-      'X-Auth-Service-Provider': 'https://api.twitter.com/1/account/verify_credentials.json'
+      'X-Auth-Service-Provider': ui.ImageUploader.twitter_api_base + 'account/verify_credentials.json'
     };
     var msg = ui.ImageUploader.me.find('.message').val();
     var service_name = ui.ImageUploader.service_name;
@@ -155,6 +157,8 @@ ui.ImageUploader = {
   },
 
   upload_image: function upload_image(url, params, file, success, fail) {
+    ui.ImageUploader.twitter_api_base = conf.get_current_profile().preferences.api_base;
+    ui.ImageUploader.services["twitter.com"].url = ui.ImageUploader.twitter_api_base + 'update_with_media.json';
     if (ui.ImageUploader.service_name === 'twitter.com') {
       ui.ImageUploader.upload_image_official(params, file, success, fail);
     } else {
@@ -181,12 +185,12 @@ ui.ImageUploader = {
 
   upload_image_oauth_echo: function upload_image_oauth_echo(url, params, file, success, fail) {
     var signed_params = globals.twitterClient.oauth.form_signed_params(
-      'https://api.twitter.com/1/account/verify_credentials.json', globals.twitterClient.oauth.access_token, 'GET', {}, true);
+      ui.ImageUploader.twitter_api_base + 'account/verify_credentials.json', globals.twitterClient.oauth.access_token, 'GET', {}, true);
     var auth_str = 'OAuth realm="http://api.twitter.com/"' + ', oauth_consumer_key="' + signed_params.oauth_consumer_key + '"' + ', oauth_signature_method="' + signed_params.oauth_signature_method + '"' + ', oauth_token="' + signed_params.oauth_token + '"' + ', oauth_timestamp="' + signed_params.oauth_timestamp + '"' + ', oauth_nonce="' + signed_params.oauth_nonce + '"' + ', oauth_version="' + signed_params.oauth_version + '"' + ', oauth_signature="' + encodeURIComponent(signed_params.oauth_signature) + '"';
 
     var headers = {
       'X-Verify-Credentials-Authorization': auth_str,
-      'X-Auth-Service-Provider': 'https://api.twitter.com/1/account/verify_credentials.json'
+      'X-Auth-Service-Provider': ui.ImageUploader.twitter_api_base + 'account/verify_credentials.json'
     };
 
     if (ui.ImageUploader.mode == ui.ImageUploader.MODE_HTML5) {

@@ -174,7 +174,7 @@ function TwitterClient() {
   };
 
   self.update_with_media = function update_with_media(text, reply_to_id, file, file_data, on_success, on_error) {
-    var url = self.upload_api_base + 'statuses/update_with_media.json';
+    var url = self.api_base + 'statuses/update_with_media.json';
     var signed_params = self.oauth.form_signed_params(
       url, self.oauth.access_token, 'POST', {},
       true);
@@ -200,7 +200,7 @@ function TwitterClient() {
   },
 
   self.update_with_media_filename = function update_with_media_filename(text, reply_to_id, filename, on_success, on_error) {
-    var url = self.upload_api_base + 'statuses/update_with_media.json';
+    var url = self.api_base + 'statuses/update_with_media.json';
     var signed_params = self.oauth.form_signed_params(
       url, self.oauth.access_token, 'POST', {},
       true);
