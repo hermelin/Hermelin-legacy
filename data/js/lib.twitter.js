@@ -464,7 +464,7 @@ function TwitterClient() {
   };
 
   self.get_user_friends_ids = function get_user_friends_ids(screen_name, cursor, on_success) {
-    var url = self.api_base + '1.1/friends/ids.json';
+    var url = self.api_base + 'friends/ids.json';
     var params = {
       'screen_name': screen_name,
       'cursor': cursor
@@ -473,14 +473,14 @@ function TwitterClient() {
   };
 
   self.get_user_profile_image = function get_user_profile_image(screen_name, size) {
-    var url = self.api_base + '1/users/profile_image/twitter.json' + '?size=' + size + '&screen_name=' + screen_name + '&rnd=' + Math.random();
+    var url = self.api_base + 'users/profile_image/twitter.json' + '?size=' + size + '&screen_name=' + screen_name + '&rnd=' + Math.random();
     return url;
 
     // has been removed in API v1.1
   };
 
   self.update_profile_image = function update_profile_image(file, file_data, on_success) {
-    var url = self.api_base + '1.1/account/update_profile_image.json';
+    var url = self.api_base + 'account/update_profile_image.json';
     var signed_params = self.oauth.form_signed_params(
       url, self.oauth.access_token, 'POST', {},
       true);
@@ -500,7 +500,7 @@ function TwitterClient() {
   };
 
   self.update_profile = function update_profile(name, website, location, description, on_success) {
-    var url = self.api_base + '1.1/account/update_profile.json';
+    var url = self.api_base + 'account/update_profile.json';
     var params = {
       'name': name,
       'website': website,
@@ -511,7 +511,7 @@ function TwitterClient() {
   };
 
   self.exists_friendships = function exists_friendships(source, target, on_success) {
-    var url = self.api_base + '1/friendships/exists.json';
+    var url = self.api_base + 'friendships/exists.json';
     var params = {
       'user_a': source,
       'user_b': target
@@ -523,7 +523,7 @@ function TwitterClient() {
   };
 
   self.show_friendships = function show_friendships(source, target, on_success) {
-    var url = self.api_base + '1.1/friendships/show.json';
+    var url = self.api_base + 'friendships/show.json';
     var params = {
       'source_screen_name': source,
       'target_screen_name': target
@@ -532,7 +532,7 @@ function TwitterClient() {
   };
 
   self.create_friendships = function create_friendships(screen_name, on_success) {
-    var url = self.api_base + '1.1/friendships/create.json';
+    var url = self.api_base + 'friendships/create.json';
     var params = {
       'screen_name': screen_name,
       'follow': 'true'
@@ -541,7 +541,7 @@ function TwitterClient() {
   };
 
   self.destroy_friendships = function destroy_friendships(screen_name, on_success) {
-    var url = self.api_base + '1.1/friendships/destroy.json';
+    var url = self.api_base + 'friendships/destroy.json';
     var params = {
       'screen_name': screen_name
     };
@@ -549,7 +549,7 @@ function TwitterClient() {
   };
 
   self.create_blocks = function create_blocks(screen_name, on_success) {
-    var url = self.api_base + '1.1/blocks/create.json';
+    var url = self.api_base + 'blocks/create.json';
     var params = {
       'screen_name': screen_name,
       'follow': 'true' // undocumented argument but kept
@@ -558,7 +558,7 @@ function TwitterClient() {
   };
 
   self.destroy_blocks = function destroy_blocks(screen_name, on_success) {
-    var url = self.api_base + '1.1/blocks/destroy.json';
+    var url = self.api_base + 'blocks/destroy.json';
     var params = {
       'screen_name': screen_name
     };
@@ -566,7 +566,7 @@ function TwitterClient() {
   };
 
   self.get_blocking_ids = function get_blocking_ids(cursor, on_success, on_error) {
-    var url = self.api_base + '1.1/blocks/ids.json';
+    var url = self.api_base + 'blocks/ids.json';
     var params = {
       'stringify_ids': true,
       'cursor': cursor
@@ -575,7 +575,7 @@ function TwitterClient() {
   };
 
   self.get_user_listed_lists = function get_listed_lists(screen_name, cursor, on_success) {
-    var url = self.api_base + '1.1/lists/memberships.json';
+    var url = self.api_base + 'lists/memberships.json';
     var params = {
       'screen_name': screen_name,
       'cursor': cursor
@@ -584,7 +584,7 @@ function TwitterClient() {
   };
 
   self.get_user_lists = function get_user_lists(screen_name, cursor, on_success) {
-    var url = self.api_base + '1.1/lists/list.json';
+    var url = self.api_base + 'lists/list.json';
     var params = {
       'screen_name': screen_name
       //'cursor': cursor          // cursor has been removed in API v1.1
@@ -593,7 +593,7 @@ function TwitterClient() {
   };
 
   self.get_list_statuses = function get_list_statuses(owner_screen_name, slug, since_id, max_id, on_success, on_error) {
-    var url = self.api_base + '1.1/lists/statuses.json';
+    var url = self.api_base + 'lists/statuses.json';
     var params = {
       'include_entities': '1',
       'include_rts': '1',
@@ -606,7 +606,7 @@ function TwitterClient() {
   };
 
   self.get_list_subscribers = function get_list_subscribers(owner_screen_name, slug, cursor, on_success) {
-    var url = self.api_base + '1.1/lists/subscribers.json';
+    var url = self.api_base + 'lists/subscribers.json';
     var params = {
       'include_entities': '1',
       'owner_screen_name': owner_screen_name,
@@ -617,7 +617,7 @@ function TwitterClient() {
   };
 
   self.get_list_members = function get_list_members(owner_screen_name, slug, cursor, on_success) {
-    var url = self.api_base + '1.1/lists/members.json';
+    var url = self.api_base + 'lists/members.json';
     var params = {
       'include_entities': '1',
       'owner_screen_name': owner_screen_name,
@@ -628,7 +628,7 @@ function TwitterClient() {
   };
 
   self.create_list_member = function create_list_member(id, screen_name, on_success, on_error) {
-    var url = self.api_base + '1.1/lists/members/create.json';
+    var url = self.api_base + 'lists/members/create.json';
     var params = {
       'list_id': id,
       'screen_name': screen_name
@@ -637,7 +637,7 @@ function TwitterClient() {
   };
 
   self.destroy_list_member = function destroy_list_member(owner_screen_name, slug, screen_name, on_success) {
-    var url = self.api_base + '1.1/lists/members/destroy.json';
+    var url = self.api_base + 'lists/members/destroy.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug,
@@ -647,7 +647,7 @@ function TwitterClient() {
   };
 
   self.create_list_subscriber = function create_list_subscriber(owner_screen_name, slug, on_success) {
-    var url = self.api_base + '1.1/lists/subscribers/create.json';
+    var url = self.api_base + 'lists/subscribers/create.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug
@@ -656,7 +656,7 @@ function TwitterClient() {
   };
 
   self.destroy_list_subscriber = function destroy_list_subscriber(owner_screen_name, slug, on_success) {
-    var url = self.api_base + '1.1/lists/subscribers/destroy.json';
+    var url = self.api_base + 'lists/subscribers/destroy.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug
@@ -665,7 +665,7 @@ function TwitterClient() {
   };
 
   self.create_list = function create_list(slug, description, mode, on_success) {
-    var url = self.api_base + '1.1/lists/create.json';
+    var url = self.api_base + 'lists/create.json';
     var params = {
       'name': slug,
       'mode': mode,
@@ -675,7 +675,7 @@ function TwitterClient() {
   };
 
   self.destroy_list = function destroy_list(owner_screen_name, slug, on_success) {
-    var url = self.api_base + '1.1/lists/destroy.json';
+    var url = self.api_base + 'lists/destroy.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug
@@ -684,7 +684,7 @@ function TwitterClient() {
   };
 
   self.show_list = function show_list(owner_screen_name, slug, on_success, on_error) {
-    var url = self.api_base + '1.1/lists/show.json';
+    var url = self.api_base + 'lists/show.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug
@@ -693,7 +693,7 @@ function TwitterClient() {
   };
 
   self.update_list = function update_list(owner_screen_name, slug, description, mode, on_success, on_error) {
-    var url = self.api_base + '1.1/lists/update.json';
+    var url = self.api_base + 'lists/update.json';
     var params = {
       'owner_screen_name': owner_screen_name,
       'slug': slug,
@@ -704,13 +704,13 @@ function TwitterClient() {
   };
 
   self.verify = function verify(on_success, on_error) {
-    var url = self.api_base + '1.1/account/verify_credentials.json';
+    var url = self.api_base + 'account/verify_credentials.json';
     self.get(url, {},
       on_success, on_error);
   };
 
   self.create_saved_search = function create_saved_search(query, on_success, on_error) {
-    var url = self.api_base + '1.1/saved_searches/create.json';
+    var url = self.api_base + 'saved_searches/create.json';
     self.post(url, {
       'query': query
     },
@@ -719,14 +719,14 @@ function TwitterClient() {
   };
 
   self.destroy_saved_search = function create_saved_search(id, on_success, on_error) {
-    var url = self.api_base + '1.1/saved_searches/destroy/' + id + '.json';
+    var url = self.api_base + 'saved_searches/destroy/' + id + '.json';
     self.post(url, {},
       on_success, on_error);
     return;
   };
 
   self.get_saved_searches = function get_saved_searches(on_success, on_error) {
-    var url = self.api_base + '1.1/saved_searches.json';
+    var url = self.api_base + 'saved_searches.json';
     self.get(url, {},
       on_success, on_error);
     return;
@@ -756,7 +756,7 @@ function TwitterClient() {
   };
 
   self.search = function search(query, page, since_id, max_id, on_success, on_error) {
-    var url = self.api_base + '1.1/search/tweets.json';
+    var url = self.api_base + 'search/tweets.json';
 
     var params = {
       'q': query
