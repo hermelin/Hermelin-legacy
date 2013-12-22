@@ -42,10 +42,10 @@ function update_tweet_block_width() {
 
   if (ui.Slider.column_num != 0) {
 
-    util.fadeIn('main_page_slider');
-    util.fadeIn('indication_light');
-    util.fadeOut('empty_view_hint');
-    util.fadeIn('.view_title');
+    util.fadeIn(document.getElementById('main_page_slider'));
+    util.fadeIn(document.getElementById('indication_light'));
+    util.fadeOut(document.getElementById('empty_view_hint'));
+    util.fadeIn(document.getElementsByClassName('view_title'));
 
     var lastColumnWidth = view_width - (ui.Slider.column_num - 1) * globals.tweet_block_width;
 
@@ -53,9 +53,9 @@ function update_tweet_block_width() {
     for (var i = 0; i < viewtitles.length; i++) {
       //show/hide
       if (i > (ui.Slider.column_num - 1)) {
-        util.fadeOut(viewtitles[i], true);
+        util.fadeOut(viewtitles[i]);
       } else {
-        util.fadeIn(viewtitles[i], true);
+        util.fadeIn(viewtitles[i]);
       }
       //width: it must be -1, because of the 1 px border.
       if (i === (ui.Slider.column_num - 1)) {
@@ -76,10 +76,10 @@ function update_tweet_block_width() {
     }
 
   } else {
-    util.fadeOut('main_page_slider');
-    util.fadeOut('indication_light');
-    util.fadeIn('empty_view_hint');
-    util.fadeOut('.view_title');
+    util.fadeOut(document.getElementById('main_page_slider'));
+    util.fadeOut(document.getElementById('indication_light'));
+    util.fadeIn(document.getElementById('empty_view_hint'));
+    util.fadeOut(document.getElementsByClassName('view_title'));
   }
 
   // no_stick indicators

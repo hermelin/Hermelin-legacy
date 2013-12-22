@@ -328,23 +328,23 @@ ui.StatusBox = {
       if (mode == ui.StatusBox.MODE_DM) {
       document.getElementById('status_box').classList.remove('reply_mode');
       document.getElementById('status_box').classList.add('dm_mode');
-      util.fadeIn('.status_info');
-      util.fadeIn(getElementById('status_box'));
+      util.fadeIn(document.getElementsByClassName('status_info'));
+      util.fadeIn(document.getElementById('status_box'));
     } else if (mode == ui.StatusBox.MODE_REPLY) {
       document.getElementById('status_box').classList.remove('dm_mode');
       document.getElementById('status_box').classList.add('reply_mode');
-      util.fadeIn('.status_info');
-      util.fadeOut('tbox_dm_target');
+      util.fadeIn(document.getElementsByClassName('status_info'));
+      util.fadeOut(document.getElementById('tbox_dm_target'));
     } else if (mode == ui.StatusBox.MODE_IMG) {
       document.getElementById('tbox_status_wrapper').style.marginLeft = '155px';
-      util.fadeIn('status_image_preview_wrapper');
+      util.fadeIn(document.getElementById('status_image_preview_wrapper'));
     } else {
       document.getElementById('status_box').classList.remove('reply_mode');
       document.getElementById('status_box').classList.remove('dm_mode');
-      util.fadeOut('tbox_dm_target');
-      util.fadeOut('.status_info');
+      util.fadeOut(document.getElementById('tbox_dm_target'));
+      util.fadeOut(document.getElementsByClassName('status_info'));
       document.getElementById('tbox_status_wrapper').style.marginLeft = '0';
-      util.fadeOut('status_image_preview_wrapper');
+      util.fadeOut(document.getElementById('status_image_preview_wrapper'));
     }
     ui.StatusBox.current_mode = mode;
     */

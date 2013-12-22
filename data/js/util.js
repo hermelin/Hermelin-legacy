@@ -18,45 +18,37 @@ util = {
     xhr.send();
   },
 
-  fadeIn: function (given, gaveElem) {
-
-    if (gaveElem) {
-      inner(given);
+  fadeIn: function (elems, opts) {
+    //used to fade DOMElements in
+    //options are speed (speed of the animation, int)
+    var elemClass = Object.prototype.toString.call(elems);
+    if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
+      inner(elems);
     } else {
-      //test if id or class
-      if (given.charAt(0) === '.') {
-        var elems = document.getElementsByClassName(given.slice(1, given.length));
-        for (var i = 0; i < elems.length; i++) {
-          inner(elems[i]);
-        }
-      } else {
-        inner(document.getElementById(given));
+      for (var i = 0; i < elems.length; i++) {
+        util.fadeIn(elems[i]);
       }
     }
 
     //actual fadein (removes/adds some css classes)
 
     function inner(elem) {
-      elem.classList.add('fade');
       elem.classList.remove('away');
+      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
+      elem.classList.add('fade');
       elem.classList.add('fadein');
     }
   },
 
-  fadeOut: function (given, gaveElem) {
-
-    //test if this got an element instead of an id or class
-    if (gaveElem) {
-      inner(given);
+  fadeOut: function (elems, opts) {
+    //used to fade DOMElements out
+    //options are noAnim (no animation, bool) and speed (speed of the animation, int)
+    var elemClass = Object.prototype.toString.call(elems);
+    if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
+      inner(elems);
     } else {
-      //test if id or class
-      if (given.charAt(0) === '.') {
-        var elems = document.getElementsByClassName(given.slice(1, given.length));
-        for (var i = 0; i < elems.length; i++) {
-          inner(elems[i]);
-        }
-      } else {
-        inner(document.getElementById(given));
+      for (var i = 0; i < elems.length; i++) {
+        util.fadeOut(elems[i]);
       }
     }
 
@@ -65,13 +57,32 @@ util = {
     function inner(elem) {
       elem.classList.remove('fadein');
       elem.classList.add('fade');
-      setTimeout(function () {
-        if (!elem.classList.contains('fadein')) {
-          elem.classList.add('away');
-        }
-      }, 400);
+      
+      if (opts && opts.noAnim) {
+        elem.classList.add('away');
+      } else {
+        setTimeout(function () {
+          if (!elem.classList.contains('fadein')) {
+            elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
+            elem.classList.add('away');
+          }
 
+        }, ((opts && opts.speed) ? opts.speed : 400));
+      }
     }
+  },
+  
+  docReady: function (cb) {
+    //executes function when document is loaded
+    function inner() {
+      if(document.readyState === 'complete'){
+         cb();
+      }
+      else{
+        setTimeout(inner, 50)
+      }
+    }
+    inner();
   },
 
   extend: function () {

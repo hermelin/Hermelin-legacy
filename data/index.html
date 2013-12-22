@@ -29,9 +29,9 @@
     <script type="text/javascript" src="js/widget.scrollbar.js"></script>
     <script type="text/javascript" src="js/widget.listview.js"></script>
     <script type="text/javascript" src="js/widget.autocomplete.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/mochi.js"></script>
     <script type="text/javascript" src="js/hotkey.js"></script>
-    <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/db.js"></script>
     <script type="text/javascript" src="js/conf.js"></script>
     <script type="text/javascript" src="js/i18n.js"></script>
@@ -112,7 +112,7 @@
             <h2 id="daily_hint" data-i18n-text="greeting">Greeting!</h2>
             <div id="sign_in_block">
               <div class="inner">
-                <a class="go" href="#"></a>
+                <a id="go" href="#"></a>
                 <div class="profile_title"></div>
                 <div id="service_page_twitter" class="service_tabs_page">
                   <p style="font-style: italic;">
@@ -130,7 +130,7 @@
                 <div id="service_page_new" class="service_tabs_page">
                   <input id="tbox_new_profile_name" class="entry" style="width: 100px;" type="text" value="" placeholder="Profile Name" data-i18n-placeholder="profile_name" />
                   <label>@</label>
-                  <ul class="service_chooser">
+                  <ul id="service_chooser">
                     <li>
                       <a href="#twitter" title="Twitter" class="twitter selected">Twitter</a>
                     </li>

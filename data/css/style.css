@@ -1127,43 +1127,41 @@ pre {
   text-shadow: 0 0 10px white;
 }
 #profile_avatar_list {
-  list-style-type: none;
+  /*list-style-type: none;*/
   position: absolute;
   top: 50%;
   left: 15px;
   margin-top: -169px;
   z-index: 10;
+  -webkit-transition: margin-top 0.3s;
 }
 #profile_avatar_list > li {
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 7px;
-  padding: 3px;
-  border: 2px dashed rgba(0, 0, 0, 0.5);
+  width: 68px;
+  height: 68px;
+  margin: 12px;
+  padding: 0;
+  -webkit-transition: margin-top 0.3s, margin-bottom 0.3s;
 }
 #profile_avatar_list > li.selected {
-  margin: 20px 7px;
-  border-color: transparent;
+  margin: 25px 12px;
 }
 #profile_avatar_list > li > a {
   width: 64px;
   height: 64px;
   display: block;
-  border-radius: 3px;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  -webkit-transition: background-color 0.2s ease-in;
-  opacity: 0.7;
+  -webkit-transition: opacity 0.2s;
+  opacity: 0.5;
 }
 #profile_avatar_list > li > a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
   opacity: 1;
 }
 #profile_avatar_list > li > a.selected {
-  background-color: rgba(255, 255, 255, 0.7);
   opacity: 1;
 }
 #profile_avatar_list > li > a.twitter {
@@ -1173,7 +1171,7 @@ pre {
   background-image: url(../image/ic64_identica.png);
 }
 #btn_new_profile_item {
-  background-image: url(../image/ic64_add.png);
+  background-image: url(../image/svg/ic64_add.png);
 }
 #daily_hint {
   color: white;
@@ -1202,9 +1200,10 @@ pre {
 #sign_in_block .inner {
   padding: 10px;
   background: rgba(0, 0, 0, 0.7);
-  height: 64px;
+  height: 68px;
   border-top-right-radius: 42px;
   border-bottom-right-radius: 42px;
+  -webkit-transition: width 0.3s;
 }
 #sign_in_block .inner > div {
   margin: 0px 100px 0px 110px;
@@ -1220,15 +1219,19 @@ pre {
   margin-left: 8px;
   text-shadow: 0 0 2px black;
 }
-#sign_in_block .go {
+#go {
   width: 64px;
   height: 64px;
-  background: transparent url(../image/go_bg.png) no-repeat 0 0;
+  background: transparent url(../image/svg/ic64_go.png) no-repeat 0 0;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+  -webkit-transition: opacity 0.2s;
+  opacity: 0.5;
   display: block;
   float: right;
 }
-#sign_in_block .go:hover {
-  background-position: 0 -64px;
+#go:hover {
+  opacity: 1;
 }
 @-webkit-keyframes ani_go_loading {
   from {
@@ -1238,28 +1241,32 @@ pre {
     -webkit-transform: rotate(360deg);
   }
 }
-#sign_in_block .go.loading {
+#go.loading {
+  /*
   background-position: 0 -128px !important;
   -webkit-animation-name: ani_go_loading;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;*/
+  opacity: 1;
 }
 #sign_in_block .service_tabs_page {
   padding: 5px 0px;
   white-space: nowrap;
+  position: absolute;
+  left: 0;
 }
-#sign_in_block .service_chooser {
+#service_chooser {
   list-style-type: none;
   display: inline-block;
 }
-#sign_in_block .service_chooser li {
+#service_chooser li {
   display: inline-block;
   width: 24px;
   height: 24px;
   margin-left: 5px;
 }
-#sign_in_block .service_chooser a {
+#service_chooser a {
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -1267,13 +1274,13 @@ pre {
   border-radius: 3px;
   background: transparent none no-repeat center center;
 }
-#sign_in_block .service_chooser a.selected {
+#service_chooser a.selected {
   box-shadow: 0 0 8px white;
 }
-#sign_in_block .service_chooser .twitter {
+#service_chooser .twitter {
   background-image: url(../image/ic24_twitter.png);
 }
-#sign_in_block .service_chooser .identica {
+#service_chooser .identica {
   background-image: url(../image/ic24_identica.png);
 }
 #btn_welcome_prefs {
@@ -2118,9 +2125,6 @@ td {
 }
 .fade {
   opacity: 0;
-  transition: opacity .4s ease-in-out;
-  -moz-transition: opacity .4s ease-in-out;
-  -webkit-transition: opacity .4s ease-in-out;
 }
 .fadein {
   opacity: 1;
