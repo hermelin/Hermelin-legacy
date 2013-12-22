@@ -44,7 +44,6 @@
 }
 .card.selected {
   background-color: #fafafa;
-  border-bottom: 1px #bbb solid;
 }
 .card > .tweet_selected_indicator {
   background-color: #4C6CF5;
