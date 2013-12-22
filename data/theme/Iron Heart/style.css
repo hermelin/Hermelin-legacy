@@ -19,9 +19,6 @@
   padding: 5px;
   position: relative;
 }
-#indication span.shape {
-  border-bottom-color: #393939;
-}
 #view_title_bar {
   border-bottom: 1px #4AC3FF solid;
 }
@@ -43,9 +40,10 @@
   border-bottom: 1px #222 solid;
 }
 #indication_light {
-  background: #4AC3FF;
+  background: #FFF;
   -webkit-box-shadow: 0 0 10px #4AC3FF;
   box-shadow: 0 0 10px #4AC3FF;
+  top: -2px;
 }
 .tweetview .listview_body {
   border-color: #333 !important;

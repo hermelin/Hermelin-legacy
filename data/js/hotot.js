@@ -6,7 +6,7 @@ var layout_opts = {
   paneClass: 'ui-layout-pane',
   north__slidable: false,
   north__closable: true,
-  north__size: 70,
+  north__size: 62,
   north__showOverflowOnHover: true,
   north__spacing_open: 0,
   north__spacing_closed: 0,

@@ -37,6 +37,9 @@ util = {
       elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
       elem.classList.add('fade');
       elem.classList.add('fadein');
+      setTimeout(function(){
+        elem.style["-webkit-transition"] = null;
+      }, (opts && opts.speed) ? opts.speed : 400)
     }
   },
 
@@ -57,14 +60,14 @@ util = {
     function inner(elem) {
       elem.classList.remove('fadein');
       elem.classList.add('fade');
-      
+      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
       if (opts && opts.noAnim) {
         elem.classList.add('away');
       } else {
         setTimeout(function () {
           if (!elem.classList.contains('fadein')) {
-            elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
             elem.classList.add('away');
+            elem.style["-webkit-transition"] = null;
           }
 
         }, ((opts && opts.speed) ? opts.speed : 400));

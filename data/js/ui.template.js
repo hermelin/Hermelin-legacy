@@ -520,7 +520,7 @@ ui.Template = {
     </div> \
 </div>',
 
-  indicator_t: '<div class="{%STICK%} {%ROLE%}" name="{%TARGET%}" draggable="true"><a class="indicator_btn" href="#{%TARGET%}" title="{%TITLE%}"><img class="icon" src="{%ICON%}"/><div class="icon_alt" style="background-image: url({%ICON%})"></div></a><span class="shape"></span></div>',
+  indicator_t: '<div class="{%STICK%} {%ROLE%}" name="{%TARGET%}" draggable="true"><a class="indicator_btn" href="#{%TARGET%}" title="{%TITLE%}"><img class="icon" src="{%ICON%}"/><div class="icon_alt" style="background-image: url({%ICON%})"></div></a></div>',
 
   kismet_rule_t: '<li><a class="kismet_rule" name="{%NAME%}" type="{%TYPE%}" method="{%METHOD%}"\
     disabled="{%DISABLED%}" field="{%FIELD%}" pattern="{%PATTERN%}"     \
