@@ -447,7 +447,8 @@ ui.Slider = {
     var light = document.getElementById('indication_light');
     var currentlight = document.getElementById('indication_light_current');
 
-    light.style.left = (cur_sel[0].parentNode.offsetLeft) + 'px';
+    var lightleft = cur_sel[0].parentNode.offsetLeft;
+    light.style.left = lightleft + 'px';
     light.style.width = (cur_sel[cur_sel.length - 1].parentNode.offsetLeft - cur_sel[0].parentNode.offsetLeft + cur_sel[cur_sel.length - 1].parentNode.offsetWidth) + 'px';
 
     // remove selected style from the pre ones
@@ -459,7 +460,8 @@ ui.Slider = {
     // add selected style to displayed pages' indicator
     for (var i = 0; i < cur_sel.length; i++) {
       if (cur_sel[i].parentNode.getAttribute('name') === ui.Slider.current) {
-        currentlight.style.left = i * cur_sel[0].parentNode.offsetWidth + 'px';
+        currentlight.style.left = (cur_sel[i].parentNode.offsetLeft - lightleft) + 'px';
+        currentlight.style.width = cur_sel[i].parentNode.offsetWidth + 'px';
         cur_sel[i].classList.add('current');
       }
       cur_sel[i].classList.add('selected');

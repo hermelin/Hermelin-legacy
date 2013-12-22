@@ -612,7 +612,7 @@ pre {
   background-color: #5CB4DD;
   left: 0;
   border: none;
-  -webkit-transition: left 0.4s;
+  -webkit-transition: left 0.4s, width 0.4s;
   pointer-events: none;
 }
 #console {
@@ -1745,7 +1745,7 @@ pre {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 5px;
+  width: 2px;
   bottom: 0px;
   display: none;
 }
