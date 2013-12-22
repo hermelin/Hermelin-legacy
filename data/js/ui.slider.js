@@ -445,28 +445,26 @@ ui.Slider = {
       }
     }
     var light = document.getElementById('indication_light');
-    var currentlight =  document.getElementById('indication_light_current');
-        
+    var currentlight = document.getElementById('indication_light_current');
+
     light.style.left = (cur_sel[0].parentNode.offsetLeft) + 'px';
     light.style.width = (cur_sel[cur_sel.length - 1].parentNode.offsetLeft - cur_sel[0].parentNode.offsetLeft + cur_sel[cur_sel.length - 1].parentNode.offsetWidth) + 'px';
-    
-    setTimeout(function () {
-      // remove selected style from the pre ones
 
-      for (var i = 0; i < all_btns.length; i++) {
-        all_btns[i].classList.remove('selected');
-        all_btns[i].classList.remove('current');
+    // remove selected style from the pre ones
+
+    for (var i = 0; i < all_btns.length; i++) {
+      all_btns[i].classList.remove('selected');
+      all_btns[i].classList.remove('current');
+    }
+    // add selected style to displayed pages' indicator
+    for (var i = 0; i < cur_sel.length; i++) {
+      if (cur_sel[i].parentNode.getAttribute('name') === ui.Slider.current) {
+        currentlight.style.left = i * cur_sel[0].parentNode.offsetWidth + 'px';
+        cur_sel[i].classList.add('current');
       }
-      // add selected style to displayed pages' indicator
-      for (var i = 0; i < cur_sel.length; i++) {
-        if (cur_sel[i].parentNode.getAttribute('name') === ui.Slider.current) {
-          currentlight.style.left = i * cur_sel[0].parentNode.offsetWidth + 'px';
-          cur_sel[i].classList.add('current');
-        }
-        cur_sel[i].classList.add('selected');
-        cur_sel[i].classList.remove('unread');
-      }
-    }, 200);
+      cur_sel[i].classList.add('selected');
+      cur_sel[i].classList.remove('unread');
+    }
 
     if (ui.Main.selected_tweet_id2) {
       document.getElementById(ui.Main.selected_tweet_id2).classList.remove('selected');
