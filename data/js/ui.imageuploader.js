@@ -57,7 +57,7 @@ ui.ImageUploader = {
     });
 
     ui.ImageUploader.me.find('.pyfileselector').click(function () {
-      hotot_action('action/choose_file/ui.ImageUploader.pyload');
+      hermelin_action('action/choose_file/ui.ImageUploader.pyload');
     });
 
     var all_service_buttons = ui.ImageUploader.me.find('.service');

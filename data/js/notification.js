@@ -17,9 +17,9 @@ var notification = {
     title = title.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
     summary = summary.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
     if (util.is_native_platform()) {
-      hotot_action('system/notify/' + type + '/' + encodeURIComponent(title) + '/' + encodeURIComponent(summary) + '/' + encodeURIComponent(image));
+      hermelin_action('system/notify/' + type + '/' + encodeURIComponent(title) + '/' + encodeURIComponent(summary) + '/' + encodeURIComponent(image));
     } else if (conf.vars.platform == 'Chrome') {
-      var img_url = image ? image : './image/ic64_hotot.png';
+      var img_url = image ? image : './image/ic64_hermelin.png';
       var notification = webkitNotifications.createNotification(img_url, title, summary);
       notification.show();
       notification.ondisplay = function () {

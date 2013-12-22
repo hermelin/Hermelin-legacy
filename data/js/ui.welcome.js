@@ -332,9 +332,9 @@ ui.Welcome = {
       kismet.load();
       var prefs = conf.get_current_profile().preferences;
       globals.readLaterServ.init(prefs.readlater_username, prefs.readlater_password);
-      document.title = _('hotot') + ' | ' + conf.current_name;
+      document.title = _('hermelin') + ' | ' + conf.current_name;
 
-      hotot_action('system/sign_in');
+      hermelin_action('system/sign_in');
       ui.Welcome.go.classList.remove('loading');
       setTimeout(function () {
         ui.Slider.slide_to('home');

@@ -53,7 +53,7 @@ ui.StatusBox = {
         if (!conf.get_current_profile().preferences.auto_longer_tweet) {
           toast.set(_('status_is_over_140_characters')).show();
         } else {
-          toast.set('hotot I have super power to compress ...').show();
+          toast.set('Using super powers to compress ...').show();
           globals.network.do_request('POST',
             'http://hotot.in/create.json', {
             'text': status_text,

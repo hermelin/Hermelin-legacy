@@ -80,7 +80,7 @@ daemon = {
         interval = 300;
       }
       if (daemon.time % (Math.ceil(interval / 60) * 60) == 0) {
-        hotot_log('poll as push', view.name);
+        hermelin_log('poll as push', view.name);
         view.load();
         step += 1;
       }
@@ -97,7 +97,7 @@ daemon = {
   push: function push() {
     if (globals.twitterClient.watch_user_streams.is_running) {
       if (daemon.home_queue.length > 0) {
-        hotot_log('daemon push, timeout', daemon.home_queue.length);
+        hermelin_log('daemon push, timeout', daemon.home_queue.length);
         if (ui.Main.views.home) {
           ui.Main.views.home.load_success(daemon.home_queue);
         }
@@ -135,14 +135,14 @@ daemon = {
         }
         var now = Date.now();
         if (now - daemon.home_last_time > 1000) {
-          hotot_log('daemon push', 1);
+          hermelin_log('daemon push', 1);
           if (ui.Main.views.home && ui.Main.views.home.use_auto_update) {
             ui.Main.views.home.load_success([ret]);
           }
         } else {
           daemon.home_queue.push(ret);
           if (128 < daemon.home_queue.length) {
-            hotot_log('daemon push, batch', daemon.home_queue.length);
+            hermelin_log('daemon push, batch', daemon.home_queue.length);
             if (ui.Main.views.home && ui.Main.views.home.use_auto_update) {
               ui.Main.views.home.load_success(daemon.home_queue);
             }

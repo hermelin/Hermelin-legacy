@@ -33,15 +33,15 @@ var i18n = {
         callback();
     } else {
       $.getJSON('_locales/' + code + '/messages.json', function (result) {
-        hotot_log('i18n', 'Use locale: ' + code);
+        hermelin_log('i18n', 'Use locale: ' + code);
         i18n.load_dict(result);
         i18n.trans_html();
         ui.Template.update_trans();
         if (callback != undefined)
           callback();
       }).error(function (jqXHR, txt, err) {
-        hotot_log('i18n', txt);
-        hotot_log('i18n', 'Load messages "' + code + '" failed. Use default locale: ' + i18n.default_locale);
+        hermelin_log('i18n', txt);
+        hermelin_log('i18n', 'Load messages "' + code + '" failed. Use default locale: ' + i18n.default_locale);
         $.getJSON('_locales/en/messages.json', function (result) {
           i18n.load_dict(result);
           i18n.trans_html();

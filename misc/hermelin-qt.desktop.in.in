@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Hermelin Qt
+_GenericName=Hermelin Twitter Client
+Type=Application
+_Comment=Lightweight Twitter client based on Qt and WebKit
+Exec=@HERMELIN_QT_BIN@
+Icon=hermelin
+Categories=Qt;Network;InstantMessaging;

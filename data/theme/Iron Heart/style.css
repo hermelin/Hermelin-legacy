@@ -1,7 +1,7 @@
 #indication {
   background: #111 url(./background-stripes.gif);
 }
-#status_box, #hotot_menu, #slider_menu {
+#status_box, #hermelin_menu, #slider_menu {
   box-shadow: 2px 2px 3px #111;
   -webkit-box-shadow: 2px 2px 3px #111;
 }

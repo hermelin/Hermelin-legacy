@@ -1,4 +1,4 @@
-project(hotot_qt C CXX)
+project(hermelin_qt C CXX)
 
 if(WITH_KDE_QT)
   set(WITH_KDE On)
@@ -10,7 +10,7 @@ if(WITH_KDE)
   find_package(KDE4)
   if(KDE4_FOUND)
     message(STATUS "Enabling KDE4 integration")
-    set(HOTOT_KDE4_INCLUDE_DIRS ${KDE4_INCLUDES})
+    set(HERMELIN_KDE4_INCLUDE_DIRS ${KDE4_INCLUDES})
     set(HAVE_KDE 1)
   else()
     message(STATUS "KDE4 not found, disabling KDE integration")
@@ -27,14 +27,14 @@ elseif(HAVE_KDE)
   set(BUILD_KDE On)
   if(WITH_KDE_QT)
     set(BUILD_QT On)
-    if(NOT HOTOT_KDE_BIN_NAME)
-      set(HOTOT_KDE_BIN_NAME hotot-kde)
+    if(NOT HERMELIN_KDE_BIN_NAME)
+      set(HERMELIN_KDE_BIN_NAME hermelin-kde)
     endif()
   else()
-    # specify HOTOT_KDE_BIN_NAME if you want to rename hotot-qt executable
+    # specify HERMELIN_KDE_BIN_NAME if you want to rename hermelin-qt executable
     # with KDE support even if the version without KDE support is not enabled
-    if(NOT HOTOT_KDE_BIN_NAME)
-      set(HOTOT_KDE_BIN_NAME hotot-qt)
+    if(NOT HERMELIN_KDE_BIN_NAME)
+      set(HERMELIN_KDE_BIN_NAME hermelin-qt)
     endif()
   endif()
 endif()
@@ -45,37 +45,37 @@ set(CMAKE_MODULE_LINKER_FLAGS "-Wl,--as-needed ${CMAKE_MODULE_LINKER_FLAGS}")
 
 configure_file(config.h.in config.h)
 
-set(HOTOT_QT4_INCLUDE_DIRS
+set(HERMELIN_QT4_INCLUDE_DIRS
   ${QT_INCLUDE_DIR}
   ${QT_QTCORE_INCLUDE_DIR}
   ${QT_QTGUI_INCLUDE_DIR}
   ${QT_QTWEBKIT_INCLUDE_DIR}
   ${QT_QTNETWORK_INCLUDE_DIR})
 
-function(hotot_set_qt4_target tgt)
-  get_target_property(HOTOT_INCLUDES "${tgt}" INCLUDE_DIRECTORIES)
-  if(HOTOT_INCLUDES)
-    set(HOTOT_QT4_INCLUDE_DIRS ${HOTOT_QT4_INCLUDE_DIRS}
-      ${HOTOT_INCLUDES})
+function(hermelin_set_qt4_target tgt)
+  get_target_property(HERMELIN_INCLUDES "${tgt}" INCLUDE_DIRECTORIES)
+  if(HERMELIN_INCLUDES)
+    set(HERMELIN_QT4_INCLUDE_DIRS ${HERMELIN_QT4_INCLUDE_DIRS}
+      ${HERMELIN_INCLUDES})
   endif()
   set_target_properties("${tgt}"
     PROPERTIES LINKER_LANGUAGE CXX
-    INCLUDE_DIRECTORIES "${HOTOT_QT4_INCLUDE_DIRS}")
-  target_link_libraries("${tgt}" ${HOTOT_QT_LINKS})
+    INCLUDE_DIRECTORIES "${HERMELIN_QT4_INCLUDE_DIRS}")
+  target_link_libraries("${tgt}" ${HERMELIN_QT_LINKS})
 endfunction()
 
-function(hotot_set_kde4_target tgt)
-  hotot_set_qt4_target("${tgt}")
-  get_target_property(HOTOT_INCLUDES "${tgt}" INCLUDE_DIRECTORIES)
-  if(HOTOT_INCLUDES)
-    set(HOTOT_KDE4_INCLUDE_DIRS ${HOTOT_KDE4_INCLUDE_DIRS}
-      ${HOTOT_INCLUDES})
+function(hermelin_set_kde4_target tgt)
+  hermelin_set_qt4_target("${tgt}")
+  get_target_property(HERMELIN_INCLUDES "${tgt}" INCLUDE_DIRECTORIES)
+  if(HERMELIN_INCLUDES)
+    set(HERMELIN_KDE4_INCLUDE_DIRS ${HERMELIN_KDE4_INCLUDE_DIRS}
+      ${HERMELIN_INCLUDES})
   endif()
-  hotot_convert_flags(HOTOT_KDE4_DEFS HOTOT_KDE4_FLAGS ${KDE4_DEFINITIONS})
+  hermelin_convert_flags(HERMELIN_KDE4_DEFS HERMELIN_KDE4_FLAGS ${KDE4_DEFINITIONS})
   set_target_properties("${tgt}"
-    PROPERTIES COMPILE_DEFINITIONS "HAVE_KDE=1;${HOTOT_KDE4_DEFS}"
-    COMPILE_FLAGS "${HOTOT_KDE4_FLAGS}"
-    INCLUDE_DIRECTORIES "${HOTOT_KDE4_INCLUDE_DIRS}")
+    PROPERTIES COMPILE_DEFINITIONS "HAVE_KDE=1;${HERMELIN_KDE4_DEFS}"
+    COMPILE_FLAGS "${HERMELIN_KDE4_FLAGS}"
+    INCLUDE_DIRECTORIES "${HERMELIN_KDE4_INCLUDE_DIRS}")
   target_link_libraries("${tgt}"
     ${KDE4_KDEUI_LIBRARY} ${KDE4_KIO_LIBS})
 endfunction()
@@ -83,34 +83,34 @@ endfunction()
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-set(Hotot_QT_SRCS
+set(Hermelin_QT_SRCS
   formpost.cpp
-  hototrequest.cpp
+  hermelinrequest.cpp
   main.cpp
   mainwindow.cpp
-  hototwebpage.cpp
+  hermelinwebpage.cpp
   qttraybackend.cpp
   )
-set(Hotot_QT_MOC_SRCS
+set(Hermelin_QT_MOC_SRCS
   mainwindow.h
   formpost.h
-  hototrequest.h
-  hototwebpage.h
+  hermelinrequest.h
+  hermelinwebpage.h
   qttraybackend.h
   )
 
-set(Hotot_KDE_SRCS
+set(Hermelin_KDE_SRCS
   kdetraybackend.cpp
   )
-set(Hotot_KDE_MOC_SRCS
+set(Hermelin_KDE_MOC_SRCS
   kdetraybackend.h
   )
 
 if(BUILD_QT OR BUILD_KDE)
-  qt4_wrap_cpp(Hotot_QT_MOCS ${Hotot_QT_MOC_SRCS})
+  qt4_wrap_cpp(Hermelin_QT_MOCS ${Hermelin_QT_MOC_SRCS})
 endif()
 
-set(HOTOT_QT_LINKS
+set(HERMELIN_QT_LINKS
   ${QT_QTCORE_LIBRARY}
   ${QT_QTGUI_LIBRARY}
   ${QT_QTWEBKIT_LIBRARY}
@@ -118,38 +118,38 @@ set(HOTOT_QT_LINKS
   )
 
 if(BUILD_QT)
-  add_executable(hotot-qt ${Hotot_QT_SRCS} ${Hotot_QT_MOCS})
-  hotot_set_qt4_target(hotot-qt)
-  install(TARGETS hotot-qt DESTINATION bin)
-  set(HOTOT_QT_BIN hotot-qt)
-  configure_file("${PROJECT_SOURCE_DIR}/../misc/hotot-qt.desktop.in.in"
-    hotot-qt.desktop.in @ONLY)
+  add_executable(hermelin-qt ${Hermelin_QT_SRCS} ${Hermelin_QT_MOCS})
+  hermelin_set_qt4_target(hermelin-qt)
+  install(TARGETS hermelin-qt DESTINATION bin)
+  set(HERMELIN_QT_BIN hermelin-qt)
+  configure_file("${PROJECT_SOURCE_DIR}/../misc/hermelin-qt.desktop.in.in"
+    hermelin-qt.desktop.in @ONLY)
   intltool_merge_translation(
-    "${CMAKE_CURRENT_BINARY_DIR}/hotot-qt.desktop.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/hotot-qt.desktop")
+    "${CMAKE_CURRENT_BINARY_DIR}/hermelin-qt.desktop.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/hermelin-qt.desktop")
   add_custom_target(desktopfile-qt ALL
-    DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/hotot-qt.desktop")
-  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hotot-qt.desktop"
+    DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/hermelin-qt.desktop")
+  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hermelin-qt.desktop"
     DESTINATION share/applications/)
 endif()
 
 if(BUILD_KDE)
-  qt4_wrap_cpp(Hotot_KDE_MOCS ${Hotot_KDE_MOC_SRCS})
-  add_executable("${HOTOT_KDE_BIN_NAME}"
-    ${Hotot_QT_SRCS} ${Hotot_QT_MOCS}
-    ${Hotot_KDE_SRCS} ${Hotot_KDE_MOCS})
-  hotot_set_kde4_target("${HOTOT_KDE_BIN_NAME}")
-  install(TARGETS "${HOTOT_KDE_BIN_NAME}" DESTINATION bin)
-  install(FILES ../misc/hotot_qt.svg
+  qt4_wrap_cpp(Hermelin_KDE_MOCS ${Hermelin_KDE_MOC_SRCS})
+  add_executable("${HERMELIN_KDE_BIN_NAME}"
+    ${Hermelin_QT_SRCS} ${Hermelin_QT_MOCS}
+    ${Hermelin_KDE_SRCS} ${Hermelin_KDE_MOCS})
+  hermelin_set_kde4_target("${HERMELIN_KDE_BIN_NAME}")
+  install(TARGETS "${HERMELIN_KDE_BIN_NAME}" DESTINATION bin)
+  install(FILES ../misc/hermelin_qt.svg
     DESTINATION ${KDE4_DATA_INSTALL_DIR}/desktoptheme/default/icons)
-  set(HOTOT_QT_BIN "${HOTOT_KDE_BIN_NAME}")
-  configure_file("${PROJECT_SOURCE_DIR}/../misc/hotot-kde.desktop.in.in"
-    "${HOTOT_KDE_BIN_NAME}.desktop.in" @ONLY)
+  set(HERMELIN_QT_BIN "${HERMELIN_KDE_BIN_NAME}")
+  configure_file("${PROJECT_SOURCE_DIR}/../misc/hermelin-kde.desktop.in.in"
+    "${HERMELIN_KDE_BIN_NAME}.desktop.in" @ONLY)
   intltool_merge_translation(
-    "${CMAKE_CURRENT_BINARY_DIR}/${HOTOT_KDE_BIN_NAME}.desktop.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/${HOTOT_KDE_BIN_NAME}.desktop")
+    "${CMAKE_CURRENT_BINARY_DIR}/${HERMELIN_KDE_BIN_NAME}.desktop.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${HERMELIN_KDE_BIN_NAME}.desktop")
   add_custom_target(desktopfile-kde ALL
-    DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${HOTOT_KDE_BIN_NAME}.desktop")
-  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${HOTOT_KDE_BIN_NAME}.desktop"
+    DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${HERMELIN_KDE_BIN_NAME}.desktop")
+  install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${HERMELIN_KDE_BIN_NAME}.desktop"
     DESTINATION share/applications/)
 endif()

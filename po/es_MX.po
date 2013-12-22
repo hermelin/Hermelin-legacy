@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Hotot 1.0\n"
+"Project-Id-Version: Hermelin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-05 02:58+0800\n"
 "PO-Revision-Date: 2010-09-25 15:07-06:00\n"
@@ -18,186 +18,186 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/qttraybackend.cpp:72
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/qttraybackend.cpp:72
 #, fuzzy
 msgid "%1 unread Messages"
 msgstr "Mensaje"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:97
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:97
 #, fuzzy
 msgid "&Compose"
 msgstr "Modo composición"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:117
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:117
 msgid "&Developer Tool"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:112
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:112
 msgid "&Exit"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:67
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:67
 msgid "&Minimize to Tray"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:67
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:67
 msgid "(c) 2009-2012 Shellex Wai\n"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/kdetraybackend.cpp:90
 msgid "1 unread post"
 msgid_plural "%1 unread posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:78
 #, fuzzy
 msgid "Artwork"
 msgstr "Arte por"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:74
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:75
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:76
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:77
 msgid "Developer"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:73
 msgid "Developer and Artwork"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:79
 #, fuzzy
 msgid "Document"
 msgstr "Documentado por"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:83
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:83
 msgid "Enable developer Tool"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:78
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:78
 msgid "Evan"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:35
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:98
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:70
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:49
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:53
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/kdetraybackend.cpp:90
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:63
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:77
-#: ../..//misc/hotot.desktop.in.h:1
-msgid "Hotot"
-msgstr "Hotot"
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:35
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:98
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:70
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/kdetraybackend.cpp:49
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/kdetraybackend.cpp:53
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/kdetraybackend.cpp:90
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:63
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:77
+#: ../..//misc/hermelin.desktop.in.h:1
+msgid "Hermelin"
+msgstr "Hermelin"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:37
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:45
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:38
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:46
-msgid "Hotot Notification"
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/agent.py:37
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/agent.py:45
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/agent.py:38
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/agent.py:46
+msgid "Hermelin Notification"
 msgstr ""
 
-#: ../..//misc/hotot-qt.desktop.in.h:1
+#: ../..//misc/hermelin-qt.desktop.in.h:1
 #, fuzzy
-msgid "Hotot Qt"
-msgstr "Hotot"
+msgid "Hermelin Qt"
+msgstr "Hermelin"
 
-#: ../..//misc/hotot.desktop.in.h:2
-msgid "Hotot Twitter Client"
-msgstr "Hotot Cliente Twitter"
+#: ../..//misc/hermelin.desktop.in.h:2
+msgid "Hermelin Twitter Client"
+msgstr "Hermelin Cliente Twitter"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:180
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:323
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:175
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:320
-msgid "Hotot: Click to Active."
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:180
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:323
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:175
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:320
+msgid "Hermelin: Click to Active."
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:74
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:74
 msgid "Jiahua Huang"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:75
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:75
 msgid "Jimmy Xu"
 msgstr ""
 
-#: ../..//misc/hotot.desktop.in.h:3
+#: ../..//misc/hermelin.desktop.in.h:3
 msgid "Lightweight Twitter Client base on Gtk and Webkit"
 msgstr "Cliente Twitter liviano basado en Gtk y Webkit"
 
-#: ../..//misc/hotot-qt.desktop.in.h:2
+#: ../..//misc/hermelin-qt.desktop.in.h:2
 msgid "Lightweight Twitter Client base on Qt and Webkit"
 msgstr "Cliente Twitter liviano basado en Qt y Webkit"
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:65
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:65
 msgid "Lightweight, Flexible Microblogging"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/agent.py:186
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/agent.py:181
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/agent.py:186
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/agent.py:181
 #, c-format
 msgid "Loading Search result %s ..."
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:79
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:79
 msgid "Marguerite Su"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:73
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:73
 msgid "Shellex Wai"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/mainwindow.cpp:108
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/mainwindow.cpp:108
 msgid "Show &MainWindow"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:76
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:76
 msgid "Tualatrix Chou"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:85
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:85
 msgid "Use Proxy as Socks Proxy instead of HTTP Proxy"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//qt/src/main.cpp:77
+#: /home/saber/Develop/Hermelin/build/po/../..//qt/src/main.cpp:77
 msgid "Xu Zhen"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:116
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:139
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:97
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:125
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:116
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:139
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:97
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:125
 #, fuzzy
 msgid "_Compose"
 msgstr "Modo composición"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:133
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:120
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:133
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:120
 msgid "_File"
 msgstr "_Archivo"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:152
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:142
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:152
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:142
 msgid "_Help"
 msgstr "_Ayuda"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:94
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:94
 msgid "_Hide"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:101
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:132
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:101
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:132
 msgid "_Inspector"
 msgstr ""
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:113
-#: /home/saber/Develop/Hotot/build/po/../..//hotot/hotot.py:136
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:113
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin/hermelin.py:136
 msgid "_Resume/Hide"
 msgstr "_Continuar/Activar"
 
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:91
-#: /home/saber/Develop/Hotot/build/po/../..//hotot-gir/hotot.py:122
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:91
+#: /home/saber/Develop/Hermelin/build/po/../..//hermelin-gir/hermelin.py:122
 msgid "_Show"
 msgstr ""
 
@@ -477,8 +477,8 @@ msgstr ""
 #~ msgid "Home"
 #~ msgstr "Inicio"
 
-#~ msgid "Home | Hotot"
-#~ msgstr "Inicio | Hotot"
+#~ msgid "Home | Hermelin"
+#~ msgstr "Inicio | Hermelin"
 
 #~ msgid "Host"
 #~ msgstr "Host"
@@ -511,8 +511,8 @@ msgstr ""
 #~ msgid "Location: "
 #~ msgstr "Ubicación"
 
-#~ msgid "Login to Hotot"
-#~ msgstr "Conectarse a Hotot"
+#~ msgid "Login to Hermelin"
+#~ msgstr "Conectarse a Hermelin"
 
 #~ msgid "Look up: "
 #~ msgstr "Buscar a: "
@@ -606,8 +606,8 @@ msgstr ""
 #~ msgid "Quick References"
 #~ msgstr "Preferencias"
 
-#~ msgid "Quit Hotot"
-#~ msgstr "Cerrar Hotot"
+#~ msgid "Quit Hermelin"
+#~ msgstr "Cerrar Hermelin"
 
 #~ msgid "Regain Access Token"
 #~ msgstr "Obtener Token de Acceso"
@@ -712,8 +712,8 @@ msgstr ""
 #~ msgstr "Sugerencias:"
 
 #, fuzzy
-#~ msgid "Summon Hotot (like: <ALT>C)"
-#~ msgstr "Invocar Hotot (como: &lt;ALT&gt;C)"
+#~ msgid "Summon Hermelin (like: <ALT>C)"
+#~ msgstr "Invocar Hermelin (como: &lt;ALT&gt;C)"
 
 #, fuzzy
 #~ msgid "System Font"
@@ -791,9 +791,9 @@ msgstr ""
 
 #, fuzzy
 #~ msgid ""
-#~ "You MUST restart Hotot for some changes below to take effect. And these "
+#~ "You MUST restart Hermelin for some changes below to take effect. And these "
 #~ "changes will affect ALL accounts"
-#~ msgstr "' Tiene que reiniciar Hotot para que los cambios tengan efecto.'"
+#~ msgstr "' Tiene que reiniciar Hermelin para que los cambios tengan efecto.'"
 
 #~ msgid "Your search - "
 #~ msgstr "Tu busqueda - "

@@ -51,9 +51,9 @@
 #include <MApplicationPage>
 #endif
 
-// Hotot
+// Hermelin
 #include "mainwindow.h"
-#include "hototwebpage.h"
+#include "hermelinwebpage.h"
 #include "trayiconinterface.h"
 #include "qttraybackend.h"
 #ifdef HAVE_KDE
@@ -75,9 +75,9 @@ MainWindow::MainWindow(QWidget *parent) :
 #ifdef Q_OS_UNIX
     chdir(PREFIX);
 #endif
-    setWindowTitle(i18n("Hotot"));
-    setWindowIcon(QIcon::fromTheme("hotot_qt", QIcon("share/hotot/image/ic64_hotot.png")));
-    qApp->setWindowIcon(QIcon::fromTheme("hotot_qt", QIcon("share/hotot/image/ic64_hotot.png")));
+    setWindowTitle(i18n("Hermelin"));
+    setWindowIcon(QIcon::fromTheme("hermelin_qt", QIcon("share/hermelin/image/ic64_hermelin.png")));
+    qApp->setWindowIcon(QIcon::fromTheme("hermelin_qt", QIcon("share/hermelin/image/ic64_hermelin.png")));
 #ifndef MEEGO_EDITION_HARMATTAN
     this->resize(QSize(640, 480));
     this->setCentralWidget(m_webView);
@@ -100,7 +100,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_menu->addAction(m_actionCompose);
     m_actionCompose->setVisible(false);
 #ifndef MEEGO_EDITION_HARMATTAN
-    QSettings settings("hotot-qt", "hotot");
+    QSettings settings("hermelin-qt", "hermelin");
     m_actionMinimizeToTray->setCheckable(true);
     m_actionMinimizeToTray->setChecked(settings.value("minimizeToTray", false).toBool());
     connect(m_actionMinimizeToTray, SIGNAL(toggled(bool)), this, SLOT(toggleMinimizeToTray(bool)));
@@ -129,15 +129,15 @@ MainWindow::MainWindow(QWidget *parent) :
     addAction(m_actionExit);
 #endif
 
-    m_page = new HototWebPage(this);
+    m_page = new HermelinWebPage(this);
 #ifdef HAVE_KDE
     m_page->setNetworkAccessManager(new KIO::Integration::AccessManager(m_page));
 #endif
 
 #ifdef Q_OS_UNIX
-    QDir dir(QDir::homePath().append("/.config/hotot-qt"));
+    QDir dir(QDir::homePath().append("/.config/hermelin-qt"));
 #else
-    QDir dir(QDesktopServices::storageLocation(QDesktopServices::DataLocation).append("/Hotot"));
+    QDir dir(QDesktopServices::storageLocation(QDesktopServices::DataLocation).append("/Hermelin"));
 #endif
 
     if (!dir.exists())
@@ -169,9 +169,9 @@ MainWindow::MainWindow(QWidget *parent) :
 #endif
 
 #ifdef Q_OS_UNIX
-    m_webView->load(QUrl("file://" PREFIX "/share/hotot/index.html"));
+    m_webView->load(QUrl("file://" PREFIX "/share/hermelin/index.html"));
 #else
-    QFileInfo f("share/hotot/index.html");
+    QFileInfo f("share/hermelin/index.html");
     m_webView->load(QUrl::fromLocalFile(f.absoluteFilePath()));
 #endif
     connect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));
@@ -234,7 +234,7 @@ bool MainWindow::isAutoSignIn() {
 MainWindow::~MainWindow()
 {
 #ifndef MEEGO_EDITION_HARMATTAN
-    QSettings settings("hotot-qt", "hotot");
+    QSettings settings("hermelin-qt", "hermelin");
     settings.setValue("geometry", saveGeometry());
     settings.setValue("windowState", saveState());
 #endif
@@ -246,7 +246,7 @@ void MainWindow::loadFinished(bool ok)
     // disconnect(m_webView, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));
     if (ok) {
         QString confString = QString(
-            "hotot_qt_variables = {"
+            "hermelin_qt_variables = {"
             "      'platform': 'Linux'"
             "    , 'wrapper': 'qt'"
             "    , 'avatar_cache_dir': '%3'"
@@ -262,7 +262,7 @@ void MainWindow::loadFinished(bool ok)
 
         m_webView->page()->currentFrame()->evaluateJavaScript(confString);
         m_webView->page()->currentFrame()->evaluateJavaScript(
-            "overlay_variables(hotot_qt_variables);"
+            "overlay_variables(hermelin_qt_variables);"
             "globals.load_flags = 1;");
 
         if (m_firstLoad) {
@@ -277,7 +277,7 @@ void MainWindow::loadFinished(bool ok)
 
 void MainWindow::notifyLoadFinished()
 {
-    QSettings settings("hotot-qt", "hotot");
+    QSettings settings("hermelin-qt", "hermelin");
     restoreGeometry(settings.value("geometry").toByteArray());
     restoreState(settings.value("windowState").toByteArray());
 #ifndef MEEGO_EDITION_HARMATTAN
@@ -391,7 +391,7 @@ void MainWindow::showDeveloperTool()
 #ifndef MEEGO_EDITION_HARMATTAN
 void MainWindow::toggleMinimizeToTray(bool checked)
 {
-    QSettings settings("hotot-qt", "hotot");
+    QSettings settings("hermelin-qt", "hermelin");
     settings.setValue("minimizeToTray", checked);
 }
 

@@ -10,7 +10,7 @@ db = {
   version: 3,
 
   init: function init(callback) {
-    db.database = window.openDatabase('hotot.cache', '', 'Cache of Hotot', 10);
+    db.database = window.openDatabase('hermelin.cache', '', 'Cache of Hermelin', 10);
     db.get_version(function (version) {
       var db_version = parseInt(version);
       if (db_version === 2) { // from 2 to 3
@@ -140,7 +140,7 @@ db = {
     var dump_single_user = function (tx, user) {
       // update user obj
       tx.executeSql('INSERT OR REPLACE INTO UserCache (user_id, screen_name, json) VALUES (?, ?, ?)', [user.id_str, user.screen_name, JSON.stringify(user)], function (tx, rs) {}, function (tx, error) {
-        hotot_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
+        hermelin_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
       });
     };
     // dump users
@@ -155,12 +155,12 @@ db = {
   dump_tweets: function dump_tweets(json_obj) {
     var dump_single_user = function (tx, user) {
       tx.executeSql('INSERT OR REPLACE INTO UserCache (user_id, screen_name, json) VALUES (?, ?, ?)', [user.id_str, user.screen_name, JSON.stringify(user)], function (tx, rs) {}, function (tx, error) {
-        hotot_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
+        hermelin_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
       });
     };
     var dump_single_tweet = function (tx, tweet_obj) {
       tx.executeSql('INSERT or REPLACE INTO TweetCache VALUES (?, ?, ?)', [tweet_obj.id_str, tweet_obj.text, JSON.stringify(tweet_obj)], function (tx, rs) {}, function (tx, error) {
-        hotot_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
+        hermelin_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
       });
     };
 

@@ -2,15 +2,15 @@ if (typeof ext == 'undefined') var ext = {};
 ext = {
 
   builtins: [
-    , 'org.hotot.cfw'
-    , 'org.hotot.gmap'
-    , 'org.hotot.sample'
-    , 'org.hotot.shorturl'
-    , 'org.hotot.expandurls'
-    , 'org.hotot.translate'
-    , 'org.hotot.stat'
-    , 'org.hotot.appmask'
-    , 'org.hotot.imghp'
+    , 'org.hermelin.cfw'
+    , 'org.hermelin.gmap'
+    , 'org.hermelin.sample'
+    , 'org.hermelin.shorturl'
+    , 'org.hermelin.expandurls'
+    , 'org.hermelin.translate'
+    , 'org.hermelin.stat'
+    , 'org.hermelin.appmask'
+    , 'org.hermelin.imghp'
   ],
 
   extras: [],
@@ -48,7 +48,7 @@ ext = {
   prefs: null,
 
   init: function init() {
-    ext.prefs = window.openDatabase('hotot.exts_prefs', '', 'Preferences of extensions', 10);
+    ext.prefs = window.openDatabase('hermelin.exts_prefs', '', 'Preferences of extensions', 10);
     // listeners: {listener_type: [callbacks ... ], ... };
     for (var i = 0x01; i < 0xff; i += 0x01) {
       ext.listeners[i] = [];
@@ -151,7 +151,7 @@ ext = {
         ext.exts_info[extension.id].has_options = typeof extension.options != 'undefined';
         ext.exts_info[extension.id].extension = extension;
         ext.exts_info[extension.id].enable = false;
-        hotot_log('Init Extension', extension.name);
+        hermelin_log('Init Extension', extension.name);
       }
     }
   },
@@ -161,7 +161,7 @@ ext = {
       ext.exts_info[id].extension.enable();
       ext.exts_info[id]['enable'] = true;
     } catch (e) {
-      hotot_log('error:enable_ext()', e)
+      hermelin_log('error:enable_ext()', e)
     }
   },
 
@@ -170,7 +170,7 @@ ext = {
       ext.exts_info[id].extension.disable();
       ext.exts_info[id]['enable'] = false;
     } catch (e) {
-      hotot_log('error:disable_ext()', e)
+      hermelin_log('error:disable_ext()', e)
     }
   },
 
@@ -178,7 +178,7 @@ ext = {
     try {
       ext.exts_info[id].extension.options();
     } catch (e) {
-      hotot_log('error:config_ext()', e)
+      hermelin_log('error:config_ext()', e)
     }
   },
 
@@ -199,7 +199,7 @@ ext = {
         script.src = path;
         script.type = "text/javascript";
         script.onload = function () {
-          hotot_log('Load Extension', path);
+          hermelin_log('Load Extension', path);
           $(window).dequeue('_load_exts' + type);
         };
         document.body.appendChild(script);
@@ -297,7 +297,7 @@ ext.Preferences = function (prefs_name) {
           callback(key, val);
         }
       }, function (tx, error) {
-        hotot_log('EXT', 'sql:' + error.message);
+        hermelin_log('EXT', 'sql:' + error.message);
       });
     });
   }
@@ -311,7 +311,7 @@ ext.Preferences = function (prefs_name) {
           callback(key, val);
         }
       }, function (tx, error) {
-        hotot_log('EXT', 'sql:' + error.message);
+        hermelin_log('EXT', 'sql:' + error.message);
       });
     });
   }

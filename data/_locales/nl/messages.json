@@ -303,8 +303,8 @@
     "message": "Voorbeelden",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Hotot afsluiten wanneer venster wordt gesloten",
+  "exit_hermelin_when_close_window": {
+    "message": "Hermelin afsluiten wanneer venster wordt gesloten",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Je MOET Hotot herstarten om een aantal instellingen hieronder van toepassing te laten zijn. En deze aanpassingen betreffen ALLE accounts",
+    "message": "Je MOET Hermelin herstarten om een aantal instellingen hieronder van toepassing te laten zijn. En deze aanpassingen betreffen ALLE accounts",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "Gast",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "Taal",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Laat Hotot anonieme statistieken verzamelen",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Laat Hermelin anonieme statistieken verzamelen",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "Melden",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "Quick References",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Sluit Hotot",
+  "quit_hermelin": {
+    "message": "Sluit Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Succesvol",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Roep Hotot (zoals: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Roep Hermelin (zoals: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

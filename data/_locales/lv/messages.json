@@ -303,8 +303,8 @@
     "message": "Piemēri",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Iziet no Hotot, kad aizver logu",
+  "exit_hermelin_when_close_window": {
+    "message": "Iziet no Hermelin, kad aizver logu",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Jums JĀRESTARTĒ Hotot, lai zemāk minētās izmaiņas varētu sākt darboties. Šīs izmaiņas ietekmēs VISUS kontus",
+    "message": "Jums JĀRESTARTĒ Hermelin, lai zemāk minētās izmaiņas varētu sākt darboties. Šīs izmaiņas ietekmēs VISUS kontus",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "Valoda",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Ļaut Hotot ievākt anonīmu statistikas informāciju",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Ļaut Hermelin ievākt anonīmu statistikas informāciju",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "Paziņojums",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "Ātrās atsauces",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Iziet no Hotot",
+  "quit_hermelin": {
+    "message": "Iziet no Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Veiksmīgi",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Izsaukt Hotot (piemēram: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Izsaukt Hermelin (piemēram: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

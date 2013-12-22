@@ -22,7 +22,7 @@
 // Qt
 #include <QSystemTrayIcon>
 
-// Hotot
+// Hermelin
 #include "qttraybackend.h"
 #include "mainwindow.h"
 
@@ -32,7 +32,7 @@ QtTrayBackend::QtTrayBackend(MainWindow* parent):
     m_mainWindow(parent),
     m_trayicon(new QSystemTrayIcon(this))
 {
-    m_trayicon->setIcon(QIcon::fromTheme("hotot", QIcon("share/hotot/image/ic64_hotot.png")));
+    m_trayicon->setIcon(QIcon::fromTheme("hermelin", QIcon("share/hermelin/image/ic64_hermelin.png")));
     m_trayicon->show();
     connect(m_trayicon,
             SIGNAL(activated(QSystemTrayIcon::ActivationReason)),

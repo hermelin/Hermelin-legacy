@@ -303,8 +303,8 @@
     "message": "示范",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "关窗口时退出 Hotot",
+  "exit_hermelin_when_close_window": {
+    "message": "关窗口时退出 Hermelin",
     "description": "data/index.html"
   },
   "extensions": {
@@ -427,11 +427,11 @@
     "message": "",
     "description": "data/index.html"
   },
-  "hotot": {
+  "hermelin": {
     "message": "热兔",
     "description": ""
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,7 +491,7 @@
     "message": "语言",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
+  "let_hermelin_collects_anonymous_statistic_information": {
     "message": "允许热兔静鸡鸡收集匿名统计信息",
     "description": "data/index.html"
   },
@@ -671,7 +671,7 @@
     "message": "通知",
     "description": ""
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,7 +839,7 @@
     "message": "快速参考",
     "description": "data/index.html"
   },
-  "quit_hotot": {
+  "quit_hermelin": {
     "message": "退出热兔",
     "description": "data/index.html"
   },
@@ -1083,8 +1083,8 @@
     "message": "搞掂！",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "弹出Hotot 『例如: <ALT>C』",
+  "summon_hermelin": {
+    "message": "弹出Hermelin 『例如: <ALT>C』",
     "description": ""
   },
   "supervised_by": {

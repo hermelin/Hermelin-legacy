@@ -34,6 +34,6 @@ public:
     virtual void unreadAlert(QString number) = 0;
 };
     
-Q_DECLARE_INTERFACE(TrayIconInterface, "org.hotot.TrayIconInterface")
+Q_DECLARE_INTERFACE(TrayIconInterface, "org.hermelin.TrayIconInterface")
 
 #endif

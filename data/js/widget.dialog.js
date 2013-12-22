@@ -281,7 +281,7 @@ widget.DialogManager = {
   alert: function alert(title, message) {
     var id = '#message_box_' + String(Math.random()).substring(2);
     var message_box = new widget.Dialog(id);
-    message_box.set_title('Hotot says:');
+    message_box.set_title('Hermelin says:');
     message_box.set_content('header', widget.DialogManager.alert_header.replace('{%TITLE%}', title));
     message_box.set_content('footer', widget.DialogManager.alert_footer);
     message_box.set_content('body', message);
@@ -315,7 +315,7 @@ widget.DialogManager = {
           }
         }
       }]);
-    prompt_dialog.set_title('Hotot says:');
+    prompt_dialog.set_title('Hermelin says:');
     prompt_dialog.set_styles('header', {
       'height': '30px',
       'padding': '10px'

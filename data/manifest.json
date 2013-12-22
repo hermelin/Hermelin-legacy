@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Hotot",
-  "description": "Hotot Twitter client for Chrome",
+  "name": "Hermelin",
+  "description": "Hermelin Twitter client for Chrome",
   "version": "0.9.8.14",
   "default_locale": "en",
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.google.com; object-src 'self'",
@@ -14,9 +14,9 @@
     }
   },
   "icons": {
-    "16": "image/ic16_hotot.png",
-    "24": "image/ic24_hotot.png",
-    "128": "image/ic128_hotot.png"
+    "16": "image/ic16_hermelin.png",
+    "24": "image/ic24_hermelin.png",
+    "128": "image/ic128_hermelin.png"
   },
   "permissions": [
     "<all_urls>",

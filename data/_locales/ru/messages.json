@@ -303,8 +303,8 @@
     "message": "Примеры",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Выходить из Hotot при закрытии окна",
+  "exit_hermelin_when_close_window": {
+    "message": "Выходить из Hermelin при закрытии окна",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Вы ДОЛЖНЫ перезапустить Hotot для того, чтобы включились некоторые эффекты. И все изменения повлияют для всех аккаунтов",
+    "message": "Вы ДОЛЖНЫ перезапустить Hermelin для того, чтобы включились некоторые эффекты. И все изменения повлияют для всех аккаунтов",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "Хост",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "Язык",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Позволить Hotot собирать анонимную статистику",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Позволить Hermelin собирать анонимную статистику",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "Уведомление",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "Быстрые ссылки",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Выйти из Hotot",
+  "quit_hermelin": {
+    "message": "Выйти из Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Успешно",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Вызов Hotot (Например: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Вызов Hermelin (Например: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

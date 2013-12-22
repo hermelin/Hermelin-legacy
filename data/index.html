@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Hermelin</title>
     <!-- themes -->
-    <link rel="stylesheet" href="css/hotot.widget.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/hermelin.widget.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/mochi.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <link id="theme" rel="stylesheet" href="theme/New Hope/style.css" type="text/css" media="screen" />
@@ -69,14 +69,14 @@
     <script type="text/javascript" src="js/ui.action_menu.js"></script>
     <script type="text/javascript" src="js/ui.context_menu.js"></script>
     <script type="text/javascript" src="js/ui.previewer.js"></script>
-    <script type="text/javascript" src="js/hotot.js"></script>
+    <script type="text/javascript" src="js/hermelin.js"></script>
     <script type="text/javascript" src="ext/ext.js"></script>
     <!-- Main container -->
     <div id="container">
       <section id="center">
         <!-- welcome page -->
         <div id="welcome_page" class="page">
-          <h1 data-i18n-text="hotot">Hotot</h1>
+          <h1 data-i18n-text="hermelin">Hermelin</h1>
           <div id="welcome_idicators">
             <a id="btn_welcome_about" title="Help" href="#" data-i18n-text="help">Help</a>
             <select id="sel_welcome_lang" class="combo dark" title="Select a language" style="height: 24px; line-height: 24px; width: 100px;" data-i18n-title="select_a_language">
@@ -167,7 +167,7 @@
             <p data-i18n-text="you_dont_have_a_view">You don't have a view.</p>
             <p data-i18n-text="you_should_surely_add_one_or_more_views_by_clicking_the_add_button_above">You should surely add one or more views by clicking the "Add" button above.</p>
           </div>
-          <ul id="tweet_more_menu" class="hotot_menu">
+          <ul id="tweet_more_menu" class="hermelin_menu">
             <li>
               <a id="tweet_alt_retweet_btn" class="tweet_retweet tweet_more_menu_btn" title="Retweet this tweet" href="#" data-i18n-text="retweet">Retweet</a>
             </li>
@@ -211,8 +211,8 @@
           <div id="indication">
             <div id="indicator_btns">
               <div class="stick_left">
-                <a id="hotot_button" class="indicator_btn action_button" href="#hotot" title="Click to expand menu" data-i18n-title="click_to_expand_menu">
-                  <span class="icon ic_hotot" style="margin-top: 6px;"></span>
+                <a id="hermelin_button" class="indicator_btn action_button" href="#hermelin" title="Click to expand menu" data-i18n-title="click_to_expand_menu">
+                  <span class="icon ic_hermelin" style="margin-top: 6px;"></span>
                 </a>
               </div>
               <div class="stick_left" style="width: 150px; left: 40px;">
@@ -295,9 +295,9 @@
               <a href="#" class="setting_btn ic_gear"></a>
             </div>
           </div>
-          <div id="hotot_menu">
+          <div id="hermelin_menu">
             <div id="sys_menu_frame">
-              <ul id="sys_menu" class="hotot_menu">
+              <ul id="sys_menu" class="hermelin_menu">
                 <li>
                   <a id="btn_prefs" title="Preferences" href="#" data-i18n-text="preferences">Preferences</a>
                 </li>
@@ -317,15 +317,15 @@
             </div>
             <div id="exts_menu_frame">
               <h2 style="padding: 5px 0; margin-left: 5px;" data-i18n-text="extensions">Extensions</h2>
-              <ul id="exts_menu" class="hotot_menu">
+              <ul id="exts_menu" class="hermelin_menu">
                 <li id="exts_menu_empty_hint">
                   <a title="No Extension" href="#" data-i18n-text="no_extension">No Extension</a>
                 </li>
               </ul>
             </div>
           </div>
-          <!-- hotot_menu -->
-          <ul id="slider_menu" class="hotot_menu">
+          <!-- hermelin_menu -->
+          <ul id="slider_menu" class="hermelin_menu">
             <li>
               <a href="#home" data-i18n-text="home_view">Home view</a>
             </li>
@@ -666,11 +666,11 @@
           </div>
           <!-- END of prefs_behavior-->
           <div id='prefs_system' class="prefs_dlg_page dialog_page">
-            <div class="dialog_block hint" data-i18n-text="globals_restart_hint">You MUST restart Hotot for some changes below to take effect. And these options will affect ALL accounts</div>
+            <div class="dialog_block hint" data-i18n-text="globals_restart_hint">You MUST restart Hermelin for some changes below to take effect. And these options will affect ALL accounts</div>
             <ul class="mochi_list summon_list">
               <li class="mochi_list_item">
-                <input id="tbox_prefs_shortcut_summon_hotot" title="Summon Hot Key" placeholder="e.g. <ALT>H" data-i18n-placeholder="eg_alt_h" type="text" class="mochi_entry widget" />
-                <label class="label" data-i18n-text="summon_hotot">Summon Hotot</label>
+                <input id="tbox_prefs_shortcut_summon_hermelin" title="Summon Hot Key" placeholder="e.g. <ALT>H" data-i18n-placeholder="eg_alt_h" type="text" class="mochi_entry widget" />
+                <label class="label" data-i18n-text="summon_hermelin">Summon Hermelin</label>
               </li>
             </ul>
             <ul class="mochi_list proxy_list">
@@ -712,8 +712,8 @@
                 <label for="chk_prefs_context_menu_integration" class="label" data-i18n-text="chrome_context_menu_integration">Chrome context menu integration.</label>
               </li>
               <li class="mochi_list_item exit_when_close">
-                <input id="chk_prefs_close_to_exit" title="Exit Hotot when close main window" type="checkbox" class="mochi_toggle widget" />
-                <label for="chk_prefs_close_to_exit" class="label" data-i18n-text="exit_hotot_when_close_window">Exit Hotot when close main window</label>
+                <input id="chk_prefs_close_to_exit" title="Exit Hermelin when close main window" type="checkbox" class="mochi_toggle widget" />
+                <label for="chk_prefs_close_to_exit" class="label" data-i18n-text="exit_hermelin_when_close_window">Exit Hermelin when close main window</label>
               </li>
               <li class="mochi_list_item">
                 <input id="chk_prefs_sign_in_automatically" title="Automatically Sign in after opening" type="checkbox" class="mochi_toggle widget" />
@@ -729,7 +729,7 @@
               </li>
               <li class="mochi_list_item">
                 <input id="chk_prefs_use_anonymous_stat" title="Let us colloect anonymous statistic information" type="checkbox" class="mochi_toggle widget" />
-                <label for="chk_prefs_use_anonymous_stat" class="label" data-i18n-text="let_hotot_collects_anonymous_statistic_information">Let Hotot collects anonymous statistic information</label>
+                <label for="chk_prefs_use_anonymous_stat" class="label" data-i18n-text="let_hermelin_collects_anonymous_statistic_information">Let Hermelin collects anonymous statistic information</label>
               </li>
             </ul>
           </div>
@@ -858,25 +858,25 @@
           <div id="about_about" class="about_dlg_page">
             <div class="dialog_block">
               <h3>
-                <span data-i18n-text="hotot">Hotot</span>- version
+                <span data-i18n-text="hermelin">Hermelin</span>- version
                 <span class="version"></span>
               </h3>
-              <p data-i18n-text="hotot_description">
-                <strong data-i18n-text="hotot">Hotot</strong>is a lightweight client for the
-                <a target="_blank" href="http://twitter.com">twitter</a>microblogging service.</p>
+              <p data-i18n-text="hermelin_description">
+                <strong data-i18n-text="hermelin">Hermelin</strong>is a lightweight client for the
+                <a target="_blank" href="http://twitter.com">twitter</a>microblogging service. It is a fork of Hotot by Shellex/lyricat</p>
               <p style="text-align:center;">Copyright © 2009-2012 Shellex Wai</p>
               <p data-i18n-text="project_host">Project Host:
-                <a target="_blank" href="https://github.com/shellex/Hotot/">https://github.com/shellex/Hotot/</a>
+                <a target="_blank" href="https://github.com/remhume/Hermelin/">https://github.com/remhume/Hermelin/</a>
               </p>
-              <p data-i18n-text="project_site">Project Site:
+              <p data-i18n-text="project_site">Hotot project Site:
                 <a target="_blank" href="http://hotot.org">http://hotot.org</a>
               </p>
             </div>
             <div class="dialog_block">
               <h3>
-                <span data-i18n-text="donate">Hotot Need Your Help</span>
+                <span data-i18n-text="donate">Hermelin Need Your Help</span>
               </h3>
-              <p data-i18n-text="donate_hint1">To keep Hotot alive and improving, we really need your help.</p>
+              <p data-i18n-text="donate_hint1">To keep Hermelin alive and improving, we really need your help.</p>
               <p style="text-align:center;">
                 <a class="mochi_button blue" target="_blank" href="http://hotot.org/about#donate">Donate!</a>
               </p>
@@ -897,7 +897,7 @@
                       <th class="sub" colspan="2" data-i18n-text="global">Global</th>
                     </tr>
                     <tr>
-                      <td data-i18n-text="quit_hotot">Quit Hotot</td>
+                      <td data-i18n-text="quit_hermelin">Quit Hermelin</td>
                       <td>&lt;Ctrl&gt;q</td>
                     </tr>
                     <tr>
@@ -1035,7 +1035,7 @@
           <div id="about_license" class="about_dlg_page">
             <div class="dialog_block">
               <h3 data-i18n-text="license">License</h3>
-              <p data-i18n-text="license_text1">Hotot package is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public Licenseas published by the Free Software Foundation; either version3 of the License, or (at your option) any later version.</p>
+              <p data-i18n-text="license_text1">Hermelin package is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public Licenseas published by the Free Software Foundation; either version3 of the License, or (at your option) any later version.</p>
               <p data-i18n-text="license_text2">This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.</p>
               <p data-i18n-text="license_text3">You should have received a copy of the GNU General Public License along with this program. If not, see
                 <a target="_blank" href="http://www.gnu.org/licenses/" />http://www.gnu.org/licenses/</a>.</p>
@@ -1248,8 +1248,8 @@
                     <a href="#" class="kismet_sample">retweet:ABC</a>, drop tweets retweeted by @ABC.</li>
                   <li data-i18n-text="drop_tweets_contain_hash_tag_nowplaying">
                     <a href="#" class="kismet_sample">tag:nowplaying</a>, drop tweets contain hash tag #nowplaying.</li>
-                  <li data-i18n-text="notify_me_if_incoming_tweets_mention_hotot">
-                    <a href="#" class="kismet_sample">mention:hotot do:notify</a>notify me if incoming tweets mention @hotot</li>
+                  <li data-i18n-text="notify_me_if_incoming_tweets_mention_hermelin">
+                    <a href="#" class="kismet_sample">mention:hermelin do:notify</a>notify me if incoming tweets mention @hermelin</li>
                   <li data-i18n-text="mask_tweets_contain_hash_tag_callmemaybe">
                     <a href="#" class="kismet_sample">#callmemaybe do:mask</a>, mask tweets contain hash tag #GossipGirl.</li>
                 </ul>
@@ -1574,10 +1574,10 @@
     </div>
     <section id="action_menu">
       <div id="action_menu_info"></div>
-      <ul class="hotot_menu"></ul>
+      <ul class="hermelin_menu"></ul>
     </section>
     <section id="context_menu">
-      <ul class="hotot_menu">
+      <ul class="hermelin_menu">
         <li>
           <a id="context_menuitem_copy" class="select_only native_only" title="Copy" href="#" data-i18n-text="copy_to_clipboard">Copy to clipboard</a>
         </li>

@@ -39,12 +39,12 @@
 // System
 #include <stdio.h>
 
-// Hotot
+// Hermelin
 #include "mainwindow.h"
 
 void Usage()
 {
-    printf("Usage: hotot-qt [options]\n"
+    printf("Usage: hermelin-qt [options]\n"
            "\t\t-d\tEnable Develope Tool\n"
            "\t\t-h\tShow this help\n"
           );
@@ -56,16 +56,16 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KDE
 
-    KAboutData aboutData("hotot",                                        // internal name
-                         "hotot",                                     // catalog name
-                         ki18n("Hotot"),                            // program name
+    KAboutData aboutData("hermelin",                                        // internal name
+                         "hermelin",                                     // catalog name
+                         ki18n("Hermelin"),                            // program name
                          "0.9.7",                             // app version
                          ki18n("Lightweight, Flexible Microblogging"),  // short description
                          KAboutData::License_GPL_V2,                   // license
                          ki18n("(c) 2009-2012 Shellex Wai\n"),   // copyright
                          KLocalizedString(),
                          "http://www.hotot.org/",                   // home page
-                         "https://github.com/shellex/Hotot/issues"               // address for bugs
+                         "https://github.com/remhume/Hermelin/issues"               // address for bugs
                         );
 
     aboutData.addAuthor(ki18n("Shellex Wai"),       ki18n("Developer and Artwork"), "5h3ll3x@gmail.com");
@@ -90,9 +90,9 @@ int main(int argc, char *argv[])
 #else
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     setlocale(LC_ALL, "");
-    bindtextdomain("hotot", LOCALEDIR);
-    bind_textdomain_codeset("hotot", "UTF-8");
-    textdomain("hotot");
+    bindtextdomain("hermelin", LOCALEDIR);
+    bind_textdomain_codeset("hermelin", "UTF-8");
+    textdomain("hermelin");
 #endif
 #ifdef MEEGO_EDITION_HARMATTAN
     MApplication a(argc, argv);

@@ -36,7 +36,7 @@ lib.Network = function Network(argument) {
 
     var blob_arr = [];
 
-    var BOUNDARY = 'HototFormBoundary31415926535897932384626'
+    var BOUNDARY = 'HermelinFormBoundary31415926535897932384626'
     var CRLF = '\r\n'
     var L = [];
     var bytes = [];
@@ -76,7 +76,7 @@ lib.Network = function Network(argument) {
       window.BlobBuilder = window.WebKitBlobBuilder;
     }
     var bb = new BlobBuilder();
-    var BOUNDARY = 'HototFormBoundary31415926535897932384626'
+    var BOUNDARY = 'HermelinFormBoundary31415926535897932384626'
     var CRLF = '\r\n'
     var L = [];
     var bytes = [];
@@ -113,7 +113,7 @@ lib.Network = function Network(argument) {
     if (!req_headers) req_headers = {};
     if (self.py_request || (req_files && req_files.constructor == Array && req_files.length != 0)) {
 
-      hotot_log('Req', JSON.stringify({
+      hermelin_log('Req', JSON.stringify({
         'type': req_method,
         'url': removeTokensFromUrl(req_url),
         'data': req_params,
@@ -123,7 +123,7 @@ lib.Network = function Network(argument) {
       var task_uuid = self.generate_uuid();
       self.success_task_table[task_uuid] = on_success;
       self.error_task_table[task_uuid] = on_error;
-      hotot_action('request/' +
+      hermelin_action('request/' +
         encodeURIComponent(JSON.stringify({
         uuid: task_uuid,
         method: req_method,
@@ -137,7 +137,7 @@ lib.Network = function Network(argument) {
       self.success_task_table[task_uuid] = on_success;
       self.error_task_table[task_uuid] = on_error;
 
-      hotot_log('Req', JSON.stringify({
+      hermelin_log('Req', JSON.stringify({
         'type': req_method,
         'url': removeTokensFromUrl(req_url),
         'data': req_params

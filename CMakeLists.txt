@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 cmake_policy(SET CMP0002 OLD)
-project(hotot NONE)
+project(hermelin NONE)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
 find_package(Gettext REQUIRED)
@@ -44,7 +44,7 @@ configure_file(
 add_custom_target(uninstall
   COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 
-function(hotot_convert_flags __flags_var __defs_var)
+function(hermelin_convert_flags __flags_var __defs_var)
   get_directory_property(_old_flags COMPILE_FLAGS)
   get_directory_property(_old_defs COMPILE_DEFINITIONS)
   set_directory_properties(PROPERTIES
@@ -65,38 +65,38 @@ endif()
 if(WITH_GTK OR WITH_GTK2 OR WITH_GTK3)
   find_package(PythonLibrary REQUIRED)
   if(NOT PYTHONLIBRARY_FOUND)
-    message(FATAL_ERROR "GTK Wrapper for Hotot need python")
+    message(FATAL_ERROR "GTK Wrapper for Hermelin needs python")
   endif()
   include(PythonMacros)
   # for backword compatibility, if none of GTK2 or GTK3 is manually set
-  # we will still use the old binary name instead of hotot-gtk{2,3}
+  # we will still use the old binary name instead of hermelin-gtk{2,3}
   if(WITH_GTK2 OR WITH_GTK3)
-    set(HOTOT_GTK_OLD_NAME Off)
+    set(HERMELIN_GTK_OLD_NAME Off)
   else()
-    set(HOTOT_GTK_OLD_NAME On)
+    set(HERMELIN_GTK_OLD_NAME On)
   endif()
 
-  function(hotot_gtk_build suffix HOTOT_GTK_NAME dir)
-    if(HOTOT_GTK_OLD_NAME)
-      set(HOTOT_BIN_NAME "hotot")
-      set(HOTOT_PY_NAME "hotot")
+  function(hermelin_gtk_build suffix HERMELIN_GTK_NAME dir)
+    if(HERMELIN_GTK_OLD_NAME)
+      set(HERMELIN_BIN_NAME "hermelin")
+      set(HERMELIN_PY_NAME "hermelin")
     else()
-      set(HOTOT_BIN_NAME "hotot-${suffix}")
-      set(HOTOT_PY_NAME "hotot_${suffix}")
+      set(HERMELIN_BIN_NAME "hermelin-${suffix}")
+      set(HERMELIN_PY_NAME "hermelin_${suffix}")
     endif()
-    set(hotot_bin "${CMAKE_CURRENT_BINARY_DIR}/scripts/${HOTOT_BIN_NAME}")
+    set(hermelin_bin "${CMAKE_CURRENT_BINARY_DIR}/scripts/${HERMELIN_BIN_NAME}")
     configure_file("${CMAKE_CURRENT_SOURCE_DIR}/scripts/hotot.in"
-      "${hotot_bin}" @ONLY)
-    install(PROGRAMS "${hotot_bin}" DESTINATION bin)
+      "${hermelin_bin}" @ONLY)
+    install(PROGRAMS "${hermelin_bin}" DESTINATION bin)
     add_subdirectory("${dir}")
-    configure_file("misc/hotot-${suffix}.desktop.in.in"
-      "misc/${HOTOT_BIN_NAME}.desktop.in")
+    configure_file("misc/hermelin-${suffix}.desktop.in.in"
+      "misc/${HERMELIN_BIN_NAME}.desktop.in")
     intltool_merge_translation(
-      "${CMAKE_CURRENT_BINARY_DIR}/misc/${HOTOT_BIN_NAME}.desktop.in"
-      "${CMAKE_CURRENT_BINARY_DIR}/misc/${HOTOT_BIN_NAME}.desktop")
-    add_custom_target("desktopfile-${HOTOT_BIN_NAME}" ALL
-      DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/misc/${HOTOT_BIN_NAME}.desktop")
-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/misc/${HOTOT_BIN_NAME}.desktop"
+      "${CMAKE_CURRENT_BINARY_DIR}/misc/${HERMELIN_BIN_NAME}.desktop.in"
+      "${CMAKE_CURRENT_BINARY_DIR}/misc/${HERMELIN_BIN_NAME}.desktop")
+    add_custom_target("desktopfile-${HERMELIN_BIN_NAME}" ALL
+      DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/misc/${HERMELIN_BIN_NAME}.desktop")
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/misc/${HERMELIN_BIN_NAME}.desktop"
       DESTINATION share/applications/)
   endfunction()
 
@@ -106,10 +106,10 @@ if(WITH_GTK OR WITH_GTK2 OR WITH_GTK3)
     set(WITH_GTK2 On)
   endif()
   if(WITH_GTK2)
-    hotot_gtk_build(gtk2 Gtk2 hotot)
+    hermelin_gtk_build(gtk2 Gtk2 hermelin)
   endif()
   if(WITH_GTK3)
-    hotot_gtk_build(gtk3 Gtk3 hotot-gir)
+    hermelin_gtk_build(gtk3 Gtk3 hermelin-gir)
   endif()
 endif()
 

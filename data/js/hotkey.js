@@ -43,7 +43,7 @@ hotkey = {
 
     var isFocusOnInput = (/^INPUT$|^TEXTAREA$/.test(event.target.tagName)) && $(event.target).is(':visible');
     var isViewVisible = globals.signed_in;
-    var isMenuVisible = $(".hotot_menu:visible").length > 0;
+    var isMenuVisible = $(".hermelin_menu:visible").length > 0;
 
     var etype = event.type[3].toUpperCase();
     var mi = null,

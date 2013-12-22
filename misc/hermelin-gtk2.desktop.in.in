@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=Hermelin Gtk2
+_GenericName=Hermelin Twitter Client
+_X-GNOME-FullName=Hermelin Twitter Client
+Type=Application
+_Comment=Lightweight Twitter client based on Gtk2 and WebKit
+Exec=@HERMELIN_BIN_NAME@
+Icon=hermelin
+Categories=GTK;GNOME;Network;
+X-GNOME-Gettext-Domain=hermelin

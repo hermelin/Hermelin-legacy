@@ -303,7 +303,7 @@
     "message": "উদাহরণসমূহ",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
+  "exit_hermelin_when_close_window": {
     "message": "উইন্ডোটি বন্ধ করলে হটট ত্যাগ করুন",
     "description": "data/index.html"
   },
@@ -427,11 +427,11 @@
     "message": "হোস্ট",
     "description": "data/index.html"
   },
-  "hotot": {
+  "hermelin": {
     "message": "হটট",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,7 +491,7 @@
     "message": "ভাষা",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
+  "let_hermelin_collects_anonymous_statistic_information": {
     "message": "হটটকে কিছু পরিসংখ্যানগত তথ্য সংগ্রহ করতে দিন",
     "description": "data/index.html"
   },
@@ -671,7 +671,7 @@
     "message": "নির্দেশনা",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,7 +839,7 @@
     "message": "দ্রুত পছন্দসমূহ",
     "description": "data/index.html"
   },
-  "quit_hotot": {
+  "quit_hermelin": {
     "message": "হটট ত্যাগ করুন",
     "description": "data/index.html"
   },
@@ -1083,8 +1083,8 @@
     "message": "সফলভাবে",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "summon hotot (like: <ALT>C)",
+  "summon_hermelin": {
+    "message": "summon hermelin (like: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

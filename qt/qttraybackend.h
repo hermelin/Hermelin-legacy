@@ -23,7 +23,7 @@
 // Qt
 #include <QSystemTrayIcon>
 
-// Hotot
+// Hermelin
 #include "trayiconinterface.h"
 
 class QtTrayBackend : public QObject,

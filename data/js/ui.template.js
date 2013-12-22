@@ -286,7 +286,7 @@ ui.Template = {
         </li><li class="people_action_more_trigger"> \
             <a class="vcard_more mochi_button" \
                 href="#">{%TRANS_more_actions%} &#x25BE;</a> \
-            <ul class="people_action_more_memu hotot_menu">\
+            <ul class="people_action_more_memu hermelin_menu">\
                 <li><a class="mention_menu_item" \
                     title="Mention them"\
                     href="#">{%TRANS_mention_them%}</a>\
@@ -320,7 +320,7 @@ ui.Template = {
         <a class="people_view_fav_btn mochi_button_group_item" href="#fav">{%TRANS_favs%}</a> \
         </li><li class="people_view_people_trigger"> \
         <a class="people_view_people_btn mochi_button_group_item" href="#people">{%TRANS_fellowship%} &#x25BE;</a> \
-        <ul class="people_menu hotot_menu">\
+        <ul class="people_menu hermelin_menu">\
             <li><a class="followers_menu_item" \
                 title="People who follow them."\
                 href="#">{%TRANS_followers%}</a>\
@@ -332,7 +332,7 @@ ui.Template = {
         </li><li class="people_view_list_trigger"> \
         <a class="people_view_list_btn mochi_button_group_item" href="#list">{%TRANS_lists%} &#x25BE;\
         </a> \
-        <ul class="lists_menu hotot_menu">\
+        <ul class="lists_menu hermelin_menu">\
             <li><a class="user_lists_menu_item" \
                 title="Lists of Them"\
                 href="#">{%TRANS_lists_of_them%}</a>\
@@ -441,7 +441,7 @@ ui.Template = {
         <div id="saved_searches_more_trigger" style="display:none;">\
             <a id="saved_searches_btn" class="vcard_more mochi_button" \
                 href="#"> &#x25BE;</a> \
-            <ul id="saved_searches_more_menu" class="hotot_menu">\
+            <ul id="saved_searches_more_menu" class="hermelin_menu">\
                 <li><a class="" \
                     title="Clear ALL"\
                     href="#" data-i18n-title="clear_all" data-i18n-text="clear_all">Clear All</a>\
@@ -931,7 +931,7 @@ ui.Template = {
 
     if (tweet_obj.entities && tweet_obj.entities.user_mentions) {
       for (var i = 0, l = tweet_obj.entities.user_mentions.length; i < l; i += 1) {
-        // hotot_log('form_tweet', 'user mention: ' + tweet_obj.entities.user_mentions[i].screen_name);
+        // hermelin_log('form_tweet', 'user mention: ' + tweet_obj.entities.user_mentions[i].screen_name);
         var screen_name = tweet_obj.entities.user_mentions[i].screen_name;
         var name = tweet_obj.entities.user_mentions[i].name.replace(/"/g, '&quot;');
         var reg_ulink = new RegExp('>(' + screen_name + ')<', 'ig');
@@ -946,7 +946,7 @@ ui.Template = {
 
       var re = /\<a class=\"who_href\" href=\"[^"]*\"\>([^<]*)\<\/a\>/gi
       text = text.replace(re, '$1');
-      // hotot_log('form_tweet', 'resulting text: ' + text);
+      // hermelin_log('form_tweet', 'resulting text: ' + text);
     }
     var nametype = conf.get_current_profile().preferences.name;
 
@@ -1348,7 +1348,7 @@ ui.Template = {
   // some modifications. from_tweet will search for the a-tags added in this
   // function, to do the modifications.
   form_text: function form_text(tweet) {
-    //hotot_log('form_text in', tweet.text);
+    //hermelin_log('form_text in', tweet.text);
     var text = ui.Template.convert_chars(tweet.text);
     text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
       if (url.length > 51) url_short = url.substring(0, 48) + '...';
@@ -1370,7 +1370,7 @@ ui.Template = {
     if (conf.get_current_profile().preferences.use_media_preview) {
       text += '<div class="preview">' + ui.Template.form_preview(tweet) + '</div>';
     }
-    //hotot_log('form_text out', text);
+    //hermelin_log('form_text out', text);
     return text;
   },
 

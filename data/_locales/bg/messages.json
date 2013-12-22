@@ -303,8 +303,8 @@
     "message": "Примери",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Спри Hotot при затваряне на прозореца",
+  "exit_hermelin_when_close_window": {
+    "message": "Спри Hermelin при затваряне на прозореца",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Трябва да рестартирате Hotot за да се приложат някои от промените. Това ще засегне ВСИЧКИ акаунти.",
+    "message": "Трябва да рестартирате Hermelin за да се приложат някои от промените. Това ще засегне ВСИЧКИ акаунти.",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,12 +427,12 @@
     "message": "",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
-    "message": "Описание на Hotot",
+  "hermelin_description": {
+    "message": "Описание на Hermelin",
     "description": "data/index.html"
   },
   "image_uploader": {
@@ -491,8 +491,8 @@
     "message": "Език",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Разреши Hotot да събира анонимно статистическа информация",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Разреши Hermelin да събира анонимно статистическа информация",
     "description": "data/index.html"
   },
   "license": {
@@ -671,8 +671,8 @@
     "message": "Уведоми",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
-    "message": "Уведоми ме за туитове, споменаващи hotot",
+  "notify_me_if_incoming_tweets_mention_hermelin": {
+    "message": "Уведоми ме за туитове, споменаващи hermelin",
     "description": "data/index.html"
   },
   "oauth_base": {
@@ -839,8 +839,8 @@
     "message": "Бързи препратки",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Напусни Hotot",
+  "quit_hermelin": {
+    "message": "Напусни Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Успешно",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Summon Hotot (like: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Summon Hermelin (like: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

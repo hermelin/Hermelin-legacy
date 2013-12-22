@@ -23,7 +23,7 @@
 // Qt
 #include <QPoint>
 
-// Hotot
+// Hermelin
 #include "trayiconinterface.h"
 
 class KStatusNotifierItem;

@@ -13,7 +13,7 @@ function TwitterClient() {
   self.upload_api_base = 'https://upload.twitter.com/1/';
 
   self.use_same_sign_api_base = true;
-  self.source = 'Hotot';
+  self.source = 'Hermelin';
 
   self.oauth = null;
   self.network = null;
@@ -61,7 +61,7 @@ function TwitterClient() {
     switch (self.default_error_method) {
     case 'notify':
       if (xhr.status !== 0) {
-        hotot_notify('Ooops, An Error Occurred!', msg + '\n' + tech_info, null, 'content');
+        hermelin_notify('Ooops, An Error Occurred!', msg + '\n' + tech_info, null, 'content');
       } else {
         toast.set('Lost Connection').show(1);
       }
@@ -75,7 +75,7 @@ function TwitterClient() {
     default:
       break;
     }
-    hotot_log('Error #' + xhr.status + ',' + xhr.statusText, msg + ' ' + url);
+    hermelin_log('Error #' + xhr.status + ',' + xhr.statusText, msg + ' ' + url);
     return;
   };
 
@@ -797,31 +797,31 @@ function TwitterClient() {
     url = url + '?' + signed_params;
     params = {};
 
-    hotot_log('Streams Open', removeTokensFromUrl(url));
+    hermelin_log('Streams Open', removeTokensFromUrl(url));
 
     var xhr = new XMLHttpRequest();
     watch_user_streams.xhr = xhr;
     xhr.open('GET', url, true);
-    xhr.setRequestHeader('X-User-Agent', 'Hotot');
+    xhr.setRequestHeader('X-User-Agent', 'Hermelin');
     try {
-      xhr.setRequestHeader('User-Agent', 'Hotot');
+      xhr.setRequestHeader('User-Agent', 'Hermelin');
     } catch (e) {}
     xhr.createAt = new Date().toLocaleString();
     xhr.onabort = xhr.onerror = function () {
       if (xhr.status == 401 || xhr.status == 407) {
-        hotot_log('Streams XHR', 'OAuth error');
+        hermelin_log('Streams XHR', 'OAuth error');
         watch_user_streams.disable = true;
       }
       if (xhr.status == 420) {
-        hotot_log('Streams XHR', '420 error');
+        hermelin_log('Streams XHR', '420 error');
         watch_user_streams.is_running = false;
       }
       watch_user_streams.is_running = false;
-      hotot_log('Streams Exit', xhr.createAt + ' -> ' + new Date().toLocaleString());
+      hermelin_log('Streams Exit', xhr.createAt + ' -> ' + new Date().toLocaleString());
     }
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 2 && xhr.status === 200) {
-        hotot_log('Streams Start', 'Connected');
+        hermelin_log('Streams Start', 'Connected');
       } else if (xhr.readyState === 3) {
         // Receiving
 
@@ -829,7 +829,7 @@ function TwitterClient() {
         watch_user_streams.last_text_length = xhr.responseText.length;
         // limit xhr.responseText length & abort 
         if (xhr.responseText.length > 500000) {
-          hotot_log('Streams Rec', xhr.responseText.length);
+          hermelin_log('Streams Rec', xhr.responseText.length);
           setTimeout(function () {
             xhr.abort();
           },
@@ -837,7 +837,7 @@ function TwitterClient() {
         }
         // empty reply, twitter use newline to keep stream alive
         if (empty_tester.test(newText)) {
-          hotot_log('Streams XHR', 'Got nothing useful');
+          hermelin_log('Streams XHR', 'Got nothing useful');
           return;
         }
         if (callback) {
@@ -859,7 +859,7 @@ function TwitterClient() {
                 } catch (e) {
                   // The log is disabled to not trigger
                   // irritations with users
-                  // hotot_log('Streams XHR', e.message + '\n' + line);
+                  // hermelin_log('Streams XHR', e.message + '\n' + line);
                   // store the interrupted response for later
                   // processing
                   interrupted_response = newText;
@@ -878,7 +878,7 @@ function TwitterClient() {
         }
 
       } else if (xhr.readyState === 4) {
-        hotot_log('Streams End', 'Connection completed');
+        hermelin_log('Streams End', 'Connection completed');
       }
 
     }
@@ -899,7 +899,7 @@ function TwitterClient() {
           obj = JSON.parse(xhr.responseText)
         } catch (e) {}
         if (obj) {
-          hotot_log('Streaming', obj.id_str + "," + obj.user.screen_name + ":" + obj.text)
+          hermelin_log('Streaming', obj.id_str + "," + obj.user.screen_name + ":" + obj.text)
         }
       }
     }

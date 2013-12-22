@@ -1,6 +1,6 @@
 if (typeof ui == 'undefined') var ui = {};
 ui.Header = {
-  isHototMenuClosed: true,
+  isHermelinMenuClosed: true,
   init: function init() {
     $('#btn_my_profile').click(function (event) {
       open_people(globals.myself.screen_name);
@@ -10,12 +10,12 @@ ui.Header = {
     });
 
     $('#btn_my_profile').mouseleave(function (event) {
-      ui.Header.closeHototMenu();
+      ui.Header.closeHermelinMenu();
       globals.ratelimit_bubble.hide();
     });
 
-    $('#hotot_menu').mouseleave(function (event) {
-      ui.Header.closeHototMenu();
+    $('#hermelin_menu').mouseleave(function (event) {
+      ui.Header.closeHermelinMenu();
     });
 
     $('#btn_reload').click(function (event) {
@@ -52,21 +52,21 @@ ui.Header = {
     });
   },
 
-  openHototMenu: function openHototMenu() {
-    $('#hotot_button').addClass('hlight');
-    $('#hotot_menu').show();
-    ui.Header.isHototMenuClosed = false;
+  openHermelinMenu: function openHermelinMenu() {
+    $('#hermelin_button').addClass('hlight');
+    $('#hermelin_menu').show();
+    ui.Header.isHermelinMenuClosed = false;
   },
 
-  closeHototMenu: function closeHototMenu() {
-    $('#hotot_button').removeClass('hlight');
-    $('#hotot_menu').hide();
-    ui.Header.isHototMenuClosed = true;
+  closeHermelinMenu: function closeHermelinMenu() {
+    $('#hermelin_button').removeClass('hlight');
+    $('#hermelin_menu').hide();
+    ui.Header.isHermelinMenuClosed = true;
   },
 
   closeAll: function closeAll() {
     ui.Slider.closeSliderMenu();
-    ui.Header.closeHototMenu();
+    ui.Header.closeHermelinMenu();
     ui.Main.closeTweetMoreMenu();
   }
 

@@ -4,11 +4,11 @@
     "description": "data/index.html"
   },
   "about": {
-    "message": "Hototについて",
+    "message": "Hermelinについて",
     "description": ""
   },
   "about_and_help": {
-    "message": "Hototについて・ヘルプ",
+    "message": "Hermelinについて・ヘルプ",
     "description": ""
   },
   "access_token_doesnt_exist": {
@@ -303,8 +303,8 @@
     "message": "例",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "ウィンドウを閉じる際にHototも終了する",
+  "exit_hermelin_when_close_window": {
+    "message": "ウィンドウを閉じる際にHermelinも終了する",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Hototの再起動後に設定が有効になります",
+    "message": "Hermelinの再起動後に設定が有効になります",
     "description": ""
   },
   "greeting": {
@@ -427,12 +427,12 @@
     "message": "ホスト",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": ""
   },
-  "hotot_description": {
-    "message": "Hototの詳細",
+  "hermelin_description": {
+    "message": "Hermelinの詳細",
     "description": "data/index.html"
   },
   "image_uploader": {
@@ -491,8 +491,8 @@
     "message": "言語",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Hototによる匿名の統計データ収集を許可する",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Hermelinによる匿名の統計データ収集を許可する",
     "description": "data/index.html"
   },
   "license": {
@@ -671,8 +671,8 @@
     "message": "通知システム",
     "description": ""
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
-    "message": "Hototのツイートがあった場合に通知する",
+  "notify_me_if_incoming_tweets_mention_hermelin": {
+    "message": "Hermelinのツイートがあった場合に通知する",
     "description": "data/index.html"
   },
   "oauth_base": {
@@ -839,8 +839,8 @@
     "message": "クイックリファレンス",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Hototを終了",
+  "quit_hermelin": {
+    "message": "Hermelinを終了",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "完成",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Hototを呼び出す",
+  "summon_hermelin": {
+    "message": "Hermelinを呼び出す",
     "description": ""
   },
   "supervised_by": {

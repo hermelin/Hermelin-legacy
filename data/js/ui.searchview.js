@@ -121,9 +121,9 @@ ui.SearchView = {
     /* sample response
     "max_id": 84559462639222784,
     "since_id": 0,
-    "previous_page": "?page=1&max_id=84559462639222784&q=hotot",
-    "refresh_url": "?since_id=84559462639222784&q=hotot",
-    "next_page": "?page=3&max_id=84559462639222784&q=hotot",
+    "previous_page": "?page=1&max_id=84559462639222784&q=hermelin",
+    "refresh_url": "?since_id=84559462639222784&q=hermelin",
+    "next_page": "?page=3&max_id=84559462639222784&q=hermelin",
     */
     if ($.trim(view.query).length == 0) {
       fail(view, {

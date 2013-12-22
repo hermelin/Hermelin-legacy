@@ -4,7 +4,7 @@ if ("${REL_SOURCE_ROOT}" STREQUAL "")
     set(REL_SOURCE_ROOT ".")
 endif("${REL_SOURCE_ROOT}" STREQUAL "")
 
-set(POT_FILE hotot.pot)
+set(POT_FILE hermelin.pot)
 
 configure_file(POTFILES.in.in ${CMAKE_CURRENT_BINARY_DIR}/POTFILES.in)
 find_program(INTLTOOL_EXTRACT intltool-extract)
@@ -14,7 +14,7 @@ set(XGETTEXT_ARGS "--from-code=UTF-8 -C -kde -ci18n -k_ -ki18n:1 -ki18nc:1c,2 -k
 
 add_custom_target(
     pot
-    COMMAND sh -c "XGETTEXT_ARGS=\"${XGETTEXT_ARGS}\" INTLTOOL_EXTRACT=${INTLTOOL_EXTRACT} srcdir=${CMAKE_CURRENT_BINARY_DIR} ${INTLTOOL_UPDATE} --gettext-package hotot --pot"
+    COMMAND sh -c "XGETTEXT_ARGS=\"${XGETTEXT_ARGS}\" INTLTOOL_EXTRACT=${INTLTOOL_EXTRACT} srcdir=${CMAKE_CURRENT_BINARY_DIR} ${INTLTOOL_UPDATE} --gettext-package hermelin --pot"
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
 

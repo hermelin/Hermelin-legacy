@@ -51,12 +51,12 @@ ui.Slider = {
         } else {
           ui.StatusBox.close();
         }
-      } else if (view_name == 'hotot') {
-        if (ui.Header.isHototMenuClosed) {
+      } else if (view_name == 'hermelin') {
+        if (ui.Header.isHermelinMenuClosed) {
           ui.Header.closeAll();
-          ui.Header.openHototMenu();
+          ui.Header.openHermelinMenu();
         } else {
-          ui.Header.closeHototMenu();
+          ui.Header.closeHermelinMenu();
         }
       } else {
         if (ui.Slider.current == view_name) {

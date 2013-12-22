@@ -303,8 +303,8 @@
     "message": "Examples",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Exit Hotot when close window",
+  "exit_hermelin_when_close_window": {
+    "message": "Exit Hermelin when close window",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "You MUST restart Hotot for some changes below to take effect. And these changes will affect ALL accounts",
+    "message": "You MUST restart Hermelin for some changes below to take effect. And these changes will affect ALL accounts",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "Language",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Let Hotot collects anonymous statistic information",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Let Hermelin collects anonymous statistic information",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "Notify",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "Quick References",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Quit Hotot",
+  "quit_hermelin": {
+    "message": "Quit Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Successfully",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Summon Hotot (like: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Summon Hermelin (like: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

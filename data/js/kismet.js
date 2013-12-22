@@ -358,7 +358,7 @@ var kismet = {
   do_notify: function do_notify(rule, act, incoming) {
     var user = incoming.hasOwnProperty('user') ?
       incoming.user : incoming.sender;
-    hotot_notify(user.screen_name, incoming.text, user.profile_image_url, 'content');
+    hermelin_notify(user.screen_name, incoming.text, user.profile_image_url, 'content');
   },
 
   do_archive: function do_archive(rule, act, incoming) {

@@ -179,7 +179,7 @@ util = {
       if (i == 10) break;
       i += 1;
     }
-    hotot_log('TraceBack', '\n-------------\n  ' + callstack.join('\n-------------\n  '));
+    hermelin_log('TraceBack', '\n-------------\n  ' + callstack.join('\n-------------\n  '));
   },
 
   cache_avatar: function (user_obj) {
@@ -187,7 +187,7 @@ util = {
       var imgurl = user_obj.profile_image_url;
       var imgname = imgurl.substring(imgurl.lastIndexOf('/') + 1);
       var avatar_file = user_obj.screen_name + '_' + imgname;
-      hotot_action('action/save_avatar/' + encodeURIComponent(imgurl) + '/' + encodeURIComponent(avatar_file));
+      hermelin_action('action/save_avatar/' + encodeURIComponent(imgurl) + '/' + encodeURIComponent(avatar_file));
     });
   },
 

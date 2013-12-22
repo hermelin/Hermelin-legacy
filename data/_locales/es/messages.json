@@ -303,9 +303,9 @@
     "description": "data/index.html",
     "message": "Ejemplos"
   },
-  "exit_hotot_when_close_window": {
+  "exit_hermelin_when_close_window": {
     "description": "data/index.html",
-    "message": "Salir de Hotot al cerrar la ventana"
+    "message": "Salir de Hermelin al cerrar la ventana"
   },
   "extensions": {
     "description": "data/index.html",
@@ -393,7 +393,7 @@
   },
   "globals_restart_hint": {
     "description": "data/index.html",
-    "message": "DEBES reiniciar Hotot para que algunos cambios tengan efecto. Estos cambios afectaran a TODAS las cuentas"
+    "message": "DEBES reiniciar Hermelin para que algunos cambios tengan efecto. Estos cambios afectaran a TODAS las cuentas"
   },
   "greeting": {
     "description": "data/index.html",
@@ -427,11 +427,11 @@
     "description": "data/index.html",
     "message": ""
   },
-  "hotot": {
+  "hermelin": {
     "description": "data/index.html",
-    "message": "Hotot"
+    "message": "Hermelin"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "description": "data/index.html",
     "message": ""
   },
@@ -491,9 +491,9 @@
     "description": "data/index.html",
     "message": "Idioma"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
+  "let_hermelin_collects_anonymous_statistic_information": {
     "description": "data/index.html",
-    "message": "Permitir a Hotot enviar informaci\u00F3n an\u00F3nima"
+    "message": "Permitir a Hermelin enviar informaci\u00F3n an\u00F3nima"
   },
   "license": {
     "description": "data/index.html",
@@ -671,7 +671,7 @@
     "description": "data/index.html",
     "message": "Notificar"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "description": "data/index.html",
     "message": ""
   },
@@ -839,9 +839,9 @@
     "description": "data/index.html",
     "message": "Referencias r\u00E1pidas"
   },
-  "quit_hotot": {
+  "quit_hermelin": {
     "description": "data/index.html",
-    "message": "Cerrar Hotot"
+    "message": "Cerrar Hermelin"
   },
   "quote": {
     "description": "data/index.html",
@@ -1083,9 +1083,9 @@
     "description": "data/js/ui.main.js",
     "message": "Exitosamente"
   },
-  "summon_hotot": {
+  "summon_hermelin": {
     "description": "data/index.html",
-    "message": "Invocar Hotot (ejemplo: \u003CALT\u003EC)"
+    "message": "Invocar Hermelin (ejemplo: \u003CALT\u003EC)"
   },
   "supervised_by": {
     "description": "data/index.html",

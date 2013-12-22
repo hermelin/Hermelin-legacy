@@ -303,8 +303,8 @@
     "message": "Παραδείγματα",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "Έξοδος από το Hotot όταν κλίνει το παράθυρο",
+  "exit_hermelin_when_close_window": {
+    "message": "Έξοδος από το Hermelin όταν κλίνει το παράθυρο",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "Πρέπει να γίνει επανεκκίνηση του Hotot για να λάβουν χώρα μερικές από τις παρακάτω αλλαγές. Αυτές οι αλλαγές θα επηρεάσουν ΟΛΟΥΣ τους λογαριασμούς",
+    "message": "Πρέπει να γίνει επανεκκίνηση του Hermelin για να λάβουν χώρα μερικές από τις παρακάτω αλλαγές. Αυτές οι αλλαγές θα επηρεάσουν ΟΛΟΥΣ τους λογαριασμούς",
     "description": "data/index.html"
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "Hermelin",
     "description": "data/index.html"
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "Γλώσσα",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "Επιτρέψτε στο Hotot να συλέγει ανόνυμες στατιστικές πληροφορίες",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "Επιτρέψτε στο Hermelin να συλέγει ανόνυμες στατιστικές πληροφορίες",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "Ειδοποίηση",
     "description": "data/index.html"
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "Quick References",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "Έξοδος από το Hotot",
+  "quit_hermelin": {
+    "message": "Έξοδος από το Hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "Επιτυχώς",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "Καλέστε το Hotot (όπως: <ALT>C)",
+  "summon_hermelin": {
+    "message": "Καλέστε το Hermelin (όπως: <ALT>C)",
     "description": "data/index.html"
   },
   "supervised_by": {

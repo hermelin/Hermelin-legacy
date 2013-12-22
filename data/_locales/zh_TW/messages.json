@@ -303,8 +303,8 @@
     "message": "範例",
     "description": "data/index.html"
   },
-  "exit_hotot_when_close_window": {
-    "message": "關閉視窗時退出 Hotot",
+  "exit_hermelin_when_close_window": {
+    "message": "關閉視窗時退出 hermelin",
     "description": "data/index.html"
   },
   "extensions": {
@@ -392,7 +392,7 @@
     "description": "data/index.html"
   },
   "globals_restart_hint": {
-    "message": "請在修改本頁選項後重啟Hotot來生效。對了，本頁選項會影響所有帳號噢。",
+    "message": "請在修改本頁選項後重啟hermelin來生效。對了，本頁選項會影響所有帳號噢。",
     "description": ""
   },
   "greeting": {
@@ -427,11 +427,11 @@
     "message": "主機名稱",
     "description": "data/index.html"
   },
-  "hotot": {
-    "message": "Hotot",
+  "hermelin": {
+    "message": "hermelin",
     "description": ""
   },
-  "hotot_description": {
+  "hermelin_description": {
     "message": "",
     "description": "data/index.html"
   },
@@ -491,8 +491,8 @@
     "message": "語言",
     "description": "data/index.html"
   },
-  "let_hotot_collects_anonymous_statistic_information": {
-    "message": "讓Hotot收集匿名統計資訊",
+  "let_hermelin_collects_anonymous_statistic_information": {
+    "message": "讓hermelin收集匿名統計資訊",
     "description": "data/index.html"
   },
   "license": {
@@ -671,7 +671,7 @@
     "message": "通知",
     "description": ""
   },
-  "notify_me_if_incoming_tweets_mention_hotot": {
+  "notify_me_if_incoming_tweets_mention_hermelin": {
     "message": "",
     "description": "data/index.html"
   },
@@ -839,8 +839,8 @@
     "message": "快速參考",
     "description": "data/index.html"
   },
-  "quit_hotot": {
-    "message": "退出Hotot",
+  "quit_hermelin": {
+    "message": "退出hermelin",
     "description": "data/index.html"
   },
   "quote": {
@@ -1083,8 +1083,8 @@
     "message": "成功了呢！",
     "description": "data/js/ui.main.js"
   },
-  "summon_hotot": {
-    "message": "召喚Hotot 『譬如: C'",
+  "summon_hermelin": {
+    "message": "召喚hermelin 『譬如: C'",
     "description": ""
   },
   "supervised_by": {

@@ -1,53 +1,53 @@
 tabChangedHandler = (tab) ->
   if tab.url.indexOf(chrome.extension.getURL("index.html")) != -1
-    if root._hototTab
-      if tab.id != root._hototTab.id
+    if root._hermelinTab
+      if tab.id != root._hermelinTab.id
         # Duplicate, ues the first one
-        showHototTab()
+        showHermelinTab()
     else
-      root._hototTab = tab
+      root._hermelinTab = tab
   return
 
 
 sharePage = (info, tab) ->
-  shareWithHotot(tab.title + ' ' + info.pageUrl)
+  shareWithHermelin(tab.title + ' ' + info.pageUrl)
   return
 
 shareSelection = (info, tab) ->
-  shareWithHotot("\"#{info.selectionText}\" via: #{info.pageUrl}")
+  shareWithHermelin("\"#{info.selectionText}\" via: #{info.pageUrl}")
   return
 
 shareLink = (info, tab) ->
   # console.log("item " + info.menuItemId + " was clicked")
   # console.log("info: " + JSON.stringify(info))
   # console.log("tab: " + JSON.stringify(tab))
-  shareWithHotot(info.linkUrl)
+  shareWithHermelin(info.linkUrl)
   return
 
 getActiveWindow = () ->
   views = chrome.extension.getViews()
   for v in views
-    if v.location.href == root._hototTab.url
+    if v.location.href == root._hermelinTab.url
       return v
   return null
 
-showHototTab = () ->
-  if root._hototTab
+showHermelinTab = () ->
+  if root._hermelinTab
     proc = (c) ->
       c.focused ? chrome.windows.update(c.id, {
         focused: true
       })
       return
-    chrome.tabs.get(root._hototTab.id, (c) ->
-      root._hototTab = c
+    chrome.tabs.get(root._hermelinTab.id, (c) ->
+      root._hermelinTab = c
       chrome.windows.get(c.windowId, proc)
     )
-    chrome.tabs.update(root._hototTab.id, {
+    chrome.tabs.update(root._hermelinTab.id, {
       selected: true
     })
   return
 
-shareWithHotot = (str) ->
+shareWithHermelin = (str) ->
   _doShare = () ->
     win = getActiveWindow()
     _testProc = () ->
@@ -66,8 +66,8 @@ shareWithHotot = (str) ->
 
     _testProc()
 
-  if root._hototTab and root._hototTab.id
-    showHototTab()
+  if root._hermelinTab and root._hermelinTab.id
+    showHermelinTab()
     _doShare()
   else
     chrome.tabs.create(
@@ -85,9 +85,9 @@ onTabUpdated = (id, info, tab) ->
   return
 
 onTabRemoved = (id, info) ->
-  if root._hototTab
-    if root._hototTab.id == id
-      root._hototTab = null
+  if root._hermelinTab
+    if root._hermelinTab.id == id
+      root._hermelinTab = null
   return
 
 onExtRequest = (req, sender, response) ->
@@ -103,11 +103,11 @@ install = () ->
   # console.log('install')
   contexts = ["page","selection","link"]
   if root._menuItemSharePageId == null
-    root._menuItemSharePageId = chrome.contextMenus.create({"title": "Share Page with Hotot", "contexts":["page"], "onclick": sharePage})
+    root._menuItemSharePageId = chrome.contextMenus.create({"title": "Share Page with Hermelin", "contexts":["page"], "onclick": sharePage})
   if root._menuItemShareSelId == null
-    root._menuItemShareSelId = chrome.contextMenus.create({"title": "Share Selection with Hotot", "contexts":["selection"], "onclick": shareSelection})
+    root._menuItemShareSelId = chrome.contextMenus.create({"title": "Share Selection with Hermelin", "contexts":["selection"], "onclick": shareSelection})
   if root._menuItemShareLinkId == null
-    root._menuItemShareLinkId = chrome.contextMenus.create({"title": "Share Link with Hotot", "contexts":["link"], "onclick": shareLink})
+    root._menuItemShareLinkId = chrome.contextMenus.create({"title": "Share Link with Hermelin", "contexts":["link"], "onclick": shareLink})
   return
 
 uninstall = () ->
@@ -128,7 +128,7 @@ chrome.tabs.onRemoved.addListener(onTabRemoved)
 chrome.extension.onRequest.addListener(onExtRequest)
 
 root = exports ? this
-root._hototTab = null
+root._hermelinTab = null
 root._install = install
 root._uninstall = uninstall
 root._menuItemSharePageId = null

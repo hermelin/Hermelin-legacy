@@ -149,7 +149,7 @@ ui.PrefsDlg = {
         .attr('checked', conf.settings.context_menu_integration)
         .prop('checked', conf.settings.context_menu_integration);
     }
-    $('#tbox_prefs_shortcut_summon_hotot').attr('value', conf.settings.shortcut_summon_hotot);
+    $('#tbox_prefs_shortcut_summon_hermelin').attr('value', conf.settings.shortcut_summon_hermelin);
     // proxy
     if (util.is_native_platform()) {
       $('#sel_prefs_proxy_type').val(conf.settings.proxy_type);
@@ -176,7 +176,7 @@ ui.PrefsDlg = {
     conf.settings.sign_in_automatically = $('#chk_prefs_sign_in_automatically').prop('checked');
     conf.settings.starts_minimized = $('#chk_prefs_starts_minimized').prop('checked');
     conf.settings.use_anonymous_stat = $('#chk_prefs_use_anonymous_stat').prop('checked');
-    conf.settings.shortcut_summon_hotot = $('#tbox_prefs_shortcut_summon_hotot').val();
+    conf.settings.shortcut_summon_hermelin = $('#tbox_prefs_shortcut_summon_hermelin').val();
     // chrome only
     if (conf.vars.platform === 'Chrome') {
       conf.settings.context_menu_integration = $('#chk_prefs_context_menu_integration').prop('checked');

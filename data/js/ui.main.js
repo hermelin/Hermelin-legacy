@@ -153,7 +153,7 @@ ui.Main = {
     if (self.incoming_num <= 0) {
       return json.length;
     }
-    hotot_log('incoming_num of ' + self.name, self.incoming_num);
+    hermelin_log('incoming_num of ' + self.name, self.incoming_num);
 
     ui.Slider.set_unread(self.name);
     // notify
@@ -166,11 +166,11 @@ ui.Main = {
         if (user.screen_name == globals.myself.screen_name)
           continue;
         text = json[i].text;
-        hotot_notify(user.screen_name, text, user.profile_image_url, 'content');
+        hermelin_notify(user.screen_name, text, user.profile_image_url, 'content');
         notify_count += 1;
       }
       if (3 < notify_count) {
-        hotot_notify("Update page " + self.name, "and " + (notify_count - 2) + " new items remained.", null, 'count');
+        hermelin_notify("Update page " + self.name, "and " + (notify_count - 2) + " new items remained.", null, 'count');
       }
       unread_alert(self.incoming_num);
       if (ui.Main.views[self.name].use_notify_sound) {
@@ -179,7 +179,7 @@ ui.Main = {
     }
     // push state
     if (util.is_native_platform()) {
-      hotot_action('system/incoming/' + self.name + '/' + encodeURIComponent(JSON.stringify(json)))
+      hermelin_action('system/incoming/' + self.name + '/' + encodeURIComponent(JSON.stringify(json)))
     }
     return json.length;
   },
@@ -267,7 +267,7 @@ ui.Main = {
      *   ** Note that as some tweets was retweeted by users, whose appearance is
      *   different, include timestamp, text, screen_name, etc. However, the DOM
      *   id of them are the original id and they have a new DOM attribute
-     *   'retweet_id' which should be used to handle retweeted tweets by Hotot.
+     *   'retweet_id' which should be used to handle retweeted tweets by Hermelin.
      *
      * - Argument container is the jQuery object where the json_obj will be add.
      *   The container.pagename indicate the pagename of the container. If the

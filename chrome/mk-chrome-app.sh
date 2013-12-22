@@ -1,11 +1,11 @@
 #! /bin/sh
 ORIGIN="$1/data/"
 SRC="$2/data/"
-DEST="$2/hotot-chrome/"
+DEST="$2/hermelin-chrome/"
 RSYNC="$3"
 
 if [ ! -x "$3" ]; then
-    echo "hotot-chrome: rsync not found."
+    echo "hermelin-chrome: rsync not found."
     exit 1
 fi
 
@@ -28,8 +28,8 @@ sed -i "s/'consumer_secret': '\w*'/'consumer_secret': 'vt8Dw8a4cnrubcm9E0Zny72YM
 
 echo "\033[1;31;40m[i] Done!\033[0m"
 
-rm -f hotot-chrome.zip
-zip -r hotot-chrome.zip "$DEST"
+rm -f hermelin-chrome.zip
+zip -r hermelin-chrome.zip "$DEST"
 rm -rf "$DEST" "$SRC"
 
 

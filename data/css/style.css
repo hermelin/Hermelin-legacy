@@ -114,7 +114,7 @@ pre {
 #exts_menu_empty_hint {
   display: none;
 }
-#hotot_menu {
+#hermelin_menu {
   text-align: left;
   position: absolute;
   top: 35px;
@@ -156,7 +156,7 @@ pre {
   -moz-box-shadow: 2px 2px 3px #888;
   box-shadow: 2px 2px 3px #888;
 }
-.hotot_menu {
+.hermelin_menu {
   text-align: left;
   padding: 5px 0;
   right: 0;
@@ -169,18 +169,18 @@ pre {
   -moz-box-shadow: 1px 1px 5px #333;
   box-shadow: 1px 1px 5px #333;
 }
-.hotot_menu > li {
+.hermelin_menu > li {
   display: block;
   font-size: 12px;
 }
-.hotot_menu > li.separator {
+.hermelin_menu > li.separator {
   margin: 1px auto;
   width: 90%;
   height: 1px;
   min-width:50px;
   background: #ccc;
 }
-.hotot_menu > li > a {
+.hermelin_menu > li > a {
   padding: 2px 10px 2px 20px;
   min-height: 20px;
   line-height: 20px;
@@ -194,12 +194,12 @@ pre {
   text-overflow: ellipsis;
   font-size: 13px;
 }
-.hotot_menu > li > a.checked {
+.hermelin_menu > li > a.checked {
   background-image: url(../image/ic16_checked.png);
 }
-.hotot_menu > li > a.unchecked {
+.hermelin_menu > li > a.unchecked {
 }
-.hotot_menu > li > a:hover {
+.hermelin_menu > li > a:hover {
   color: #fff;
   background-color: #2048F3;
   background-repeat: no-repeat;
@@ -1058,7 +1058,7 @@ pre {
   line-height: 35px;
   font-size: 24px;
   color: #fff;
-  background:url(../image/ic32_hotot_mono_light.png) 20px 0 no-repeat, rgba(0, 0, 0, 0.8) url(../image/mask.png);
+  background:url(../image/ic32_hermelin_mono_light.png) 20px 0 no-repeat, rgba(0, 0, 0, 0.8) url(../image/mask.png);
   text-shadow: 0 1px 0px white;
   box-shadow: 0 1px 10px black;
   position: absolute;
@@ -2065,8 +2065,8 @@ td {
 .clear {
   clear: both;
 }
-.ic_hotot {
-  background: transparent url(../image/ic_hotot.png) no-repeat;
+.ic_hermelin {
+  background: transparent url(../image/ic_hermelin.png) no-repeat;
 }
 .ic_compose {
   background: transparent url(../image/ic_compose.png) no-repeat;

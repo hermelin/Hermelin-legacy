@@ -27,7 +27,7 @@ conf = {
     'proxy_auth_name': '',
     'proxy_auth_password': '',
     'use_anonymous_stat': true,
-    'shortcut_summon_hotot': '<Alt>C',
+    'shortcut_summon_hermelin': '<Alt>C',
     'size_w': 500,
     'size_h': 550,
     'context_menu_integration': true,
@@ -85,7 +85,7 @@ conf = {
       'upload_api_base': 'https://upload.twitter.com/1.1/'
       // extensions and others
       ,
-      'exts_enabled': ["org.hotot.imagepreview", "org.hotot.gmap", "org.hotot.translate", "org.hotot.imageupload", "org.hotot.videopreview", "org.hotot.shorturl", "org.hotot.cfw"],
+      'exts_enabled': ["org.hermelin.imagepreview", "org.hermelin.gmap", "org.hermelin.translate", "org.hermelin.imageupload", "org.hermelin.videopreview", "org.hermelin.shorturl", "org.hermelin.cfw"],
       'kismet_rules': [],
       'kismet_mute_list': {
         'name': [],
@@ -142,7 +142,7 @@ conf = {
       'upload_api_base': 'https://identi.ca/api/'
       // extensions:
       ,
-      'exts_enabled': ["org.hotot.imagepreview", "org.hotot.gmap", "org.hotot.translate", "org.hotot.imageupload", "org.hotot.videopreview", "org.hotot.shorturl", "org.hotot.cfw"],
+      'exts_enabled': ["org.hermelin.imagepreview", "org.hermelin.gmap", "org.hermelin.translate", "org.hermelin.imageupload", "org.hermelin.videopreview", "org.hermelin.shorturl", "org.hermelin.cfw"],
       'kismet_rules': [],
       'kismet_mute_list': {
         'name': [],
@@ -218,7 +218,7 @@ conf = {
   },
 
   load_native_options: function load_native_options(options) {
-    hotot_action('system/load_native_options');
+    hermelin_action('system/load_native_options');
   },
 
   get_current_profile: function get_current_profile() {
@@ -398,7 +398,7 @@ conf = {
 var daily_hints = [
       'Press "C" to compose quickly'
     , 'Press "R" will reload current page'
-    , 'Wanna quit hotot? try <Ctrl>+Q'
+    , 'Wanna quit hermelin? try <Ctrl>+Q'
     , 'I can act like VIM!'
     , 'Need more columns? Try to extend my window'
     , 'Need fewer columns? Try to resize my window to a small size'
@@ -407,5 +407,5 @@ var daily_hints = [
     , 'すっかり冷え込んだ日にはホットミルクとラブレターが恋しい'
     , 'My only fear of death is comin\' back to this bitch reincarnated'
     , 'FACT: features are bugs, but beautifully dressed'
-    , 'Hotot is a kind of rabbit, but I really love Cats :)'
+    , 'Hermelin is a kind of rabbit, but I really love Cats :)'
 ];

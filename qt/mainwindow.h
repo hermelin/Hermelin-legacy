@@ -44,7 +44,7 @@ typedef QMainWindow ParentWindow;
 #endif
 
 class QGraphicsWebView;
-class HototWebPage;
+class HermelinWebPage;
 
 class MainWindow : public ParentWindow
 {
@@ -87,7 +87,7 @@ protected:
     static QString toJSArray(const QStringList &list = QStringList());
 
 private:
-    HototWebPage* m_page;
+    HermelinWebPage* m_page;
 #ifndef MEEGO_EDITION_HARMATTAN
     QWebView* m_webView;
 #else

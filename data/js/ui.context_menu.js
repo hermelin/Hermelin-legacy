@@ -18,7 +18,7 @@ ui.ContextMenu = {
           // pass
         }
       } else {
-        hotot_action('action/set_clipboard_text/' + ui.ContextMenu.selected_string);
+        hermelin_action('action/set_clipboard_text/' + ui.ContextMenu.selected_string);
       }
       if (ui.ContextMenu.event_element) {
         $(ui.ContextMenu.event_element).focus();
@@ -29,7 +29,7 @@ ui.ContextMenu = {
       var element = ui.ContextMenu.editable_element;
       if (element) {
         element.focus();
-        hotot_action('action/paste_clipboard_text');
+        hermelin_action('action/paste_clipboard_text');
       }
     });
 
