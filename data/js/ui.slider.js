@@ -274,7 +274,7 @@ ui.Slider = {
     if (name == 'search') {
       html = html.replace('{%STICK%}', 'stick_right');
       btn = $(html);
-      btn.insertBefore($('#indicator_add_btn').parent());
+      btn.insertAfter($('#indicator_add_btn').parent());
       ui.Slider.tweet_blocks.splice(ui.Slider.tweet_blocks.length, 0, 'search');
     } else {
       html = html.replace('{%STICK%}', 'no_stick');
@@ -435,13 +435,13 @@ ui.Slider = {
 
     if (ui.Slider.displayed.length === 0) return;
     var cur_sel = []
-    //get all Elements from the new view;
-    for (var i = 0; i < all_btns.length; i++) {
-      if (all_btns[i].parentNode.getAttribute('name') === ui.Slider.displayed[0]) {
-        for (var j = 0; j < ui.Slider.displayed.length; j++) {
-          cur_sel[j] = all_btns[i + j];
+    for (var i = 0, j = 0; i < all_btns.length; i++) {
+      if (all_btns[i].parentNode.getAttribute('name') === ui.Slider.displayed[j]) {
+        cur_sel[cur_sel.length] = all_btns[i]
+        j++;
+        if (j === ui.Slider.displayed - 1) {
+          break;
         }
-        break;
       }
     }
     var light = document.getElementById('indication_light');
