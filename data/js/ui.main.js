@@ -6,6 +6,8 @@ ui.Main = {
   active_tweet_id: null,
 
   selected_tweet_id: null,
+  
+  selected_tweet_id2: null,
 
   use_preload_conversation: true,
 
@@ -1044,6 +1046,7 @@ ui.Main = {
     current.removeClass('selected');
     target.addClass('selected');
     ui.Main.selected_tweet_id = '#' + target.attr('id');
+    ui.Main.selected_tweet_id2 = target.attr('id');
     cur_view.selected_item_id = ui.Main.selected_tweet_id;
     target.focus();
   },
