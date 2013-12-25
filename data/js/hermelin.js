@@ -162,7 +162,7 @@ function open_people(screen_name, additional_opts, in_background) {
   // @TODO check this user if exists or not
   // @TODO toast language
   toast.set('Lookup @' + screen_name + '... ').show();
-  var name = 'people_' + screen_name;
+  var name = ('people_' + screen_name).toLowerCase();
   var title = '@' + screen_name + '\'s Profile';
   ui.Slider.add(name, {
     title: title,
