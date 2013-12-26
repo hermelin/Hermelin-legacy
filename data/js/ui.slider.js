@@ -468,11 +468,12 @@ ui.Slider = {
       cur_sel[i].classList.remove('unread');
     }
 
-    if (ui.Main.selected_tweet_id2) {
-      document.getElementById(ui.Main.selected_tweet_id2).classList.remove('selected');
-      ui.Main.selected_tweet_id2 = null;
-      ui.Main.selected_tweet_id = null;
+    var selected = document.getElementById(ui.Main.selected_tweet_id2);
+    if (selected) {
+      selected.classList.remove('selected');
     }
+    ui.Main.selected_tweet_id2 = null;
+    ui.Main.selected_tweet_id = null;
   },
 
   get_page_pos: function get_page_pos(id) {
