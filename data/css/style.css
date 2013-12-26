@@ -230,7 +230,6 @@ pre {
   height: 160px;
   border-top: 1px solid #c8c8c8;
   border-bottom: 1px solid #c8c8c8;
-  margin-bottom: 60px;
 }
 #tbox_status {
   width: 100%;
@@ -301,7 +300,6 @@ pre {
   padding: 3px 6px;
 }
 #status_ctrl {
-  margin-top: -60px;
   padding: 5px 0;
   text-align: right;
   vertical-align: middle;
