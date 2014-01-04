@@ -1,5 +1,5 @@
 #indication {
-  background: #111 url(./background-stripes.gif);
+  background: #111;
 }
 #status_box, #hermelin_menu, #slider_menu {
   box-shadow: 2px 2px 3px #111;
@@ -34,16 +34,6 @@
 }
 #view_title_bar .close_btn {
   background-image: url(./ic16_close.png);
-}
-#indication_slot {
-  background-color: #393939;
-  border-bottom: 1px #222 solid;
-}
-#indication_light {
-  background: #FFF;
-  -webkit-box-shadow: 0 0 10px #4AC3FF;
-  box-shadow: 0 0 10px #4AC3FF;
-  top: -2px;
 }
 .tweetview .listview_body {
   border-color: #333 !important;

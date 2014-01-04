@@ -18,7 +18,7 @@ util = {
     xhr.send();
   },
 
-  fadeIn: function (elems, opts) {
+  fadeIn: function (elems, opts, cb) {
     //used to fade DOMElements in
     //options are speed (speed of the animation, int)
     var elemClass = Object.prototype.toString.call(elems);
@@ -34,18 +34,21 @@ util = {
 
     function inner(elem) {
       elem.classList.remove('away');
-      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
+      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) + 's' : 'opacity .4s';
       elem.classList.add('fade');
       elem.classList.add('fadein');
-      setTimeout(function(){
+      setTimeout(function () {
         elem.style["-webkit-transition"] = null;
-      }, (opts && opts.speed) ? opts.speed : 400)
+        if (cb) {
+          cb();
+        }
+      }, (opts && opts.speed) ? opts.speed : 400);
     }
   },
 
-  fadeOut: function (elems, opts) {
+  fadeOut: function (elems, opts, cb) {
     //used to fade DOMElements out
-    //options are noAnim (no animation, bool) and speed (speed of the animation, int)
+    //options are noAnim (no animation, bool) and speed (speed of the animation, int). the callback will be executed after the tranisition finished.
     var elemClass = Object.prototype.toString.call(elems);
     if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
       inner(elems);
@@ -60,7 +63,7 @@ util = {
     function inner(elem) {
       elem.classList.remove('fadein');
       elem.classList.add('fade');
-      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) +'s' : 'opacity .4s';
+      elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) + 's' : 'opacity .4s';
       if (opts && opts.noAnim) {
         elem.classList.add('away');
       } else {
@@ -69,20 +72,21 @@ util = {
             elem.classList.add('away');
             elem.style["-webkit-transition"] = null;
           }
-
+          if (cb) {
+            cb();
+          }
         }, ((opts && opts.speed) ? opts.speed : 400));
       }
     }
   },
-  
+
   docReady: function (cb) {
     //executes function when document is loaded
     function inner() {
-      if(document.readyState === 'complete'){
-         cb();
-      }
-      else{
-        setTimeout(inner, 50)
+      if (document.readyState === 'complete') {
+        cb();
+      } else {
+        setTimeout(inner, 50);
       }
     }
     inner();
@@ -117,7 +121,7 @@ util = {
   generate_uuid: function () {
     var S4 = function () {
       return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-    }
+    };
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
   },
 

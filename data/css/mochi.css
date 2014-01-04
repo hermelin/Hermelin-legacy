@@ -34,10 +34,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out
+  -webkit-transition:all .2s ease-out
 }
 .touchable * {
   cursor:pointer
@@ -61,9 +58,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
   background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
   filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
   -webkit-border-radius:2px;
-  border-radius:2px;
   border:1px #b2b3b4 solid;
   color:#333;
   -webkit-font-smoothing:antialiased;
@@ -79,9 +74,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   background:-ms-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
   background:linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
   filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
   -webkit-border-radius:2px;
-  border-radius:2px;
   border:1px #3f3e3d solid;
   color:#333;
   -webkit-font-smoothing:antialiased;
@@ -108,28 +101,15 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
 .only_icon::after {
   margin:0 6px
 }
-.mochi_button {
-  background:#fbfdfb;
-  background:-moz-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fcfcfc), color-stop(4%, #fbfdfb), color-stop(100%, #e8eae9));
-  background:-webkit-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-o-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #b2b3b4 solid;
+/* mochi buttons*/
+ .mochi_button {
+  background: #fff;
+  -webkit-border-radius: 4px;
+  border: 1px #3385FF solid;
   color:#333;
   -webkit-font-smoothing:antialiased;
-  text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-user-select:none;
-  -khtml-user-select:none;
+  text-decoration: none;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
   height:30px;
   line-height:28px;
@@ -137,175 +117,65 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
+  -webkit-transition:all .2s;
   display:inline-block;
   text-align:center;
   padding:0 20px;
   min-width:70px
 }
 .mochi_button * {
-  cursor:pointer
+  cursor:pointer;
 }
-.mochi_button:hover, .mochi_button_hover {
-  background:#fefefe;
-  background:-moz-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff), color-stop(4%, #fefefe), color-stop(100%, #f1f6f3));
-  background:-webkit-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-o-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-ms-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_button:active, .mochi_button_active {
-  -moz-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  -webkit-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3)
+.mochi_button:hover, .mochi_button_hover, .mochi_button:active, .mochi_button_active {
+  border-color: #0066FF;
 }
 .mochi_button_selected {
-  -moz-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  -webkit-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  background:#d3d4d8;
-  background:-moz-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #c6c7c9), color-stop(4%, #d3d4d8), color-stop(100%, #dedfe1));
-  background:-webkit-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-o-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-ms-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  color: #0066FF;
 }
 .mochi_button_dark_selected {
-  -moz-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.8);
-  -webkit-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.8);
-  box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.8);
-  background:#2c2b27;
-  background:-moz-linear-gradient(top, #393836 2%, #2c2b27 4%, #21201e 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #393836), color-stop(4%, #2c2b27), color-stop(100%, #21201e));
-  background:-webkit-linear-gradient(top, #393836 2%, #2c2b27 4%, #21201e 100%);
-  background:-o-linear-gradient(top, #393836 2%, #2c2b27 4%, #21201e 100%);
-  background:-ms-linear-gradient(top, #393836 2%, #2c2b27 4%, #21201e 100%);
-  background:linear-gradient(top, #393836 2%, #2c2b27 4%, #21201e 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  color: #3385FF;
 }
 .mochi_button.round {
-  -moz-border-radius:15px;
-  -webkit-border-radius:15px;
-  border-radius:15px
+  -webkit-border-radius:100%;
 }
 .mochi_button[disabled], .mochi_button_disabled {
-  background:#f2f2f2;
-  background:-moz-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #f8f8fd), color-stop(4%, #f2f2f2), color-stop(100%, #d7d8da));
-  background:-webkit-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-o-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-ms-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
+  background-color:#eee;
+  color:#bbb;
   cursor:default;
-  text-shadow:0 -1px #eee
 }
 .mochi_button.black, .mochi_button_dark {
-  background:#737373;
-  background:-moz-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #838383), color-stop(4%, #737373), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-o-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#DDD;
-  text-shadow:black 0 1px 1px;
-  border:1px solid #3f3e3d
+  line-height:30px;
+  background-color:#444;
+  color: #ffffff;
+  border: none;
 }
-.mochi_button.black:hover, .mochi_button_hover.black, .mochi_button_dark_hover {
-  background:#838383;
-  background:-moz-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #939393), color-stop(4%, #838383), color-stop(100%, #585659));
-  background:-webkit-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-o-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-ms-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_button.black:active, .mochi_button_active.black, .mochi_button_dark_active {
-  -moz-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8);
-  -webkit-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8);
-  box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8)
+.mochi_button.black:hover, .mochi_button_hover.black, .mochi_button_dark_hover, .mochi_button.black:active, .mochi_button_active.black, .mochi_button_dark_active {
+  background-color:#333;
 }
 .mochi_button.black[disabled], .mochi_button_dark_disabled {
-  background:#585659;
-  background:-moz-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #737373), color-stop(4%, #585659), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-o-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
-  cursor:default;
-  text-shadow:0 -1px #eee
+  background-color:#666;
+  color: #333 cursor:default;
 }
 .mochi_button.blue {
-  background:#3099e7;
-  background:-moz-linear-gradient(top, #93b2d3 2%, #3099e7 4%, #2457da 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #93b2d3), color-stop(4%, #3099e7), color-stop(100%, #2457da));
-  background:-webkit-linear-gradient(top, #93b2d3 2%, #3099e7 4%, #2457da 100%);
-  background:-o-linear-gradient(top, #93b2d3 2%, #3099e7 4%, #2457da 100%);
-  background:-ms-linear-gradient(top, #93b2d3 2%, #3099e7 4%, #2457da 100%);
-  background:linear-gradient(top, #93b2d3 2%, #3099e7 4%, #2457da 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#c1e2fe;
-  text-shadow:#454578 0 1px 1px;
-  border:1px solid #0666b6
+  line-height:30px;
+  background-color: #3385FF;
+  color: #ffffff;
+  border: none;
 }
-.mochi_button.blue:hover, .mochi_button_hover.blue {
-  background:#50a9f7;
-  background:-moz-linear-gradient(top, #b0c9e1 2%, #50a9f7 4%, #226fdd 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #b0c9e1), color-stop(4%, #50a9f7), color-stop(100%, #226fdd));
-  background:-webkit-linear-gradient(top, #b0c9e1 2%, #50a9f7 4%, #226fdd 100%);
-  background:-o-linear-gradient(top, #b0c9e1 2%, #50a9f7 4%, #226fdd 100%);
-  background:-ms-linear-gradient(top, #b0c9e1 2%, #50a9f7 4%, #226fdd 100%);
-  background:linear-gradient(top, #b0c9e1 2%, #50a9f7 4%, #226fdd 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_button.blue:active, .mochi_button_active.blue {
-  -moz-box-shadow:inset 0 0 15px rgba(20, 20, 60, 0.5);
-  -webkit-box-shadow:inset 0 0 15px rgba(20, 20, 60, 0.5);
-  box-shadow:inset 0 0 15px rgba(20, 20, 60, 0.5)
+.mochi_button.blue:hover, .mochi_button_hover.blue, .mochi_button.blue:active, .mochi_button_active.blue {
+  background-color: #0066FF;
 }
 .mochi_button.red {
+  line-height:30px;
   background:#e73034;
-  background:-moz-linear-gradient(top, #d39394 2%, #e73034 4%, #ca1416 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #d39394), color-stop(4%, #e73034), color-stop(100%, #ca1416));
-  background:-webkit-linear-gradient(top, #d39394 2%, #e73034 4%, #ca1416 100%);
-  background:-o-linear-gradient(top, #d39394 2%, #e73034 4%, #ca1416 100%);
-  background:-ms-linear-gradient(top, #d39394 2%, #e73034 4%, #ca1416 100%);
-  background:linear-gradient(top, #d39394 2%, #e73034 4%, #ca1416 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#fec2c1;
-  text-shadow:#784845 0 1px 1px;
-  border:1px solid #c60c06
+  color: #ffffff;
+  border: none;
 }
-.mochi_button.red:hover, .mochi_button_hover.red {
-  background:#f7505c;
-  background:-moz-linear-gradient(top, #e1a0a2 2%, #f7505c 4%, #dd222d 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #e1a0a2), color-stop(4%, #f7505c), color-stop(100%, #dd222d));
-  background:-webkit-linear-gradient(top, #e1a0a2 2%, #f7505c 4%, #dd222d 100%);
-  background:-o-linear-gradient(top, #e1a0a2 2%, #f7505c 4%, #dd222d 100%);
-  background:-ms-linear-gradient(top, #e1a0a2 2%, #f7505c 4%, #dd222d 100%);
-  background:linear-gradient(top, #e1a0a2 2%, #f7505c 4%, #dd222d 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+.mochi_button.red:hover, .mochi_button_hover.red, mochi_button.red:active, .mochi_button_active.red {
+  background-color:#f71d21;
 }
-.mochi_button.red:active, .mochi_button_active.red {
-  -moz-box-shadow:inset 0 0 15px rgba(60, 20, 20, 0.5);
-  -webkit-box-shadow:inset 0 0 15px rgba(60, 20, 20, 0.5);
-  box-shadow:inset 0 0 15px rgba(60, 20, 20, 0.5)
-}
-.mochi_entry, .mochi_textarea {
+/*END mochi button*/
+ .mochi_entry, .mochi_textarea {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
@@ -335,120 +205,58 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   resize:none
 }
 .mochi_toggle {
-  -webkit-appearance:none;
-  -moz-user-select:none;
-  -khtml-user-select:none;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
   height:30px;
-  line-height:28px;
+  line-height:30px;
   font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
   -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  background:#e4e4e4;
+  -webkit-border-radius:15px;
+  background:#ccc;
   width:60px;
   height:30px;
   margin:0;
-  -moz-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  border:1px solid #b2b3b4
+  border: none;
 }
 .mochi_toggle * {
-  cursor:pointer
+  cursor:pointer;
 }
 .mochi_toggle[checked], .mochi_toggle_checked {
-  background:#a2c13e;
-  -moz-box-shadow:inset 0 0 10px #60911e;
-  -webkit-box-shadow:inset 0 0 10px #60911e;
-  box-shadow:inset 0 0 10px #60911e;
-  border:1px #60911e solid
+  background-color:#a2c13e;
 }
 .mochi_toggle:after, .mochi_toggle_button {
-  -moz-user-select:none;
-  -khtml-user-select:none;
+  background-color:#fff;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
-  height:30px;
-  line-height:28px;
+  height:28px;
+  width: 28px;
+  line-height:26px;
   font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
-  background:#fbfdfb;
-  background:-moz-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fcfcfc), color-stop(4%, #fbfdfb), color-stop(100%, #e8eae9));
-  background:-webkit-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-o-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #b2b3b4 solid;
+  -webkit-transition:all .2s;
+  -webkit-border-radius:100%;
+  border: none;
   color:#333;
   -webkit-font-smoothing:antialiased;
   text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  height:25px;
-  width:25px;
-  -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
   display:block;
   content:" ";
-  margin-top:1px;
-  margin-left:1px
+  margin: 1px;
 }
 .mochi_toggle:after *, .mochi_toggle_button * {
-  cursor:pointer
+  cursor:pointer;
 }
 .mochi_toggle[checked]:after, .mochi_toggle_button_checked {
-  margin-left:32px;
-  border:1px #60911e solid
-}
-.mochi_toggle:hover:after, .mochi_toggle_button_hover {
-  background:#fefefe;
-  background:-moz-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff), color-stop(4%, #fefefe), color-stop(100%, #f1f6f3));
-  background:-webkit-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-o-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-ms-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  margin-left:31px;
 }
 .mochi_toggle[disabled]:after, .mochi_toggle_button_disabled {
-  background:#f2f2f2;
-  background:-moz-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #f8f8fd), color-stop(4%, #f2f2f2), color-stop(100%, #d7d8da));
-  background:-webkit-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-o-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-ms-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
+  background:#eee;
   cursor:default;
-  text-shadow:0 -1px #eee
 }
 .mochi_toggle:before, .mochi_toggle_button_inner {
   display:block;
@@ -459,117 +267,48 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   text-align:right;
   font-weight:bold;
   margin:0 6px 0 0;
-  text-shadow:0 1px 1px #fff;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out
+  -webkit-transition:all .2s ease-out
 }
 .mochi_toggle[checked]:before, .mochi_toggle_button_inner_checked {
   content:"ON ";
   float:left;
   text-align:center;
   margin:0 0 0 6px;
-  text-shadow:0 1px 1px #a5ff00;
-  color:#333
 }
 .mochi_toggle[disabled]:before, .mochi_toggle_button_disabled {
   content:"   ";
-  color:#737372
 }
 .mochi_toggle.dark {
-  background:#4e4e4e;
-  border:1px solid #3f3e3d
+  background:#333;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
 }
-.mochi_toggle[checked].dark {
-  -moz-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2)
+.mochi_toggle.dark[checked], .mochi_toggle_checked_dark {
+  background-color:#4ac3ff;
 }
 .mochi_toggle.dark:after, .mochi_toggle_button_dark {
-  background:#737373;
-  background:-moz-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #838383), color-stop(4%, #737373), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-o-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #3f3e3d solid;
-  color:#333;
-  -webkit-font-smoothing:antialiased;
-  text-decoration:none;
-  text-shadow:0 -1px 1px #fff
-}
-.mochi_toggle.dark[checked]:after, .mochi_toggle_button_dark_checked {
-  margin-left:32px
-}
-.mochi_toggle.dark:hover:after, .mochi_toggle_button_dark_hover {
-  background:#838383;
-  background:-moz-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #939393), color-stop(4%, #838383), color-stop(100%, #585659));
-  background:-webkit-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-o-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-ms-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  background-color:#737373;
 }
 .mochi_toggle.dark[disabled]:after, .mochi_toggle_button_disabled {
-  background:#585659;
-  background:-moz-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #737373), color-stop(4%, #585659), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-o-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
+  background-color:#585659;
   cursor:default;
   text-shadow:0 -1px #eee
 }
 .mochi_toggle.dark:before, .mochi_toggle_button_dark_inner {
   display:block;
-  color:#262626;
-  text-shadow:0 1px 1px #737372
+  color: #fff;
 }
 .mochi_toggle.dark[checked]:before, .mochi_toggle_button_inner_dark_checked {
   content:"ON ";
   float:left;
   text-align:center;
   margin:0 0 0 6px;
-  text-shadow:0 1px 1px #a5ff00;
-  color:#333;
-  color:#4ac3ff;
-  text-shadow:0 0 10px #4ac3ff
 }
 .mochi_toggle.dark[disabled]:before, .mochi_toggle_button_dark_disabled {
-  background:#f2f2f2;
-  background:-moz-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #f8f8fd), color-stop(4%, #f2f2f2), color-stop(100%, #d7d8da));
-  background:-webkit-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-o-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-ms-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
-  cursor:default;
-  text-shadow:0 -1px #eee;
+  background-color:#f2f2f2;
   content:"   ";
-  color:#737372;
   background:#585659;
-  background:-moz-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #737373), color-stop(4%, #585659), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-o-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
   cursor:default;
-  text-shadow:0 -1px #eee
 }
 .mochi_button_group {
   margin:0;
@@ -593,9 +332,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
   background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
   filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
   -webkit-border-radius:2px;
-  border-radius:2px;
   border:1px #b2b3b4 solid;
   color:#333;
   -webkit-font-smoothing:antialiased;
@@ -613,10 +350,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
   -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
   display:inline-block;
   text-align:center;
   padding:0 20px;
@@ -627,9 +361,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   border-color:#b2b3b4;
   border-left:none;
   margin-left:1px;
-  -moz-border-radius:0;
   -webkit-border-radius:0;
-  border-radius:0;
   text-decoration:none;
   font-size:12px;
   cursor:pointer;
@@ -736,28 +468,15 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   color:#4ac3ff;
   text-shadow:0 0 10px #4ac3ff
 }
-.mochi_combo {
-  background:#fbfdfb;
-  background:-moz-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fcfcfc), color-stop(4%, #fbfdfb), color-stop(100%, #e8eae9));
-  background:-webkit-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-o-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #b2b3b4 solid;
+/*mochi combo css*/
+ .mochi_combo {
+  background:#fff;
+  -webkit-border-radius:4px;
+  border:1px #3385FF solid;
   color:#333;
   -webkit-font-smoothing:antialiased;
   text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-user-select:none;
-  -khtml-user-select:none;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
   height:30px;
   line-height:28px;
@@ -765,10 +484,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
   -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
   display:inline-block;
   text-align:center;
   padding:0 20px;
@@ -778,301 +494,42 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
 .mochi_combo * {
   cursor:pointer
 }
-.mochi_combo:hover, .mochi_combo_hover {
-  background:#fefefe;
-  background:-moz-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff), color-stop(4%, #fefefe), color-stop(100%, #f1f6f3));
-  background:-webkit-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-o-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-ms-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_combo:active, .mochi_combo_active {
-  -moz-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  -webkit-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3)
-}
-.mochi_combo:after {
-  border-width:10px;
-  border-color:#333 transparent transparent transparent;
-  border-style:solid;
-  display:block;
-  height:10px;
-  width:10px;
-  -moz-box-sizing:content-sizing;
-  -webkit-box-sizing:content-sizing;
-  box-sizing:content-sizing;
-  content:"V"
+.mochi_combo:hover, .mochi_combo_hover, .mochi_combo:active, .mochi_combo_active {
+  border-color: #0066FF;
 }
 .mochi_combo.dark {
-  background:#737373;
-  background:-moz-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #838383), color-stop(4%, #737373), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-o-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#DDD;
-  text-shadow:black 0 1px 1px;
-  border:1px solid #3f3e3d
+  background-color: #444;
+  color: #fff;
+  border: none;
 }
-.mochi_combo.dark:hover, .mochi_combo_dark_hover {
-  background:#838383;
-  background:-moz-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #939393), color-stop(4%, #838383), color-stop(100%, #585659));
-  background:-webkit-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-o-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-ms-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+.mochi_combo.dark:hover, .mochi_combo_dark_hover, .mochi_combo.dark:active, .mochi_combo_dark_active {
+  background-color: #333;
 }
-.mochi_combo.dark:active, .mochi_combo_dark_active {
-  -moz-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8);
-  -webkit-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8);
-  box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.8)
-}
-.mochi_combo.dark:after {
-  border-color:#333 transparent transparent transparent;
-  -moz-box-sizing:content-sizing;
-  -webkit-box-sizing:content-sizing;
-  box-sizing:content-sizing;
-  content:"V"
-}
-.mochi_checkbox, .mochi_radio {
-  -webkit-appearance:none;
-  -moz-user-select:none;
-  -khtml-user-select:none;
-  user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-  height:30px;
-  line-height:28px;
-  font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
-  outline:0;
-  cursor:pointer;
-  font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
-  background:#fbfdfb;
-  background:-moz-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fcfcfc), color-stop(4%, #fbfdfb), color-stop(100%, #e8eae9));
-  background:-webkit-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-o-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #b2b3b4 solid;
-  color:#333;
-  -webkit-font-smoothing:antialiased;
-  text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  height:25px;
-  width:25px;
-  -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);
-  display:block;
-  content:" ";
-  margin-top:1px;
-  margin-left:1px;
-  -moz-box-shadow:0 0 0 transparent;
-  -webkit-box-shadow:0 0 0 transparent;
-  box-shadow:0 0 0 transparent;
-  margin:2px;
-  display:inline-block
-}
-.mochi_checkbox *, .mochi_radio * {
-  cursor:pointer
-}
-.mochi_checkbox {
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px
-}
-.mochi_radio {
-  -moz-border-radius:14px;
-  -webkit-border-radius:14px;
-  border-radius:14px
-}
-.mochi_checkbox:hover, .mochi_radio:hover {
-  background:#fefefe;
-  background:-moz-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff), color-stop(4%, #fefefe), color-stop(100%, #f1f6f3));
-  background:-webkit-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-o-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-ms-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_checkbox[disabled], .mochi_radio[disabled] {
-  background:#e4e4e4;
-  -moz-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2)
-}
-.mochi_checkbox:after, .mochi_checkbox:before {
-  content:"";
-  display:block;
-  height:4px;
-  width:10px;
-  float:left;
-  margin:12px 0 0 3px;
-  border-bottom-right-radius:2px;
-  -webkit-transform:rotate(45deg);
-  background:#d3d3d2;
-  -moz-box-shadow:0 1px 1px #fff;
-  -webkit-box-shadow:0 1px 1px #fff;
-  box-shadow:0 1px 1px #fff
-}
-.mochi_checkbox:after {
-  width:16px;
-  margin-top:10px;
-  margin-left:-7px;
-  border-bottom-right-radius:0;
-  border-top-left-radius:2px;
-  border-bottom-left-radius:2px;
-  -webkit-transform:rotate(-55deg)
-}
-.mochi_radio:after {
-  content:"";
-  display:block;
-  margin:6px 0 0 6px;
-  width:11px;
-  height:11px;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  background:#d3d3d2;
-  -moz-box-shadow:0 1px 1px #fff;
-  -webkit-box-shadow:0 1px 1px #fff;
-  box-shadow:0 1px 1px #fff
-}
-.mochi_checkbox:checked:after, .mochi_radio:checked:after, .mochi_checkbox:checked:before, .mochi_radio:checked:before {
-  background:#a2c13e
-}
-.mochi_checkbox.dark, .mochi_radio.dark {
-  -webkit-appearance:none;
-  background:#737373;
-  background:-moz-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #838383), color-stop(4%, #737373), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-o-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  background:linear-gradient(top, #838383 2%, #737373 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px;
-  border:1px #3f3e3d solid;
-  color:#333;
-  -webkit-font-smoothing:antialiased;
-  text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-box-shadow:0 0 0 transparent;
-  -webkit-box-shadow:0 0 0 transparent;
-  box-shadow:0 0 0 transparent;
-  margin:2px;
-  display:inline-block
-}
-.mochi_checkbox.dark {
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
-  border-radius:2px
-}
-.mochi_radio.dark {
-  -moz-border-radius:14px;
-  -webkit-border-radius:14px;
-  border-radius:14px
-}
-.mochi_checkbox.dark:hover, .mochi_radio.dark:hover {
-  background:#838383;
-  background:-moz-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #939393), color-stop(4%, #838383), color-stop(100%, #585659));
-  background:-webkit-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-o-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:-ms-linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  background:linear-gradient(top, #939393 2%, #838383 4%, #585659 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_checkbox.dark[disabled], .mochi_radio.dark[disabled] {
-  background:#f2f2f2;
-  background:-moz-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #f8f8fd), color-stop(4%, #f2f2f2), color-stop(100%, #d7d8da));
-  background:-webkit-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-o-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:-ms-linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  background:linear-gradient(top, #f8f8fd 2%, #f2f2f2 4%, #d7d8da 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
-  cursor:default;
-  text-shadow:0 -1px #eee;
-  content:"   ";
-  color:#737372;
-  background:#585659;
-  background:-moz-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #737373), color-stop(4%, #585659), color-stop(100%, #484649));
-  background:-webkit-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-o-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:-ms-linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  background:linear-gradient(top, #737373 2%, #585659 4%, #484649 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  color:#666;
-  cursor:default;
-  text-shadow:0 -1px #eee;
-  -moz-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2);
-  box-shadow:inset 0 0 10px rgba(0, 0, 0, 0.2)
-}
-.mochi_checkbox.dark:after, .mochi_checkbox.dark:before {
-  background:#262626;
-  -moz-box-shadow:0 1px 1px #737372;
-  -webkit-box-shadow:0 1px 1px #737372;
-  box-shadow:0 1px 1px #737372
-}
-.mochi_radio.dark:after {
-  background:#262626;
-  -moz-box-shadow:0 1px 1px #737372;
-  -webkit-box-shadow:0 1px 1px #737372;
-  box-shadow:0 1px 1px #737372
-}
-.mochi_checkbox.dark:checked:after, .mochi_radio.dark:checked:after, .mochi_checkbox.dark:checked:before, .mochi_radio.dark:checked:before {
-  background:#4ac3ff;
-  -moz-box-shadow:0 0 10px #4ac3ff;
-  -webkit-box-shadow:0 0 10px #4ac3ff;
-  box-shadow:0 0 10px #4ac3ff
-}
-.mochi_list {
-  margin:3px 0;
+/* END Mochi Combo*/
+ .mochi_list {
   padding:0;
-  list-style:none;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
-  border-radius:5px;
-  border:1px solid #ccc;
-  border-bottom:1px solid #fff
+  list-style: none;
+  border: none;
+  margin-bottom: 10px;
+}
+.mochi_list:last-child {
+  margin-bottom: 0;
 }
 .mochi_list_item {
-  background:#fcfcfc;
-  height:30px;
-  border-top:1px solid #fff;
-  border-bottom:1px solid #ccc;
-  padding:4px 10px
+  border-color: #d9d9d9;
+  border-style: solid;
+  background:#fff;
+  height: 29px;
+  border-bottom-width:1px;
+  padding:4px 10px;
+}
+.mochi_list_item:first-child {
+  border-top-width: 1px;
 }
 .mochi_list_item .label {
   height:30px;
   line-height:30px;
-  font-weight:bold
+  font-weight:normal;
 }
 .mochi_list_item .widget, .mochi_list_item .value {
   float:right
@@ -1084,11 +541,7 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   line-height:28px
 }
 .mochi_list_item .trigger {
-  -moz-user-select:none;
-  -khtml-user-select:none;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
   height:30px;
   line-height:28px;
@@ -1096,10 +549,6 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -moz-transition:all .2s ease-out;
-  -o-transition:all .2s ease-out;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
   padding:4px 10px;
   width:100%;
   height:38px;
@@ -1110,20 +559,11 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   cursor:pointer
 }
 .mochi_list_item .trigger:hover {
-  background:#0082e5;
-  background:-moz-linear-gradient(top, #0082e5 2%, #0082e5 4%, #193ad1 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #0082e5), color-stop(4%, #0082e5), color-stop(100%, #193ad1));
-  background:-webkit-linear-gradient(top, #0082e5 2%, #0082e5 4%, #193ad1 100%);
-  background:-o-linear-gradient(top, #0082e5 2%, #0082e5 4%, #193ad1 100%);
-  background:-ms-linear-gradient(top, #0082e5 2%, #0082e5 4%, #193ad1 100%);
-  background:linear-gradient(top, #0082e5 2%, #0082e5 4%, #193ad1 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  background-color: #d9d9d9;
 }
 .mochi_list_item .trigger:hover .value, .mochi_list_item .trigger:hover .label {
-  color:white
 }
 .mochi_list_item .trigger:hover .more:after, .mochi_list_item .trigger:hover .more:before {
-  background:white
 }
 .mochi_list_item .more {
   height:14px;
@@ -1145,41 +585,11 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
 }
 .mochi_list_item.with_trigger {
   padding:0;
-  height:38px
-}
-.mochi_list_item:first-child {
-  -webkit-top-left-border-radius:5px;
-  -webkit-top-right-border-radius:5px;
-  border-top-left-radius:5px;
-  border-top-right-radius:5px;
-  border-top:0
-}
-.mochi_list_item:first-child .trigger {
-  -webkit-top-left-border-radius:5px;
-  -webkit-top-right-border-radius:5px;
-  border-top-left-radius:5px;
-  border-top-right-radius:5px
-}
-.mochi_list_item:last-child {
-  -webkit-bottom-left-border-radius:5px;
-  -webkit-bottom-right-border-radius:5px;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px
-}
-.mochi_list_item:last-child .trigger {
-  -webkit-bottom-left-border-radius:5px;
-  -webkit-bottom-right-border-radius:5px;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px
-}
-.mochi_list.dark {
-  border:1px solid #333;
-  border-bottom:1px solid #666
+  height:38px;
 }
 .mochi_list_item.dark {
-  background:#525253 url(../image/dark-bg.png);
-  border-top:1px solid #666;
-  border-bottom:1px solid #333
+  background:#525253;
+  border: none;
 }
 .mochi_list_item.dark .more:after, .mochi_list_item.dark .more:before {
   background:#4ac3ff

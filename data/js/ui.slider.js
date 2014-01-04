@@ -33,6 +33,7 @@ ui.Slider = {
   init: function init() {
     this.id = '#main_page_slider';
     this.me = $('#main_page_slider');
+    this._me = document.getElementById('main_page_slider');
 
     $('#indication .indicator_btn').live('click', function (ev) {
       var view_name = $(this).attr('href').substring(1);
@@ -116,7 +117,7 @@ ui.Slider = {
     });
 
     $('#view_title_bar .close_btn').click(function () {
-      var name = $(this).parent().attr('name');
+      var name = this.parentNode.getAttribute('name');
       ui.Main.views[name].destroy();
       return false;
     });
@@ -272,18 +273,19 @@ ui.Slider = {
     var html = ui.Template.form_indicator(name, opts.title, opts.icon);
     var btn = null;
     if (name == 'search') {
-      html = html.replace('{%STICK%}', 'stick_right');
+      //html = html.replace('{%STICK%}', 'stick_right');
+      html = html.replace('{%STICK%}', 'no_stick').replace('{%ID%}', 'indicator_search_view');
       btn = $(html);
-      btn.insertAfter($('#indicator_add_btn').parent());
+      btn.insertBefore($('#indicator_add_btn').parent());
       ui.Slider.tweet_blocks.splice(ui.Slider.tweet_blocks.length, 0, 'search');
     } else {
-      html = html.replace('{%STICK%}', 'no_stick');
+      html = html.replace('{%STICK%}', 'no_stick').replace('{%ID%}', '');
       btn = $(html);
       if ($('#search_tweetview').length == 0) {
         btn.insertBefore($('#indicator_add_btn').parent());
         ui.Slider.tweet_blocks.splice(ui.Slider.tweet_blocks.length, 0, name);
       } else {
-        btn.insertBefore($('#indicator_add_btn').parent());
+        btn.insertBefore($('#indicator_search_view'));
         ui.Slider.tweet_blocks.splice(ui.Slider.tweet_blocks.length - 1, 0, name);
       }
     }
@@ -327,29 +329,19 @@ ui.Slider = {
   },
 
   remove: function remove(name, not_save_state) {
-    if (ui.Slider.tweet_blocks.indexOf(name) != -1) {
-      var prev = 'home';
-      if (name == ui.Slider.current) {
-        prev = ui.Slider.tweet_blocks[ui.Slider.get_page_pos(name) + 1];
-        if (!prev) {
-          prev = ui.Slider.tweet_blocks[ui.Slider.get_page_pos(name) - 1];
-        }
-      } else {
-        ui.Slider.slide_to(ui.Slider.current);
-      }
+    if (ui.Slider.tweet_blocks.indexOf(name) !== -1) {
+      var pos = ui.Slider.get_page_pos(name);
       ui.Slider.remove_indicator(name);
       ui.Slider.remove_view(name);
       update_tweet_block_width();
       delete ui.Slider.state.views[name];
-      if (prev) {
-        ui.Slider.slide_to(prev);
+      if (pos === ui.Slider.tweet_blocks.length) {
+        ui.Slider.slide_to(ui.Slider.tweet_blocks[pos - 1]);
       } else {
-        if (ui.Slider.column_num != 0) {
-          ui.Slider.slide_to('home');
-        }
+        ui.Slider.slide_to(ui.Slider.tweet_blocks[pos]);
       }
     }
-    if (not_save_state != true) {
+    if (not_save_state !== true) {
       ui.Slider.save_state();
       conf.save_prefs(conf.current_name);
     }
@@ -390,24 +382,21 @@ ui.Slider = {
     var max_col_num = ui.Slider.tweet_blocks.length;
     ui.Slider.current = id;
 
+    /*   var page_offset =  idx;
+    ui.Slider._me.style.marginLeft = (-1 * (page_offset-1)) + 'px';
+    ui.Slider._me.style.width = 'auto';*/
+
+
     var fixed_idx = idx + ui.Slider.column_num < max_col_num ? idx : max_col_num - ui.Slider.column_num;
     var page_offset = (fixed_idx == idx && 0 <= fixed_idx - parseInt(ui.Slider.column_num / 2)) ? fixed_idx - parseInt(ui.Slider.column_num / 2) : fixed_idx;
-
-    $('#main_page_slider').css('width', max_col_num + '00%');
     // slide page
-    if (conf.get_current_profile()) {
-      // @TODO
-      if (1) {
-        ui.Slider.me.stop().transition({
-          marginLeft: (0 - page_offset * width) + 'px'
-        }, 500, function () {
-          $('#main_page_slider').css('width', 'auto');
-        });
-      } else {
-        ui.Slider.me.css('marginLeft', (0 - page_offset * width) + 'px');
-        $('#main_page_slider').css('width', 'auto');
-      }
-    }
+    // number of columns * width of one column + the possible offset.
+    var w = max_col_num * width + (window.innerWidth - max_col_num + width);
+    ui.Slider._me.style.width = w + 'px';
+    ui.Slider._me.style.left = (0 - page_offset * width) + 'px';
+    /*setTimeout(function(){
+       ui.Slider._me.style.width = 'auto';
+    }, 400);*/
 
     // get displayed pages
     ui.Slider.displayed = [];
@@ -445,11 +434,14 @@ ui.Slider = {
       }
     }
     var light = document.getElementById('indication_light');
-    var currentlight = document.getElementById('indication_light_current');
 
-    var lightleft = cur_sel[0].parentNode.offsetLeft;
-    light.style.left = lightleft + 'px';
-    light.style.width = (cur_sel[cur_sel.length - 1].parentNode.offsetLeft - cur_sel[0].parentNode.offsetLeft + cur_sel[cur_sel.length - 1].parentNode.offsetWidth) + 'px';
+    var leftlight = document.getElementById('indication_light_left');
+    var rightlight = document.getElementById('indication_light_right');
+
+    var lightoffset = cur_sel[0].parentNode.offsetLeft;
+    light.style.left = lightoffset + 'px';
+    var lightwidth = cur_sel[cur_sel.length - 1].parentNode.offsetLeft - cur_sel[0].parentNode.offsetLeft + cur_sel[cur_sel.length - 1].parentNode.offsetWidth
+    light.style.width = lightwidth + 'px';
 
     // remove selected style from the pre ones
 
@@ -460,8 +452,16 @@ ui.Slider = {
     // add selected style to displayed pages' indicator
     for (var i = 0; i < cur_sel.length; i++) {
       if (cur_sel[i].parentNode.getAttribute('name') === ui.Slider.current) {
-        currentlight.style.left = (cur_sel[i].parentNode.offsetLeft - lightleft) + 'px';
-        currentlight.style.width = cur_sel[i].parentNode.offsetWidth + 'px';
+        //transition from transparency to blue to transparency that starts on the left side
+        //is blue at the middle point of the current tab. i build it out of 2 divs, because
+        //transitions don't support gradients atm (they should though :v).
+        //since this is not everytime 100 percent accurate while transitioning (sometimes you can see a 1 px gap)
+        //i added 1 px to one of the lengths (you can't really see it).
+        
+        //mPoint is the relative distance to the left side of the whole light
+        var mPoint = (cur_sel[i].parentNode.offsetLeft - lightoffset) + (cur_sel[i].parentNode.offsetWidth / 2);
+        leftlight.style.width = mPoint  + 'px';
+        rightlight.style.width = (lightwidth - mPoint + 1) + 'px';
         cur_sel[i].classList.add('current');
       }
       cur_sel[i].classList.add('selected');

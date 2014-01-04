@@ -202,7 +202,6 @@
               <span></span>
             </li>
           </ul>
-          <a id="btn_my_profile" class="profile_img_wrapper" title="Your profile" href="#" data-i18n-title="your_profile"></a>
         </div>
       </section>
       <!-- center -->
@@ -226,10 +225,14 @@
                   <span class="icon ic_add"></span>
                 </a>
               </div>
+              <div class="stick_right">
+                <a id="btn_my_profile" title="Your profile" href="#" data-i18n-title="your_profile"></a>
+              </div>
             </div>
             <div id="indication_slot">
               <div id="indication_light">
-                <div id="indication_light_current"></div>
+                <div id="indication_light_left"></div>
+                <div id="indication_light_right"></div>
               </div>
             </div>
           </div>
@@ -358,6 +361,7 @@
     </div>
     <!-- container -->
     <!-- The section below is the definition of the 'dialog' where you enter a new status. The scripts for this dialog are in data/js/ui.status_box.js -->
+    <div id="bodyCover"></div>
     <section id="status_box" class="closed dialog">
       <div class="dialog_bar">
         <h2 class="dialog_title" data-i18n-text="compose">Compose</h2>

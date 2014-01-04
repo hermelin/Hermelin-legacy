@@ -1,6 +1,6 @@
 if (typeof (widget) == 'undefined') widget = {}
 
-function WidgetDialog(obj) {
+function WidgetDialog(id) {
   /* .dialog 
    * .dialog > .dialog_bar
    * .dialog > .dialog_bar > .dialog_title
@@ -12,11 +12,23 @@ function WidgetDialog(obj) {
 
   var self = this;
   self._me = null;
+  self.__me = null;
   self.BAR_H = 38;
   self._auto_h = false;
   self._auto_w = false;
 
-  self._default_dialog_html = '<div id="{%ID%}" class="dialog"><div class="dialog_bar"><h1 class="dialog_title">Title</h1><a href="javascript: void(0);" class="dialog_close_btn"></a></div><div class="dialog_container"><div class="dialog_header"></div><div class="dialog_body"></div><div class="dialog_footer"></div></div></div>'
+  self._default_dialog_html = '\n' +
+    '<div id="{%ID%}" class="dialog">\n' +
+    '  <div class="dialog_bar">\n' +
+    '    <h1 class="dialog_title">Title</h1>\n' +
+    '    <a href="javascript: void(0);" class="dialog_close_btn"></a>\n' +
+    '  </div>\n' +
+    '  <div class="dialog_container">\n' +
+    '    <div class="dialog_header"></div>\n' +
+    '    <div class="dialog_body"></div>\n' +
+    '    <div class="dialog_footer"></div>\n' +
+    '  </div>\n' +
+    '</div>';
 
   self._mouse_x = 0;
   self._mouse_y = 0;
@@ -26,12 +38,13 @@ function WidgetDialog(obj) {
 
   self.destroy_on_close = false;
 
-  self.init = function init(obj) {
-    if (typeof (obj) == 'string') {
-      if ($(obj).length == 0) {
-        self.build_default_dialog(obj);
+  self.init = function init(id) {
+    if (typeof (id) == 'string') {
+      if ($(id).length == 0) {
+        self.build_default_dialog(id);
       }
-      self._me = $(obj);
+      self._me = $(id);
+      self.__me = document.getElementById(id.substring(1));
     } else {
       return null;
     }
@@ -39,11 +52,15 @@ function WidgetDialog(obj) {
     self._header = self._me.find('.dialog_header');
     self._body = self._me.find('.dialog_body');
     self._footer = self._me.find('.dialog_footer');
+    self.__bar = self.__me.getElementsByClassName('dialog_bar')[0];
+    self.__header = self.__me.getElementsByClassName('dialog_header')[0];
+    self.__body = self.__me.getElementsByClassName('dialog_body')[0];
+    self.__footer = self.__me.getElementsByClassName('dialog_footer')[0];
   };
 
   self.build_default_dialog = function build_default_dialog(id) {
-    $('body').append($(
-      self._default_dialog_html.replace('{%ID%}', id.substring(1))));
+    /*document.body.innerHTML += self._default_dialog_html.replace('{%ID%}', id.substring(1));*/
+    $('body').append(self._default_dialog_html.replace('{%ID%}', id.substring(1)));
   };
 
   self.create = function create() {
@@ -54,96 +71,86 @@ function WidgetDialog(obj) {
     self._me.click(function (event) {
       widget.DialogManager.set_above(self);
     });
-    self._bar
-      .mousedown(function (event) {
+    self.__bar.onmousedown = function (event) {
       widget.DialogManager.set_above(self);
 
       if (event.button != 0) {
         return;
       }
-      self._drag = true;
-      var pos = self._me.position();
-      self._offsetX = event.clientX - pos.left;
-      self._offsetY = event.clientY - pos.top;
+      self._offsetX = event.clientX - self.__me.offsetLeft;
+      self._offsetY = event.clientY - self.__me.offsetTop;
       event.target.style.cursor = "move";
-
-      $('body').css({
-        '-webkit-user-select': 'none',
-        '-khtml-user-select': 'none'
-      });
-    })
-      .mouseup(function (event) {
-      if (self._drag) {
-        self._drag = false;
-        event.target.style.cursor = null;
-        $('body').css({
-          '-webkit-user-select': '',
-          '-khtml-user-select': ''
-        });
-      }
-    });
-    $(document).mousemove(function (event) {
-      if (self._drag) {
-        self.move(event.clientX - self._offsetX, event.clientY - self._offsetY);
-      }
-    });
+      document.onmousemove = function (event) {
+        self.__me.style.left = event.clientX - self._offsetX + 'px';
+        self.__me.style.top = event.clientY - self._offsetY + 'px';
+      };
+      document.getElementById('bodyCover').style.display = 'block';
+      //i used a covering div instead of turning "user-select" for the body off because the latter one takes too much compution power/there is a noticable lag spike when starting to drag a dialog
+    };
+    self.__bar.onmouseup = function (event) {
+      document.onmousemove = null;
+      self._drag = false;
+      event.target.style.cursor = null;
+      document.getElementById('bodyCover').style.display = 'none';
+    };
   };
 
   self.move = function move(x, y) {
     self._me_x = x;
     self._me_y = y;
-    self._me.css({
-      'left': (x) + 'px',
-      'top': (y) + 'px'
-    });
+    self.__me.style.left = x + 'px';
+    self.__me.style.top = y + 'px';
   };
 
-  self.resize = function resize(w, h) {
-    self._me_h = self._me.height();
-    self._header_h = parseInt(self._header.css('height')) + parseInt(self._header.css('padding-top')) + parseInt(self._header.css('padding-bottom')) + 1;
-    self._footer_h = parseInt(self._footer.css('height')) + parseInt(self._footer.css('padding-top')) + parseInt(self._footer.css('padding-bottom')) + 1;
-    self._me_h = (h == -1 ? self._me_h : h);
-    if (h !== 'auto' && !self._auto_h) {
-      self._me.css({
-        'height': self._me_h
-      });
-      var body_h = self._me_h - self._header_h - self._footer_h;
-      var body_padding = parseInt(self._body.css('padding-top')) + parseInt(self._body.css('padding-bottom'));
-      self._body.css({
-        'height': (body_h - body_padding - self.BAR_H) + 'px'
-      });
-    } else {
-      self._auto_h = true;
+  self.resize = function (width, height) {
+    if (height) {
+      if (height !== 'auto' && !self._auto_h) {
+        self.__me.style.height = height + 'px';
+        var body_h = self.__body.style.height.slice(0, -2) || 0;
+        var body_h_diff = (height - self.__header.offsetHeight - self.__bar.offsetHeight - self.__footer.offsetHeight) - parseInt(self.__body.style.height.slice(0, -2));
+        self.__body.style.height = (body_h + body_h_diff) + 'px';
+      } else {
+        self._auto_h = true;
+      }
     }
-    if (w !== 'auto' && !self._auto_w) {
-      self._me_w = (w == -1 ? self._me_w : w);
-      self._me.css({
-        'width': self._me_w
-      });
-    } else {
-      self._auto_w = true;
+    if (width) {
+      if (width !== 'auto' && !self._auto_w) {
+        self.__me.style.width = width + 'px';
+      } else {
+        self._auto_w = true;
+      }
     }
-    // 20px = dialog_body.padding + border_num
   };
 
   self.callUp = function callUp(method) {
-    var x = $(window).width() / 2 - self._me.width() / 2;
-    var y = $(window).height() / 2 - self._me.height() / 2;
-    y = y > 100 ? y - y / 2.0 : y;
-    if (method == "off") {
+    var x = (window.innerWidth - self.__me.offsetWidth) / 2;
+    var y = (window.innerHeight - self.__me.offsetHeight) / 2;
+    // @TODO better algorithm. this one sucks.
+    y = y > 100 ? y / 2 : y;
+
+    switch (method) {
+    case 'off':
       self.move(x, y);
-      self._me.show();
-    } else if (method == 'slide') {
-      self._me.show();
-      self.move(x, $(window).height() + 10);
-      self._me.transition({
-        'left': x,
-        'top': y
-      },
-        200);
-    } else {
+      util.fadeIn(self.__me, {
+        noAnim: true
+      });
+      break;
+    case 'slide':
+      util.fadeIn(self.__me, {
+        noAnim: true
+      });
+      self.move(x, window.innerHeight + self.__me.offsetHeight);
+      self.__me.style["-webkit-transition"] = 'top 0.2s, left 0.2s';
       self.move(x, y);
-      self._me.fadeIn('fast');
+      setTimeout(function () {
+        self.__me.style["-webkit-transition"] = null;
+      }, 200);
+      break;
+    default:
+      self.move(x, y);
+      util.fadeIn(self.__me, {
+        speed: 200
+      })
     }
   };
 
@@ -152,30 +159,39 @@ function WidgetDialog(obj) {
       if (self.destroy_on_close) {
         self.destroy();
       } else {
-        self._me.hide();
+        util.fadeOut(self.__me, {
+          noAnim: true
+        });
       }
     }
-    if (method == 'off') {
+
+    switch (method) {
+    case 'off':
       clearUp();
-    } else if (method == "slide") {
-      var x = $(window).width() / 2 - self._me.width() / 2;
-      var y = 0 - self._me.height() - 100;
-      self._me.transition({
-        'left': x,
-        'top': y
-      },
-        200, clearUp);
-    } else {
-      self._me.fadeOut('fast', clearUp);
+      break;
+    case 'slide':
+      var x = (window.innerWidth - self._me.offsetWidth) / 2;
+      var y = 0 - self.__me.offsetHeight;
+      self.__me.style["-webkit-transition"] = 'top 0.2s, left 0.2s';
+      self.move(x, y);
+      setTimeout(function () {
+        self.__me.style["-webkit-transition"] = null;
+      }, 200);
+      break;
+    default:
+      util.fadeOut(self.__me, {
+        speed: 200
+      }, clearUp);
     }
   };
 
   self.open = function open(method, callback) {
-    if ($(window).width() < self._me_w + 20) {
-      self.resize($(window).width() - 20, -1);
+    self._me.show();
+    if (window.innerWidth < self._me.offsetWidth + 20) {
+      self.resize(window.innerWidth - 20, 0);
     }
-    if ($(window).height() < self._me_h + 20) {
-      self.resize(-1, $(window).height() - 20);
+    if (window.innerHeight < self._me.offsetHeight + 20) {
+      self.resize(0, window.innerHeight - 20);
     }
     self.callUp(method);
     widget.DialogManager.push(self);
@@ -185,58 +201,38 @@ function WidgetDialog(obj) {
   };
 
   self.close = function close(method) {
+    self._me.hide();
     self.dissipate(method);
     widget.DialogManager.pop(self);
   };
 
   self.destroy = function destroy() {
-    self._me.unbind();
-    self._bar.unbind();
-    self._close_btn.unbind();
     self._me.remove();
     delete self;
   };
 
   self.set_title = function set_title(title) {
-    self._bar.children('.dialog_title').text(title)
+    self.__bar.getElementsByClassName('dialog_title')[0].innerHTML = title;
   };
 
   self.set_content = function set_content(place, content) {
-    switch (place) {
-    case 'header':
-      self._header.html(content);
-      break;
-    case 'body':
-      self._body.html(content);
-      break;
-    case 'footer':
-      self._footer.html(content);
-      break;
-    default:
-      break;
-    }
+    self['__' + place].innerHTML = content;
   };
 
   self.set_styles = function set_styles(place, styles) {
-    switch (place) {
-    case 'header':
-      self._header.css(styles);
-      break;
-    case 'body':
-      self._body.css(styles);
-      break;
-    case 'footer':
-      self._footer.css(styles);
-      break;
-    default:
-      break;
+    for (var key in styles) {
+      var elem = self['__' + place]
+      var cssProp = key.replace(/(?:\-(\w))/g, function (a, mtch) {
+        return mtch.toUpperCase()
+      })
+      elem.style[cssProp] = styles[key];
     }
   };
 
   self.set_order = function set_order(index) {
-    self._me.css('z-index', index);
+    self.__me.style.zIndex = index;
   };
-  self.init(obj);
+  self.init(id);
 }
 
 widget.Dialog = WidgetDialog;
@@ -250,11 +246,6 @@ widget.DialogManager = {
 
   push: function push(dialog) {
     dialog.set_order(this.current_index);
-    if (this.dialog_stack.length != 0) {
-      this.dialog_stack[this.dialog_stack.length - 1]
-        ._me.css('-webkit-box-shadow', '0px 0px 5px #000');
-    }
-    dialog._me.css('-webkit-box-shadow', '0px 0px 8px #000');
     this.dialog_stack.push(dialog);
     this.current_index += 1;
   },

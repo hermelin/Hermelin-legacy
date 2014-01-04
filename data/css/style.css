@@ -36,6 +36,17 @@ pre {
   margin:0 auto;
   width:100%;
 }
+#bodyCover{
+  display: none;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
 /* ===== header ==============================*/
  #header {
   font-size: 12px;
@@ -48,17 +59,16 @@ pre {
 }
 #btn_my_profile {
   position: absolute;
-  top: 5px;
-  left: 5px;
   z-index: 100;
-  width: 28px;
-  height: 28px;
+  width: 100%;
+  height: 100%;
   display: block;
+  -webkit-border-radius: 0;
   background-image: url(../image/ic48_profile_image.png);
-  opacity: 0.4;
-  -webkit-box-shadow: 1px 1px 5px #333;
-  -moz-box-shadow: 1px 1px 5px #333;
-  box-shadow: 1px 1px 5px #333;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0;
 }
 #btn_my_profile:hover {
   opacity: 1;
@@ -95,7 +105,7 @@ pre {
   width: 20px;
   display: inline-block;
   border: 1px transparent solid;
-  border-radius: 5px 5px;
+  -webkit-border-radius: 5px 5px;
   background-position: 50% 50% !important;
   background-repeat: no-repeat;
 }
@@ -151,7 +161,7 @@ pre {
   position: absolute;
   top: 35px;
   max-width: 180px;
-  border-radius: 0;
+  -webkit-border-radius: 0;
   -webkit-box-shadow: 2px 2px 3px #888;
   -moz-box-shadow: 2px 2px 3px #888;
   box-shadow: 2px 2px 3px #888;
@@ -163,7 +173,7 @@ pre {
   list-style-type: none;
   display: none;
   background: white;
-  border-radius: 2px;
+  -webkit-border-radius: 2px;
   position:relative;
   -webkit-box-shadow: 1px 1px 5px #333;
   -moz-box-shadow: 1px 1px 5px #333;
@@ -206,17 +216,10 @@ pre {
   background-position: 3px center;
 }
 #status_box {
-  background:-webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#ededed));
-  background-repeat: no-repeat;
-  background-position: right top;
   min-width: 300px;
   max-width: 550px;
-  border-radius: 2px;
   padding: 0;
   position: fixed;
-  -webkit-box-shadow: 2px 2px 3px #888;
-  -moz-box-shadow: 2px 2px 3px #888;
-  box-shadow: 2px 2px 3px #888;
 }
 #status_box .dialog_body {
   padding: 0;
@@ -290,7 +293,7 @@ pre {
 }
 .smiley {
   background: #666;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
   display: block;
   float: left;
   margin: 5px;
@@ -299,7 +302,7 @@ pre {
   color: white;
   padding: 3px 6px;
 }
-#status_ctrl {
+#status_ctrl {y
   padding: 5px 0;
   text-align: right;
   vertical-align: middle;
@@ -365,7 +368,7 @@ pre {
   line-height: 24px;
   font-size: 10px;
   font-weight: bold;
-  background: #666 url(../image/mask.png);
+  background: #666;
   color: white;
   cursor: pointer;
   vertical-align: middle;
@@ -481,7 +484,6 @@ pre {
  #indication {
   text-align: center;
   -webkit-box-shadow: inset 0 0 5px black;
-  -moz-box-shadow: inset 0 0 5px black;
   box-shadow: inset 0 0 5px black;
 }
 #indicator_btns {
@@ -519,51 +521,43 @@ pre {
   text-decoration: none;
 }
 #indication .indicator_btn:hover {
-  background: #444 none no-repeat;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 #indication .indicator_btn.hlight {
   background-color: white;
   color: #36c;
 }
+#indicator_add_btn.hlight .ic_add{
+  background-image: url(../image/svg/ic30_add_dark.png);
+}
 #indicator_btns > div.over {
   background: rgba(133, 133, 255, 0.5);
 }
-#indication .indicator_btn > .icon_alt {
+#indicator_btns .icon_alt {
   display: none;
   height: 40px;
   background-position: center center;
   background-repeat: no-repeat;
 }
-#indication .indicator_btn > .icon {
+#indicator_btns .icon {
   display: block;
-  width: 24px;
-  height: 24px;
-  margin: 8px auto 2px auto;
+  width: 30px;
+  height: 30px;
+  margin: 4px auto auto auto;
+  -webkit-transition: -webkit-box-shadow 0.4s;
 }
-#indication .indicator_btn > .icon.board, #indication .indicator_btn > .icon.float {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 3px #000;
-  -moz-box-shadow: 0 1px 3px #000;
-  box-shadow: 0 1px 3px #000;
+.system_view .icon, .custom_view .icon{
+  border-radius: 100%;
 }
-#indication .indicator_btn > .icon.float {
+#indicator_btns .icon.float {
   float: left;
   width: 16px;
   height: 16px;
   margin-left: 6px;
   margin-top: 8px;
 }
-#indication .indicator_btn.unread {
-  background-image: url(../image/emit.png);
-  background-position: center -13px;
-  background-repeat: no-repeat;
-}
-#indication .indicator_btn.selected {
-  /* @TODO need a image here*/
-}
-#indication .indicator_btn.unread > span.icon {
-  background-position: center center;
+#indicator_btns .indicator_btn.unread .icon {
+  -webkit-box-shadow: 0 0 6px 1px #5CB4DD;
 }
 #indicator_compose_btn {
   color: white;
@@ -594,24 +588,27 @@ pre {
   border: none;
 }
 #indication_light {
-  width: 39px;
+  width: 40px;
   height: 2px;
-  top: -4px;
-  background: #DDD;
+  top: -3px;
+  background: transparent;
   position: absolute;
   -webkit-transition: left 0.4s, width 0.4s;
   pointer-events: none;
 }
-#indication_light_current {
-  /* reduce the damage in FF3.0 */
+#indication_light_left, #indication_light_right {
   position: absolute;
-  width: 40px;
   height: 100%;
-  background-color: #5CB4DD;
+  width: 50%;
+  -webkit-transition: width 0.4s;
+}
+#indication_light_left {
   left: 0;
-  border: none;
-  -webkit-transition: left 0.4s, width 0.4s;
-  pointer-events: none;
+  background-image: -webkit-linear-gradient(left, transparent 0%, #5cb4dd 100%);
+}
+#indication_light_right {
+  right: 0;
+  background-image: -webkit-linear-gradient(left, #5cb4dd 0%, transparent 100%);
 }
 #console {
   background: rgba(0, 0, 0, 0.8);
@@ -678,7 +675,7 @@ pre {
   border: 1px solid #fcfc19;
   color: #990000;
   display:none;
-  border-radius: 3px 3px;
+  -webkit-border-radius: 3px 3px;
 }
 /* ===== Finder =================================== */
  #finder_bar {
@@ -713,13 +710,13 @@ pre {
   display: inline-block;
   vertical-align:middle;
   border: 1px transparent solid;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 #finder_matched_info {
   height: 20px;
   display: inline-block;
   vertical-align:middle;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
   min-width: 40px;
   text-align: center;
   line-height: 20px;
@@ -768,11 +765,15 @@ pre {
  #main_page {
   display: none;
   background: #fff;
-  position: relative;
+  position: fixed;
+  left: 0;
+  height: inherit;
 }
 #main_page_slider {
   height: 100%;
+  position: relative;
   width: auto;
+  -webkit-transition: left 0.4s;
 }
 #empty_view_hint {
   display: none;
@@ -1006,7 +1007,7 @@ pre {
 .search_box {
   background-color: #F2F2F2;
   border: #E5E5E5 solid 1px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
   padding: 10px;
 }
 #create_saved_search_btn {
@@ -1052,13 +1053,14 @@ pre {
 }
 #welcome_page h1 {
   padding-left: 70px;
-  height: 35px;
-  line-height: 35px;
-  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 29px;
   color: #fff;
-  background:url(../image/ic32_hermelin_mono_light.png) 20px 0 no-repeat, rgba(0, 0, 0, 0.8) url(../image/mask.png);
+  background:url(../image/ic32_hermelin_mono_light.png) 20px 5px no-repeat, #222;
   text-shadow: 0 1px 0px white;
   box-shadow: 0 1px 10px black;
+  -webkit-font-smoothing: antialiased;
   position: absolute;
   width: 100%;
   top: 0;
@@ -1096,7 +1098,7 @@ pre {
   padding: 10px 10px;
   display: block;
   font-size: 12px;
-  border-radius: 5px 5px;
+  -webkit-border-radius: 5px 5px;
   position: absolute;
 }
 #welcome_page_loading .inner {
@@ -1136,7 +1138,7 @@ pre {
   height: 64px;
   display: block;
   border: 2px solid #ffffff;
-  border-radius: 100%;
+  -webkit-border-radius: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -1209,7 +1211,7 @@ pre {
   height: 64px;
   background: transparent url(../image/svg/ic64_go.png) no-repeat 0 0;
   border: 2px solid #ffffff;
-  border-radius: 100%;
+  -webkit-border-radius: 100%;
   -webkit-transition: opacity 0.2s;
   opacity: 0.5;
   display: block;
@@ -1256,7 +1258,7 @@ pre {
   width: 24px;
   height: 24px;
   text-indent: -9999px;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
   background: transparent none no-repeat center center;
 }
 #service_chooser a.selected {
@@ -1339,7 +1341,7 @@ pre {
 #about_dlg .dialog_header, #error_dlg .dialog_header, #kismet_dialog .dialog_header {
   padding: 10px;
   height: 32px;
-  background: #777777 url(../image/mask.png);
+  background: #777777;
 }
 #prefs_dlg .dialog_header, #status_box .dialog_header, #oauth_dlg .dialog_header, #list_attr_dlg .dialog_header, #add_to_list_dlg .dialog_header {
   height: 0;
@@ -1370,7 +1372,7 @@ pre {
   margin: 5px 0 20px 0;
   overflow: auto;
   width: 100%;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
   box-sizing: border-box;
 }
 /*===== Extensions Dialog ================================*/
@@ -1637,7 +1639,7 @@ pre {
   margin-left: -32px;
   margin-top: -62px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 #previewer .image {
   display: block;
@@ -1703,7 +1705,7 @@ pre {
   font-size: 10px;
   background-color: #f2f2f2;
   border: #e5e5e5 solid 1px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
   position: relative;
 }
 .vcard_tabs_page {
@@ -1945,7 +1947,7 @@ pre {
   background: #fef6a8 none no-repeat 20px center;
   border: 1px solid #fcfc19;
   color: #990000;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 .btn_tweet_thread_more {
   padding: 3px 10px;
@@ -1966,12 +1968,12 @@ pre {
   z-index: 100011;
   color: #fff;
   display: none;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 #action_menu_info {
   background:-webkit-gradient(linear, left top, left bottom, from(#f6dcb5), to(#f3c889));
   border: 1px #c4987d solid;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
   color: #502805;
   padding: 10px;
   font-size: 12px;
@@ -2045,7 +2047,7 @@ td {
 }
 /* overwrite widgets styles*/
  .entry {
-  border-radius: 0;
+  -webkit-border-radius: 0;
 }
 /*=====*/
  .hint {
@@ -2053,7 +2055,7 @@ td {
   border: 1px solid #FCFC19;
   color: #900;
   padding: 5px 10px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
@@ -2070,7 +2072,7 @@ td {
   background: transparent url(../image/ic_compose.png) no-repeat;
 }
 .ic_add {
-  background: transparent url(../image/ic_add.png) no-repeat;
+  background: transparent url(../image/svg/ic30_add.png) no-repeat;
 }
 .ic_home {
   background: transparent url(../image/ic_home.png) no-repeat;

@@ -373,7 +373,7 @@ ui.StatusBox = {
         ui.StatusBox.last_sent_text = '';
         ui.StatusBox.save_draft(draft);
       });
-      ui.StatusBox.close('slide');
+      ui.StatusBox.close();
     }
     return this;
   },
@@ -414,7 +414,7 @@ ui.StatusBox = {
           toast.set('Post failed! Saved as a draft.').show(3);
           ui.StatusBox.save_draft(draft);
         });
-        ui.StatusBox.close('slide');
+        ui.StatusBox.close();
       }
     }
   },
