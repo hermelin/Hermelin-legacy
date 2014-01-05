@@ -396,16 +396,17 @@ conf = {
 };
 
 var daily_hints = [
-      'Press "C" to compose quickly'
-    , 'Press "R" will reload current page'
-    , 'Wanna quit hermelin? try <Ctrl>+Q'
-    , 'I can act like VIM!'
-    , 'Need more columns? Try to extend my window'
-    , 'Need fewer columns? Try to resize my window to a small size'
-    , 'Go to "STAT" page, You\'ll see how addicted to twitter you are'
+      'Press ? to see some information and keyboard shortcuts'
+    , 'Go to \'STAT\' page, you\'ll see how addicted to twitter you are'
     , 'This is a ALPHA version, full of bugs, and features'
-    , 'すっかり冷え込んだ日にはホットミルクとラブレターが恋しい'
-    , 'My only fear of death is comin\' back to this bitch reincarnated'
-    , 'FACT: features are bugs, but beautifully dressed'
-    , 'Hermelin is a kind of rabbit, but I really love Cats :)'
+    , 'Hermelin is the german word for ermine but please pronounce it English <3'
+    , 'Hermelin can shorten too long Tweets'
+    , 'You are beautiful today'
+    , 'I believe in Schrödingers God'
+    , 'There is no neutral ground in a burning world'
+    , 'Evereything you do will change the life of people you\'ll never know but they will know you'
 ];
+var rare_hints = [
+      '#@!^&'
+    , 'MIRROR'
+]

@@ -296,7 +296,7 @@ ui.Welcome = {
         }
 
         var selected = document.getElementById('profile_avatar_list').getElementsByClassName('selected');
-        while (selected.length > 0){
+        while (selected.length > 0) {
           selected[0].classList.remove('selected');
         }
         this.classList.add('selected');
@@ -343,11 +343,14 @@ ui.Welcome = {
   },
 
   load_daily_hint: function () {
-    if (Date.now() % 4 != 0) {
+    var dayHint = document.getElementById('daily_hint');
+    dayHint.removeAttribute('data-i18n-text');
+    if (Date.now() % 200 != 0) {
       var r = parseInt(Math.random() * daily_hints.length);
-      var dayHint = document.getElementById('daily_hint');
-      dayHint.removeAttribute('data-i18n-text');
-      dayHint.innerHTML = '<strong>' + _('whisper') + ': </strong>' + daily_hints[r];
+      dayHint.innerHTML = daily_hints[r];
+    } else {
+      var r = parseInt(Math.random() * rare_hints.length);
+      dayHint.innerHTML = rare_hints[r];
     }
   },
 
