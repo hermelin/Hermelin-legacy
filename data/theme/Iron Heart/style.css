@@ -1,32 +1,18 @@
 #indication {
   background: #111;
 }
-#status_box, #hermelin_menu, #slider_menu {
+#hermelin_menu, #slider_menu {
   box-shadow: 2px 2px 3px #111;
   -webkit-box-shadow: 2px 2px 3px #111;
 }
 #main_page {
   display: none;
   background: #232223;
-  position: relative;
-}
-#main_page_slider {
-  height: 100%;
-  width: auto;
-}
-.people_vcard {
-  color: #333;
-  padding: 5px;
-  position: relative;
-}
-#view_title_bar {
-  border-bottom: 1px #4AC3FF solid;
 }
 #view_title_bar .view_title {
   background: #393939;
   color: white;
   font-weight: bold;
-  border-bottom: 1px #393939 solid;
   border-left: 1px #393939 solid;
 }
 #view_title_bar .setting_btn {
@@ -36,12 +22,13 @@
   background-image: url(./ic16_close.png);
 }
 .tweetview .listview_body {
-  border-color: #333 !important;
+  border-color: #333;
 }
 .card {
   border-top: 1px #333 solid;
-  color: #ECE8DD;
   border-bottom: 0px #111 solid;
+  color: #ECE8DD;
+  border-bottom: none;
   padding-left: 0;
   margin-left: 10px;
 }
@@ -49,7 +36,7 @@
   left: -10px;
 }
 .card > .tweet_selected_indicator {
-  background-color: #4C6CF5;
+  background-color: #5cb4dd;
 }
 .card.normal a {
   color: #4AC3FF;
@@ -160,17 +147,12 @@ a {
 .btn_tweet_thread.expand {
   background-image: url(expand.png);
 }
-.scrollbar_track {
-  width: 10px;
-}
 .scrollbar_track .scrollbar_slot {
   background-color: transparent;
   width: 3px;
   margin: 0 3px 0 4px;
 }
 .scrollbar_handle {
-  background: #4AC3FF;
-  box-shadow: 0 0 5px #4AC3FF;
   width: 3px;
   opacity: 0.8;
 }
