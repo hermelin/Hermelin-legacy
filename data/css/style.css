@@ -445,7 +445,7 @@ pre {
   font-size: 10px;
 }
 #view_title_bar {
-  height: 22px;
+  height: 2qpx;
   width: 100%;
   overflow: hidden;
   background: #F2F2F2;
@@ -456,7 +456,6 @@ pre {
   text-align: center;
   font-size: 13px;
   height: 21px;
-  border-bottom: 1px #ddd solid;
   border-left: 1px #ddd solid;
   float: left;
   position: relative;
@@ -566,21 +565,23 @@ pre {
   text-decoration: none;
   font-size: 14px !important;
   font-weight: bold;
-  border-right: 1px #444 solid;
-  border-left: 1px #444 solid;
-  text-indent: -999999px;
+}
+#indicator_compose_btn .icon{
+  background-position: center center;
+}
+#indicator_compose_btn .label{
+  display: none;
 }
 #indicator_compose_btn.with_label {
-  text-indent: 0px;
   width: 150px !important;
   background-position: 8px center;
 }
+#indicator_compose_btn.with_label .label{
+  display: block;
+}
 #indicator_compose_btn.with_label .icon {
-  background-position: center center;
   float: left;
   margin-left: 10px;
-}
-#indicator_compose_btn.with_label.hlight .icon {
 }
 #indication_slot {
   height: 0px;
