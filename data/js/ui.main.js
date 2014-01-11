@@ -769,14 +769,13 @@ ui.Main = {
     var id = (li.attr('retweet_id') == '' || li.attr('retweet_id') == undefined) ? li.attr('tweet_id') : li.attr('retweet_id');
     var screen_name = li.attr('screen_name');
     var text = $(li.find('.text')[0]).text();
-    var orig_text = $('#tbox_status').val();
     // @TODO reduce this process by entities
     var who_names = ['@' + screen_name];
     var match = ui.Template.reg_user.exec(text);
     while (match != null) {
-      if (match[2] != globals.myself.screen_name) {
+      if (match[2].toLowerCase() != globals.myself.screen_name.toLowerCase()) {
         var name = '@' + match[2];
-        if (orig_text.indexOf(name) == -1 && who_names.indexOf(name) == -1) {
+        if (who_names.indexOf(name) == -1) {
           who_names.push(name);
         }
       }
