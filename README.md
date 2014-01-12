@@ -20,31 +20,31 @@ To do this you have to install Hermelin in the webstore first and then copy the 
 
 ###Windows XP
 Google Chrome:
-`C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\`
+C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
 
 Chromium:
-`C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\`
+C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
 
 ###Windows 8/7/Vista
 Google Chrome:
-`C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\`
+C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
 
 Chromium:
-`C:\Users\%USERNAME%\AppData\Local\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\`
+C:\Users\%USERNAME%\AppData\Local\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
 
 ###Linux
 Google Chrome:
-`~/.config/google-chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/`
+~/.config/google-chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
 
 Chromium:
-`~/.config/chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/`
+~/.config/chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
 
 ###Mac OS X
 Google Chrome:
-`~/Library/Application Support/Google/Chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/`
+~/Library/Application Support/Google/Chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
 
 Chromium:
-`~/Library/Application Support/Chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/`
+~/Library/Application Support/Chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
 
 ###Chrome OS & Chromium OS
 
