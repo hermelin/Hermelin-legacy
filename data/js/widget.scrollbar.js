@@ -17,6 +17,7 @@
       this.disabled = false;
       this.margin = margin;
       this.handle = this.track.find('.scrollbar_handle');
+      this.slot = this.track.find('.scrollbar_slot');
       this.content_height = 0;
       this.handle_height = 0;
       if (this.track.length === 0 && this.content.length === 0 && this.handle.length === 0) {
@@ -133,7 +134,7 @@
       }).mouseup(function (ev) {
         return _this.deactivate();
       });
-      this.track.mousedown(function (ev) {
+      this.slot.mousedown(function (ev) {
         var pos;
         _this.activate();
         pos = _this.handle_pos_check(ev.clientY - _this.track.offset().top - _this.handle_height * 0.5);
@@ -146,6 +147,12 @@
         return _this.on_wheel(ev);
       });
       this.content.on('DOMMouseScroll', function (ev) {
+        return _this.on_wheel(ev);
+      });
+      this.track.on('mousewheel', function (ev) {
+        return _this.on_wheel(ev);
+      });
+      this.track.on('DOMMouseScroll', function (ev) {
         return _this.on_wheel(ev);
       });
       return this.content.scroll(function (ev) {

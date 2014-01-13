@@ -431,7 +431,7 @@ disabled:
   top:0;
   right:0;
   height:100%;
-  width: 25px;
+  width: 21px;
   opacity: 0;
   -webkit-transition: opacity 0.05s;
 }
@@ -440,8 +440,8 @@ disabled:
   height:100%;
   position:relative;
   width: 10px;
-  margin: 0 15px;
-  background-color: rgba(200, 200, 200, 0.1);
+  margin: 0 11px;
+  background-color: rgba(0, 0, 0, 0.15);
   cursor:pointer;
 }
 .scrollbar_handle {
@@ -454,6 +454,8 @@ disabled:
 }
 .scrollbar_track.active, .scrollbar_track:hover{
   opacity:1;
+}
+.scrollbar_track.active{
   cursor:pointer;
 }
 .scrollbar_content {
