@@ -36,15 +36,19 @@
     "description": "data/index.html"
   },
   "animation": {
-    "message": "",
+    "message": "Animationen",
     "description": "data/index.html"
   },
   "api_base": {
-    "message": "API Base",
+    "message": "API Basis",
     "description": "data/index.html"
   },
   "api_setting": {
     "message": "API Einstellungen",
+    "description": "data/index.html"
+  },
+  "appearance": {
+    "message": "Darstellungs Einstellungen",
     "description": "data/index.html"
   },
   "archive": {
@@ -55,10 +59,15 @@
     "message": "",
     "description": "data/index.html"
   },
+  "at_and_username": {
+    "message": "@Name und Benutzername",
+    "description": "data/index.html"
+  },
   "assassin_s_tango": {
     "message": "Assassin's Tango",
     "description": "data/index.html"
   },
+  
   "authentication_ok": {
     "message": "Authentifizierung OK!",
     "description": "data/js/ui.welcome.js"
@@ -68,7 +77,7 @@
     "description": "data/js/ui.exts_dlg.js"
   },
   "auto_longer_tweet": {
-    "message": "",
+    "message": "Automatische längere Tweets",
     "description": "data/index.html"
   },
   "automatically_sign_in_after_opening": {
@@ -284,11 +293,11 @@
     "description": "data/js/ui.exts_dlg.js"
   },
   "enable_animation": {
-    "message": "",
+    "message": "Animationen aktivieren",
     "description": "data/index.html"
   },
   "enable_gpu_acceleration": {
-    "message": "",
+    "message": "GPU-Beschleunigung aktivieren",
     "description": "data/index.html"
   },
   "enable_verbose_mode": {
@@ -332,7 +341,7 @@
     "description": "data/js/ui.template.js"
   },
   "filter_nsfw_media": {
-    "message": "",
+    "message": "Keine Vorschau zeigen wenn NSFW im Tweet vorkommt",
     "description": "data/index.html"
   },
   "filter_tweets_like_it": {
@@ -372,7 +381,7 @@
     "description": "data/index.html"
   },
   "font_preview_hint": {
-    "message": "Der schnelle braune Fuchs springt über den faulen Hund.",
+    "message": "Vogel Quax zwickt Johnys Pferd Bim.",
     "description": "data/index.html"
   },
   "font_size": {
@@ -452,15 +461,23 @@
     "description": "data/index.html"
   },
   "interface_language": {
-    "message": "Interface Sprache",
+    "message": "Sprache",
     "description": "data/index.html"
   },
   "join": {
     "message": "Beitreten",
     "description": "data/js/ui.template.js"
   },
+  "just_atname": {
+    "message": "Nur @Name",
+    "description": "data/index.html"
+  },
   "just_cannot_stop_thinking_of_here": {
     "message": "Kann nicht aufhören über das hier nachzudenken",
+    "description": "data/index.html"
+  },
+  "just_username": {
+    "message": "Nur Benutzername",
     "description": "data/index.html"
   },
   "keyboard": {
@@ -512,7 +529,7 @@
     "description": "data/index.html"
   },
   "line_height": {
-    "message": "",
+    "message": "Zeilengröße",
     "description": "data/index.html"
   },
   "list": {
@@ -676,7 +693,7 @@
     "description": "data/index.html"
   },
   "oauth_base": {
-    "message": "OAuth Base",
+    "message": "OAuth Basis",
     "description": "data/index.html"
   },
   "official_retweet_this_tweet": {
@@ -848,11 +865,11 @@
     "description": "data/index.html"
   },
   "read_later": {
-    "message": "",
+    "message": "Read Later",
     "description": "data/index.html"
   },
   "read_later_service": {
-    "message": "",
+    "message": "Read Later Service",
     "description": "data/index.html"
   },
   "relation": {
@@ -1007,6 +1024,10 @@
     "message": "Felder wählen",
     "description": "data/index.html"
   },
+  "select_way_names": {
+    "message": "Art wie Namen angezeigt werden",
+    "description": "data/index.html"
+  },
   "send_message": {
     "message": "Sende Nachricht",
     "description": "data/index.html"
@@ -1024,7 +1045,7 @@
     "description": "data/index.html"
   },
   "show_relative_timestamp": {
-    "message": "",
+    "message": "Relative Zeitangabe",
     "description": "data/index.html"
   },
   "sign_in_dots": {
@@ -1092,7 +1113,7 @@
     "description": "data/index.html"
   },
   "themes": {
-    "message": "Themes",
+    "message": "Theme",
     "description": "data/index.html"
   },
   "this_profile_may_has_already_exists": {
@@ -1207,16 +1228,24 @@
     "message": "Benutze eigene Schriftart",
     "description": "data/index.html"
   },
+  "use_no_mention_for_selfmention": {
+    "message": "Nicht mitmentionen wenn du dir selber antwortest",
+    "description": "data/index.html"
+  },
   "use_quote_as_default_retweet_action": {
     "message": "Nutze \"Zitieren\" als Standard-Retweetmethode",
     "description": "data/index.html"
   },
   "use_read_later_service": {
-    "message": "",
+    "message": "Read Later Service nutzen",
     "description": "data/index.html"
   },
   "use_reply_all_as_default_reply_action": {
     "message": "Nutze \"allen Antworten\" als Standard-Antwortmethode",
+    "description": "data/index.html"
+  },
+  "user_and_atname": {
+    "message": "Benutzername und @Name",
     "description": "data/index.html"
   },
   "username": {

@@ -47,12 +47,20 @@
     "message": "API Setting",
     "description": "data/index.html"
   },
+  "appearance": {
+    "message": "Appearance Settings",
+    "description": "data/index.html"
+  },
   "archive": {
     "message": "Archive",
     "description": "data/index.html"
   },
   "artwork_by": {
     "message": "",
+    "description": "data/index.html"
+  },
+  "at_and_username": {
+    "message": "@name and username",
     "description": "data/index.html"
   },
   "assassin_s_tango": {
@@ -459,8 +467,16 @@
     "message": "Join",
     "description": "data/js/ui.template.js"
   },
+  "just_atname": {
+    "message": "just @name",
+    "description": "data/index.html"
+  },
   "just_cannot_stop_thinking_of_here": {
     "message": "Just can't stop thinking of here",
+    "description": "data/index.html"
+  },
+  "just_username": {
+    "message": "just username",
     "description": "data/index.html"
   },
   "keyboard": {
@@ -1007,6 +1023,10 @@
     "message": "Select fields",
     "description": "data/index.html"
   },
+  "select_way_names": {
+    "message": "Way to show names",
+    "description": "data/index.html"
+  },
   "send_message": {
     "message": "Send Message",
     "description": "data/index.html"
@@ -1207,6 +1227,10 @@
     "message": "Use Custom Font",
     "description": "data/index.html"
   },
+  "use_no_mention_for_selfmention": {
+    "message": "Don't mention yourself when answering your own tweet",
+    "description": "data/index.html"
+  },
   "use_quote_as_default_retweet_action": {
     "message": "Use QUOTE as default retweet action",
     "description": "data/index.html"
@@ -1217,6 +1241,10 @@
   },
   "use_reply_all_as_default_reply_action": {
     "message": "Use REPLY ALL as default reply action",
+    "description": "data/index.html"
+  },
+  "user_and_atname": {
+    "message": "username and @name",
     "description": "data/index.html"
   },
   "username": {
