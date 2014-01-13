@@ -6,7 +6,7 @@ ui.Main = {
   active_tweet_id: null,
 
   selected_tweet_id: null,
-  
+
   selected_tweet_id2: null,
 
   use_preload_conversation: true,
@@ -718,11 +718,12 @@ ui.Main = {
     ui.StatusBox.reply_to_id = id;
     ui.StatusBox.set_reply_info(screen_name, text);
     if (event && event.shiftKey) {
-      if (orig_text.indexOf('@' + screen_name) == -1) {
-        ui.StatusBox.insert_status_text('@' + li.attr('screen_name') + ' ', null);
+      var yourself = screen_name.toLowerCase() === globals.myself.screen_name.toLowerCase();
+      if (yourself && conf.get_current_profile().preferences.use_alt_selfreply) {
+        ui.StatusBox.set_status_text('');
+      } else {
+        ui.StatusBox.set_status_text("@" + screen_name + ' ');
       }
-    } else {
-      ui.StatusBox.set_status_text("@" + screen_name + ' ');
     }
     ui.StatusBox.open(function () {
       ui.StatusBox.move_cursor(ui.StatusBox.POS_END);
@@ -770,7 +771,11 @@ ui.Main = {
     var screen_name = li.attr('screen_name');
     var text = $(li.find('.text')[0]).text();
     // @TODO reduce this process by entities
-    var who_names = ['@' + screen_name];
+    var who_names = [];
+    var yourself = screen_name.toLowerCase() === globals.myself.screen_name.toLowerCase();
+    if (!(yourself && conf.get_current_profile().preferences.use_alt_selfreply)) {
+      who_names[0] = '@' + screen_name;
+    }
     var match = ui.Template.reg_user.exec(text);
     while (match != null) {
       if (match[2].toLowerCase() != globals.myself.screen_name.toLowerCase()) {
@@ -784,9 +789,7 @@ ui.Main = {
 
     ui.StatusBox.reply_to_id = id;
     ui.StatusBox.set_reply_info(screen_name, text);
-    if (event && event.shiftKey) {
-      ui.StatusBox.append_status_text(who_names.join(' ') + ' ');
-    } else {
+    if (who_names) {
       ui.StatusBox.set_status_text(who_names.join(' ') + ' ');
     }
     ui.StatusBox.open(function () {

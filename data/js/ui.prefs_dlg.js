@@ -258,6 +258,9 @@ ui.PrefsDlg = {
     $('#chk_prefs_use_alt_reply')
       .attr('checked', prefs.use_alt_reply)
       .prop('checked', prefs.use_alt_reply);
+    $('#chk_prefs_use_alt_selfreply')
+      .attr('checked', prefs.use_alt_selfreply)
+      .prop('checked', prefs.use_alt_selfreply);
     $('#chk_prefs_use_media_preview')
       .attr('checked', prefs.use_media_preview)
       .prop('checked', prefs.use_media_preview);
@@ -338,6 +341,7 @@ ui.PrefsDlg = {
     prefs.use_preload_conversation = $('#chk_prefs_use_preload_conversation').prop('checked');
     prefs.use_alt_retweet = $('#chk_prefs_use_alt_retweet').prop('checked');
     prefs.use_alt_reply = $('#chk_prefs_use_alt_reply').prop('checked');
+    prefs.use_alt_selfreply = $('#chk_prefs_use_alt_selfreply').prop('checked');
 
     prefs.show_relative_timestamp = $('#chk_prefs_show_relative_timestamp').prop('checked');
     prefs.use_media_preview = $('#chk_prefs_use_media_preview').prop('checked');
