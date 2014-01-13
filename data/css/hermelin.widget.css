@@ -431,30 +431,30 @@ disabled:
   top:0;
   right:0;
   height:100%;
-  width:10px;
-  cursor:pointer;
+  width: 25px;
+  opacity: 0;
+  -webkit-transition: opacity 0.05s;
 }
 .scrollbar_track .scrollbar_slot {
-  background-color: rgba(200, 200, 200, 0.1);
   border-radius: 5px;
   height:100%;
   position:relative;
-}
-.scrollbar_track:hover .scrollbar_slot {
-  background-color: rgba(80, 80, 80, 0.1);
+  width: 10px;
+  margin: 0 15px;
+  background-color: rgba(200, 200, 200, 0.1);
+  cursor:pointer;
 }
 .scrollbar_handle {
-  width:10px;
-  background-color: gray;
+  background-color: rgba(136,136,136, 0.8);
   cursor:pointer;
   border-radius: 5px;
-  opacity:0.5;
   min-height: 100px;
   position: absolute;
-  -webkit-transition: opacity 0.2s ease-in;
+  width: 10px;
 }
-.scrollbar_track.active .scrollbar_handle, .scrollbar_handle:hover {
-  opacity:0.9;
+.scrollbar_track.active, .scrollbar_track:hover{
+  opacity:1;
+  cursor:pointer;
 }
 .scrollbar_content {
   overflow:hidden;

@@ -1683,7 +1683,6 @@ pre {
 .tweetview .scrollbar_track {
   z-index: 20;
   margin: 10px 0px;
-  width: 10px;
   padding: 0 3px;
 }
 .tweetview .listview_header {

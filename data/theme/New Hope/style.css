@@ -75,25 +75,6 @@
 ::selection {
   background: #a8d1ff;
 }
-.scrollbar_track {
-  width: 10px;
-}
-.scrollbar_track .scrollbar_slot {
-  width: 3px;
-  margin: 0 3px 0 4px;
-  background: transparent;
-}
 .scrollbar_handle {
   background-color: orange;
-  width: 3px;
-  opacity: 0.8;
-}
-.scrollbar_track.active .scrollbar_slot, .scrollbar_track:hover .scrollbar_slot {
-  width: 10px;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.1);
-}
-.scrollbar_track.active .scrollbar_handle, .scrollbar_track:hover .scrollbar_handle {
-  width: 10px;
-  opacity: 0.8;
 }

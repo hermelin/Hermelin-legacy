@@ -1,22 +1,3 @@
-#main_page ::-webkit-scrollbar-track-piece {
-  background-color: #666;
-  border-left: 5px #ccc solid;
-  border-right: 5px #ccc solid;
-}
-#main_page ::-webkit-scrollbar-thumb {
-  -webkit-transition: all 0.2s ease-in;
-  border: 0;
-  background: #fafafa;
-}
-#main_page ::-webkit-scrollbar-thumb:vertical {
-  height: 50px;
-  background: #333;
-  border-radius: 5px;
-}
-#main_page ::-webkit-scrollbar-thumb:hover {
-  background: #333;
-  border:0;
-}
 .card {
   border-top: 0;
 }
