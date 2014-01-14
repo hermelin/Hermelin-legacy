@@ -12,10 +12,10 @@ In the future i want to remove every line with jQuery/coffescript out of Hermlei
 
 At this point i don't have any chrome webstore dev acc so you sadly can't find it in the store. (This will change in the future!)
 
-What i did so far was just copying all of the stuff in the data/ directory into the chrome/chromium hermelin directory.
+What i did so far was just copying all of the stuff in the data/ directory into the chrome/chromium Hotot directory.
 This is not the best solution, and as long as it is not in the store i'd appreciate if someone tolde me how to do it differently.
 
-To do this you have to install Hermelin in the webstore first and then copy the files over.
+To do this you have to install Hotot in the webstore first and then copy the files over.
 
 * Download this git repo (via the git clone command on linux or the downloadable zip file).
 * Copy everything out of the data/ directory into the apps directory which is dependent on your OS:
