@@ -431,23 +431,21 @@ disabled:
   top:0;
   right:0;
   height:100%;
-  width: 21px;
+  width: 22px;
   opacity: 0;
   -webkit-transition: opacity 0.05s;
 }
 .scrollbar_track .scrollbar_slot {
-  border-radius: 5px;
   height:100%;
   position:relative;
   width: 10px;
-  margin: 0 11px;
+  margin: 0 12px;
   background-color: rgba(0, 0, 0, 0.15);
   cursor:pointer;
 }
 .scrollbar_handle {
   background-color: rgba(136,136,136, 0.8);
   cursor:pointer;
-  border-radius: 5px;
   min-height: 100px;
   position: absolute;
   width: 10px;

@@ -456,7 +456,7 @@ pre {
   text-align: center;
   font-size: 13px;
   height: 21px;
-  border-left: 1px #ddd solid;
+  border-right: 2px #ddd solid;
   float: left;
   position: relative;
 }
@@ -1682,8 +1682,7 @@ pre {
 }
 .tweetview .scrollbar_track {
   z-index: 20;
-  margin: 10px 0px;
-  padding: 0 3px;
+  padding: 0 2px;
 }
 .tweetview .listview_header {
   font-size: 12px;
@@ -1698,7 +1697,7 @@ pre {
 .tweetview .listview_body {
   padding: 0px 0px;
   list-style-type: none;
-  border-left: 1px #ddd solid;
+  border-right: 2px #ddd solid;
 }
 .vcard, .header_inner {
   display: none;
@@ -1906,7 +1905,8 @@ pre {
   display: inline-block;
   line-height: 16px;
   bottom: 2px;
-  right: 2px;
+  right: 20px;
+  z-index: 25;
 }
 .card_body .status_bar * {
   display: inline-block;
