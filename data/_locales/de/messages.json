@@ -1029,11 +1029,11 @@
     "description": "data/index.html"
   },
   "send_message": {
-    "message": "Sende Nachricht",
+    "message": "Privatnachricht senden",
     "description": "data/index.html"
   },
   "send_message_to_them": {
-    "message": "Sende Nachricht an sie",
+    "message": "Privatnachricht senden",
     "description": "data/js/ui.template.js"
   },
   "shiny_old_times_before_marriage": {
