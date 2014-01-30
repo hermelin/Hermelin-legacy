@@ -67,9 +67,6 @@ a {
 .tweet_meta a {
   color: #888 !important;
 }
-.header_content {
-  border-left: 1px #333 solid;
-}
 .profile_img_wrapper {
   -webkit-box-reflect: none;
   box-shadow: inset 0 0 10px #111;
