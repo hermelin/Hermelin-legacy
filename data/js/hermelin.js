@@ -57,11 +57,10 @@ function update_tweet_block_width() {
       } else {
         util.fadeIn(viewtitles[i]);
       }
-      //width: it must be -2, because of the 2 px border.
       if (i === (ui.Slider.column_num - 1)) {
-        viewtitles[i].style.width = (lastColumnWidth - 2) + 'px';
+        viewtitles[i].style.width = lastColumnWidth + 'px';
       } else {
-        viewtitles[i].style.width = (globals.tweet_block_width - 2) + 'px';
+        viewtitles[i].style.width = globals.tweet_block_width + 'px';
       }
     }
 

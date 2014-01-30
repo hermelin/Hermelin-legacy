@@ -456,7 +456,6 @@ pre {
   text-align: center;
   font-size: 13px;
   height: 21px;
-  border-right: 2px #ddd solid;
   float: left;
   position: relative;
 }
@@ -950,7 +949,6 @@ pre {
 }
 .header_content {
   padding: 0;
-  border-left: 1px #ddd solid;
 }
 .header_content .column_settings {
   padding: 10px;
@@ -1682,7 +1680,6 @@ pre {
 }
 .tweetview .scrollbar_track {
   z-index: 20;
-  padding: 0 2px;
 }
 .tweetview .listview_header {
   font-size: 12px;
@@ -1697,7 +1694,6 @@ pre {
 .tweetview .listview_body {
   padding: 0px 0px;
   list-style-type: none;
-  border-right: 2px #ddd solid;
 }
 .vcard, .header_inner {
   display: none;

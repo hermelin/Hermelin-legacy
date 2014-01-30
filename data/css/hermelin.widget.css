@@ -431,15 +431,14 @@ disabled:
   top:0;
   right:0;
   height:100%;
-  width: 22px;
-  opacity: 0;
-  -webkit-transition: opacity 0.05s;
+  width: 2px;
+  padding-left: 18px;
+  -webkit-transition: width 0.05s, padding-left 0.05s;
 }
 .scrollbar_track .scrollbar_slot {
   height:100%;
   position:relative;
-  width: 10px;
-  margin: 0 12px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.15);
   cursor:pointer;
 }
@@ -448,10 +447,16 @@ disabled:
   cursor:pointer;
   min-height: 100px;
   position: absolute;
-  width: 10px;
+  width: 100%;
 }
 .scrollbar_track.active, .scrollbar_track:hover{
-  opacity:1;
+  width: 10px;
+}
+.scrollbar_track:hover{
+  padding-left: 10px;
+}
+.scrollbar_track.active{
+  padding-left: 100%;
 }
 .scrollbar_track.active{
   cursor:pointer;

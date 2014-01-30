@@ -13,7 +13,6 @@
   background: #393939;
   color: white;
   font-weight: bold;
-  border-right: 2px #393939 solid;
 }
 #view_title_bar .setting_btn {
   background-image: url(./ic16_gear.png);
