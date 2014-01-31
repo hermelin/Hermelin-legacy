@@ -50,12 +50,17 @@ function WidgetListView(id, name, params) {
 
   self.init = function init(id, name, params) {
     self._me = $(id);
+    self.__me = document.getElementById(id.substring(1));
     self.name = name;
     self._body = self._me.find('.listview_body');
+    self.__body = self.__me.getElementsByClassName('listview_body')[0];
     self._header = self._me.find('.listview_header');
+    self.__header = self.__me.getElementsByClassName('listview_header')[0];
     self._footer = self._me.find('.listview_footer');
+    self.__footer = self.__me.getElementsByClassName('listview_footer')[0];
     self._content = self._me.find('.listview_content');
-    self.scrollbar = new widget.Scrollbar(self._me.find('.scrollbar_track'), self._me.find('.scrollbar_content'))
+    self.__content = self.__me.getElementsByClassName('listview_content')[0];
+    self.scrollbar = new widget.Scrollbar(self._me.find('.scrollbar_track'), self._me.find('.scrollbar_content'));
     if (navigator.platform === 'iPad') {
       self.scrollbar.disable()
     }

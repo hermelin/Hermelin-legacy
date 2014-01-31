@@ -125,7 +125,7 @@ ui.Slider = {
     $('#view_title_bar .setting_btn').click(function () {
       var name = $(this).parent().attr('name');
       var view = ui.Main.views[name];
-      if (view._header.find('.column_settings:visible').length === 0) {
+      if (!view.__header.getElementsByClassName('column_settings')[0].classList.contains('open')) {
         ui.Header.closeAll();
         ui.Slider.openViewSettingPanel(view, $(this));
         ui.Slider.settingView = view;
@@ -573,7 +573,7 @@ ui.Slider = {
   },
 
   openViewSettingPanel: function openViewSettingPanel(view, btn) {
-    view._header.find('.column_settings').slideDown('fast');
+    view.__header.getElementsByClassName('column_settings')[0].classList.add('open');
     view._header.find('.column_settings .mochi_toggle').each(function (i, n) {
       var key = $(n).attr('href').substring(1);
       if (view.hasOwnProperty(key) && view[key] == true) {
@@ -585,7 +585,7 @@ ui.Slider = {
   },
 
   closeViewSettingPanel: function closeViewSettingPanel(view) {
-    view._header.find('.column_settings').slideUp('fast');
+    view.__header.getElementsByClassName('column_settings')[0].classList.remove('open');
   },
 
   indicator_btn_drag_start: function indicator_btn_drag_start(ev) {

@@ -951,11 +951,14 @@ pre {
   padding: 0;
 }
 .header_content .column_settings {
-  padding: 10px;
   color: #ccc;
-  background: #343434;
-  box-shadow: inset 0 0 10px #111;
-  display: none;
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: height 0.2s;
+}
+.header_content .column_settings.open {
+  height: 111px;
+  /*hardcoded right now because transitions from 0 to auto don't work and i can't find a good workaround*/
 }
 .header_frame {
   padding: 5px;
