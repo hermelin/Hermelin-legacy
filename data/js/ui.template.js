@@ -1392,9 +1392,9 @@ ui.Template = {
 
   form_media: function form_media(href, src, direct_url) {
     if (direct_url != undefined) {
-      return '<a direct_url="' + direct_url + '" href="' + href + '"><img src="' + src + '" /></a>';
+      return '<a direct_url="' + direct_url + '" href="' + href + '" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     } else {
-      return '<a href="' + href + '" target="_blank"><img src="' + src + '" /></a>';
+      return '<a href="' + href + '" target="_blank" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     }
   },
 

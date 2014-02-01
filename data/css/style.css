@@ -1871,12 +1871,15 @@ pre {
   padding: 0;
   display: inline-block;
 }
-.media_preview img {
-  padding:4px;
+.media_preview .previewImg {
   border:1px #ccc solid;
-  background:#fff;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   margin:0;
   height: 150px;
+  width: 150px;
 }
 .tweet_meta {
   left: 10px;
