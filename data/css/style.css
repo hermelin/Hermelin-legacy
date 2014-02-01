@@ -1876,7 +1876,7 @@ pre {
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   margin:0;
   height: 150px;
   width: 150px;
