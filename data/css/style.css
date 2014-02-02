@@ -306,8 +306,6 @@ pre {
   padding: 5px 0;
   text-align: right;
   vertical-align: middle;
-  border-top: 1px solid white;
-  background: -webkit-gradient(linear, left top, left bottom, from(#F4F4F6), to(#EDEDED));
 }
 #status_ctrl * {
   vertical-align:top;
