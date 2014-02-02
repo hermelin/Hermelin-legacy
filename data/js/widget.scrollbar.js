@@ -49,14 +49,17 @@
       var pos;
       if (this.disabled) return;
       this.content_height = this.content.height();
-      this.track.css('height', (this.content_height - (this.track.outerHeight(true) - this.track.outerHeight())) + 'px');
       this.track_height = this.track.height();
       if (this.content.get(0).scrollHeight <= this.content_height) {
-        this.hide();
+        this.handle.hide();
+        this.track.addClass('disabled');
       } else {
-        this.show();
+        this.track.css('height', (this.content_height - (this.track.outerHeight(true) - this.track.outerHeight())) + 'px');
         this.handle.css('height', (this.track_height * this.content_height / this.content.get(0).scrollHeight) + 'px');
+        this.handle.show();
+        this.track.removeClass('disabled');
       }
+      this.show();
       this.handle_height = this.handle.height();
       pos = this.content.get(0).scrollTop * (this.track_height - this.handle_height) / this.content.get(0).scrollHeight;
       this.handle.css('top', pos + 'px');
@@ -135,10 +138,12 @@
         return _this.deactivate();
       });
       this.slot.mousedown(function (ev) {
-        var pos;
-        _this.activate();
-        pos = _this.handle_pos_check(ev.clientY - _this.track.offset().top - _this.handle_height * 0.5);
-        _this.scroll_by_handle(pos);
+        if (this.content.get(0).scrollHeight >= this.content_height) {
+          var pos;
+          _this.activate();
+          pos = _this.handle_pos_check(ev.clientY - _this.track.offset().top - _this.handle_height * 0.5);
+          _this.scroll_by_handle(pos);
+        }
         return false;
       }).mouseup(function (ev) {
         return _this.deactivate();

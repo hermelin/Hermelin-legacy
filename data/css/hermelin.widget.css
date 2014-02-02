@@ -452,6 +452,10 @@ disabled:
 .scrollbar_track.active, .scrollbar_track:hover{
   width: 10px;
 }
+.scrollbar_track.disabled {
+  width: 2px;
+  pointer-events: none;
+}
 .scrollbar_track:hover{
   padding-left: 10px;
 }
