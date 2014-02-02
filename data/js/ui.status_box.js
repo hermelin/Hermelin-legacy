@@ -180,6 +180,8 @@ ui.StatusBox = {
       if (event.keyCode == 27) { // esc
         ui.StatusBox.close();
       }
+      
+      ui.StatusBox.update_status_len();
     });
 
     $('#tbox_status').blur(function (event) {

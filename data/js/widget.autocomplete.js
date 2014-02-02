@@ -13,14 +13,29 @@ function WidgetAutoComplete(obj) {
     self._me = obj;
     self.candidate = $('<ul class="autocomplete"></ul>');
     self.candidate.insertAfter(self._me);
-    self._me.bind('keydown', self.onKeyDown);
+    self._me.bind('keypress', self.onKeyPress).bind('keydown', self.onKeyDown);
   };
+
+  self.onKeyPress = function onKeyPress(event) {
+    var char = String.fromCharCode(event.charCode);
+    if (char.match(/\w|_/)) {
+      self.detect(event);
+    } else {
+      if (self._inDetecting) {
+        self.stopDetecting();
+      }
+    }
+  }
 
   self.onKeyDown = function onKeyDown(event) {
     var key_code = event.keyCode;
 
     clearInterval(self.timer);
-    if (key_code == 13) {
+
+    switch (key_code) {
+    case 9:
+      //tab or enter
+      //autocomplete the name
       if (self._inDetecting) {
         // Do username autocompletion because user pressed enter.
         var selectedItem = self.candidate.children('.selected');
@@ -35,20 +50,24 @@ function WidgetAutoComplete(obj) {
         self.stopDetecting();
         return false;
       }
-    }
+      break;
 
-    if (event.keyCode == 27) { // esc
-      self.candidate.hide();
-    }
-
-    if (key_code == 32) {
+    case 13:
       if (self._inDetecting) {
         self.stopDetecting();
       }
-      return;
-    }
+      break;
 
-    if (key_code == 38 || key_code == 40) {
+    case 27:
+      //esc
+      //when esc is pressed, the box is closed and we don't want the candidate to appear when opening again
+      self.candidate.hide();
+      break;
+
+    case 38:
+    case 40:
+      //arrow up/down
+      //scroll through the candidates
       var current = self.candidate.children('.selected');
       var target = null;
       if (key_code == 38) {
@@ -68,15 +87,19 @@ function WidgetAutoComplete(obj) {
       });
       current.removeClass('selected');
       return false;
-    }
+      break;
 
-    if ((key_code <= 90 && 65 <= key_code) || (48 <= key_code && key_code <= 57) || 95 == key_code || key_code == 8) {
+    case 8:
+      //backspace
       self.detect(event);
-    }
-    if (key_code === 229) { // for imeKey
+      break;
+
+    case 229:
+      // for TimeKey
       self.timer = setInterval(function () {
         self.detect(event)
       }, 500);
+      break;
     }
   };
 
@@ -111,7 +134,7 @@ function WidgetAutoComplete(obj) {
     } else {
       self.inputText = rearText.substring(atIdx + 1, curPos);
       if (event.keyCode !== 229) {
-        self.inputText += String.fromCharCode(event.keyCode);
+        self.inputText += String.fromCharCode(event.charCode === 0 ? event.keyCode : event.charCode);
       }
     }
     if (self.inputText.match(/^[\S]+$/g) == null) {
