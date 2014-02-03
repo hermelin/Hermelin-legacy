@@ -223,7 +223,7 @@ db = {
 
   search_user: function search_user(query, callback) {
     db.database.transaction(function (tx) {
-      tx.executeSql('SELECT user_id, screen_name, json FROM UserCache WHERE screen_name LIKE \'%' + query + '%\'', [], function (tx, rs) {
+      tx.executeSql('SELECT user_id, screen_name, json FROM UserCache WHERE screen_name LIKE \'%' + query.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
         callback(tx, rs);
       });
     });
@@ -231,7 +231,7 @@ db = {
 
   get_screen_names_starts_with: function get_users_starts_with(starts, callback) {
     db.database.transaction(function (tx) {
-      tx.executeSql('SELECT screen_name FROM UserCache WHERE screen_name LIKE \'' + starts + '%\'', [], function (tx, rs) {
+      tx.executeSql('SELECT screen_name FROM UserCache WHERE screen_name LIKE \'' + starts.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
         callback(tx, rs);
       });
     });
