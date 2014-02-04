@@ -34,7 +34,8 @@ function WidgetAutoComplete(obj) {
 
     switch (key_code) {
     case 9:
-      //tab or enter
+    case 32:
+      //tab or space
       //autocomplete the name
       if (self._inDetecting) {
         // Do username autocompletion because user pressed enter.
