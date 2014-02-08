@@ -3,54 +3,54 @@ Hermelin is a fork of [Hotot](https://github.com/lyricat/Hotot), the "Lightweigh
 
 I forked Hotot for the reason that it won't get any bigger updates here in the future because the developer stated that the [future updates of hotot won't be opensource & free](https://d34d.de/?p=160).
 
-I think it is sad that there aren't much [free](https://www.gnu.org/philosophy/free-sw.html) Twitter Clients, so i don't want
-Hotot to die.
+I think it is sad that there aren't much [free](https://www.gnu.org/philosophy/free-sw.html) Twitter Clients, so i don't want Hotot to die.
 
 In the future i want to remove every line with jQuery/coffescript out of Hermlein/Hotot because it really slows it down.
 
 ##Installing the Chrome/Chromium Version:
 
-At this point i don't have any chrome webstore dev acc so you sadly can't find it in the store. (This will change in the future!)
 
-What i did so far was just copying all of the stuff in the data/ directory into the chrome/chromium Hotot directory.
-This is not the best solution, and as long as it is not in the store i'd appreciate if someone tolde me how to do it differently.
+To install Hermelin in chrome or chromium, simply download the hermelin.crx file and drag it into the extensions window.
+I will update the crx everytime a new version is out (because of the way, the extensions work)
 
-To do this you have to install Hotot in the webstore first and then copy the files over.
+To update from the newest commit you have to:
 
 * Download this git repo (via the git clone command on linux or the downloadable zip file).
 * Copy everything out of the data/ directory into the apps directory which is dependent on your OS:
 
 ###Windows XP
 Google Chrome:
-C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
+C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
 
 Chromium:
-C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
+C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Chromium\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
 
 ###Windows 8/7/Vista
 Google Chrome:
-C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
+C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
 
 Chromium:
-C:\Users\%USERNAME%\AppData\Local\Chromium\User Data\Default\Extensions\cnfkkfleeiooolklkgkmigodkmcopnji\0.9.8.15_0\
+C:\Users\%USERNAME%\AppData\Local\Chromium\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
 
 ###Linux
 Google Chrome:
-~/.config/google-chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
+~/.config/google-chrome/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
 
 Chromium:
-~/.config/chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
+~/.config/chromium/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
 
 ###Mac OS X
 Google Chrome:
-~/Library/Application Support/Google/Chrome/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
+~/Library/Application Support/Google/Chrome/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
 
 Chromium:
-~/Library/Application Support/Chromium/Default/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
+~/Library/Application Support/Chromium/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
 
 ###Chrome OS & Chromium OS
 
-~/Extensions/cnfkkfleeiooolklkgkmigodkmcopnji/0.9.8.15_0/
+~/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
+
+(i'm not sure with this, please correct me if i'm wrong)
 
 ## Building from source:
 Since Hermelins core is largely based on HTML5, JavaScript and Webkit technology, it can be run under many Webkit implementations. Hermelin officially supports Gtk, Qt, and Chrome webkit wrapper.

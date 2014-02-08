@@ -17,8 +17,8 @@
 
 
 Name: hermelin
-Version: 0.9.8.8
-Release: beta4
+Version: 0.0.1
+Release: alpha1
 Summary: A lightweight, flexible microblogging client
 Group:  Productivity/Networking/Instant Messenger
 License: LGPL-3.0
