@@ -505,6 +505,9 @@ pre {
   position: absolute !important;
   left: 0;
 }
+#indicator_btns > div.no_stick .icon{
+  border-radius: 100%;
+}
 #indication li:first-child {
 }
 #indication .indicator_btn {
@@ -541,9 +544,6 @@ pre {
   height: 30px;
   margin: 4px auto auto auto;
   -webkit-transition: -webkit-box-shadow 0.4s;
-}
-.system_view .icon, .custom_view .icon{
-  border-radius: 100%;
 }
 #indicator_btns .icon.float {
   float: left;
@@ -2075,13 +2075,13 @@ td {
   background: transparent url(../image/svg/ic30_add.png) no-repeat;
 }
 .ic_home {
-  background: transparent url(../image/ic_home.png) no-repeat;
+  background: transparent url(../image/svg/ic_home.png) no-repeat;
 }
 .ic_mention {
-  background: transparent url(../image/ic_mention.png) no-repeat;
+  background: transparent url(../image/svg/ic_mention.png) no-repeat;
 }
 .ic_dm {
-  background: transparent url(../image/ic_dm.png) no-repeat;
+  background: transparent url(../image/svg/ic_dm.png) no-repeat;
 }
 .ic_fav {
   background: transparent url(../image/ic_fav.png) no-repeat;

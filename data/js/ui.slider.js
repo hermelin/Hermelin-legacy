@@ -734,7 +734,7 @@ ui.Slider = {
     case 'home':
       ui.Slider.add('home', {
         title: _('home_timeline'),
-        icon: 'image/ic_home.png'
+        icon: 'image/svg/ic_home.png'
       }, $.extend({
         'type': 'tweet',
         'title': _('home_timeline'),
@@ -756,7 +756,7 @@ ui.Slider = {
     case 'mentions':
       ui.Slider.add('mentions', {
         title: _('mentions'),
-        icon: 'image/ic_mention.png'
+        icon: 'image/svg/ic_mention.png'
       }, $.extend({
         'type': 'tweet',
         'title': _('mentions'),
@@ -778,7 +778,7 @@ ui.Slider = {
     case 'messages':
       ui.Slider.add('messages', {
         title: _('messages'),
-        icon: 'image/ic_dm.png'
+        icon: 'image/svg/ic_dm.png'
       }, $.extend({
         'type': 'tweet',
         'title': _('messages'),
