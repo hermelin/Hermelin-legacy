@@ -1,251 +1,197 @@
 // widget.autocomplete.js - user name autocomplete
 
-if (typeof (widget) == 'undefined') widget = {}
+if (typeof (widget) == 'undefined') widget = {};
 
-function WidgetAutoComplete(obj) {
+function WidgetAutoComplete(obj, matchPattern, getResults) {
   var self = this;
-  self._me = null;
-  self._inDetecting = false;
-  self.inputText = '';
-  self.timer = null;
+  self.me = obj;
+  self.matchPattern = matchPattern;
+  self.getResults = getResults;
+  self.suggestions = []; //all suggestions for the last time the text matched
+  self.currentSuggestion = 0; //currently chosen suggestion
+  self.suggesting = false; //state: currently suggesting or not
+  self.suggestionList = document.createElement('ul');
+  self.suggestionList.classList.add('autocomplete');
+  self.me.parentNode.appendChild(self.suggestionList);
+  self.cancelled = false; //says if the current suggestion was cancelled (needed for event-mess)
 
-  self.init = function init(obj) {
-    self._me = obj;
-    self.candidate = $('<ul class="autocomplete"></ul>');
-    self.candidate.insertAfter(self._me);
-    self._me.bind('keypress', self.onKeyPress).bind('keydown', self.onKeyDown);
+  self.me.onkeydown = function (event) {
+    if (self.suggesting) {
+      switch (event.keyCode) {
+
+      case 9:
+      case 13:
+      case 32:
+        //tab, enter or space
+        self.completeSuggestion();
+        event.preventDefault();
+        break;
+
+      case 38:
+        //up
+        if (self.currentSuggestion !== 0) {
+          self.currentSuggestion -= 1;
+          self.updateSuggestionList(true);
+          event.preventDefault();
+        }
+        break;
+
+      case 39:
+        var charCodeAfter = self.me.value.charCodeAt(self.me.selectionStart);
+        if (!charCodeAfter || charCodeAfter === 32 || charCodeAfter === 20) {
+          //pressed right and immediately after the cursor position is either nothing, space(32) or enter(20)
+          //cancel suggestion and do the default 'right'-action
+          self.suggesting = false;
+          self.updateSuggestionList(true);
+          self.cancelled = true;
+        }
+        break;
+
+      case 40:
+        //down
+        if (self.currentSuggestion !== (self.suggestions.length - 1)) {
+          self.currentSuggestion += 1;
+          self.updateSuggestionList(true);
+          event.preventDefault();
+        }
+      }
+    } else{
+      self.cancelled = false;
+    }
   };
 
-  self.onKeyPress = function onKeyPress(event) {
-    var char = String.fromCharCode(event.charCode);
-    if (char.match(/\w|_/)) {
-      self.detect(event);
-    } else {
-      if (self._inDetecting) {
-        self.stopDetecting();
-      }
+  self.me.onkeyup = function (event) {
+    if (!self.cancelled) {
+      //makes sure the suggestion was not just cancelled by the right key
+      self.tryCompletion();
+      self.cancelled = false;
     }
   }
 
-  self.onKeyDown = function onKeyDown(event) {
-    var key_code = event.keyCode;
+  self.me.onmouseup = function (event) {
+    if (self.me.selectionStart === self.me.selectionEnd) {
+      self.tryCompletion();
+      self.cancelled = false;
+    }
+  }
 
-    clearInterval(self.timer);
-
-    switch (key_code) {
-    case 9:
-    case 32:
-      //tab or space
-      //autocomplete the name
-      if (self._inDetecting) {
-        // Do username autocompletion because user pressed enter.
-        var selectedItem = self.candidate.children('.selected');
-        if (selectedItem.length != 0) {
-          // At this point self.inputText is the part of the
-          // user name that already has been typed (but with
-          // some strange casing).  selectedItem.text() is
-          // the username to be autocompleted.
-          self.replaceName(
-            selectedItem.text(), self.inputText.length);
+  self.tryCompletion = function () {
+    var old = self.suggesting;
+    var word = self.checkForMatch();
+    if (word) {
+      self.getResults(word, function (resultList) {
+        if (resultList.length > 0 && !(resultList.length === 1 && resultList[0] === word)) {
+          //now we now the word matches, there are available suggestions and the word
+          //isn't already the only match. so the actual suggestion will start
+          self.suggestions = resultList;
+          self.suggesting = true;
+          self.updateSuggestionList(old);
+          return;
+        } else {
+          //turn suggestion off
+          self.suggesting = false;
+          self.updateSuggestionList(old);
         }
-        self.stopDetecting();
-        return false;
-      }
-      break;
-
-    case 13:
-      if (self._inDetecting) {
-        self.stopDetecting();
-      }
-      break;
-
-    case 27:
-      //esc
-      //when esc is pressed, the box is closed and we don't want the candidate to appear when opening again
-      self.candidate.hide();
-      break;
-
-    case 38:
-    case 40:
-      //arrow up/down
-      //scroll through the candidates
-      var current = self.candidate.children('.selected');
-      var target = null;
-      if (key_code == 38) {
-        target = current.prev();
-        if (target.length == 0) {
-          target = self.candidate.children('li:last-child');
-        }
-      } else {
-        target = current.next();
-        if (target.length == 0) {
-          target = self.candidate.children('li:first-child');
-        }
-      }
-      target.addClass('selected');
-      self.candidate.stop().transition({
-        scrollTop: target.get(0).offsetTop - self.candidate.get(0).offsetTop
       });
-      current.removeClass('selected');
-      return false;
-      break;
-
-    case 8:
-      //backspace
-      self.detect(event);
-      break;
-
-    case 229:
-      // for TimeKey
-      self.timer = setInterval(function () {
-        self.detect(event)
-      }, 500);
-      break;
-    }
-  };
-
-  self.startDetecting = function startDetect() {
-    self._inDetecting = true;
-    self.candidate.css({
-      'width': self._me.width() + 'px',
-      'left': self._me.get(0).offsetLeft + 'px'
-    });
-    self.candidate.slideDown('fast');
-  };
-
-  self.stopDetecting = function stopDetect() {
-    self._inDetecting = false;
-    self.inputText = '';
-    self.candidate.slideUp('fast');
-  };
-
-  self.detect = function detect(event) {
-    var text = self._me.val();
-    // scan for '@' character
-    var curPos = self.getCursorPos();
-    var rearText = text.substring(0, curPos);
-    var atIdx = rearText.lastIndexOf('@');
-    if (atIdx == -1 || atIdx == curPos) {
-      self.stopDetecting();
-      return;
-    }
-    // get the text after '@'
-    if (event.keyCode == 8) {
-      self.inputText = rearText.substring(atIdx + 1, curPos - 1)
     } else {
-      self.inputText = rearText.substring(atIdx + 1, curPos);
-      if (event.keyCode !== 229) {
-        self.inputText += String.fromCharCode(event.charCode === 0 ? event.keyCode : event.charCode);
-      }
+      //turn suggestion off
+      self.suggesting = false;
+      self.updateSuggestionList(old);
     }
-    if (self.inputText.match(/^[\S]+$/g) == null) {
-      return;
-    }
-    // start 
-    if (!self._inDetecting) {
-      self.startDetecting();
-    }
-
-    var handleResult = function (result_list) {
-      if (result_list.length == 0) {
-        self.candidate.hide();
-        return;
-      }
-      self.candidate.children('li').unbind('click');
-      self.candidate.empty();
-      for (var i = 0, l = result_list.length; i < l; i++) {
-        self.candidate.append($('<li/>').text(result_list[i]));
-      }
-      self.candidate.show();
-      self.candidate.children('li').click(function (event) {
-        // Do username autocompletion because user clicked
-        // a name from the list
-
-        // self.inputText is the part of the name that has 
-        // already be entered. $(this).text() is the username
-        // to be autocompleted.
-        self.replaceName($(this).text(), self.inputText.length);
-        self.stopDetecting();
-      });
-      if (self.candidate.children('.selected').length === 0) {
-        self.candidate.children('li:first').addClass('selected');
-      }
-    }
-    handleResult(self.quickFilter(self.inputText));
-    // self.filter(self.inputText, handleResult);
   };
 
-  // This function does the actual autocomplete for user names.
-  // 'append' is the part that is to be added to the part that
-  // has already been typed
-  self.competeName = function competeName(append) {
-    var text = self._me.val();
-    var curPos = self.getCursorPos();
-    self._me.val(
-      text.substr(0, curPos) + append + text.substring(curPos));
-    self._me.get(0).selectionStart = curPos + append.length;
-    self._me.get(0).selectionEnd = curPos + append.length;
+  self.checkForMatch = function () {
+    //get current position of the caret
+    var caretPos = self.me.selectionStart;
+    var textBefore = self.me.value.substring(0, caretPos);
+    var spaceBefore = textBefore.lastIndexOf(' ');
+
+    //get the last word before caretPosition (space separates words)
+    var word = textBefore.substring((spaceBefore + 1), caretPos);
+
+    //if the pattern matches, return the word
+    return word.match(self.matchPattern) ? word : false;
   };
 
-  // This function replaces the last nChars of the text of the
-  // calling window by name. This keeps the casing of name intact
-  // (see #371)
-  self.replaceName = function (name, nChars) {
-    var text = self._me.val(); // the current text
-    var curPos = self.getCursorPos(); // location of the cursor
-    var namePos = curPos - nChars; // location for autocompleted name
+  self.updateSuggestionList = function (before) {
+    //before is the state self.suggesting had before now, so it is clear if
+    //it has changed and if it is needed to hide/show the suggestions.
+    //(less redundancy)
+    if (self.suggesting) {
 
-    self._me.val(
-      text.substr(0, namePos) + name + text.substring(curPos));
+      if (!before) {
+        //wasn't suggesting before but is now
+        self.currentSuggestion = 0;
+        self.showSuggestionList();
+      }
 
-    // Not sure what the following lines do; I just copied and
-    // adapted them from competeName.
+      //delete all suggestions
+      while (self.suggestionList.firstChild) {
+        self.suggestionList.removeChild(self.suggestionList.firstChild);
+      }
+      
+      //onclick event for all suggestions
+      var clickedSuggestion = function clickedSuggestion() {
+        var selected = this.parentNode.getElementsByClassName('selected');
+        while(selected.length > 0){
+          selected[selected.length-1].classList.remove('selected');
+        }
+        this.classList.add('selected');
+        self.completeSuggestion(this.innerHTML);
+      }
+      
+      //list all new suggestions
+      for (var i = 0; i < self.suggestions.length; i++) {
+        self.suggestionList.insertAdjacentHTML('beforeend', '<li>' + self.suggestions[i] + '</li>');
+        self.suggestionList.lastChild.onclick = clickedSuggestion;
+      }
 
-    self._me.get(0).selectionStart = namePos + name.length;
-    self._me.get(0).selectionEnd = namePos + name.length;
+      //add selected class to the current selection
+      selected = self.suggestionList.childNodes[self.currentSuggestion];
+      selected.classList.add('selected');
+    } else {
+      if (before) {
+        //was suggesting before but is not anymore
+        self.hideSuggestionList();
+      }
+    }
+  };
+
+  self.showSuggestionList = function () {
+    self.suggestionList.classList.add('shown');
   }
 
-  self.filter = function filter(text, callback) {
-    db.get_screen_names_starts_with(text, function (tx, rs) {
-      var result_list = []
-      for (var i = 0, l = rs.rows.length; i < l; i += 1) {
-        result_list.push(rs.rows.item(i).screen_name)
-      }
-      callback(result_list);
-    });
-  };
-
-  self.quickFilter = function quickFilter(text) {
-    var result_list = globals.conversant.filter(function (x) {
-      return x.toLowerCase().indexOf(text.toLowerCase()) === 0;
-    });
-    return result_list;
-  };
-
-  self.getCursorPos = function getCursorPos() {
-    var pos = 0;
-    var box = self._me.get(0);
-    self._me.focus();
-    if (document.selection) {
-      // IE
-      var sel = document.selection.createRange();
-      sel.moveStart('character', -box.value.length);
-      pos = sel.text.length;
-    } else if (box.selectionStart || box.selectionStart == '0') {
-      // others
-      pos = box.selectionStart;
-    }
-    return pos;
-  },
-
-  self.hide = function hide() {
-    self.candidate.hide();
+  self.hideSuggestionList = function () {
+    self.suggestionList.classList.remove('shown');
   }
 
-  self.init(obj);
+  self.completeSuggestion = function (sugg) {
+    var text = self.me.value;
+    var caretPos = self.me.selectionStart;
+    var textBefore = text.substring(0, caretPos);
+    var textAfter = text.substring(caretPos);
+    var spaceBefore = textBefore.lastIndexOf(' ');
+    textBefore = textBefore.substring(0, (spaceBefore + 1));
+    //now textbefore is everything before the word we have our cursor in and
+    //text after everything after it.
+    var suggestion = sugg || self.suggestions[self.currentSuggestion];
+    text = textBefore + suggestion + textAfter;
+    self.me.value = text;
+    //now we need to put the cursor after the completed word.
+    caretPos = textBefore.length + suggestion.length;
+    self.me.selectionStart = caretPos;
+    self.me.selectionEnd = caretPos;
+    self.suggesting = false;
+    self.updateSuggestionList(true);
+  }
+  
+  self.stopSuggesting = function() {
+    self.suggesting = false;
+    self.updateSuggestionList(true);
+  }
 }
 
 widget.autocomplete = WidgetAutoComplete;
-widget.autocomplete.connect = function bind(obj) {
-  return new widget.autocomplete(obj);
+widget.autocomplete.connect = function bind(obj, matchPattern, getResults) {
+  return new widget.autocomplete(obj, matchPattern, getResults);
 }
