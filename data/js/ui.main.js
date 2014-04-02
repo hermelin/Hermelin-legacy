@@ -295,6 +295,7 @@ ui.Main = {
 
     // insert the isoloated tweets.
     var i = 0;
+    var j = 0;
     var batch_arr = [];
     while (i < json_obj.length) {
       var ret = ui.Main.insert_isolated_tweet(self, json_obj[i], reversion)
@@ -371,6 +372,19 @@ ui.Main = {
     */
     // dumps to cache
     db.dump_tweets(json_obj);
+    
+    // dump all included hashtags to cache
+    var hashtags = [];
+    
+    for (i = 0; i < json_obj.length; i++) {
+      var tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
+      while(tag !== null){
+        hashtags.push(tag[2]);
+        tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
+      }
+    }
+
+    db.dump_hashtags(hashtags);
 
     /*
     if (!reversion && json_obj.length != 0) {

@@ -7,13 +7,15 @@ db = {
 
   MAX_USER_CACHE_SIZE: 1024,
 
-  version: 3,
+  MAX_HASHTAG_CACHE_SIZE: 2048,
+
+  version: 4,
 
   init: function init(callback) {
     db.database = window.openDatabase('hermelin.cache', '', 'Cache of Hermelin', 10);
     db.get_version(function (version) {
       var db_version = parseInt(version);
-      if (db_version === 2) { // from 2 to 3
+      if (db_version === 2 || db_version === 3) { // from 2 to 3 / 3 to 4
         db.create_cache(function () {
           db.update_version(callback);
         });
@@ -114,6 +116,12 @@ db = {
     },
 
     function () {
+          tx.executeSql('DROP TABLE IF EXISTS "HashtagCache"', [], function () {
+            $(window).dequeue('_database');
+          });
+    },
+
+    function () {
           tx.executeSql('CREATE TABLE IF NOT EXISTS "TweetCache" ("id" CHAR(256) PRIMARY KEY  NOT NULL  UNIQUE , "status" NCHAR(140) NOT NULL, "json" TEXT NOT NULL )', [], function () {
             $(window).dequeue('_database');
           });
@@ -121,6 +129,12 @@ db = {
 
     function () {
           tx.executeSql('CREATE TABLE IF NOT EXISTS "UserCache" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  UNIQUE  DEFAULT 0, "user_id" CHAR(256) NOT NULL UNIQUE, "screen_name" CHAR(64) NOT NULL , "json" TEXT NOT NULL )', [], function () {
+            $(window).dequeue('_database');
+          });
+    },
+
+    function () {
+          tx.executeSql('CREATE TABLE IF NOT EXISTS "HashtagCache" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  UNIQUE  DEFAULT 0, "hashtag" TEXT UNIQUE NOT NULL )', [], function () {
             $(window).dequeue('_database');
           });
     },
@@ -180,6 +194,21 @@ db = {
         var tweet_obj = json_obj[i];
         var user = typeof tweet_obj.user != 'undefined' ? tweet_obj.user : tweet_obj.sender;
         dump_single_user(tx, user);
+      }
+    });
+  },
+
+  dump_hashtags: function dump_hashtags(tags) {
+    var dump_single_hashtag = function (tx, tag) {
+      tx.executeSql('INSERT OR REPLACE INTO HashtagCache (hashtag) VALUES (?)', [tag], function (tx, rs) {}, function (tx, error) {
+        hermelin_log('DB', 'INSERT ERROR: ' + error.code + ',' + error.message);
+      });
+    }
+    //dump hashtags
+    db.database.transaction(function (tx) {
+      for (var i = 0, l = tags.length; i < l; i += 1) {
+        var tag = tags[i];
+        dump_single_hashtag(tx, tag);
       }
     });
   },
@@ -244,6 +273,14 @@ db = {
       });
     });
   },
+  
+  get_hashtags_starts_with: function get_hashtags_starts_with(starts, callback) {
+    db.database.transaction(function (tx) {
+      tx.executeSql('SELECT hashtag FROM HashtagCache WHERE hashtag LIKE \'' + starts.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
+        callback(tx, rs);
+      });
+    });
+  },
 
   reduce_user_cache: function reduce_user_cache(limit, callback) {
     db.database.transaction(function (tx) {
@@ -254,6 +291,12 @@ db = {
   reduce_tweet_cache: function reduce_tweet_cache(limit, callback) {
     db.database.transaction(function (tx) {
       tx.executeSql('DELETE FROM TweetCache WHERE id in (SELECT id FROM TweetCache ORDER BY id limit ?)', [limit], callback);
+    });
+  },
+  
+  reduce_hashtag_cache: function reduce_hashtag_cache(limit, callback) {
+    db.database.transaction(function (tx) {
+      tx.executeSql('DELETE FROM HashtagCache WHERE id in (SELECT id FROM HashtagCache ORDER BY id limit ?)', [limit], callback);
     });
   },
 
@@ -272,8 +315,17 @@ db = {
       });
     });
   },
+  
+  get_hashtag_cache_size: function get_hashtag_cache_size(callback) {
+    db.database.transaction(function (tx) {
+      tx.executeSql('SELECT count(*) FROM HashtagCache', [], function (tx, rs) {
+        callback(rs.rows.item(0)['count(*)']);
+      });
+    });
+  },
 
   reduce_db: function reduce_db() {
+    //reduces all caches to 2/3 of their max size
     db.get_tweet_cache_size(function (size) {
       if (db.MAX_TWEET_CACHE_SIZE < size) {
         db.reduce_tweet_cache(
@@ -284,6 +336,12 @@ db = {
       if (db.MAX_USER_CACHE_SIZE < size) {
         db.reduce_user_cache(
           parseInt(db.MAX_USER_CACHE_SIZE * 2 / 3), function () {})
+      }
+    });
+    db.get_hashtag_cache_size(function (size) {
+      if (db.MAX_HASHTAG_CACHE_SIZE < size) {
+        db.reduce_hashtag_cache(
+          parseInt(db.MAX_HASHTAG_CACHE_SIZE * 2 / 3), function () {})
       }
     });
   },
