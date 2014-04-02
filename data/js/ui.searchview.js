@@ -4,6 +4,7 @@ ui.SearchView = {
   alter_load: null,
   alter_load_success: null,
   alter_item_type: null,
+  searchEntryComp: null,
   init: function init() {
     ui.SearchView.alter_item_type = 'phoenix_search';
     ui.SearchView.alter_load = ui.SearchView.load_tweet;
@@ -12,6 +13,7 @@ ui.SearchView = {
 
   init_view: function init_search_view(view) {
     var search_entry = view._header.find('.search_entry');
+    var _search_entry = view.__header.getElementsByClassName('search_entry')[0];
     search_entry.keypress(function (ev) {
       if (ev.keyCode == 13) {
         ui.SearchView.do_search(view, search_entry.val());
@@ -72,8 +74,18 @@ ui.SearchView = {
         });
         */
     });
-
-    widget.autocomplete.connect(search_entry);
+    
+    var getScreenNames = function (word, cb) {
+      db.get_screen_names_starts_with(word.substring(0,1).search(/[@＠]/)===0?word.substring(1):word, function (tx, rs) {
+        var result_list = []
+        for (var i = 0, l = rs.rows.length; i < l; i += 1) {
+          result_list.push('@' + rs.rows.item(i).screen_name)
+        }
+        cb(result_list);
+      });
+    };
+    
+    ui.SearchView.searchEntryComp = widget.autocomplete.connect(_search_entry, /[@＠][a-zA-Z0-9_]{1,20}/, getScreenNames);
     ui.SearchView.clear(view);
   },
 

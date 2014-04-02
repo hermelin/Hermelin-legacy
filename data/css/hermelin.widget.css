@@ -431,6 +431,10 @@ disabled:
 .autocomplete li:hover {
   background: lightgray;
 }
+.search_box .autocomplete {
+  width: 80%;
+  left: 10%;
+}
 /* scrollbar */
  #scrollbar_container {
   position:relative;
