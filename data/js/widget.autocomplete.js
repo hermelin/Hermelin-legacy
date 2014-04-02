@@ -85,7 +85,7 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
     var word = self.checkForMatch();
     if (word) {
       self.getResults(word, function (resultList) {
-        if (resultList.length > 0 && !(resultList.length === 1 && resultList[0].toLowerCase === word.toLowerCase)) {
+        if (resultList.length > 0 && !(resultList.length === 1 && resultList[0].toLowerCase() === word.toLowerCase())) {
           //now we now the word matches, there are available suggestions and the word
           //isn't already the only match. so the actual suggestion will start
           self.suggestions = resultList;
