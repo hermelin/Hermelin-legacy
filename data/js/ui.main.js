@@ -379,7 +379,7 @@ ui.Main = {
     for (i = 0; i < json_obj.length; i++) {
       var tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
       while(tag !== null){
-        hashtags.push(tag[2]);
+        hashtags.push(tag[3]);
         tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
       }
     }
@@ -711,6 +711,7 @@ ui.Main = {
 
     $(id).find('.hash_href').click(function (event) {
       ui.Slider.addDefaultView('search', {}) || ui.Slider.add('search');
+      ui.Slider.slide_to('search');
       ui.Main.views.search._header.find('.search_entry').val($(this).attr('href'));
       ui.Main.views.search._header.find('.search_tweet').click();
       return false;

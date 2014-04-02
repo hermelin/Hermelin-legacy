@@ -26,6 +26,8 @@ ui.StatusBox = {
   textNameComp: null,
   
   dmNameComp: null,
+  
+  hashtagComp: null,
 
   last_sent_text: '',
 
@@ -256,7 +258,7 @@ ui.StatusBox = {
     ui.StatusBox.reg_fake_dots = new RegExp('(\\.\\.\\.)|(。。。)', 'g');
     ui.StatusBox.reg_fake_dots2 = new RegExp('(…\\.+)|(…。+)', 'g');
 
-    // setup autocomplete for user name
+    // setup autocomplete for user names and hashtags
     var getScreenNames = function (word, cb) {
       db.get_screen_names_starts_with(word.substring(0,1).search(/[@＠]/)===0?word.substring(1):word, function (tx, rs) {
         var result_list = []
@@ -266,8 +268,20 @@ ui.StatusBox = {
         cb(result_list);
       });
     };
+    
+    var getHashtags = function (word, cb) {
+      db.get_hashtags_starts_with(word.substring(1), function (tx, rs) {
+        var result_list = []
+        for (var i = 0, l = rs.rows.length; i < l; i += 1) {
+          result_list.push(word.substring(0,1) + rs.rows.item(i).hashtag)
+        }
+        cb(result_list);
+      });
+    };
 
     ui.StatusBox.textNameComp = widget.autocomplete.connect(document.getElementById('tbox_status'), ui.Template.reg_user_name_chars, getScreenNames);
+    
+    ui.StatusBox.hashtagComp = widget.autocomplete.connect(document.getElementById('tbox_status'), ui.Template.reg_hash_tag, getHashtags);
     
     ui.StatusBox.dmNameComp = widget.autocomplete.connect(document.getElementById('tbox_dm_target'), new RegExp('[@＠]?[a-zA-Z0-9_]{1,20}'), getScreenNames);
 
@@ -582,6 +596,7 @@ ui.StatusBox = {
     $('#tbox_status').blur();
     ui.StatusBox.textNameComp.stopSuggesting();
     ui.StatusBox.dmNameComp.stopSuggesting();
+    ui.StatusBox.hashtagComp.stopSuggesting();
     ui.StatusBox.isClosed = true;
   },
 

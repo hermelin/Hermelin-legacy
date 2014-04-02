@@ -15,7 +15,7 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
   self.me.parentNode.appendChild(self.suggestionList);
   self.cancelled = false; //says if the current suggestion was cancelled (needed for event-mess)
 
-  self.me.onkeydown = function (event) {
+  self.keydown = function (event) {
     if (self.suggesting) {
       switch (event.keyCode) {
 
@@ -24,6 +24,7 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
       case 32:
         //tab, enter or space
         self.completeSuggestion();
+        self.cancelled = true;
         event.preventDefault();
         break;
 
@@ -55,32 +56,36 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
           event.preventDefault();
         }
       }
-    } else{
+    } else {
       self.cancelled = false;
     }
   };
 
-  self.me.onkeyup = function (event) {
+  self.keyup = function (event) {
     if (!self.cancelled) {
       //makes sure the suggestion was not just cancelled by the right key
       self.tryCompletion();
       self.cancelled = false;
     }
-  }
+  };
 
-  self.me.onmouseup = function (event) {
+  self.mouseup = function (event) {
     if (self.me.selectionStart === self.me.selectionEnd) {
       self.tryCompletion();
       self.cancelled = false;
     }
-  }
+  };
+
+  self.me.addEventListener('keydown', self.keydown);
+  self.me.addEventListener('keyup', self.keyup);
+  self.me.addEventListener('mouseup', self.mouseup);
 
   self.tryCompletion = function () {
     var old = self.suggesting;
     var word = self.checkForMatch();
     if (word) {
       self.getResults(word, function (resultList) {
-        if (resultList.length > 0 && !(resultList.length === 1 && resultList[0] === word)) {
+        if (resultList.length > 0 && !(resultList.length === 1 && resultList[0].toLowerCase === word.toLowerCase)) {
           //now we now the word matches, there are available suggestions and the word
           //isn't already the only match. so the actual suggestion will start
           self.suggestions = resultList;
@@ -129,17 +134,17 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
       while (self.suggestionList.firstChild) {
         self.suggestionList.removeChild(self.suggestionList.firstChild);
       }
-      
+
       //onclick event for all suggestions
       var clickedSuggestion = function clickedSuggestion() {
         var selected = this.parentNode.getElementsByClassName('selected');
-        while(selected.length > 0){
-          selected[selected.length-1].classList.remove('selected');
+        while (selected.length > 0) {
+          selected[selected.length - 1].classList.remove('selected');
         }
         this.classList.add('selected');
         self.completeSuggestion(this.innerHTML);
       }
-      
+
       //list all new suggestions
       for (var i = 0; i < self.suggestions.length; i++) {
         self.suggestionList.insertAdjacentHTML('beforeend', '<li>' + self.suggestions[i] + '</li>');
@@ -149,6 +154,7 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
       //add selected class to the current selection
       selected = self.suggestionList.childNodes[self.currentSuggestion];
       selected.classList.add('selected');
+      selected.scrollIntoView(false);
     } else {
       if (before) {
         //was suggesting before but is not anymore
@@ -184,10 +190,16 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
     self.suggesting = false;
     self.updateSuggestionList(true);
   }
-  
-  self.stopSuggesting = function() {
+
+  self.stopSuggesting = function () {
     self.suggesting = false;
     self.updateSuggestionList(true);
+  }
+  
+  self.unbind = function () {
+    self.me.removeEventListener('keydown', self.keydown);
+    self.me.removeEventListener('keyup', self.keyup);
+    self.me.removeEventListener('mouseup', self.mouseup);
   }
 }
 
