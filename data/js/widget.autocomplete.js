@@ -110,9 +110,11 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
     var caretPos = self.me.selectionStart;
     var textBefore = self.me.value.substring(0, caretPos);
     var spaceBefore = textBefore.lastIndexOf(' ');
+    var newlineBefore = textBefore.lastIndexOf('\n');
+    var whitespaceBefore = newlineBefore>=spaceBefore?newlineBefore:spaceBefore;
 
     //get the last word before caretPosition (space separates words)
-    var word = textBefore.substring((spaceBefore + 1), caretPos);
+    var word = textBefore.substring((whitespaceBefore + 1), caretPos);
 
     //if the pattern matches, return the word
     return word.match(self.matchPattern) ? word : false;
@@ -177,7 +179,9 @@ function WidgetAutoComplete(obj, matchPattern, getResults) {
     var textBefore = text.substring(0, caretPos);
     var textAfter = text.substring(caretPos);
     var spaceBefore = textBefore.lastIndexOf(' ');
-    textBefore = textBefore.substring(0, (spaceBefore + 1));
+    var newlineBefore = textBefore.lastIndexOf('\n');
+    var whitespaceBefore = newlineBefore>=spaceBefore?newlineBefore:spaceBefore;
+    textBefore = textBefore.substring(0, (whitespaceBefore + 1));
     //now textbefore is everything before the word we have our cursor in and
     //text after everything after it.
     var suggestion = sugg || self.suggestions[self.currentSuggestion];

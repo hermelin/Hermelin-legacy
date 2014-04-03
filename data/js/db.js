@@ -214,7 +214,7 @@ db = {
   },
 
   get_version: function get_version(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT * FROM sqlite_master WHERE type="table" and name="Info"', [], function (tx, rs) {
         if (rs.rows.length == 0) {
           callback(-1);
@@ -231,7 +231,7 @@ db = {
 
 
   get_tweet: function get_tweet(key, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT id, status, json FROM TweetCache WHERE id=?', [key], function (tx, rs) {
         callback(tx, rs);
       });
@@ -239,7 +239,7 @@ db = {
   },
 
   get_user: function get_user(screen_name, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT id, screen_name, json FROM UserCache WHERE screen_name=?', [screen_name], function (tx, rs) {
         if (rs.rows.length != 0) {
           callback(JSON.parse(rs.rows.item(0).json));
@@ -251,7 +251,7 @@ db = {
   },
 
   search_user: function search_user(query, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT user_id, screen_name, json FROM UserCache WHERE screen_name LIKE \'%' + query.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
         callback(tx, rs);
       });
@@ -259,7 +259,7 @@ db = {
   },
 
   get_screen_names_starts_with: function get_users_starts_with(starts, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT screen_name FROM UserCache WHERE screen_name LIKE \'' + starts.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
         callback(tx, rs);
       });
@@ -267,7 +267,7 @@ db = {
   },
 
   get_screen_names: function get_screen_names(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT screen_name FROM UserCache ORDER BY screen_name', [], function (tx, rs) {
         callback(tx, rs);
       });
@@ -275,7 +275,7 @@ db = {
   },
   
   get_hashtags_starts_with: function get_hashtags_starts_with(starts, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT hashtag FROM HashtagCache WHERE hashtag LIKE \'' + starts.replace(/_/g, '^_') + '%\' ESCAPE \'^\'', [], function (tx, rs) {
         callback(tx, rs);
       });
@@ -301,7 +301,7 @@ db = {
   },
 
   get_tweet_cache_size: function get_tweet_cache_size(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT count(*) FROM TweetCache', [], function (tx, rs) {
         callback(rs.rows.item(0)['count(*)']);
       });
@@ -309,7 +309,7 @@ db = {
   },
 
   get_user_cache_size: function get_user_cache_size(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT count(*) FROM UserCache', [], function (tx, rs) {
         callback(rs.rows.item(0)['count(*)']);
       });
@@ -317,7 +317,7 @@ db = {
   },
   
   get_hashtag_cache_size: function get_hashtag_cache_size(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT count(*) FROM HashtagCache', [], function (tx, rs) {
         callback(rs.rows.item(0)['count(*)']);
       });
@@ -357,7 +357,7 @@ db = {
   },
 
   load_option: function load_option(key, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT key, value FROM Info WHERE key=?', [key], function (tx, rs) {
         callback(rs.rows.item(0).value);
       }, function (tx, error) {
@@ -377,7 +377,7 @@ db = {
   },
 
   load_profile_prefs: function load_profile_prefs(name, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT preferences FROM Profile WHERE name=?', [name], function (tx, rs) {
         if (rs.rows.length == 0) {
           callback('{}');
@@ -419,7 +419,7 @@ db = {
   },
 
   get_profile: function get_profile(name, callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT * FROM Profile WHERE name=?', [name], function (tx, rs) {
         if (rs.rows.length == 0) {
           callback({});
@@ -436,7 +436,7 @@ db = {
   },
 
   get_all_profiles: function get_all_profiles(callback) {
-    db.database.transaction(function (tx) {
+    db.database.readTransaction(function (tx) {
       tx.executeSql('SELECT * FROM "Profile" ORDER BY "Profile"."order"', [], function (tx, rs) {
         if (rs.rows.length == 0) {
           callback([]);
