@@ -60,13 +60,26 @@ ui.ListView = {
       return false;
     });
 
-    view._header.find('.expand').click(function () {
-      if (vcard.is(':hidden')) {
-        vcard.slideDown('fast');
+    view.__header.getElementsByClassName('expand')[0].onclick = function () {
+      var vcard = this.parentNode.parentNode.getElementsByClassName('list_vcard')[0];
+      if (this.classList.contains('open')) {
+        this.classList.remove('open');
+        vcard.style.overflow = "hidden";
+        vcard.classList.remove('open');
+        setTimeout(function () {
+          if (!vcard.classList.contains('open')) {
+            vcard.style.display = "none";
+          }
+        }, 200);
       } else {
-        vcard.slideUp('fast');
+        this.classList.add('open');
+        vcard.style.display = "block";
+        setTimeout(function () {
+          vcard.style.overflow = "visible";
+          vcard.classList.add('open');
+        }, 1);
       }
-    });
+    };
   },
 
   destroy_view: function destroy_view(view) {
@@ -132,8 +145,10 @@ ui.ListView = {
       btn_edit.hide();
       btn_delete.hide();
     }
-    ui.Slider.set_icon(view.name, globals.twitterClient.get_user_profile_image(view.screen_name, 'normal'), ui.Slider.FLOAT_ICON);
-    ui.Slider.set_icon_alt(view.name, 'image/ic_list.png');
+    globals.twitterClient.get_user_profile_image(view.screen_name, function(user_obj){
+      ui.Slider.set_icon(view.name, user_obj.profile_image_url_https.replace('_normal', '_mini'), ui.Slider.FLOAT_ICON);
+      ui.Slider.set_icon_alt(view.name, 'image/ic_list.png');
+    });
     ui.Template.fill_list_vcard(view, list_obj);
     // @TODO relationship
     proc();

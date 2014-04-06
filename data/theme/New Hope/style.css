@@ -9,10 +9,6 @@
 #main_page {
   background: #fafafa;
 }
-.people_vcard {
-  color: #333;
-  padding: 5px;
-}
 .tweet_bar_btn {
   background-position-y: -48px;
 }
@@ -22,10 +18,7 @@
 .tweet_meta a {
   color: #888 !important;
 }
-.vcard_action_btns {
-  border-top: 1px #ccc solid;
-}
-.search_box, .vcard, .header_inner {
+.search_box, .header_inner {
   background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F8), to(#EDEDED));
   border: #E5E5E5 solid 1px;
 }

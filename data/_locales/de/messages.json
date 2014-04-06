@@ -1305,19 +1305,19 @@
     "description": "data/index.html"
   },
   "you_are_followed_by_them": {
-    "message": "Dieser Benutzer folgt Ihnen.",
+    "message": "Dieser Benutzer folgt dir.",
     "description": "data/js/ui.peopleview.js"
   },
   "you_are_following": {
-    "message": "Sie folgen",
+    "message": "Du folgst",
     "description": "data/js/ui.peopleview.js"
   },
   "you_are_friends": {
-    "message": "Sie sind Freunde.",
+    "message": "Ihr seid Freunde.",
     "description": "data/js/ui.peopleview.js"
   },
   "you_are_not_following_each_other": {
-    "message": "Sie folgen sich nicht.",
+    "message": "Ihr folgt euch nicht.",
     "description": "data/js/ui.peopleview.js"
   },
   "you_dont_have_a_view": {

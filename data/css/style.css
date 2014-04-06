@@ -36,7 +36,7 @@ pre {
   margin:0 auto;
   width:100%;
 }
-#bodyCover{
+#bodyCover {
   display: none;
   z-index: 10000;
   position: fixed;
@@ -302,8 +302,8 @@ pre {
   color: white;
   padding: 3px 6px;
 }
-#status_ctrl {y
-  padding: 5px 0;
+#status_ctrl {
+  y padding: 5px 0;
   text-align: right;
   vertical-align: middle;
 }
@@ -505,7 +505,7 @@ pre {
   position: absolute !important;
   left: 0;
 }
-#indicator_btns > div.no_stick .icon{
+#indicator_btns > div.no_stick .icon {
   border-radius: 100%;
 }
 #indication li:first-child {
@@ -526,7 +526,7 @@ pre {
   background-color: white;
   color: #36c;
 }
-#indicator_add_btn.hlight .ic_add{
+#indicator_add_btn.hlight .ic_add {
   background-image: url(../image/svg/ic30_add_dark.png);
 }
 #indicator_btns > div.over {
@@ -563,17 +563,17 @@ pre {
   font-size: 14px !important;
   font-weight: bold;
 }
-#indicator_compose_btn .icon{
+#indicator_compose_btn .icon {
   background-position: center center;
 }
-#indicator_compose_btn .label{
+#indicator_compose_btn .label {
   display: none;
 }
 #indicator_compose_btn.with_label {
   width: 150px !important;
   background-position: 8px center;
 }
-#indicator_compose_btn.with_label .label{
+#indicator_compose_btn.with_label .label {
   display: block;
 }
 #indicator_compose_btn.with_label .icon {
@@ -866,30 +866,148 @@ pre {
   z-index: 10004;
 }
 .people_vcard, .list_vcard {
-  color: #333;
-  padding: 5px;
+  display: none;
+  color: #fff;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  padding-bottom: 0;
   position: relative;
+  transition: padding-bottom 0.2s;
+  -webkit-transition: padding-bottom 0.2s;
 }
-.people_vcard .vcard_ctrl, .list_vcard .vcard_ctrl {
+.people_vcard.open, .list_vcard.open {
+  padding-bottom: 50%;
+}
+.people_vcard.open.max, .list_vcard.open.max {
+  padding-bottom: 320px;
+}
+.vcard .vcard_ctrl, .list_vcard .vcard_ctrl {
+  text-align: top;
+}
+.vcard .vcard_header {
+  position: absolute;
+  height: 85px;
+  width: 100%;
+  top: 5%;
+  text-shadow: 0 1px 1px #000, 0 0 3px #000;
+}
+.vcard .vcard_profile_img {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 4px;
+  margin-left: -199.5px;
+  height: 73px;
+  width: 73px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+.vcard .vcard_header_right {
+  position: absolute;
+  width: 317px;
+  height: 75px;
+  left: 50%;
+  margin-left: -112.5px;
+}
+.vcard .vcard_name, .vcard .vcard_list_name {
+  text-align: left;
+  left: 0;
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  height: 22px;
+  text-decoration: none;
+  color: #fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.vcard .vcard_screen_name, .vcard .vcard_owner_name {
+  position: absolute;
+  text-align: left;
+  left: 0;
+  height: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  top: 26px;
+  color: #fff;
+}
+.vcard .vcard_screen_name{
+  font-size: 16px;
+}
+.vcard .vcard_owner_name {
+  font-size: 15px;
+}
+.vcard .vcard_location_and_url {
+  position: absolute;
+  text-align: left;
+  left: 0;
+  top: 50px;
+  font-size: 14px;
+  height: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.vcard .vcard_location {
+  display: inline-block;
+}
+.vcard .vcard_header a, .vcard .vcard_body a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+}
+.vcard .vcard_header a:hover, .vcard .vcard_body a:hover {
+  text-decoration: underline;
+}
+.vcard .vcard_relation {
+  position: absolute;
+  text-align: left;
+  left: 0;
+  top: 66px;
+  font-size: 14px;
+  height: 14px;
+}
+.vcard .vcard_body {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  margin-top: 85px;
+  text-shadow: 0 1px 1px #000;
+}
+.vcard .vcard_bio {
+  padding: 2px;
+  margin: 0 auto;
+  width: 399px;
   text-align: center;
-}
-.vcard_body {
-  min-height: 50px;
-  margin-bottom: 5px;
-}
-.vcard_tabs_pages {
-  margin-left: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  height: 59px;
   font-size: 12px;
-  word-break: break-all;
+  word-wrap: break-word;
 }
-.vcard_action_btns {
-  border-top: 1px #ccc solid;
-  padding: 5px 0 2px 0;
+.vcard .vcard_footer {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  margin-top: 143px;
+}
+.vcard .vcard_ctrl {
+  margin: 0 auto;
 }
 .vcard_action_btns > li {
   list-style-type: none;
   display: inline-block;
   margin: 0 2px;
+}
+.vcard_action_btns > li > a {
+  width: 130px;
+}
+.vcard {
+  background-color: transparent;
+  position: relative;
 }
 .people_action_more_trigger {
   position: relative;
@@ -959,25 +1077,30 @@ pre {
   /*hardcoded right now because transitions from 0 to auto don't work and i can't find a good workaround*/
 }
 .header_frame {
-  padding: 5px;
   text-align: center;
 }
 .header_frame .expand_wrapper {
-  margin-top: -5px;
   margin-bottom: 10px;
 }
 .header_frame .expand {
-  background: #EDEDED;
-  color: black;
-  text-decoration: none;
+  background-image: url(../image/svg/ic20_add.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #3385FF;
+  background-size: 18px 18px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   padding: 0 15px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom: #E5E5E5 solid 1px;
-  border-right: #E5E5E5 solid 1px;
-  border-left: #E5E5E5 solid 1px;
   display: inline-block;
+  height: 20px;
+  transition: background-color 0.2s, height 0.2s;
+}
+.header_frame .expand:hover, .header_frame .expand:active {
+  background-color: #0066FF;
+}
+.header_frame .expand.open {
   height: 14px;
+  background-image: url(../image/svg/ic20_sub.svg);
 }
 .header_inner {
   display: block !important;
@@ -1695,29 +1818,6 @@ pre {
 .tweetview .listview_body {
   padding: 0px 0px;
   list-style-type: none;
-}
-.vcard, .header_inner {
-  display: none;
-  font-size: 10px;
-  background-color: #f2f2f2;
-  border: #e5e5e5 solid 1px;
-  -webkit-border-radius: 5px;
-  position: relative;
-}
-.vcard_tabs_page {
-  border: none;
-  border-collapse:collapse;
-  display: none;
-}
-.vcard_tabs_page td {
-  border: none;
-  text-align: left;
-  vertical-align: top;
-  height: 10px;
-}
-.vcard_tabs_page td:first-child {
-  text-align: left;
-  white-space: nowrap;
 }
 .load_more_info {
   padding: 10px auto;

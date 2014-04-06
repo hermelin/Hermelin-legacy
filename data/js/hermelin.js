@@ -72,6 +72,18 @@ function update_tweet_block_width() {
       } else {
         tweetviews[i].style.width = globals.tweet_block_width + 'px';
       }
+
+      //if it has a vcard and the size is higher than 640px;
+      //the height of the vcard shouldn't grow.
+      //couldn't be done in css (i think)
+      var vcard = tweetviews[i].getElementsByClassName('vcard')[0];
+      if (vcard) {
+        if (globals.tweet_block_width > 640) {
+          vcard.classList.add('max');
+        } else {
+          vcard.classList.remove('max');
+        }
+      }
     }
 
   } else {

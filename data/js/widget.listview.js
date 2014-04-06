@@ -141,9 +141,11 @@ function WidgetListView(id, name, params) {
       $(this).attr("checked", this.checked);
     });
     self._header.find(".mochi_button_group_item").click(function () {
-      var a = $(this).attr("name");
-      self._header.find(".mochi_button_group_item[name=" + a + "]").not(this).removeClass("selected");
-      self._header.find(this).addClass("selected");
+      if (this.parentNode.getElementsByTagName('li').length === 0) {
+        var a = $(this).attr("name");
+        self._header.find(".mochi_button_group_item[name=" + a + "]").not(this).removeClass("selected");
+        self._header.find(this).addClass("selected");
+      }
     });
     ui.Slider.bind_common_settings(self);
   };

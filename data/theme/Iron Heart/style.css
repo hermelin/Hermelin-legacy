@@ -77,9 +77,15 @@ a {
 .tweet_bar_btn:hover {
   background-position-y: 0px;
 }
-.search_box, .vcard, .header_inner {
+.search_box, .header_inner {
   background-color: #1D1D1D;
   border: #333 solid 1px;
+}
+.header_frame .expand {
+  background-color: #444;
+}
+.header_frame .expand:hover {
+  background-color: #555;
 }
 .search_box, .search_people_result span:first-child {
   color: #4e4e4e;
@@ -90,22 +96,20 @@ a {
 .tweet_thread {
   border-top: 1px #555 dashed;
 }
-.vcard_action_btns {
-  border-top: 1px #333 solid;
-}
 #main_page .mochi_button {
-  color: #4ac3ff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #666), color-stop(4%, #444), color-stop(100%, #282828));
-  border: 1px #333 solid;
-  text-shadow: #4ac3ff 0 0 15px;
+  color: #ddd;
+  background-color: #282828;
+  border-color: #444;
 }
 #main_page .mochi_button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #666), color-stop(4%, #444), color-stop(100%, #333));
+  border-color: #555;
 }
-#main_page .mochi_button:active {
-  -webkit-box-shadow: inset #222 0 0 10px;
-  -moz-box-shadow: inset #222 0 0 10px;
-  box-shadow: inset #222 0 0 10px;
+#main_page .mochi_button.blue {
+  color: #4AC3FF;
+  background-color: #444;
+}
+#main_page .mochi_button.blue:hover {
+  background-color: #555;
 }
 #main_page .entry:focus {
   -webkit-box-shadow: inset 0 1px 4px #4ac3ff;
@@ -117,24 +121,21 @@ a {
   background-color: #ccc;
 }
 #main_page .mochi_button_group > li > .mochi_button_group_item {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #666), color-stop(4%, #444), color-stop(100%, #282828));
+  background-color: #282828;
+  border-color: #444;
   color: #ddd;
-  text-shadow: #333 0 -1px 1px;
-  border-right: 1px #333 solid;
-  border-bottom: 1px #333 solid;
-  border-top: 1px #333 solid;
 }
 #main_page .mochi_button_group > li > .mochi_button_group_item:hover {
-  color: #eee;
-}
-#main_page .mochi_button_group > li:first-child > .mochi_button_group_item {
-  border-color: #333;
+  background-color: #282828;
+  border-color: #555;
+  color: #ddd;
 }
 #main_page .mochi_button_group > li > .mochi_button_group_item.selected {
-  color: #4ac3ff;
-  text-shadow: #4ac3ff 0 0 15px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#444));
-  border-color: #333;
+  color: #fff;
+  background-color: #444;
+}
+#main_page .mochi_button_group > li > .mochi_button_group_item.selected:hover {
+  background-color: #555;
 }
 .btn_tweet_thread {
   background-image: url(fold.png);

@@ -472,10 +472,12 @@ function TwitterClient() {
     self.get(url, params, on_success);
   };
 
-  self.get_user_profile_image = function get_user_profile_image(screen_name, size) {
-    var url = self.api_base + 'users/profile_image/twitter.json' + '?size=' + size + '&screen_name=' + screen_name + '&rnd=' + Math.random();
-    return url;
-
+  self.get_user_profile_image = function get_user_profile_image(screen_name, on_success) {
+    var url = self.api_base + 'users/show.json';
+    var params = {
+      'screen_name': screen_name
+    }
+    self.get(url, params, on_success);
     // has been removed in API v1.1
   };
 

@@ -229,90 +229,60 @@ ui.Template = {
 
   people_vcard_t_orig: '<div class="header_frame">\
   <div class="people_vcard vcard">\
-    <a target="_blank" class="profile_img_wrapper"></a>\
+    <div class="vcard_header">\
+        <a class="vcard_profile_img"></a>\
+        <div class="vcard_header_right">\
+            <div class="vcard_name"></div>\
+            <a class="vcard_screen_name" target="_blank" href="#"></a>\
+            <div class="vcard_location_and_url">\
+                <div class="vcard_location"></div>\
+                <a class="vcard_url" target="_blank" href="#"></a>\
+            </div>\
+            <div class="vcard_relation"></div>\
+        </div>\
+    </div>\
     <div class="vcard_body">\
-        <center>\
-        <ul class="people_vcard_radio_group mochi_button_group"> \
-            <li><a class="mochi_button_group_item selected" href="#people_vcard_info_page" name="">{%TRANS_info%}</a> \
-            </li><li><a class="mochi_button_group_item" href="#people_vcard_stat_page">{%TRANS_stat%}</a> \
-            </li></ul>\
-        </center>\
-        <div class="vcard_tabs_pages">\
-        <table class="people_vcard_info_page vcard_tabs_page radio_group_page" border="0" cellpadding="0" cellspacing="0"> \
-            <tr><td>{%TRANS_name%}: </td><td> \
-                <a class="screen_name" target="_blank" href="#"></a> \
-                (<span class="name"></span>) </td> \
-            </tr> \
-            <tr><td>{%TRANS_bio%}: </td> \
-                <td><span class="bio"></span></td> \
-            </tr> \
-            <tr><td>{%TRANS_web%}: </td> \
-                <td><a class="web" target="_blank" href="#" class="link"></a></td> \
-            </tr> \
-            <tr><td>{%TRANS_location%}: </td> \
-                <td><span class="location"></span></td> \
-            </tr> \
-        </table> \
-        <table class="people_vcard_stat_page vcard_tabs_page radio_group_page"> \
-            <tr><td>{%TRANS_join%}: </td> \
-                <td><span class="join"></span></td> \
-            </tr> \
-            <tr><td>{%TRANS_tweet_cnt%}: </td> \
-                <td><span class="tweet_cnt"></span> \
-                (<span class="tweet_per_day_cnt"></span> per day)</td> \
-            </tr> \
-            <tr><td>{%TRANS_follower_cnt%}: </td> \
-                <td><span class="follower_cnt"></span></td> \
-            </tr> \
-            <tr><td>{%TRANS_friend_cnt%}: </td> \
-                <td><span class="friend_cnt"></span></td> \
-            </tr> \
-            <tr><td>{%TRANS_listed_cnt%}: </td> \
-                <td><span class="listed_cnt"></span></td> \
-            </tr> \
-            <tr><td>{%TRANS_relation%}: </td> \
-                <td><span class="relation"></span></td> \
-            </tr> \
-        </table> \
-        </div><!-- vcard tabs pages --> \
+        <div class="vcard_bio"></div>\
     </div> <!-- vcard body --> \
-    <div class="vcard_ctrl"> \
-        <ul class="vcard_action_btns"> \
-        <li><a class="vcard_follow mochi_button blue" \
-                href="#" >{%TRANS_follow%}</a> \
-        </li><li> \
-            <a class="vcard_edit mochi_button" \
-                href="#" style="display:none;">{%TRANS_edit%}</a>\
-        </li><li class="people_action_more_trigger"> \
-            <a class="vcard_more mochi_button" \
-                href="#">{%TRANS_more_actions%} &#x25BE;</a> \
-            <ul class="people_action_more_memu hermelin_menu">\
-                <li><a class="mention_menu_item" \
-                    title="Mention them"\
-                    href="#">{%TRANS_mention_them%}</a>\
-                </li><li><a class="message_menu_item" \
-                    title="Send Message to them"\
-                    href="#">{%TRANS_message_them%}</a>\
-                </li><li><a class="add_to_list_menu_item" \
-                    title="Add them to a list"\
-                    href="#">{%TRANS_add_to_list%}</a>\
-                </li><li class="separator"><span></span>\
-                </li><li><a class="block_menu_item" \
-                    title="Block"\
-                    href="#">{%TRANS_block%}</a>\
-                </li><li><a class="unblock_menu_item"\
-                    href="#" \
-                    title="Unblock">{%TRANS_unblock%}</a>\
-                </li><li><a class="report_spam_menu_item" \
-                    href="#" \
-                    title="Report Spam">{%TRANS_report_spam%}</a>\
-                </li>\
-            </ul>\
-        </li> \
-        </ul> \
-    </div><!-- #people_vcard_ctrl --> \
+    <div class="vcard_footer">\
+        <div class="vcard_ctrl"> \
+            <ul class="vcard_action_btns"> \
+            <li><a class="vcard_follow mochi_button blue" \
+                    href="#" >{%TRANS_follow%}</a> \
+            </li><li> \
+                    <a class="vcard_edit mochi_button" \
+                    href="#" style="display:none;">{%TRANS_edit%}</a>\
+            </li><li class="people_action_more_trigger"> \
+                <a class="vcard_more mochi_button" \
+                    href="#">{%TRANS_more_actions%} &#x25BE;</a> \
+                <ul class="people_action_more_memu hermelin_menu">\
+                    <li><a class="mention_menu_item" \
+                        title="Mention them"\
+                            href="#">{%TRANS_mention_them%}</a>\
+                    </li><li><a class="message_menu_item" \
+                        title="Send Message to them"\
+                        href="#">{%TRANS_message_them%}</a>\
+                    </li><li><a class="add_to_list_menu_item" \
+                        title="Add them to a list"\
+                        href="#">{%TRANS_add_to_list%}</a>\
+                    </li><li class="separator"><span></span>\
+                    </li><li><a class="block_menu_item" \
+                        title="Block"\
+                        href="#">{%TRANS_block%}</a>\
+                    </li><li><a class="unblock_menu_item"\
+                        href="#" \
+                        title="Unblock">{%TRANS_unblock%}</a>\
+                    </li><li><a class="report_spam_menu_item" \
+                        href="#" \
+                        title="Report Spam">{%TRANS_report_spam%}</a>\
+                    </li>\
+                </ul>\
+            </li> \
+            </ul> \
+        </div><!-- #people_vcard_ctrl --> \
+    </div>\
 </div> <!-- vcard --> \
-<div class="expand_wrapper"><a href="#" class="expand">…</a></div>\
+<div class="expand_wrapper"><a href="#" class="expand"></a></div>\
 <div class="people_view_toggle"> \
     <ol class="people_view_toggle_btns mochi_button_group"> \
         <li><a class="people_view_tweet_btn mochi_button_group_item selected" href="#tweet">{%TRANS_tweets%}</a> \
@@ -380,37 +350,33 @@ ui.Template = {
 </li>',
 
   list_vcard_t: '<div class="header_frame"><div class="list_vcard vcard">\
-    <a target="_blank" class="profile_img_wrapper"></a>\
-    <div class="vcard_body">\
-        <div class="vcard_tabs_pages">\
-        <table border="0" cellpadding="0" cellspacing="0" class="vcard_tabs_page" style="display:block;"> \
-            <tr><td data-i18n-text="name">Name: </td><td> \
-                <a class="name" target="_blank" href="#"></a></td> \
-            </tr> \
-            <tr><td>Owner: </td> \
-                <td><a class="owner" target="_blank" href="#" data-i18n-text="owner"></a></td> \
-            </tr> \
-            <tr><td data-i18n-text="description">Description: </td> \
-                <td><span class="description"></span></td> \
-            </tr> \
-        </table> \
+    <div class="vcard_header">\
+        <a class="vcard_profile_img"></a>\
+        <div class="vcard_header_right">\
+            <a class="vcard_list_name" target="_blank" href="#"></a>\
+            <a class="vcard_owner_name" target="_blank" href="#"></a>\
         </div>\
+    </div>\
+    <div class="vcard_body">\
+        <div class="vcard_bio"></div>\
     </div> <!-- vcard body --> \
-    <div class="vcard_ctrl"> \
-        <ul class="vcard_action_btns"> \
-        <li><a class="vcard_follow mochi_button blue" \
-                href="#" data-i18n-text="follow">Follow</a> \
-        </li><li> \
-            <a class="vcard_delete mochi_button red" \
-                href="#" data-i18n-text="delete">Delete</a> \
-        </li><li> \
-            <a class="vcard_edit mochi_button" \
-                href="#" style="display:none;" data-i18n-text="edit">Edit</a>\
-        </li> \
-        </ul> \
-    </div><!-- #list_vcard_ctrl --> \
-</div> <!-- vcard --> \
-<div class="expand_wrapper"><a href="#" class="expand">…</a></div>\
+    <div class="vcard_footer">\
+        <div class="vcard_ctrl"> \
+            <ul class="vcard_action_btns"> \
+            <li><a class="vcard_follow mochi_button blue" \
+                    href="#" data-i18n-text="follow">Follow</a> \
+            </li><li> \
+                <a class="vcard_delete mochi_button red" \
+                    href="#" data-i18n-text="delete">Delete</a> \
+            </li><li> \
+                <a class="vcard_edit mochi_button" \
+                    href="#" style="display:none;" data-i18n-text="edit">Edit</a>\
+            </li> \
+            </ul> \
+        </div><!-- #list_vcard_ctrl --> \
+    </div>\
+</div><!-- vcard --> \
+<div class="expand_wrapper"><a href="#" class="expand"></a></div>\
 <div class="list_view_toggle"> \
     <ol class="list_view_toggle_btns mochi_button_group"> \
         <li><a class="list_view_tweet_btn mochi_button_group_item selected" href="#tweet" data-i18n-text="tweets">Tweets</a> \
@@ -1293,46 +1259,166 @@ ui.Template = {
 
     var created_at_str = ui.Template.to_long_time_string(created_at);
 
-    vcard_container.find('.profile_img_wrapper')
-      .attr('href', user_obj.profile_image_url.replace(/_normal/, ''))
-      .attr('style', 'background-image:url(' + user_obj.profile_image_url + ');');
-    vcard_container.find('.screen_name')
-      .attr('href', conf.get_current_profile().preferences.base_url + user_obj.screen_name)
-      .text(user_obj.screen_name);
-    vcard_container.find('.name').text(user_obj.name);
-    vcard_container.find('.tweet_cnt').text(user_obj.statuses_count);
-    vcard_container.find('.tweet_per_day_cnt').text(
-      Math.round(user_obj.statuses_count / differ * 100) / 100);
-    vcard_container.find('.follower_cnt').text(user_obj.followers_count);
-    vcard_container.find('.friend_cnt').text(user_obj.friends_count);
-    vcard_container.find('.listed_cnt').text(user_obj.listed_count);
-    vcard_container.find('.bio').unbind().empty().html(
-      ui.Template.form_text_raw(user_obj.description));
-    ui.Main.bind_tweet_text_action(vcard_container.find('.bio'));
-    vcard_container.find('.location').text('').text(user_obj.location);
-    vcard_container.find('.join').text(created_at_str);
-    if (user_obj.url) {
-      vcard_container.find('.web').text(user_obj.url)
-      vcard_container.find('.web').attr('href', user_obj.url);
-    } else {
-      vcard_container.find('.web').text('')
-      vcard_container.find('.web').attr('href', '#');
+    //get elements
+    var vcard = vcard_container.getElementsByClassName('vcard')[0];
+    var profile_img = vcard.getElementsByClassName('vcard_profile_img')[0];
+    var screen_name = vcard.getElementsByClassName('vcard_screen_name')[0];
+    var name = vcard.getElementsByClassName('vcard_name')[0];
+    var bio = vcard.getElementsByClassName('vcard_bio')[0];
+    var location = vcard.getElementsByClassName('vcard_location')[0];
+    var url = vcard.getElementsByClassName('vcard_url')[0];
+    var controls = vcard_container.getElementsByClassName('people_view_toggle')[0];
+    var tweet_control = controls.getElementsByClassName('people_view_tweet_btn')[0].parentNode;
+    var fav_control = controls.getElementsByClassName('people_view_fav_btn')[0].parentNode;
+    var people_control = controls.getElementsByClassName('people_view_people_btn')[0].parentNode;
+    var list_control = controls.getElementsByClassName('people_view_list_btn')[0].parentNode;
+    var control_options = controls.getElementsByClassName('mochi_button_group_item');
+
+    //fill in content
+    for (var i = 0; i < control_options.length; i++) {
+      control_options[i].setAttribute('name', 'people_' + user_obj.screen_name + '_vcard');
     }
-    vcard_container.find('.people_vcard_radio_group .mochi_button_group_item').attr('name', 'people_' + user_obj.screen_name + '_vcard')
-    vcard_container.find('.people_view_toggle .mochi_button_group_item').attr('name', 'people_' + user_obj.screen_name + '_views')
+    tweet_control.setAttribute('title', user_obj.statuses_count + ' Tweets\n' + (Math.round(user_obj.statuses_count / differ * 100) / 100) + 'Tweets per day');
+    fav_control.setAttribute('title', user_obj.favourites_count + ' Favs');
+    people_control.getElementsByClassName('followers_menu_item')[0].setAttribute('title', user_obj.followers_count + ' ' + _('followers'));
+    people_control.getElementsByClassName('friends_menu_item')[0].setAttribute('title', user_obj.friends_count + ' ' + _('friends'));
+    list_control.getElementsByClassName('listed_lists_menu_item')[0].setAttribute('title', user_obj.listed_count + ' ' + _('lists_following_them'));
+    if (!user_obj.profile_banner_url) {
+      user_obj.profile_banner_url = 'https://abs.twimg.com/a/1396545424/img/t1/grey_header_web.jpg';
+      vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + ');');
+    } else {
+      vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + '/mobile_retina/' + ');');
+    }
+    profile_img.setAttribute('href', user_obj.profile_image_url.replace('_normal', ''));
+    profile_img.setAttribute('style', 'background-image: url(' + user_obj.profile_image_url.replace('_normal', '_bigger') + ');');
+    screen_name.setAttribute('href', conf.get_current_profile().preferences.base_url + user_obj.screen_name);
+    screen_name.textContent = '@' + user_obj.screen_name;
+    name.textContent = user_obj.name;
+
+    bio.textContent = user_obj.description;
+    var biotext = bio.textContent;
+    //replace t.co links with full url links
+    for (var i = 0; i < user_obj.entities.description.urls.length; i++) {
+      biotext = biotext.replace(user_obj.entities.description.urls[i].url, '\
+      <a class="vcard_bio_url" target="_blank" href="' + user_obj.entities.description.urls[i].expanded_url + '">\
+          ' + user_obj.entities.description.urls[i].display_url + '\
+      </a>\
+      ')
+    }
+    //users, lists and hashtags
+    biotext = biotext.replace(ui.Template.reg_list, '$1<a class="list_href" href="#$2">@$2</a>');
+    biotext = biotext.replace(ui.Template.reg_user, '$1<a class="who_href" href="#$2">@$2</a>');
+    biotext = biotext.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
+    bio.innerHTML = biotext;
+    var lists = bio.getElementsByClassName('list_href');
+    var users = bio.getElementsByClassName('who_href');
+    var hashtags = bio.getElementsByClassName('hash_href');
+    for (var i = 0; i < lists.length; i++) {
+      lists[i].onclick = function (event) {
+        var target = this.getAttribute('href').substring(1).split('/');
+        open_list(target[0], target[1]);
+        return false;
+      }
+    }
+    for (var i = 0; i < users.length; i++) {
+      users[i].onclick = function (event) {
+        if (event.button === 0) {
+          open_people(this.getAttribute('href').substring(1));
+        } else if (event.button === 1) {
+          open_people(this.getAttribute('href').substring(1), {}, true);
+        }
+        return false;
+      };
+    }
+    for (var i = 0; i < hashtags.length; i++) {
+      hashtags[i].onclick = function (event) {
+        ui.Slider.addDefaultView('search', {}) || ui.Slider.add('search');
+        ui.Slider.slide_to('search');
+        ui.Main.views.search.__header.getElementsByClassName('search_entry')[0].value = this.getAttribute('href');
+        ui.Main.views.search.__header.getElementsByClassName('search_tweet')[0].click();
+        return false;
+      };
+    }
+
+    if (user_obj.location) {
+      location.textContent = user_obj.location + (user_obj.url ? ' ·' : '');
+    }
+    if (user_obj.url) {
+      url.textContent = user_obj.entities.url.urls[0].display_url;
+      url.setAttribute('href', user_obj.entities.url.urls[0].expanded_url);
+    }
   },
 
   fill_list_vcard: function fill_list_vcard(view, list_obj) {
-    var vcard_container = view._header;
-    vcard_container.find('.profile_img_wrapper')
-      .attr('style', 'background-image:url(' + list_obj.user.profile_image_url + ');');
-    vcard_container.find('.name')
-      .attr('href', conf.get_current_profile().preferences.base_url + list_obj.user.screen_name + '/' + list_obj.slug)
-      .text(list_obj.full_name);
-    vcard_container.find('.owner')
-      .attr('href', conf.get_current_profile().preferences.base_url + list_obj.user.screen_name)
-      .text(list_obj.user.screen_name);
-    vcard_container.find('.description').text(list_obj.description);
+    var vcard_container = view.__header;
+    var vcard = vcard_container.getElementsByClassName('vcard')[0];
+    var profile_img = vcard.getElementsByClassName('vcard_profile_img')[0];
+    var owner_name = vcard.getElementsByClassName('vcard_owner_name')[0];
+    var list_name = vcard.getElementsByClassName('vcard_list_name')[0];
+    var bio = vcard.getElementsByClassName('vcard_bio')[0];
+
+    if (!list_obj.user.profile_banner_url) {
+      list_obj.user.profile_banner_url = 'https://abs.twimg.com/a/1396545424/img/t1/grey_header_web.jpg';
+      vcard.setAttribute('style', 'background-image: url(' + list_obj.user.profile_banner_url + ');');
+    } else {
+      vcard.setAttribute('style', 'background-image: url(' + list_obj.user.profile_banner_url + '/mobile_retina/' + ');');
+    }
+    profile_img.setAttribute('href', list_obj.user.profile_image_url.replace('_normal', ''));
+    profile_img.setAttribute('style', 'background-image: url(' + list_obj.user.profile_image_url.replace('_normal', '_bigger') + ');');
+    owner_name.setAttribute('href', '#' + list_obj.user.screen_name);
+    owner_name.setAttribute('title', '@' + list_obj.user.screen_name);
+    owner_name.textContent = 'by ' + list_obj.user.name;
+    owner_name.onclick = function (event) {
+      if (event.button === 0) {
+        open_people(list_obj.user.screen_name);
+      } else if (event.button === 1) {
+        open_people(list_obj.user.screen_name, {}, true);
+      }
+      return false;
+    };
+    list_name.setAttribute('href', conf.get_current_profile().preferences.base_url + list_obj.user.screen_name + '/' + list_obj.slug);
+    list_name.textContent = list_obj.full_name;
+    if (list_obj.description) {
+      bio.style.display = 'block';
+      bio.textContent = list_obj.description;
+      //users, lists and hashtags
+      var biotext = bio.textContent;
+      biotext = biotext.replace(ui.Template.reg_list, '$1<a class="list_href" href="#$2">@$2</a>');
+      biotext = biotext.replace(ui.Template.reg_user, '$1<a class="who_href" href="#$2">@$2</a>');
+      biotext = biotext.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
+      bio.innerHTML = biotext;
+      var lists = bio.getElementsByClassName('list_href');
+      var users = bio.getElementsByClassName('who_href');
+      var hashtags = bio.getElementsByClassName('hash_href');
+      for (var i = 0; i < lists.length; i++) {
+        lists[i].onclick = function (event) {
+          var target = this.getAttribute('href').substring(1).split('/');
+          open_list(target[0], target[1]);
+          return false;
+        }
+      }
+      for (var i = 0; i < users.length; i++) {
+        users[i].onclick = function (event) {
+          if (event.button === 0) {
+            open_people(this.getAttribute('href').substring(1));
+          } else if (event.button === 1) {
+            open_people(this.getAttribute('href').substring(1), {}, true);
+          }
+          return false;
+        };
+      }
+      for (var i = 0; i < hashtags.length; i++) {
+        hashtags[i].onclick = function (event) {
+          ui.Slider.addDefaultView('search', {}) || ui.Slider.add('search');
+          ui.Slider.slide_to('search');
+          ui.Main.views.search.__header.getElementsByClassName('search_entry')[0].value = this.getAttribute('href');
+          ui.Main.views.search.__header.getElementsByClassName('search_tweet')[0].click();
+          return false;
+        };
+      }
+    } else {
+      bio.style.display = 'none';
+    }
   },
 
   convert_chars: function convert_chars(text) {
@@ -1358,7 +1444,7 @@ ui.Template = {
     text = text.replace(/href="www/g, 'href="http://www');
     text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
     text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
+    text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
     text = text.replace(/href="(http:\/\/hotot.in\/(\d+))"/g, 'full_text_id="$2" href="$1"');
     text = text.replace(/[\r\n]\s+[\r\n]/g, '\n\n');
     text = text.replace(/\n/g, '<br/>');
@@ -1382,7 +1468,7 @@ ui.Template = {
     text = text.replace(/href="www/g, 'href="http://www');
     text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
     text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
+    text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
     text = text.replace(/href="(http:\/\/hotot.in\/(\d+))"/g, 'full_text_id="$2" href="$1"');
     text = text.replace(/[\r\n]\s+[\r\n]/g, '\n\n');
     text = text.replace(/\n/g, '<br/>');

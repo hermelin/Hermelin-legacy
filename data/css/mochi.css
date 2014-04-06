@@ -324,25 +324,13 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   margin-left:-1px
 }
 .mochi_button_group_item {
-  background:#fbfdfb;
-  background:-moz-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fcfcfc), color-stop(4%, #fbfdfb), color-stop(100%, #e8eae9));
-  background:-webkit-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-o-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:-ms-linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  background:linear-gradient(top, #fcfcfc 2%, #fbfdfb 4%, #e8eae9 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0);
-  -webkit-border-radius:2px;
-  border:1px #b2b3b4 solid;
+  background: #fff;
+  border: #3385FF solid;
+  border-width: 1px 0 1px 0;
   color:#333;
   -webkit-font-smoothing:antialiased;
   text-decoration:none;
-  text-shadow:0 -1px 1px #fff;
-  -moz-user-select:none;
-  -khtml-user-select:none;
   user-select:none;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
   box-sizing:border-box;
   height:30px;
   line-height:28px;
@@ -350,71 +338,44 @@ input[type="button"], input[type="submit"], input[type="checkbox"], input[type="
   outline:0;
   cursor:pointer;
   font-size:14px;
-  -webkit-transition:all .2s ease-out;
+  -webkit-transition: background-color 0.2s, border-color 0.2s;
   display:inline-block;
   text-align:center;
   padding:0 20px;
   min-width:70px;
-  color:#444;
-  border-width:1px 1px 1px 0;
-  border-style:solid;
-  border-color:#b2b3b4;
-  border-left:none;
-  margin-left:1px;
-  -webkit-border-radius:0;
-  text-decoration:none;
-  font-size:12px;
-  cursor:pointer;
-  text-shadow:#fff 0 1px 1px
 }
 .mochi_button_group_item * {
   cursor:pointer
 }
-.mochi_button_group_item:hover, .mochi_button_group_item_hover {
-  background:#fefefe;
-  background:-moz-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #fff), color-stop(4%, #fefefe), color-stop(100%, #f1f6f3));
-  background:-webkit-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-o-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:-ms-linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  background:linear-gradient(top, #fff 2%, #fefefe 4%, #f1f6f3 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
-}
-.mochi_button_group_item:active, .mochi_button_group_item_active {
-  -moz-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  -webkit-box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3);
-  box-shadow:inset 0 0 15px rgba(0, 20, 30, 0.3)
+.mochi_button_group_item:hover, .mochi_button_group_item_hover, .mochi_button_group_item:active, .mochi_button_group_item_active {
+  border-color: #0066FF;
 }
 .mochi_button_group_item.selected {
-  -moz-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  -webkit-box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  box-shadow:inset 0 0 8px rgba(0, 20, 30, 0.2);
-  background:#d3d4d8;
-  background:-moz-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(2%, #c6c7c9), color-stop(4%, #d3d4d8), color-stop(100%, #dedfe1));
-  background:-webkit-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-o-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:-ms-linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  background:linear-gradient(top, #c6c7c9 2%, #d3d4d8 4%, #dedfe1 100%);
-  filter:progid:dximagetransform.microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=0)
+  background-color: #3385FF;
+  color: #fff;
+}
+.mochi_button_group_item.selected:hover {
+  background-color: #0066FF;
 }
 .mochi_button_group>li:first-child>.mochi_button_group_item {
-  border-top-left-radius:2px;
-  border-bottom-left-radius:2px;
-  border-left:1px #b2b3b4 solid
+  border-top-left-radius:4px;
+  border-bottom-left-radius:4px;
+  border-left-width: 1px;
 }
 .mochi_button_group>li:last-child>.mochi_button_group_item {
-  border-top-right-radius:2px;
-  border-bottom-right-radius:2px
+  border-top-right-radius:4px;
+  border-bottom-right-radius:4px;
+  border-right-width: 1px;
 }
 .mochi_button_group.round>li:first-child>.mochi_button_group_item {
   border-top-left-radius:15px;
   border-bottom-left-radius:15px;
-  border-left:1px #b2b3b4 solid
+  border-left-width: 1px;
 }
 .mochi_button_group.round>li:last-child>.mochi_button_group_item {
   border-top-right-radius:15px;
-  border-bottom-right-radius:15px
+  border-bottom-right-radius:15px;
+  border-right-width: 1px;
 }
 .mochi_button_group.dark>li:first-child>.mochi_button_group_item {
   border-left:1px #3f3e3d solid

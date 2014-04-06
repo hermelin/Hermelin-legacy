@@ -27,7 +27,6 @@ ui.PeopleView = {
       var pagename = '.' + $(this).attr('href').substring(1);
       vcard.find('.vcard_tabs_page').hide();
       vcard.find(pagename).show();
-
       var a = $(this).attr("name");
       $(".mochi_button_group_item[name=" + a + "]").not(this).removeClass("selected");
       $(this).addClass("selected");
@@ -50,7 +49,7 @@ ui.PeopleView = {
       return false;
     });
 
-    vcard.find('.profile_img_wrapper').click(function () {
+    vcard.find('.vcard_profile_img').click(function () {
       ui.Previewer.reload($(this).attr('href'))
       ui.Previewer.open();
       return false;
@@ -168,7 +167,7 @@ ui.PeopleView = {
 
       people_menu.hide();
       sub_view_btns.removeClass('selected');
-      $('.people_view_people_btn').addClass('selected');
+      this.parentNode.parentNode.parentNode.getElementsByClassName('people_view_people_btn')[0].classList.add('selected');
       view.clear();
       view.load();
 
@@ -187,7 +186,7 @@ ui.PeopleView = {
 
       people_menu.hide();
       sub_view_btns.removeClass('selected');
-      $('.people_view_people_btn').addClass('selected');
+      this.parentNode.parentNode.parentNode.getElementsByClassName('people_view_people_btn')[0].classList.add('selected');
       view.clear();
       view.load();
       return false;
@@ -209,7 +208,7 @@ ui.PeopleView = {
       view._loadmore_success = null;
       lists_menu.hide();
       sub_view_btns.removeClass('selected');
-      $('.people_view_list_btn').addClass('selected');
+      this.parentNode.parentNode.parentNode.getElementsByClassName('people_view_list_btn')[0].classList.add('selected');
       view.clear();
       view.load();
       return false;
@@ -226,7 +225,7 @@ ui.PeopleView = {
       view._loadmore_success = ui.Main.loadmore_listed_list_success;
       lists_menu.hide();
       sub_view_btns.removeClass('selected');
-      $('.people_view_list_btn').addClass('selected');
+      this.parentNode.parentNode.parentNode.getElementsByClassName('people_view_list_btn')[0].classList.add('selected');
       view.clear();
       view.load();
       return false;
@@ -239,13 +238,26 @@ ui.PeopleView = {
       return false;
     });
 
-    view._header.find('.expand').click(function () {
-      if (vcard.is(':hidden')) {
-        vcard.slideDown('fast');
+    view.__header.getElementsByClassName('expand')[0].onclick = function () {
+      var vcard = this.parentNode.parentNode.getElementsByClassName('people_vcard')[0];
+      if (this.classList.contains('open')) {
+        this.classList.remove('open');
+        vcard.style.overflow = "hidden";
+        vcard.classList.remove('open');
+        setTimeout(function () {
+          if (!vcard.classList.contains('open')) {
+            vcard.style.display = "none";
+          }
+        }, 200);
       } else {
-        vcard.slideUp('fast');
+        this.classList.add('open');
+        vcard.style.display = "block";
+        setTimeout(function () {
+          vcard.style.overflow = "visible";
+          vcard.classList.add('open');
+        }, 1);
       }
-    });
+    };
   },
 
   destroy_view: function destroy_view(view) {
@@ -318,7 +330,7 @@ ui.PeopleView = {
     var request_hint = self._header.find('.people_request_hint');
     var toggle_btns = self._header.find('.people_view_toggle');
     btn_follow.show();
-    ui.Template.fill_people_vcard(user_obj, self._header);
+    ui.Template.fill_people_vcard(user_obj, self.__header);
     db.dump_users([user_obj]);
     self._header.find('.create_list_menu_item').hide();
     if (user_obj.screen_name == globals.myself.screen_name) {
@@ -347,9 +359,9 @@ ui.PeopleView = {
       }
     }
     ui.PeopleView.get_relationship(user_obj.screen_name, function (rel) {
-      self._header.find('.relation').text(
+      self._header.find('.vcard_relation').text(
         ui.PeopleView.relation_map[rel]);
-      self._header.find('.relation').prepend(
+      self._header.find('.vcard_relation').prepend(
         ui.PeopleView.relation_icon_set[rel]);
       if (rel == 1 || rel == 3) {
         btn_follow.text(_("unfollow"));
