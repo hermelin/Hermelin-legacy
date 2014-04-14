@@ -25,7 +25,7 @@ util = {
       return;
     }
     var elemClass = Object.prototype.toString.call(elems);
-    if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
+    if (elemClass != '[object Array]' && elemClass != '[object NodeList]' && elemClass != '[object HTMLCollection]') {
       inner(elems);
     } else {
       for (var i = 0; i < elems.length; i++) {
@@ -56,7 +56,7 @@ util = {
       return;
     }
     var elemClass = Object.prototype.toString.call(elems);
-    if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
+    if (elemClass != '[object Array]' && elemClass != '[object NodeList]' && elemClass != '[object HTMLCollection]') {
       inner(elems);
     } else {
       for (var i = 0; i < elems.length; i++) {
