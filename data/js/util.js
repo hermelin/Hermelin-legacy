@@ -21,6 +21,9 @@ util = {
   fadeIn: function (elems, opts, cb) {
     //used to fade DOMElements in
     //options are speed (speed of the animation, int)
+    if(!elems){
+      return;
+    }
     var elemClass = Object.prototype.toString.call(elems);
     if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
       inner(elems);
@@ -49,6 +52,9 @@ util = {
   fadeOut: function (elems, opts, cb) {
     //used to fade DOMElements out
     //options are noAnim (no animation, bool) and speed (speed of the animation, int). the callback will be executed after the tranisition finished.
+    if(!elems){
+      return;
+    }
     var elemClass = Object.prototype.toString.call(elems);
     if (elemClass != '[object Array]' && elemClass != '[object NodeList]') {
       inner(elems);

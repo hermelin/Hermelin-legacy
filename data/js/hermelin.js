@@ -753,9 +753,9 @@ function on_load_finish() {
         }
         $(window).dequeue('_on_load_finish');
         if (conf.settings.sign_in_automatically) {
-          ui.Welcome.go.addClass('loading');
+          ui.Welcome.go.classList.add('loading');
           setTimeout(function () {
-            ui.Welcome.go.trigger('click');
+            ui.Welcome.go.click();
           }, 2000);
         }
       });
