@@ -5,7 +5,7 @@ I forked Hotot for the reason that it won't get any bigger updates here in the f
 
 I think it is sad that there aren't much [free](https://www.gnu.org/philosophy/free-sw.html) Twitter Clients, so i don't want Hotot to die.
 
-In the future i want to remove every line with jQuery/coffescript out of Hermlein/Hotot because it really slows it down.
+In the future i want to remove every line with jQuery/coffescript out of Hermelin/Hotot because it really slows it down.
 
 ##Installing the Chrome/Chromium Version:
 
