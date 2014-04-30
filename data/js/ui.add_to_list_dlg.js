@@ -15,9 +15,12 @@ ui.AddToListDlg = {
     var container = $('#add_to_list_dlg ul').empty();
     var arr = [];
     for (var i = 0; i < globals.my_lists.length; i += 1) {
-      var html = ui.AddToListDlg.tpl.replace(/{%ID%}/, globals.my_lists[i].id_str);
-      html = html.replace(/{%NAME%}/g, globals.my_lists[i].name);
-      arr.push(html);
+      if (globals.my_lists[i].user.screen_name === globals.myself.screen_name) {
+        //just show lists by yourself since you can't add users to other's lists
+        var html = ui.AddToListDlg.tpl.replace(/{%ID%}/, globals.my_lists[i].id_str);
+        html = html.replace(/{%NAME%}/g, globals.my_lists[i].name);
+        arr.push(html);
+      }
     }
     container.append(arr.join('\n'));
     container.find('.trigger').click(function () {
