@@ -1323,6 +1323,10 @@
     "message": "",
     "description": "data/index.html"
   },
+  "you_dont_have_lists_yet": {
+    "message": "You don't have any lists yet.",
+    "description": "data/js/ui.add_to_list_dlg.js"
+  },
   "you_should_surely_add_one_or_more_views_by_clicking_the_add_button_above": {
     "message": "",
     "description": "data/index.html"

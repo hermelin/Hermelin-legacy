@@ -1012,7 +1012,7 @@ pre {
 .people_action_more_trigger {
   position: relative;
 }
-.people_action_more_trigger .people_action_more_memu {
+.people_action_more_trigger .people_action_more_menu {
   display: none;
   position: absolute;
   z-index: 10;
