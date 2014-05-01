@@ -242,7 +242,14 @@ ui.Template = {
         </div>\
     </div>\
     <div class="vcard_body">\
-        <div class="vcard_bio"></div>\
+        <div class="vcard_showstats"></div>\
+        <div class="vcard_info">\
+          <div class="vcard_stats away">\
+            <div class="vcard_stats_left"></div>\
+            <div class="vcard_stats_right"></div>\
+          </div>\
+          <div class="vcard_bio"></div>\
+        </div>\
     </div> <!-- vcard body --> \
     <div class="vcard_footer">\
         <div class="vcard_ctrl"> \
@@ -255,7 +262,7 @@ ui.Template = {
             </li><li class="people_action_more_trigger"> \
                 <a class="vcard_more mochi_button" \
                     href="#">{%TRANS_more_actions%} &#x25BE;</a> \
-                <ul class="people_action_more_memu hermelin_menu">\
+                <ul class="people_action_more_menu hermelin_menu">\
                     <li><a class="mention_menu_item" \
                         title="Mention them"\
                             href="#">{%TRANS_mention_them%}</a>\
@@ -358,7 +365,9 @@ ui.Template = {
         </div>\
     </div>\
     <div class="vcard_body">\
-        <div class="vcard_bio"></div>\
+        <div class="vcard_info">\
+          <div class="vcard_bio"></div>\
+        </div>\
     </div> <!-- vcard body --> \
     <div class="vcard_footer">\
         <div class="vcard_ctrl"> \
@@ -1260,29 +1269,44 @@ ui.Template = {
     var created_at_str = ui.Template.to_long_time_string(created_at);
 
     //get elements
-    var vcard = vcard_container.getElementsByClassName('vcard')[0];
-    var profile_img = vcard.getElementsByClassName('vcard_profile_img')[0];
-    var screen_name = vcard.getElementsByClassName('vcard_screen_name')[0];
-    var name = vcard.getElementsByClassName('vcard_name')[0];
-    var bio = vcard.getElementsByClassName('vcard_bio')[0];
-    var location = vcard.getElementsByClassName('vcard_location')[0];
-    var url = vcard.getElementsByClassName('vcard_url')[0];
-    var controls = vcard_container.getElementsByClassName('people_view_toggle')[0];
-    var tweet_control = controls.getElementsByClassName('people_view_tweet_btn')[0].parentNode;
-    var fav_control = controls.getElementsByClassName('people_view_fav_btn')[0].parentNode;
-    var people_control = controls.getElementsByClassName('people_view_people_btn')[0].parentNode;
-    var list_control = controls.getElementsByClassName('people_view_list_btn')[0].parentNode;
-    var control_options = controls.getElementsByClassName('mochi_button_group_item');
+    var vcard = vcard_container.getElementsByClassName('vcard')[0],
+      profile_img = vcard.getElementsByClassName('vcard_profile_img')[0],
+      screen_name = vcard.getElementsByClassName('vcard_screen_name')[0],
+      name = vcard.getElementsByClassName('vcard_name')[0],
+      bio = vcard.getElementsByClassName('vcard_bio')[0],
+      stats = vcard.getElementsByClassName('vcard_stats')[0],
+      location = vcard.getElementsByClassName('vcard_location')[0],
+      url = vcard.getElementsByClassName('vcard_url')[0],
+      controls = vcard_container.getElementsByClassName('people_view_toggle')[0],
+      tweet_control = controls.getElementsByClassName('people_view_tweet_btn')[0].parentNode,
+      fav_control = controls.getElementsByClassName('people_view_fav_btn')[0].parentNode,
+      people_control = controls.getElementsByClassName('people_view_people_btn')[0].parentNode,
+      list_control = controls.getElementsByClassName('people_view_list_btn')[0].parentNode,
+      control_options = controls.getElementsByClassName('mochi_button_group_item');
 
     //fill in content
     for (var i = 0; i < control_options.length; i++) {
       control_options[i].setAttribute('name', 'people_' + user_obj.screen_name + '_vcard');
     }
-    tweet_control.setAttribute('title', user_obj.statuses_count + ' Tweets\n' + (Math.round(user_obj.statuses_count / differ * 100) / 100) + 'Tweets per day');
-    fav_control.setAttribute('title', user_obj.favourites_count + ' Favs');
-    people_control.getElementsByClassName('followers_menu_item')[0].setAttribute('title', user_obj.followers_count + ' ' + _('followers'));
-    people_control.getElementsByClassName('friends_menu_item')[0].setAttribute('title', user_obj.friends_count + ' ' + _('friends'));
-    list_control.getElementsByClassName('listed_lists_menu_item')[0].setAttribute('title', user_obj.listed_count + ' ' + _('lists_following_them'));
+
+    var thisstats = {
+      'joined': created_at_str,
+      'tpd': (Math.round(user_obj.statuses_count / differ * 100) / 100) + ' Tweets per day',
+      'tweets': user_obj.statuses_count + ' Tweets',
+      'favs': user_obj.followers_count + ' ' + _('followers'),
+      'followers': user_obj.followers_count + ' ' + _('followers'),
+      'friends': user_obj.friends_count + ' ' + _('friends'),
+      'listed': user_obj.listed_count + ' ' + _('lists_following_them')
+    }
+    tweet_control.setAttribute('title', thisstats.tweets + '\n' + thisstats.tpd);
+    fav_control.setAttribute('title', thisstats.favs);
+    people_control.setAttribute('title', thisstats.followers + '\n' + thisstats.friends);
+    list_control.setAttribute('title', stats.listed);
+    
+    stats.getElementsByClassName('vcard_stats_left')[0].innerHTML = thisstats.tpd + '<br>' + thisstats.tweets + '<br>' + thisstats.favs;
+    stats.getElementsByClassName('vcard_stats_right')[0].innerHTML = thisstats.followers + '<br>' + thisstats.friends + '<br>' + thisstats.listed;
+
+
     if (!user_obj.profile_banner_url) {
       user_obj.profile_banner_url = 'https://abs.twimg.com/a/1396545424/img/t1/grey_header_web.jpg';
       vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + ');');
@@ -1379,7 +1403,7 @@ ui.Template = {
     list_name.setAttribute('href', conf.get_current_profile().preferences.base_url + list_obj.user.screen_name + '/' + list_obj.slug);
     list_name.textContent = list_obj.full_name;
     if (list_obj.description) {
-      bio.style.display = 'block';
+      bio.parentNode.style.display = 'block';
       bio.textContent = list_obj.description;
       //users, lists and hashtags
       var biotext = bio.textContent;
@@ -1417,7 +1441,7 @@ ui.Template = {
         };
       }
     } else {
-      bio.style.display = 'none';
+      bio.parentNode.style.display = 'none';
     }
   },
 
@@ -1436,15 +1460,15 @@ ui.Template = {
   form_text: function form_text(tweet) {
     //hermelin_log('form_text in', tweet.text);
     var text = ui.Template.convert_chars(tweet.text);
+    text = text.replace(ui.Template.reg_list, '$1<a class="list_href" href="#$2">@$2</a>');
+    text = text.replace(ui.Template.reg_user, '$1<a class="who_href" href="#$2">@$2</a>');
+    text = text.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
     text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
       if (url.length > 51) url_short = url.substring(0, 48) + '...';
       else url_short = url;
       return ' <a href="' + url + '" target="_blank">' + url_short + '</a>';
     });
     text = text.replace(/href="www/g, 'href="http://www');
-    text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
     text = text.replace(/href="(http:\/\/hotot.in\/(\d+))"/g, 'full_text_id="$2" href="$1"');
     text = text.replace(/[\r\n]\s+[\r\n]/g, '\n\n');
     text = text.replace(/\n/g, '<br/>');

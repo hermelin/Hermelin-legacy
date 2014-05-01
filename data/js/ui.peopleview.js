@@ -62,6 +62,24 @@ ui.PeopleView = {
       return false;
     };
 
+    vcard.getElementsByClassName('vcard_showstats')[0].onmouseover = function () {
+      util.fadeOut(vcard.getElementsByClassName('vcard_bio')[0], {
+        'speed': 200
+      });
+      util.fadeIn(vcard.getElementsByClassName('vcard_stats')[0], {
+        'speed': 200
+      });
+    };
+
+    vcard.getElementsByClassName('vcard_showstats')[0].onmouseout = function () {
+      util.fadeIn(vcard.getElementsByClassName('vcard_bio')[0], {
+        'speed': 200
+      });
+      util.fadeOut(vcard.getElementsByClassName('vcard_stats')[0], {
+        'speed': 200
+      });
+    };
+
     vcard.getElementsByClassName('vcard_follow')[0].onclick = function (event) {
       var _this = this;
       if (this.classList.contains('unfo')) {
