@@ -21,7 +21,7 @@ util = {
   fadeIn: function (elems, opts, cb) {
     //used to fade DOMElements in
     //options are speed (speed of the animation, int)
-    if(!elems){
+    if (!elems) {
       return;
     }
     var elemClass = Object.prototype.toString.call(elems);
@@ -39,20 +39,28 @@ util = {
       elem.classList.remove('away');
       elem.style["-webkit-transition"] = (opts && opts.speed) ? ('opacity ' + (opts.speed / 1000)) + 's' : 'opacity .4s';
       elem.classList.add('fade');
-      elem.classList.add('fadein');
+      setTimeout(function () {
+        //setting the value 1 ms later, so it actually animates it.
+        //it wouldn't if not, because js and css behave like that ._.
+
+        if (!elem.classList.contains('away')) {
+          //the if is just to make sure it didn't fade out in that ms
+          elem.classList.add('fadein');
+        }
+      }, 1);
       setTimeout(function () {
         elem.style["-webkit-transition"] = null;
         if (cb) {
           cb();
         }
-      }, (opts && opts.speed) ? opts.speed : 400);
+      }, (opts && opts.speed) ? opts.speed : 401);
     }
   },
 
   fadeOut: function (elems, opts, cb) {
     //used to fade DOMElements out
     //options are noAnim (no animation, bool) and speed (speed of the animation, int). the callback will be executed after the tranisition finished.
-    if(!elems){
+    if (!elems) {
       return;
     }
     var elemClass = Object.prototype.toString.call(elems);
