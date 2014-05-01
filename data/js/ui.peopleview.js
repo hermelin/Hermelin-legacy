@@ -374,8 +374,10 @@ ui.PeopleView = {
   render_people_view: function render_people_view(self, user_obj, proc) {
     var btn_follow = self.__header.getElementsByClassName('vcard_follow')[0];
     var btn_edit = self.__header.getElementsByClassName('vcard_edit')[0];
-    var btn_block = self.__header.getElementsByClassName('vcard_block')[0];
-    var btn_unblock = self.__header.getElementsByClassName('vcard_unblock')[0];
+    var menu_separator = self.__header.getElementsByClassName('separator')[0];
+    var menu_block = self.__header.getElementsByClassName('block_menu_item')[0];
+    var menu_unblock = self.__header.getElementsByClassName('unblock_menu_item')[0];
+    var menu_reportspam = self.__header.getElementsByClassName('report_spam_menu_item')[0];
     var btn_request = self.__header.getElementsByClassName('people_request_btn')[0];
     var request_hint = self.__header.getElementsByClassName('people_request_hint')[0];
     var toggle_btns = self.__header.getElementsByClassName('people_view_toggle')[0];
@@ -386,8 +388,10 @@ ui.PeopleView = {
     if (user_obj.screen_name === globals.myself.screen_name) {
       btn_edit.style.display = 'block'
       btn_follow.style.display = 'none';
-      btn_block.style.display = 'none';
-      btn_unblock.style.display = 'none';
+      menu_separator.style.display = 'none';
+      menu_block.style.display = 'none';
+      menu_unblock.style.display = 'none';
+      menu_reportspam.style.display = 'none';
       self.__header.getElementsByClassName('create_list_menu_item')[0].style.display = 'block'
       proc();
       self.protected_user = false;
