@@ -1460,9 +1460,9 @@ ui.Template = {
   form_text: function form_text(tweet) {
     //hermelin_log('form_text in', tweet.text);
     var text = ui.Template.convert_chars(tweet.text);
-    text = text.replace(ui.Template.reg_list, '$1<a class="list_href" href="#$2">@$2</a>');
-    text = text.replace(ui.Template.reg_user, '$1<a class="who_href" href="#$2">@$2</a>');
-    text = text.replace(ui.Template.reg_hash_tag, '$1<a class="hash_href" href="$2$3">$2$3</a>');
+    text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
+    text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
+    text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
     text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
       if (url.length > 51) url_short = url.substring(0, 48) + '...';
       else url_short = url;

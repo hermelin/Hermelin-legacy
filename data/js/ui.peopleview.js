@@ -64,7 +64,7 @@ ui.PeopleView = {
 
     vcard.getElementsByClassName('vcard_showstats')[0].onmouseover = function () {
       util.fadeOut(vcard.getElementsByClassName('vcard_bio')[0], {
-        'speed': 200
+        'noAnim': true
       });
       util.fadeIn(vcard.getElementsByClassName('vcard_stats')[0], {
         'speed': 200
@@ -76,7 +76,7 @@ ui.PeopleView = {
         'speed': 200
       });
       util.fadeOut(vcard.getElementsByClassName('vcard_stats')[0], {
-        'speed': 200
+        'noAnim': true
       });
     };
 
