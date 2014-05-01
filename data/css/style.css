@@ -989,6 +989,7 @@ pre {
   opacity: 0.5;
   -webkit-border-radius: 100%;
   box-shadow: 0 0 2px 0 #000000;
+  transition: opacity 0.2s;
 }
 .vcard .vcard_showstats:hover{
   opacity: 0.7;
