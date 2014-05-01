@@ -1293,7 +1293,7 @@ ui.Template = {
       'joined': created_at_str,
       'tpd': (Math.round(user_obj.statuses_count / differ * 100) / 100) + ' Tweets per day',
       'tweets': user_obj.statuses_count + ' Tweets',
-      'favs': user_obj.followers_count + ' ' + _('followers'),
+      'favs': user_obj.favourites_count + ' Favs',
       'followers': user_obj.followers_count + ' ' + _('followers'),
       'friends': user_obj.friends_count + ' ' + _('friends'),
       'listed': user_obj.listed_count + ' ' + _('lists_following_them')
