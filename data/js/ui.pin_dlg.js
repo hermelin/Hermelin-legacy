@@ -3,6 +3,10 @@ ui.PinDlg = {
 
   id: '',
 
+  onsuccess: null,
+
+  onerror: null,
+
   init: function init() {
     ui.PinDlg.id = '#oauth_dlg';
 
@@ -12,22 +16,24 @@ ui.PinDlg = {
         return
       toast.set("Authorizing ... ").show();
       globals.twitterClient.oauth.get_access_token(pin_code, function (result) {
-        toast.set("Authentication OK!").show();
-        // get a new access_token, dump it to disk.
-        conf.save_token(conf.current_name, globals.twitterClient.oauth.access_token);
-        // change to main view
         globals.oauth_dialog.close();
-        $('#profile_avatar_list a.selected').click();
-        ui.Welcome.go.click();
+        if (ui.PinDlg.onsuccess) {
+          ui.PinDlg.onsuccess(globals.twitterClient.oauth.access_token);
+        }
       }, function (xhr, textStatus, errorThrown) {
         globals.oauth_dialog.close();
-        on_twitterapi_error(xhr, textStatus, errorThrown);
+        if (ui.PinDlg.onerror) {
+          ui.PinDlg.onerror();
+        }
+        //on_twitterapi_error(xhr, textStatus, errorThrown);
       });
     });
 
     $('#btn_oauth_pin_cancel').click(function (event) {
-      ui.Welcome.go.removeClass('loading');
       globals.oauth_dialog.close();
+      if (ui.PinDlg.onerror) {
+        ui.PinDlg.onerror();
+      }
     });
 
     $('#btn_oauth_user_auth').click(function (event) {
@@ -50,6 +56,11 @@ ui.PinDlg = {
   set_auth_url: function set_auth_url(url) {
     $('#btn_oauth_user_auth').attr('href', url);
     $('#tbox_oauth_auth_url').attr('value', url);
+  },
+
+  set_handlers: function set_handlers(onsucces, onerror) {
+    ui.PinDlg.onsuccess = onsucces;
+    ui.PinDlg.onerror = onerror;
   }
 
 }

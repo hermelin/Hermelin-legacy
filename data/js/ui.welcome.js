@@ -15,14 +15,14 @@ ui.Welcome = {
 
     // bind events
 
-    document.getElementById('tbox_basic_auth_password').onblur = function (event) {
+    /*document.getElementById('tbox_basic_auth_password').onblur = function (event) {
       var cur_profile = conf.get_current_profile();
       if (this.value.length === 0) {
         cur_profile.preferences.remember_password = false;
       } else {
         cur_profile.preferences.remember_password = true;
       }
-    };
+    };*/
 
     var choosable = document.getElementById('service_chooser').getElementsByTagName('a');
     for (var i = 0; i < choosable.length; i++) {
@@ -32,13 +32,6 @@ ui.Welcome = {
         this.classList.add('selected');
       };
     }
-
-    document.getElementById('tbox_new_profile_name').onkeydown = function (event) {
-      if (event.keyCode == 13) {
-        ui.Welcome.go.click();
-      }
-    };
-
 
     ui.Welcome.go = document.getElementById('go')
     ui.Welcome.go.onclick = function () {
@@ -62,7 +55,7 @@ ui.Welcome = {
     document.getElementById('clear_token_btn').onclick = function () {
       if (confirm('The operation will erase the access token of this profile.\n Are you sure you want to continue?!\n')) {
         conf.clear_token(conf.current_name);
-        document.getElementById('profile_avatar_list').getElementsByClassName('selected')[0].click();
+        ui.Welcome.load_profiles_info(conf.current_name);
       }
     };
 
@@ -72,12 +65,6 @@ ui.Welcome = {
           if (result) {
             delete conf.profiles[conf.current_name];
             ui.Welcome.load_profiles_info();
-            var avalist = document.getElementById('profile_avatar_list').getElementsByTagName('a')
-            if (avalist.length == 1) {
-              avalist[0].click();
-            } else {
-              avalist[1].click();
-            }
           }
         });
       }
@@ -99,33 +86,43 @@ ui.Welcome = {
   },
 
   create_profile: function () {
-    var prefix = document.getElementById('tbox_new_profile_name').value.trim();
-    if (prefix.length == 0) {
-      toast.set(_('please_entry_a_profile_prefix')).show();
-      return;
-    }
-    if (prefix.indexOf('@') != -1) {
-      toast.set(_('charactor_at_is_not_allow_in_profile_prefix')).show();
-      return;
-    }
     var selchoose = document.getElementById('service_chooser').getElementsByClassName('selected');
     var service = selchoose[0].getAttribute('href').substring(1);
-    db.add_profile(prefix, service, function (result) {
-      if (result != true) {
-        toast.set(_('this_profile_may_has_already_exists')).show();
+    ui.Welcome.get_oauth_access_token(function (token) {
+      toast.set(_('authentication_ok')).show();
+      // get a new access_token, dump it to disk.
+      db.add_profile(token.screen_name, service, function (result) {
+        if (result != true) {
+          toast.set(_('this_profile_may_has_already_exists')).show();
+        } else {
+          toast.set(_('new_profile_has_been_created')).show();
+          conf.reload(function () {
+            conf.save_token(token.screen_name + '@' + service, token);
+            ui.Welcome.load_profiles_info(token.screen_name + '@' + service);
+          });
+        }
+      });
+    }, function () {
+      ui.Welcome.go.classList.remove('loading');
+      toast.set(_('authentication_failed')).show();
+    });
+  },
+
+  get_oauth_access_token: function get_oauth_access_token(onsuccess, onerror) {
+    globals.twitterClient.oauth.get_request_token(function (result) {
+      ui.Welcome.go.classList.remove('loading');
+      if (result == '') {
+        ui.ErrorDlg.alert(
+          _('oops_a_network_error_occurs'), _('network_error_please_try_later'), '');
       } else {
-        toast.set(_('new_profile_has_been_created')).show();
-        conf.reload(function () {
-          ui.Welcome.load_profiles_info();
-          var avalist = document.getElementById('profile_avatar_list').getElementsByTagName('a')
-          for (var i = 0; i < avalist.length; i++) {
-            if (avalist[i].getAttribute('href') === prefix + '@' + service) {
-              avalist[i].click();
-              i = avalist.length;
-            }
-          }
-        });
+        ui.PinDlg.set_auth_url(globals.twitterClient.oauth.get_auth_url());
+        ui.PinDlg.set_handlers(onsuccess, onerror);
+        globals.oauth_dialog.open();
       }
+    }, function (result) {
+      ui.Welcome.go.classList.remove('loading');
+      ui.ErrorDlg.alert(
+        _('oops_a_network_error_occurs'), _('network_error_please_try_later'), _('cannot_get_token_from_server'));
     });
   },
 
@@ -138,19 +135,21 @@ ui.Welcome = {
     if (!globals.twitterClient.oauth.access_token || typeof globals.twitterClient.oauth.access_token !== 'object' || !('oauth_token' in globals.twitterClient.oauth.access_token)) {
       // access_token is not existed
       // then get a new one.
-      globals.twitterClient.oauth.get_request_token(function (result) {
-        ui.Welcome.go.classList.remove('loading');
-        if (result == '') {
-          ui.ErrorDlg.alert(
-            _('oops_a_network_error_occurs'), _('network_error_please_try_later'), '');
+      ui.Welcome.get_oauth_access_token(function (token) {
+        toast.set(_('authentication_ok')).show();
+        // get a new access_token, dump it to disk.
+        if (conf.current_name.toLowerCase().indexOf(token.screen_name.toLowerCase()) !== -1) {
+          conf.save_token(conf.current_name, token);
+          // change to main view
+          ui.Welcome.load_profiles_info(conf.current_name);
+          ui.Welcome.go.click();
         } else {
-          ui.PinDlg.set_auth_url(globals.twitterClient.oauth.get_auth_url());
-          globals.oauth_dialog.open();
+          ui.Welcome.go.classList.remove('loading');
+          toast.set(_('authenticated_wrong_account') + ': @' + token.screen_name).show();
         }
-      }, function (result) {
+      }, function () {
         ui.Welcome.go.classList.remove('loading');
-        ui.ErrorDlg.alert(
-          _('oops_a_network_error_occurs'), _('network_error_please_try_later'), _('cannot_get_token_from_server'));
+        toast.set(_('authentication_failed')).show();
       });
     } else {
       // access_token is existed
@@ -208,10 +207,16 @@ ui.Welcome = {
     });
   },
 
-  load_profiles_info: function () {
+  load_profiles_info: function (newSelected) {
+    var newSelectedNum,
+      defaultNum = 1;
     var profiles = [];
     for (var name in conf.profiles) {
       profiles.unshift([name, conf.profiles[name]]);
+    }
+    var list = document.getElementById('profile_avatar_list');
+    while (list.childElementCount > 1) {
+      list.removeChild(list.children[list.childElementCount - 1]);
     }
     for (var i = 0; i < profiles.length; i += 1) {
       var name = profiles[i][0];
@@ -223,93 +228,117 @@ ui.Welcome = {
       } else {
         str += '></a></li>';
       }
-      document.getElementById('profile_avatar_list').innerHTML += str;
+      list.insertAdjacentHTML('beforeend', str);
     }
 
-    var avatarList = document.getElementById('profile_avatar_list').getElementsByTagName('a');
+    var avatarList = list.getElementsByTagName('a');
     for (var i = 0; i < avatarList.length; i++) {
+      var profile_name = avatarList[i].getAttribute('href');
+      if (profile_name === newSelected) {
+        newSelectedNum = i;
+      }
       avatarList[i].onclick = function (event) {
-        var profile_name = this.getAttribute('href');
-        ui.Welcome.selected_profile = profile_name;
-
-        var type = 'default';
-        if (profile_name != 'default') {
-          type = profile_name.split('@')[1];
-        }
-        var width_per_page = {
-          'default': 480,
-          'twitter': 360,
-          'identica': 460
-        };
-        document.getElementById('sign_in_block').getElementsByClassName('inner')[0].style.width = width_per_page[type] + 'px';
-        if (profile_name == 'default') {
-
-          util.fadeOut([document.getElementById('btn_welcome_prefs'),
-                      document.getElementById('btn_welcome_delete_profile'),
-                      document.getElementById('clear_token_btn'),
-                      document.getElementsByClassName('service_tabs_page')], {
-            speed: 200
-          });
-
-          util.fadeIn(document.getElementById('service_page_new'), {
-            speed: 200
-          });
-
-          document.getElementById('sign_in_block').getElementsByClassName('profile_title')[0].innerHTML = 'New Profile';
-
-        } else {
-
-          util.fadeIn([document.getElementById('clear_token_btn'),
-                     document.getElementById('service_page_' + type),
-                     document.getElementById('btn_welcome_prefs'),
-                     document.getElementById('btn_welcome_delete_profile')], {
-            speed: 200
-          });
-
-          util.fadeOut(document.getElementById('service_page_new'), {
-            speed: 200
-          });
-
-          var servicePages = document.getElementsByClassName('service_tabs_page');
-          for (var i = 0; i < servicePages.length; i++) {
-            if (servicePages[i].getAttribute('id') != ('service_page_' + type)) {
-              util.fadeOut(servicePages[i], {
-                speed: 200
-              })
-            }
-          }
-
-          document.getElementById('sign_in_block').getElementsByClassName('profile_title')[0].innerHTML = profile_name;
-
-          document.getElementById('tbox_basic_auth_username').value = conf.profiles[profile_name].preferences.default_username;
-          document.getElementById('tbox_basic_auth_password').value = conf.profiles[profile_name].preferences.default_password;
-
-          // apply preferences
-          conf.apply_prefs(profile_name, true);
-          if (globals.twitterClient.oauth.access_token == '' || globals.twitterClient.oauth.access_token.constructor != Object) {
-            document.getElementById('access_token_status_hint').style.visibility = 'visible';
-            document.getElementById('clear_token_btn').style.visibility = 'hidden';
-          } else {
-            document.getElementById('access_token_status_hint').style.visibility = 'hidden';
-            document.getElementById('clear_token_btn').style.visibility = 'visible';
-          }
-        }
-
-        var selected = document.getElementById('profile_avatar_list').getElementsByClassName('selected');
-        while (selected.length > 0) {
-          selected[0].classList.remove('selected');
-        }
-        this.classList.add('selected');
-        this.parentNode.classList.add('selected');
-
-        var offset = this.getAttribute('idx') * (74 + 7);
-        document.getElementById('profile_avatar_list').style.marginTop = '-' + (offset + 165) + 'px';
-        /*$('#profile_avatar_list').stop().transition({
-        'margin-top': '-' + (offset + 165) + 'px'
-      }, 300);*/
+        event.preventDefault();
+        var that = this;
+        ui.Welcome.on_list_item_click(event, that);
         return false;
       }
     }
+    if (avatarList.length === 0) {
+      defaultNum = 0;
+    }
+
+    avatarList[newSelectedNum || defaultNum].click();
+
+  },
+
+  on_list_item_click: function on_list_item_click(event, that) {
+    var profile_name = that.getAttribute('href');
+
+    ui.Welcome.selected_profile = profile_name;
+
+    var type = 'default';
+    if (profile_name != 'default') {
+      type = profile_name.split('@')[1];
+    }
+    var width_per_page = {
+      'default': 260,
+      'twitter': 360,
+      'identica': 460
+    };
+    document.getElementById('sign_in_block').getElementsByClassName('inner')[0].style.width = width_per_page[type] + 'px';
+    if (profile_name == 'default') {
+
+      util.fadeOut([document.getElementById('btn_welcome_prefs'),
+                      document.getElementById('btn_welcome_delete_profile'),
+                      document.getElementById('clear_token_btn'),
+                      document.getElementsByClassName('service_tabs_page')], {
+        speed: 200
+      });
+
+      util.fadeIn(document.getElementById('service_page_new'), {
+        speed: 200
+      });
+
+      var profile_title = document.getElementById('sign_in_block').getElementsByClassName('profile_title')[0];
+      while (profile_title.firstChild) {
+        profile_title.removeChild(profile_title.firstChild);
+      }
+
+      profile_title.insertAdjacentHTML('afterbegin', 'New Profile');
+      document.getElementById('sign_in_block').getElementsByClassName('profile_title')[0].innerHTML = 'New Profile';
+
+    } else {
+
+      util.fadeIn([document.getElementById('clear_token_btn'),
+                     document.getElementById('service_page_' + type),
+                     document.getElementById('btn_welcome_prefs'),
+                     document.getElementById('btn_welcome_delete_profile')], {
+        speed: 200
+      });
+
+      util.fadeOut(document.getElementById('service_page_new'), {
+        speed: 200
+      });
+
+      var servicePages = document.getElementsByClassName('service_tabs_page');
+      for (var i = 0; i < servicePages.length; i++) {
+        if (servicePages[i].getAttribute('id') != ('service_page_' + type)) {
+          util.fadeOut(servicePages[i], {
+            speed: 200
+          })
+        }
+      }
+
+      document.getElementById('sign_in_block').getElementsByClassName('profile_title')[0].innerHTML = profile_name;
+      /*
+      document.getElementById('tbox_basic_auth_username').value = conf.profiles[profile_name].preferences.default_username;
+      document.getElementById('tbox_basic_auth_password').value = conf.profiles[profile_name].preferences.default_password;
+      */
+      
+      // apply preferences
+      conf.apply_prefs(profile_name, true);
+      if (globals.twitterClient.oauth.access_token == '' || globals.twitterClient.oauth.access_token.constructor != Object) {
+        document.getElementById('access_token_status_hint').style.visibility = 'visible';
+        document.getElementById('clear_token_btn').style.visibility = 'hidden';
+      } else {
+        document.getElementById('access_token_status_hint').style.visibility = 'hidden';
+        document.getElementById('clear_token_btn').style.visibility = 'visible';
+      }
+    }
+
+    var selected = document.getElementById('profile_avatar_list').getElementsByClassName('selected');
+    while (selected.length > 0) {
+      selected[0].classList.remove('selected');
+    }
+    that.classList.add('selected');
+    that.parentNode.classList.add('selected');
+
+    var offset = that.getAttribute('idx') * (74 + 7);
+    document.getElementById('profile_avatar_list').style.marginTop = '-' + (offset + 165) + 'px';
+    /*$('#profile_avatar_list').stop().transition({
+        'margin-top': '-' + (offset + 165) + 'px'
+      }, 300);*/
   },
 
   authenticate_pass: function (result) {

@@ -71,6 +71,14 @@
     "message": "Authentication OK!",
     "description": "data/js/ui.welcome.js"
   },
+  "authentication_failed": {
+    "message": "Authentication failed!",
+    "description": "data/js/ui.welcome.js"
+  },
+  "authenticated_wrong_account": {
+    "message": "You authenticated a wrong account",
+    "description": "data/js/ui.welcome.js"
+  },
   "author": {
     "message": "Author",
     "description": "data/js/ui.exts_dlg.js"
