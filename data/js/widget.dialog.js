@@ -109,9 +109,8 @@ function WidgetDialog(id) {
     if (height) {
       if (height !== 'auto' && !self._auto_h) {
         self.__me.style.height = height + 'px';
-        var body_h = self.__body.style.height.slice(0, -2) || 0;
-        var body_h_diff = (height - self.__header.offsetHeight - self.__bar.offsetHeight - self.__footer.offsetHeight) - parseInt(self.__body.style.height.slice(0, -2));
-        self.__body.style.height = (body_h + body_h_diff) + 'px';
+        var body_h_diff = (height - self.__header.offsetHeight - self.__bar.offsetHeight - self.__footer.offsetHeight);
+        self.__body.style.height = body_h_diff + 'px';
       } else {
         self._auto_h = true;
       }

@@ -1527,9 +1527,14 @@ pre {
   padding: 0;
   display: none;
 }
-#about_dlg .dialog_footer, #oauth_dlg .dialog_footer, #profile_dlg .dialog_footer, #error_dlg .dialog_footer, #list_attr_dlg .dialog_footer {
+#oauth_dlg .dialog_footer, #profile_dlg .dialog_footer, #error_dlg .dialog_footer, #list_attr_dlg .dialog_footer {
   padding: 10px;
   height: 32px;
+}
+#about_dlg .dialog_footer{
+  padding: 0;
+  height: 0;
+  border: none;
 }
 #prefs_dlg .dialog_footer, #status_box .dialog_footer, #add_to_list_dlg .dialog_footer {
   padding: 0;
