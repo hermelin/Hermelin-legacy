@@ -17,6 +17,9 @@ function WidgetDialog(id) {
   self._auto_h = false;
   self._auto_w = false;
 
+  self.original_height = null;
+  self.original_width = null;
+
   self._default_dialog_html = '\n' +
     '<div id="{%ID%}" class="dialog">\n' +
     '  <div class="dialog_bar">\n' +
@@ -39,15 +42,15 @@ function WidgetDialog(id) {
   self.destroy_on_close = false;
 
   self.init = function init(id) {
-    if (typeof (id) == 'string') {
-      if ($(id).length == 0) {
-        self.build_default_dialog(id);
-      }
-      self._me = $(id);
-      self.__me = document.getElementById(id.substring(1));
-    } else {
+    if (typeof (id) !== 'string') {
       return null;
     }
+
+    if ($(id).length == 0) {
+      self.build_default_dialog(id);
+    }
+    self._me = $(id);
+    self.__me = document.getElementById(id.substring(1));
     self._bar = self._me.find('.dialog_bar');
     self._header = self._me.find('.dialog_header');
     self._body = self._me.find('.dialog_body');
@@ -185,25 +188,56 @@ function WidgetDialog(id) {
     }
   };
 
-  self.open = function open(method, callback) {
-    self._me.show();
-    if (window.innerWidth < self._me.offsetWidth + 20) {
+  self.redrawSize = function redrawSize() {
+    if (!self.original_height) {
+      self.original_height = self.__me.offsetHeight;
+    }
+    if (!self.original_width) {
+      self.original_width = self.__me.offsetWidth;
+    }
+
+    if (self.original_width + 20 <= window.innerWidth) {
+      self.resize(self.original_width, 0);
+    } else {
       self.resize(window.innerWidth - 20, 0);
     }
-    if (window.innerHeight < self._me.offsetHeight + 20) {
+    if (self.original_height + 20 <= window.innerHeight) {
+      self.resize(0, self.original_height);
+    } else {
       self.resize(0, window.innerHeight - 20);
     }
+  };
+
+  self.redrawPosition = function redrawPosition() {
+    var x = (window.innerWidth - self.__me.offsetWidth) / 2;
+    var y = (window.innerHeight - self.__me.offsetHeight) / 2;
+    // @TODO better algorithm. this one sucks.
+    y = y > 100 ? y / 2 : y;
+    self.move(x, y);
+  };
+
+  self.onWindowResize = function onWindowResize() {
+    self.redrawSize();
+    self.redrawPosition();
+  };
+
+  self.open = function open(method, callback) {
+    self._me.show();
+
+    self.redrawSize();
     self.callUp(method);
     widget.DialogManager.push(self);
     if (callback) {
       callback();
     }
+    window.addEventListener('resize', self.onWindowResize);
   };
 
   self.close = function close(method) {
     self._me.hide();
     self.dissipate(method);
     widget.DialogManager.pop(self);
+    window.removeEventListener('resize', self.onWindowResize);
   };
 
   self.destroy = function destroy() {
