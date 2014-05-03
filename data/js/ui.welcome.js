@@ -75,7 +75,7 @@ ui.Welcome = {
     };
 
     document.getElementById('sel_welcome_lang').onchange = function () {
-      var selval = this.options(this.selectedIndex);
+      var selval = this.options[this.selectedIndex].value;
       i18n.change(selval);
       if (conf.current_name.length != 0) {
         conf.get_current_profile().preferences['lang'] = selval;
