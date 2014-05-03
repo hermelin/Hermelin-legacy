@@ -46,6 +46,7 @@ ui.Header = {
         globals.layout.close('north');
         globals.layout.close('south');
         ui.Main.hide();
+        ui.Welcome.load_profiles_info();
         ui.Welcome.show();
         daemon.stop();
       });

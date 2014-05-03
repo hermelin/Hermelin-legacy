@@ -97,8 +97,9 @@ ui.Welcome = {
         } else {
           toast.set(_('new_profile_has_been_created')).show();
           conf.reload(function () {
-            conf.save_token(token.screen_name + '@' + service, token);
-            ui.Welcome.load_profiles_info(token.screen_name + '@' + service);
+            var profile_name = token.screen_name + '@' + service;
+            conf.save_token(profile_name, token);
+            ui.Welcome.load_profiles_info(profile_name);
           });
         }
       });
@@ -124,6 +125,17 @@ ui.Welcome = {
       ui.ErrorDlg.alert(
         _('oops_a_network_error_occurs'), _('network_error_please_try_later'), _('cannot_get_token_from_server'));
     });
+  },
+
+  set_profile_picture: function set_profile_picture(name, newpic) {
+    var list = document.getElementById('profile_avatar_list');
+    for (var i = 1; i < list.children.length; i++) {
+      var thisprofile = list.children[i].getElementsByTagName('a')[0];
+      if (thisprofile.getAttribute('href') === name) {
+        thisprofile.style.backgroundImage = 'url(' + newpic + ')';
+        break;
+      }
+    }
   },
 
   oauth_sign_in: function () {
@@ -315,7 +327,7 @@ ui.Welcome = {
       document.getElementById('tbox_basic_auth_username').value = conf.profiles[profile_name].preferences.default_username;
       document.getElementById('tbox_basic_auth_password').value = conf.profiles[profile_name].preferences.default_password;
       */
-      
+
       // apply preferences
       conf.apply_prefs(profile_name, true);
       if (globals.twitterClient.oauth.access_token == '' || globals.twitterClient.oauth.access_token.constructor != Object) {
@@ -324,6 +336,17 @@ ui.Welcome = {
       } else {
         document.getElementById('access_token_status_hint').style.visibility = 'hidden';
         document.getElementById('clear_token_btn').style.visibility = 'visible';
+
+        //try to load profile image if not existant
+        if (profile_name.indexOf('twitter')!== -1 && !that.style.backgroundImage) {
+          globals.twitterClient.use_oauth = true;
+          globals.twitterClient.verify(function (result) {
+            var bigger_img = result.profile_image_url.replace('_normal', '_bigger');
+            conf.profiles[profile_name].preferences.profile_avatar = bigger_img;
+            conf.save_prefs(profile_name);
+            ui.Welcome.set_profile_picture(profile_name, bigger_img);
+          });
+        }
       }
     }
 
@@ -344,7 +367,9 @@ ui.Welcome = {
   authenticate_pass: function (result) {
     globals.myself = result;
     // apply preferences
-    conf.get_current_profile().preferences.profile_avatar = globals.myself.profile_image_url;
+    var bigger_img = globals.myself.profile_image_url.replace('_normal', '_bigger');
+    conf.get_current_profile().preferences.profile_avatar = bigger_img;
+    ui.Welcome.set_profile_picture(conf.current_name, bigger_img);
     conf.apply_prefs(ui.Welcome.selected_profile, true);
     conf.get_current_profile().order = Date.now();
     conf.save_prefs(conf.current_name);
