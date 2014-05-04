@@ -1809,9 +1809,7 @@ pre {
   height: 30px;
 }
 /*===== Previewer ================================*/
- #previewer {
-  display: none;
-  opacity: 0;
+#previewer {
   padding: 10px;
   background: rgba(0, 0, 0, 0.8);
   position: absolute;

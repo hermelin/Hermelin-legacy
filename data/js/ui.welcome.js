@@ -359,9 +359,6 @@ ui.Welcome = {
 
     var offset = that.getAttribute('idx') * (74 + 7);
     document.getElementById('profile_avatar_list').style.marginTop = '-' + (offset + 165) + 'px';
-    /*$('#profile_avatar_list').stop().transition({
-        'margin-top': '-' + (offset + 165) + 'px'
-      }, 300);*/
   },
 
   authenticate_pass: function (result) {

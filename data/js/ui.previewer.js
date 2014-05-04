@@ -9,6 +9,7 @@
     function Previewer(sel) {
       var _this = this;
       this.me = $(sel);
+      this._me = document.getElementById(sel.substring(1));
       this.image = this.me.find('.image');
       this.link = this.me.children('.image_wrapper');
       this.close_btn = this.me.children('.close');
@@ -95,20 +96,19 @@
 
     Previewer.prototype.open = function () {
       this.visible = true;
-      this.me.show();
-      return this.me.transition({
-        'opacity': 1
-      }, 100);
+      util.fadeIn(this._me, {
+        speed: 100
+      });
+      return;
     };
 
     Previewer.prototype.close = function () {
       var _this = this;
       this.visible = false;
-      return this.me.transition({
-        'opacity': 0
-      }, 100, function () {
-        return _this.me.hide();
+      util.fadeOut(this._me, {
+        speed: 100
       });
+      return;
     };
 
     return Previewer;
