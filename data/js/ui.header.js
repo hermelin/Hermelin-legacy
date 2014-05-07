@@ -5,7 +5,7 @@ ui.Header = {
     $('#btn_my_profile').click(function (event) {
       open_people(globals.myself.screen_name);
     }).mouseenter(function (event) {
-      globals.ratelimit_bubble.place(widget.Bubble.BOTTOM, widget.Bubble.ALIGN_LEFT);
+      globals.ratelimit_bubble.place(widget.Bubble.BOTTOM, widget.Bubble.ALIGN_RIGHT);
       globals.ratelimit_bubble.show();
     });
 

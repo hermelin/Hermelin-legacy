@@ -80,9 +80,9 @@ function TwitterClient() {
   };
 
   self.success_handler = function success_handler(data, textStatus, xhr) {
-    self.ratelimit_limit = xhr.getResponseHeader('X-RateLimit-Limit');
-    self.ratelimit_remaning = xhr.getResponseHeader('X-RateLimit-Remaining');
-    self.ratelimit_reset = xhr.getResponseHeader('X-RateLimit-Reset');
+    self.ratelimit_limit = xhr.getResponseHeader('X-Rate-Limit-Limit');
+    self.ratelimit_remaning = xhr.getResponseHeader('X-Rate-Limit-Remaining');
+    self.ratelimit_reset = xhr.getResponseHeader('X-Rate-Limit-Reset');
     if (self.ratelimit_limit == null) {
       return;
     }
