@@ -664,6 +664,10 @@
     "message": "Meine Stärke",
     "description": "data/js/lib.twitterapi.js"
   },
+  "my_tweets_retweeted": {
+    "message": "Meine Tweets, retweeted",
+    "description": "data/js/ui.slider.js"
+  },
   "name": {
     "message": "Name",
     "description": "data/index.html"

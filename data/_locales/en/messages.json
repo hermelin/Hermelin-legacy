@@ -663,6 +663,10 @@
     "message": "My Power",
     "description": "data/js/lib.twitterapi.js"
   },
+  "my_tweets_retweeted": {
+    "message": "My Tweets, Retweeted",
+    "description": "data/js/ui.slider.js"
+  },
   "name": {
     "message": "Name",
     "description": "data/index.html"

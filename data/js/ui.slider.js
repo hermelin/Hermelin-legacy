@@ -799,22 +799,20 @@ ui.Slider = {
       break;
     case 'retweets':
       ui.Slider.add('retweets', {
-        title: _('retweets'),
+        title: _('my_tweets_retweeted'),
         icon: 'image/ic_retweet.png'
       }, $.extend({
         'type': 'tweet',
-        'title': _('retweets'),
-        'load': ui.RetweetView.load_retweeted_to_me,
-        'loadmore': ui.RetweetView.loadmore_retweeted_to_me,
+        'title': _('my_tweets_retweeted'),
+        'load': ui.RetweetView.load,
+        'loadmore': ui.RetweetView.loadmore,
         'load_success': ui.Main.load_tweet_success,
         'load_fail': null,
         'loadmore_success': ui.Main.loadmore_tweet_success,
         'loadmore_fail': null,
-        'init': ui.RetweetView.init_view,
         'destroy': ui.RetweetView.destroy_view,
         'header_html': ui.Template.common_column_header_t,
-        'header_html_ex': ui.Template.retweets_header_t,
-        'former': ui.Template.form_tweet,
+        'former': ui.Template.form_retweeted_by,
         'method': 'poll',
         'interval': 120,
         'item_type': 'id'

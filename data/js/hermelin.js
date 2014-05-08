@@ -422,7 +422,6 @@ function init_ui() {
   ui.Welcome.init();
   ui.HomeTabs.init();
   ui.MentionTabs.init();
-  ui.RetweetView.init();
   ui.DMTabs.init();
   ui.PeopleView.init();
   ui.ListView.init();
