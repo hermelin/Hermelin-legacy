@@ -800,7 +800,7 @@ ui.Slider = {
     case 'retweets':
       ui.Slider.add('retweets', {
         title: _('my_tweets_retweeted'),
-        icon: 'image/ic_retweet.png'
+        icon: 'image/svg/ic_retweets.png'
       }, $.extend({
         'type': 'tweet',
         'title': _('my_tweets_retweeted'),
