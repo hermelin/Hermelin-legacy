@@ -30,10 +30,15 @@ function TwitterClient() {
       'fav': 'You have already marked this tweet as favorite.',
       'unknown': 'Twitter refuse your request.'
     },
-    404: 'The URL you request does not exist. Please check your API Base/OAuth Base/Search Base.',
+    404: 'The URL or API endpoint you requested does not exist. Please check your API Base/OAuth Base/Search Base.',
+    406: 'Invalid format passed to the Search API.',
+    410: 'The used API endpoint is turned off.',
+    422: 'Server is unable to process an uploaded header image.',
+    429: 'Rate Limit',
     500: 'Server is broken. Please try again later.',
     502: 'Server is down or being upgraded. Please try again later.',
-    503: 'Server is in overcapacity. Please try again later.'
+    503: 'Server is in overcapacity. Please try again later.',
+    504: 'Servers are up, but the request couldn\'t be serviced due failures in their stack. Please try again later.'
   };
 
   self.default_error_handler = function default_error_handler(url, xhr, textStatus, errorThrown) {
@@ -53,21 +58,21 @@ function TwitterClient() {
           msg = self.http_code_msg_table[403]['unknown'];
         }
       }
-      tech_info = 'HTTP Code:' + xhr.status + '\nDetails:' + xhr.statusText + '\nURL:' + url;
+      tech_info = '(' + xhr.status + ')';
     } else {
-      msg = 'Unknow Error';
-      tech_info = 'HTTP Code:' + xhr.status + '\nReason:' + xhr.statusText + '\nURL:' + url;
+      msg = 'Unknown Error';
+      tech_info = 'HTTP Error ' + xhr.status + '\nReason:' + xhr.statusText;
     }
     switch (self.default_error_method) {
     case 'notify':
       if (xhr.status !== 0) {
-        hermelin_notify('Ooops, An Error Occurred!', msg + '\n' + tech_info, null, 'content');
+        hermelin_notify('Request Error', msg + ' ' + tech_info, null, 'content');
       } else {
         toast.set('Lost Connection').show(1);
       }
       break;
     case 'dialog':
-      ui.ErrorDlg.alert('Ooops, An Error Occurred!', msg, tech_info);
+      ui.ErrorDlg.alert('Request Error', msg, tech_info);
       break;
     case 'toast':
       toast.set('Error #' + xhr.status + ': ' + msg).show();
