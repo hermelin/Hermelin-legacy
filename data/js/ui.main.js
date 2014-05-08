@@ -601,7 +601,7 @@ ui.Main = {
       var list = $(".tweet_retweeters[tweet_id='" + tweet_id + "']");
       _this.text("loading...");
       globals.twitterClient.get_retweeted_by_whom(tweet_id, 100, function (result) {
-        if (_this == null) {
+        if (_this === null) {
           return;
         }
         list.empty();
@@ -609,10 +609,10 @@ ui.Main = {
         for (var i = 0, l = result.length; i < l; i++) {
           var p = result[i];
           var li = $('<li/>');
-          var a = $('<a/>').appendTo(li).attr('href', '#' + p.screen_name);
+          var a = $('<a/>').appendTo(li).attr('href', '#' + p.user.screen_name);
           $('<img height="24" width="24"/>').attr({
-            'title': '@' + p.screen_name + ' (' + p.name + ')',
-            'src': p.profile_image_url
+            'title': '@' + p.user.screen_name + ' (' + p.user.name + ')',
+            'src': p.user.profile_image_url
           }).appendTo(a);
           a.click(function (event) {
             if (event.which == 1) {
