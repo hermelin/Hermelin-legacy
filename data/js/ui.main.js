@@ -595,7 +595,7 @@ ui.Main = {
       ui.Main.on_thread_more_click(this, event);
     });
 
-    $(id).find('.tweet_source a.show').click(function (event) {
+    $(id).find('.tweet_meta a.show').click(function (event) {
       var _this = $(this);
       var tweet_id = _this.attr("tweet_id");
       var list = $(".tweet_retweeters[tweet_id='" + tweet_id + "']");

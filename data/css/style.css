@@ -2043,7 +2043,7 @@ pre {
   right: 5px;
   font-size: 11px;
   padding-top: 10px;
-  line-height: 10px;
+  line-height: 16px;
 }
 .tweet_source {
   height: 15px;
@@ -2081,6 +2081,7 @@ pre {
   height: 15px;
   width: 15px;
   background: transparent url(../image/fold.png) no-repeat;
+  background-position: center;
 }
 .btn_tweet_thread.expand {
   background-image: url(../image/expand.png);
