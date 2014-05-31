@@ -231,8 +231,6 @@ pre {
   border: none;
   box-shadow: none;
   height: 160px;
-  border-top: 1px solid #c8c8c8;
-  border-bottom: 1px solid #c8c8c8;
 }
 #tbox_status {
   width: 100%;
@@ -248,10 +246,10 @@ pre {
   padding: 5px 8px;
 }
 #status_image_preview_wrapper {
-  max-height: 161px;
-  max-width: 145px;
+  height: 160px;
+  width: 145px;
   float: left;
-  padding: 5px;
+  padding-right: 24px;
   box-sizing: border-box;
   display: none;
 }
@@ -261,13 +259,15 @@ pre {
   width: 24px;
   background-position: center;
   float: right;
+  position: relative;
+  left: 24px;
 }
 #status_image_preview {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  max-height: 161px;
-  max-width: 145px;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 #status_smiley {
   width: 100%;

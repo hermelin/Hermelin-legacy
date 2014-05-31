@@ -345,7 +345,7 @@ ui.StatusBox = {
       $('#status_info').show();
       $('#tbox_dm_target').hide();
     } else if (mode == ui.StatusBox.MODE_IMG) {
-      $('#tbox_status_wrapper').css('margin-left', '155px');
+      $('#tbox_status_wrapper').css('margin-left', '145px');
       $('#status_image_preview_wrapper').show();
     } else {
       $('#status_box').removeClass('dm_mode').removeClass('reply_mode');
