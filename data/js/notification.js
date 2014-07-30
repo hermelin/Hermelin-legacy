@@ -20,13 +20,30 @@ var notification = {
       hermelin_action('system/notify/' + type + '/' + encodeURIComponent(title) + '/' + encodeURIComponent(summary) + '/' + encodeURIComponent(image));
     } else if (conf.vars.platform == 'Chrome') {
       var img_url = image ? image : './image/ic64_hermelin.png';
-      var notification = webkitNotifications.createNotification(img_url, title, summary);
-      notification.show();
-      notification.ondisplay = function () {
-        setTimeout(function () {
-          notification.cancel()
-        }, 5000);
-      }
+      
+      notification.check_permission(function(){
+        var note = new Notification(title, { 
+		  body: summary,
+          icon: img_url
+        });
+        note.onshow = function () {
+          setTimeout(function () {
+            note.close();
+          }, 5000);
+        }
+      });
+    }
+  },
+  
+  check_permission: function(cb){
+    if(Notification.permission !== 'granted'){
+      Notification.requestPermission(function(status){
+        if(Notification.permission === 'granted'){
+          cb();
+        }
+      });
+    } else{
+      cb();
     }
   },
 
