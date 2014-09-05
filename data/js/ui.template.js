@@ -491,48 +491,48 @@ ui.Template = {
 
   preview_link_reg: {
     'img.ly': {
-      reg: new RegExp('http:\\/\\/img.ly\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/img.ly\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://img.ly/show/thumb/',
       direct_base: 'http://img.ly/show/full/'
     },
     'twitpic.com': {
-      reg: new RegExp('http:\\/\\/twitpic.com\\/([a-zA-Z0-9_\\-]+)', 'g'),
-      base: 'http://twitpic.com/show/thumb/'
+      reg: new RegExp('http:\\/\\/twitpic.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      base: 'http://twitpic.com/show/thumb/',
+      direct_base: 'http://twitpic.com/show/full/'
     },
     'twitgoo.com': {
-      reg: new RegExp('http:\\/\\/twitgoo.com\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/twitgoo.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://twitgoo.com/show/thumb/',
       direct_base: 'http://twitgoo.com/show/img/'
     },
     'yfrog.com': {
-      reg: new RegExp('http:\\/\\/yfrog.com\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/yfrog.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: '.th.jpg'
     },
     'moby.to': {
-      reg: new RegExp('http:\\/\\/moby.to\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/moby.to\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: ':thumbnail'
     },
     'instagr.am': {
-      reg: new RegExp('http:\\/\\/instagr.am\\/p\\/([a-zA-Z0-9_\\-]+)\\/?', 'g'),
+      reg: new RegExp('http:\\/\\/instagr.am\\/p\\/([a-zA-Z0-9_\\-]+)\\/?', 'i'),
       tail: 'media?size=m',
       direct_tail: 'media?size=l'
     },
     'plixi.com': {
-      reg: new RegExp('http:\\/\\/plixi.com\\/p\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/plixi.com\\/p\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://api.plixi.com/api/tpapi.svc/imagefromurl?size=thumbnail&url='
     },
     'picplz.com': {
-      reg: new RegExp('http:\\/\\/picplz.com\\/([a-zA-Z0-9_\\-]+)', 'g'),
+      reg: new RegExp('http:\\/\\/picplz.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: '/thumb/'
     },
-    'raw': {
-      reg: new RegExp('[a-zA-Z0-9]+:\\/\\/.+\\/.+\\.(jpg|jpeg|jpe|png|gif)', 'gi')
-    },
-
     'youtube.com': {
-      reg: new RegExp('href="(http:\\/\\/(www.)?youtube.com\\/watch\\?v\\=([A-Za-z0-9_\\-]+))', 'g'),
+      reg: new RegExp('https?:\\/\\/(www\\.)?(?:youtube\\.com\\/watch(?:\\?v\\=|\\?.*\\&v\\=|\\/v\\/)|youtu\\.be\\/)([A-Za-z0-9_\\-]+).*', 'i'),
       base: 'http://img.youtube.com/vi/',
-      tail: '/default.jpg',
+      tail: '/0.jpg',
+    },
+    'raw': {
+      reg: new RegExp('[a-zA-Z]+:\\/\\/.+\\/.+\\.(jpg|jpeg|jpe|png|gif)', 'i')
     }
 
   },
@@ -886,29 +886,6 @@ ui.Template = {
     }
 
     var text = ui.Template.form_text(tweet_obj);
-    // if the tweet contains user_mentions (which are provided by the Twitter
-    // API, not by the StatusNet API), it will here replace the 
-    // contents of the 'who_ref'-a-tag by the full name of this user.
-
-    if (tweet_obj.entities && tweet_obj.entities.user_mentions) {
-      for (var i = 0, l = tweet_obj.entities.user_mentions.length; i < l; i += 1) {
-        // hermelin_log('form_tweet', 'user mention: ' + tweet_obj.entities.user_mentions[i].screen_name);
-        var screen_name = tweet_obj.entities.user_mentions[i].screen_name;
-        var name = tweet_obj.entities.user_mentions[i].name.replace(/"/g, '&quot;');
-        var reg_ulink = new RegExp('>(' + screen_name + ')<', 'ig');
-        text = text.replace(reg_ulink, ' title="' + name + '">$1<')
-      }
-      // If we get here, and there are still <a who_href="...">-tags
-      // without title attribute, the user name was probably misspelled. 
-      // If I then remove the tag, the incorrect user name is not 
-      // highlighted any more, which fixes #415 for twitter.
-      // (It does not work for identi.ca, because the identi.ca API
-      // does not provide user_mentions.)
-
-      var re = /\<a class=\"who_href\" href=\"[^"]*\"\>([^<]*)\<\/a\>/gi
-      text = text.replace(re, '$1');
-      // hermelin_log('form_tweet', 'resulting text: ' + text);
-    }
     var nametype = conf.get_current_profile().preferences.name;
 
     var m = ui.Template.tweet_m;
@@ -1288,7 +1265,7 @@ ui.Template = {
     fav_control.setAttribute('title', thisstats.favs);
     people_control.setAttribute('title', thisstats.followers + '\n' + thisstats.friends);
     list_control.setAttribute('title', stats.listed);
-    
+
     stats.getElementsByClassName('vcard_stats_left')[0].innerHTML = thisstats.tpd + '<br>' + thisstats.tweets + '<br>' + thisstats.favs;
     stats.getElementsByClassName('vcard_stats_right')[0].innerHTML = thisstats.followers + '<br>' + thisstats.friends + '<br>' + thisstats.listed;
 
@@ -1438,6 +1415,89 @@ ui.Template = {
     return text;
   },
 
+  form_entities: function form_entities(obj) {
+    var html = obj.text;
+    var entities = [];
+    
+    //collect all the entities
+    if (obj.entities) {
+      for (var prop in obj.entities) {
+        if (obj.entities.hasOwnProperty(prop)) {
+          obj.entities[prop].forEach(function(entity){
+            entity.entityType = prop;
+            entities.push(entity);
+          });
+        }
+      }
+    }
+    
+    //sort them after their firct indices
+    entities.sort(function (a, b) {
+      return a.indices[0] - b.indices[0];
+    });
+
+    var textBlocks = [];
+    var previewEntities = [];
+    var last = 0;
+    var diff = 0;
+    entities.forEach(function(entity){
+      var text_between = html.slice(last, diff + entity.indices[0]);
+      textBlocks.push(ui.Template.convert_chars(text_between));
+      last += text_between.length;
+      
+
+      switch (entity.entityType) {
+      case 'hashtags':
+        textBlocks.push('<a class="hash_href" href="#' +
+          entity.text + '">#' +
+          entity.text + '</a>');
+        last += entity.text.length + 1;
+        break;
+      case 'symbols':
+        textBlocks.push('<a class="hash_href" href="$' +
+          entity.text + '">$' +
+          entity.text + '</a>');
+        last += entity.text.length + 1;
+        break;
+      case 'urls':
+        textBlocks.push('<a href="' +
+          entity.expanded_url + '" target="_blank">' +
+          entity.display_url + '</a>');
+        previewEntities.push(entity);
+        last += entity.expanded_url.length;
+        break;
+      case 'user_mentions':
+        textBlocks.push('<a class="who_href" href="#' +
+          entity.screen_name + '" title="'+
+          entity.name + '">@' +
+          entity.screen_name + '</a>');
+        last += entity.screen_name.length + 1;
+        break;
+      case 'media':
+        textBlocks.push('<a href="' +
+          entity.expanded_url + '" target="_blank">' +
+          entity.display_url + '</a>');
+        previewEntities.push(entity);
+        last += entity.expanded_url.length;
+        break;
+      default:
+        console.error('Invalid entity type: ' + entity.entityType);
+      }
+      diff = last - entity.indices[1];
+    });
+    
+    textBlocks.push(ui.Template.convert_chars(html.slice(last, html.length)));
+    html = textBlocks.join('');
+    
+    var previewHtml = ui.Template.form_preview(previewEntities);
+    if (conf.get_current_profile().preferences.filter_nsfw_media && obj.text.match(/nsfw/ig)) {
+      previewHtml = ['<i>NSFW image hidden</i>'];
+    }
+    return {
+      'html': html,
+      'previewHtml': previewHtml
+    };
+  },
   // This function applies some basic replacements to tweet.text, and returns
   // the resulting string.
   // This is not the final text that will appear in the UI, form_tweet will also do
@@ -1445,18 +1505,17 @@ ui.Template = {
   // function, to do the modifications.
   form_text: function form_text(tweet) {
     //hermelin_log('form_text in', tweet.text);
-    var text = ui.Template.convert_chars(tweet.text);
-    text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
-    text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
-    text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
+    var withEntity= ui.Template.form_entities(tweet.retweet_status||tweet);
+    var text = withEntity.html;
+    //text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
+    /*text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
       if (url.length > 51) url_short = url.substring(0, 48) + '...';
       else url_short = url;
       return ' <a href="' + url + '" target="_blank">' + url_short + '</a>';
     });
-    text = text.replace(/href="www/g, 'href="http://www');
+    text = text.replace(/href="www/g, 'href="http://www');*/
     text = text.replace(/href="(http:\/\/hotot.in\/(\d+))"/g, 'full_text_id="$2" href="$1"');
-    text = text.replace(/[\r\n]\s+[\r\n]/g, '\n\n');
+    //text = text.replace(/[\r\n]\s+[\r\n]/g, '\n\n');
     text = text.replace(/\n/g, '<br/>');
     if (ui.Template.reg_is_rtl.test(text)) {
       text = '<div class="text_inner" align="right" dir="rtl">' + text + '</div>';
@@ -1464,7 +1523,7 @@ ui.Template = {
       text = '<div class="text_inner">' + text + '</div>';
     }
     if (conf.get_current_profile().preferences.use_media_preview) {
-      text += '<div class="preview">' + ui.Template.form_preview(tweet) + '</div>';
+      text += '<div class="preview">' + withEntity.previewHtml + '</div>';
     }
     //hermelin_log('form_text out', text);
     return text;
@@ -1476,7 +1535,7 @@ ui.Template = {
     text = text.replace(/>/g, "&gt;");
     text = text.replace(ui.Template.reg_link_g, ' <a href="$1" target="_blank">$1</a>');
     text = text.replace(/href="www/g, 'href="http://www');
-    text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
+    //text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
     text = text.replace(ui.Template.reg_user, '$1@<a class="who_href" href="#$2">$2</a>');
     text = text.replace(ui.Template.reg_hash_tag, '$1$2<a class="hash_href" href="$2$3">$3</a>');
     text = text.replace(/href="(http:\/\/hotot.in\/(\d+))"/g, 'full_text_id="$2" href="$1"');
@@ -1494,72 +1553,66 @@ ui.Template = {
     }
   },
 
-  form_preview: function form_preview(tweet) {
+  form_preview: function form_preview(entities) {
     var html_arr = [];
     var link_reg = ui.Template.preview_link_reg;
-    for (var pvd_name in link_reg) {
-      var match = link_reg[pvd_name].reg.exec(tweet.text);
-      while (match != null) {
-        switch (pvd_name) {
-        case 'img.ly':
-        case 'twitgoo.com':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], link_reg[pvd_name].base + match[1],
-            link_reg[pvd_name].direct_base + match[1]));
-          break;
-        case 'twitpic.com':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], link_reg[pvd_name].base + match[1]));
-          break;
-        case 'instagr.am':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], match[0] + link_reg[pvd_name].tail,
-            match[0] + link_reg[pvd_name].direct_tail));
-          break;
-        case 'yfrog.com':
-        case 'moby.to':
-        case 'picplz.com':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], match[0] + link_reg[pvd_name].tail));
-          break;
-        case 'plixi.com':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], link_reg[pvd_name].base + match[0]));
-          break;
-        case 'raw':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], match[0], match[0]));
-          break;
-        case 'youtube.com':
-          html_arr.push(
-            ui.Template.form_media(
-            match[0], link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail));
-          break;
+    for (var i = 0; i < entities.length; i++) {
+      if (entities[i].entityType === 'urls') {
+        for (var pvd_name in link_reg) {
+          var match = link_reg[pvd_name].reg.exec(entities[i].expanded_url);
+          if (match != null) {
+            switch (pvd_name) {
+            case 'img.ly':
+            case 'twitgoo.com':
+            case 'twitpic.com':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], link_reg[pvd_name].base + match[1],
+                link_reg[pvd_name].direct_base + match[1]));
+              break;
+            case 'instagr.am':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], match[0] + link_reg[pvd_name].tail,
+                match[0] + link_reg[pvd_name].direct_tail));
+              break;
+            case 'yfrog.com':
+            case 'moby.to':
+            case 'picplz.com':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], match[0] + link_reg[pvd_name].tail));
+              break;
+            case 'plixi.com':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], link_reg[pvd_name].base + match[0]));
+              break;
+            case 'raw':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], match[0], match[0]));
+              break;
+            case 'youtube.com':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0], link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail));
+              break;
+            }
+          }
         }
-        match = link_reg[pvd_name].reg.exec(tweet.text);
+      } else {
+        // twitter official picture service
+        html_arr.push(
+          ui.Template.form_media(
+          entities[i].expanded_url,
+          entities[i].media_url_https + ':thumb',
+          entities[i].media_url_https + ':large'));
       }
     }
-    // twitter official picture service
-    if (tweet.entities && tweet.entities.media) {
-      for (var i = 0; i < tweet.entities.media.length; i += 1) {
-        var media = tweet.entities.media[i];
-        if (media.expanded_url && media.media_url) {
-          html_arr.push(
-            ui.Template.form_media(
-            tweet.entities.media[i].expanded_url,
-            tweet.entities.media[i].media_url + ':thumb',
-            tweet.entities.media[i].media_url + ':large'));
-        }
-      }
-    }
-    if (conf.get_current_profile().preferences.filter_nsfw_media && tweet.text.match(/nsfw/ig))
+    /*if (conf.get_current_profile().preferences.filter_nsfw_media && tweet.text.match(/nsfw/ig))
       html_arr = ['<i>NSFW image hidden</i>'];
+      */
     if (html_arr.length != 0) {
       return '<p class="media_preview">' + html_arr.join('') + '</p>';
     }
