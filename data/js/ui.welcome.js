@@ -256,7 +256,7 @@ ui.Welcome = {
         return false;
       }
     }
-    if (avatarList.length === 0) {
+    if (avatarList.length === 1) {
       defaultNum = 0;
     }
 
