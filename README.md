@@ -5,52 +5,27 @@ I forked Hotot for the reason that it won't get any bigger updates here in the f
 
 I think it is sad that there aren't much [free](https://www.gnu.org/philosophy/free-sw.html) Twitter Clients, so i don't want Hotot to die.
 
-In the future i want to remove every line with jQuery/coffescript out of Hermelin/Hotot because it really slows it down.
-
 ##Installing the Chrome/Chromium Version:
 
 
-To install Hermelin in chrome or chromium, simply download the hermelin.crx file and drag it into the extensions window.
-I will update the crx everytime a new version is out (because of the way, the extensions work)
+To install Hermelin in chrome or chromium, simply install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/hermelin-twitter-client/jkajhbbfjgkbjeldopihmjfcaebjgobg). 
 
-To update from the newest commit you have to:
+To load the newest commit you have to:
 
 * Download this git repo (via the git clone command on linux or the downloadable zip file).
-* Copy everything out of the data/ directory into the apps directory which is dependent on your OS:
+* Go to Chrome/Chromiums Extensions page and activate developer mode (top right corner).
+* Click "Load unpacked extension…" and choose the data/ directory from the repo.
 
-###Windows XP
-Google Chrome:
-C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
+It is not possible to update the Web Store Extension with this method.
 
-Chromium:
-C:\Documents and Settings\%USERNAME%\Local Settings\Application Data\Chromium\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
+For that you'd have to:
 
-###Windows 8/7/Vista
-Google Chrome:
-C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
+* Download this git repo (via the git clone command on linux or the downloadable zip file).
+* Copy everything ***except manifest.json*** from the data/ directory into the Web Store extensions directory.
 
-Chromium:
-C:\Users\%USERNAME%\AppData\Local\Chromium\User Data\Default\Extensions\hbibhhgjijenglppedlibjbndbcdofcp\0.0.1_0\
+The folder where Chrome/Chromium extensions are stored differs from OS to OS - In there should be the folder jkajhbbfjgkbjeldopihmjfcaebjgobg/ in which you'll find the folder with the newest version.
 
-###Linux
-Google Chrome:
-~/.config/google-chrome/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
-
-Chromium:
-~/.config/chromium/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
-
-###Mac OS X
-Google Chrome:
-~/Library/Application Support/Google/Chrome/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
-
-Chromium:
-~/Library/Application Support/Chromium/Default/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
-
-###Chrome OS & Chromium OS
-
-~/Extensions/hbibhhgjijenglppedlibjbndbcdofcp/0.0.1_0/
-
-(i'm not sure with this, please correct me if i'm wrong)
+The files from the data/ directory go in this folder.
 
 ## Building from source:
 Since Hermelins core is largely based on HTML5, JavaScript and Webkit technology, it can be run under many Webkit implementations. Hermelin officially supports Gtk, Qt, and Chrome webkit wrapper.

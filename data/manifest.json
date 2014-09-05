@@ -1,17 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "Hermelin",
+  "name": "Hermelin Twitter Client",
+  "short_name": "Hermelin",
   "description": "Hermelin Twitter client for Chrome",
-  "version": "0.1",
+  "version": "0.1.1",
   "default_locale": "en",
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.google.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.google.com https://*.twitter.com; object-src 'self'",
   "background": {
     "page": "background.html"
   },
-  "app": {
-    "launch": {
-      "local_path": "index.html"
-    }
+  "browser_action": {
+      "default_icon": "image/ic24_hermelin.png"
   },
   "icons": {
     "16": "image/ic16_hermelin.png",
@@ -21,6 +20,7 @@
   "permissions": [
     "<all_urls>",
     "unlimitedStorage",
+    "storage",
     "notifications",
     "contextMenus",
     "background",
