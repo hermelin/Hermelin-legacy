@@ -438,7 +438,7 @@ function init_ui() {
   ui.Finder.init();
   ui.ActionMenu.init();
   ui.ContextMenu.init();
-  ui.Previewer = new widget.Previewer('#previewer');
+  ui.Previewer = new widget.previewer(document.getElementById('previewer'));
   init_dialogs();
 
   widget.Scrollbar.register();

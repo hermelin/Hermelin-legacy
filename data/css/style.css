@@ -1810,36 +1810,119 @@ pre {
 }
 /*===== Previewer ================================*/
 #previewer {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
+  background: #333;
+  background-clip: border-box;
   position: absolute;
   z-index: 500;
   top: 50%;
   left: 50%;
-  min-width: 64px;
-  min-height: 64px;
-  margin-left: -32px;
-  margin-top: -62px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  height: 6px;
+  width: 200px;
+  margin-top: -6px;
+  margin-left: -100px;
+  padding-bottom: 30px;
+  min-width: 60px;
+  min-height: 0;
+  box-shadow: 0 0 20px #000;
   -webkit-border-radius: 5px;
+  overflow: hidden;
+  visibility: 1;
+  transition: visibility 0.1s, display 0s 0s, width 0.3s, height 0.3s, margin 0.3s;
 }
+
+#previewer.away {
+  visibility: 0;
+  display: none;
+  transition: visibility 0.1s, display 0s 0.1s;
+}
+
+#previewer.reload {
+  transition: visibility 0.1s, display 0s 0s;
+  width: 200px;
+  height: 6px;
+  margin-top: -6px;
+  margin-left: -100px;
+}
+
+#previewer.reload.away {
+  transition: visibility 0.1s, display 0s 0.1s;
+  display: none;
+}
+
+#previewer .image_progress {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  display: none;
+}
+
+#previewer .image_progress::-webkit-progress-bar{
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+#previewer .image_progress::-webkit-progress-value{
+  width: 250%!important;
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(left, transparent 0%, #5cb4dd 50%, transparent 100%);
+  -webkit-animation: loading 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes loading {
+    from {
+      left: -150%;
+    }
+    to {
+      left: 0;
+    }
+}
+
+#previewer.error .image_progress::-webkit-progress-bar{
+  background-color: #e73034;
+}
+
+#previewer.error .image_progress::-webkit-progress-value{
+  display: none;
+}
+
+#previewer.reload .image_progress {
+  display: block;
+}
+
 #previewer .image {
   display: block;
   margin: 0 auto;
-  height: 64px;
-  width: 64px;
+  width: 100%;
+  height: 100%;
 }
+
+#previewer.reload .image {
+  display: none;
+}
+
 #previewer .close {
+  background: #333;
   display: block;
-  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   color: white;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: normal;
   text-align: center;
-  height: 20px;
-  margin-top: 10px;
-  line-height: 20px;
+  height: 30px;
+  line-height: 30px;
 }
 /*===== Class styles ================================*/
  .page {
