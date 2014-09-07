@@ -9,7 +9,7 @@
       this.password = password;
       this.pocket_apikey = '4c2T7D4dg52f6r440gd746eW4cpkG7f6';
       this.pocket_auth_url = 'https://readitlaterlist.com/v2/auth?username={%USERNAME%}&password={%PASSWORD%}&apikey=' + this.pocket_apikey;
-      this.pocket_add_url = 'https://readitlaterlist.com/v2/add?username={%USERNAME%}&password={%PASSWORD%}&apikey=' + this.pocket_apikey + '&url={%URL%}&title={%SELECTION%}';
+      this.pocket_add_url = 'https://readitlaterlist.com/v2/add?username={%USERNAME%}&password={%PASSWORD%}&tweet_id={%ID%}&apikey=' + this.pocket_apikey + '&url={%URL%}&title={%SELECTION%}';
       this.instap_auth_url = 'https://www.instapaper.com/api/authenticate?username={%USERNAME%}&password={%PASSWORD%}';
       this.instapp_add_url = 'https://www.instapaper.com/api/add?username={%USERNAME%}&password={%PASSWORD%}&url={%URL%}&title=&selection={%SELECTION%}';
     }
@@ -19,7 +19,7 @@
       return this.password = password;
     };
 
-    ReadLater.prototype.addItem = function (service, url, text, callback) {
+    ReadLater.prototype.addItem = function (service, url, text, id, callback) {
       var req_url;
       if (service === 'pocket') {
         req_url = this.pocket_add_url;
@@ -30,6 +30,7 @@
       req_url = req_url.replace('{%PASSWORD%}', encodeURIComponent(this.password));
       req_url = req_url.replace('{%URL%}', encodeURIComponent(url));
       req_url = req_url.replace('{%SELECTION%}', encodeURIComponent(text));
+      req_url = req_url.replace('{%ID%}', encodeURIComponent(id));
       return $.get(req_url, callback);
     };
 

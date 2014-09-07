@@ -64,22 +64,41 @@ ui.Main = {
     });
 
     $('#tweet_readlater_btn').click(function (ev) {
-      var text = $(ui.Main.active_tweet_id + ' .card_body').children('.text').text();
-      var reg_url = new RegExp('[a-zA-Z]+:\\/\\/(' + ui.Template.reg_url_path_chars_1 + '+)');
-      var m = text.match(reg_url);
-      if (m == null) {
-        var url = 'http://twitter.com/' + $(ui.Main.active_tweet_id).attr('screen_name') + '/status/' + $(ui.Main.active_tweet_id).attr('tweet_id');
-      } else {
-        var url = m[1];
-      };
-      toast.set('Save to ..').show();
-      globals.readLaterServ.addItem(
-        conf.get_current_profile().preferences.readlater_service,
-        url, text, function (ret) {
-        if (ret.indexOf('200') != -1 || ret.indexOf('201') != -1) {
-          toast.set('Saved!').show();
-        } else {
-          toast.set('Error Code:' + result).show()
+      var li = $(ui.Main.active_tweet_id);
+      var id = (li.attr('retweet_id') == '' || li.attr('retweet_id') == undefined) ? li.attr('tweet_id') : li.attr('retweet_id');
+      db.get_tweet(id, function (tx, rs) {
+
+        var tweet = JSON.parse(rs.rows.item(0).json);
+
+        if (tweet) {
+          //got tweet json object
+          var text = tweet.text;
+          var urls;
+
+          if (tweet.entities.urls.length === 0) {
+            urls = ['http://twitter.com/' + $(ui.Main.active_tweet_id).attr('screen_name') + '/status/' + $(ui.Main.active_tweet_id).attr('tweet_id')];
+            //no urls in the tweet - using the tweet url
+          } else {
+            urls = [];
+            tweet.entities.urls.forEach(function (url) {
+              urls.push(url.expanded_url);
+            });
+            //collecting all urls from entities
+          }
+
+          toast.set('Save to ..').show();
+
+          urls.forEach(function (url) {
+            globals.readLaterServ.addItem(
+              conf.get_current_profile().preferences.readlater_service,
+              url, text, id, function (ret) {
+                if (ret.indexOf('200') != -1 || ret.indexOf('201') != -1) {
+                  toast.set('Saved Link ' + url + '!').show();
+                } else {
+                  toast.set('Error Code:' + result).show()
+                }
+              });
+          });
         }
       });
     });
@@ -372,13 +391,13 @@ ui.Main = {
     */
     // dumps to cache
     db.dump_tweets(json_obj);
-    
+
     // dump all included hashtags to cache
     var hashtags = [];
-    
+
     for (i = 0; i < json_obj.length; i++) {
       var tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
-      while(tag !== null){
+      while (tag !== null) {
         hashtags.push(tag[3]);
         tag = ui.Template.reg_hash_tag.exec(json_obj[i].text);
       }
@@ -562,25 +581,25 @@ ui.Main = {
       var full_text_id = $(this).attr('full_text_id');
       globals.network.do_request('GET',
         'http://hotot.in/tweet/' + full_text_id + '.json', {}, {}, null, function (result) {
-        if (result && result.full_text) {
-          $(id).find('.text_inner:eq(0) a').unbind();
-          $(id).find('.text_inner:eq(0)').empty();
-          $(id).find('.text_inner:eq(0)').html(
-            ui.Template.form_text_raw(result.full_text));
-          ui.Main.bind_tweet_text_action(id);
-        }
-      }, function () {
-        toast.set('fetch full text failed.').show();
-      });
+          if (result && result.full_text) {
+            $(id).find('.text_inner:eq(0) a').unbind();
+            $(id).find('.text_inner:eq(0)').empty();
+            $(id).find('.text_inner:eq(0)').html(
+              ui.Template.form_text_raw(result.full_text));
+            ui.Main.bind_tweet_text_action(id);
+          }
+        }, function () {
+          toast.set('fetch full text failed.').show();
+        });
       return false;
     });
 
     $(id).find('a[direct_url]').click(function () {
       var direct_url = $(this).attr('direct_url');
       if (typeof (direct_url) != 'undefined') {
-        if($(this).attr('video') === "true"){
+        if ($(this).attr('video') === "true") {
           ui.Previewer.reload(direct_url, true);
-        } else{
+        } else {
           ui.Previewer.reload(direct_url);
         }
         ui.Previewer.open();
@@ -1145,7 +1164,8 @@ ui.Main = {
   },
 
   unique: function unique(items) {
-    var o = {}, i, l = items.length;;
+    var o = {},
+      i, l = items.length;;
     for (i = 0; i < l; i += 1)
       o[items[i].id_str] = items[i];
     items.splice(0, items.length);
