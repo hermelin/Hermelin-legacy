@@ -1906,7 +1906,7 @@ pre {
   height: 100%;
 }
 
-#previewer.image.reload .image, #previewer.video .image, #previewer.video.reload .video, #previewer.image .video{
+#previewer.image.reload .image, #previewer:not(.image) .image, #previewer.video.reload .video, #previewer:not(.video) .video{
   display: none;
 }
 

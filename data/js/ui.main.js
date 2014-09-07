@@ -597,11 +597,8 @@ ui.Main = {
     $(id).find('a[direct_url]').click(function () {
       var direct_url = $(this).attr('direct_url');
       if (typeof (direct_url) != 'undefined') {
-        if ($(this).attr('video') === "true") {
-          ui.Previewer.reload(direct_url, true);
-        } else {
-          ui.Previewer.reload(direct_url);
-        }
+        var video = $(this).attr('video') === "true";
+        ui.Previewer.reload(direct_url, video);
         ui.Previewer.open();
         return false;
       }

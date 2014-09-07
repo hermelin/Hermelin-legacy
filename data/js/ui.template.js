@@ -542,6 +542,9 @@ ui.Template = {
       reg: new RegExp('(https?:\\/\\/vine\\.co\\/v\\/([a-zA-Z0-9_\\-]+))', 'i'),
       direct_tail: '/embed/simple?audio=1'
     },
+    'z0r.de': {
+      reg: new RegExp('http:\\/\\/z0r\\.de\\/([0-9]+)', 'i')
+    },
     'raw': {
       reg: new RegExp('[a-zA-Z]+:\\/\\/.+\\/.+\\.(jpg|jpeg|jpe|png|gif)', 'i')
     }
@@ -1639,6 +1642,15 @@ ui.Template = {
                   match[0],
                   '',
                   match[0] + link_reg[pvd_name].direct_tail,
+                  true)
+              );
+              break;
+            case 'z0r.de':
+              html_arr.push(
+                ui.Template.form_media(
+                  match[0],
+                  '',
+                  match[0],
                   true)
               );
               break;

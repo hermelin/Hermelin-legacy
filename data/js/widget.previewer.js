@@ -12,6 +12,7 @@ function WidgetPreviewer(obj) {
   self.ytReg = new RegExp('^http\\:\\/\\/www\\.youtube\\.com\\/embed\\/', 'i');
   self.vineReg = ui.Template.preview_link_reg['vine.co'].reg;
   self.instaReg = ui.Template.preview_link_reg['instagram.com'].reg;
+  self.zorReg = ui.Template.preview_link_reg['z0r.de'].reg;
 
   self.reset = function reset() {
     self.me.classList.add('reload');
@@ -33,6 +34,7 @@ function WidgetPreviewer(obj) {
       self.me.classList.add('video');
       self.me.classList.remove('image');
       if (url !== before || self.me.classList.contains('away')) {
+        self.me.classList.remove('z0r');
         var w, h;
         self.reset();
         if (self.ytReg.test(url)) {
@@ -41,6 +43,10 @@ function WidgetPreviewer(obj) {
         } else if (self.instaReg.test(url)) {
           w = 612;
           h = 710;
+        } else if (self.zorReg.test(url)){
+          w = 900;
+          h = 450;
+          self.me.classList.add('z0r');
         } else {
           w = 480;
           h = 480;
@@ -57,9 +63,10 @@ function WidgetPreviewer(obj) {
         }, 1);
       }
     } else {
+      self.me.classList.remove('z0r');
       self.me.classList.add('image');
       self.me.classList.remove('video');
-      self.videoElement.src = '';
+      self.videoElement.removeAttribute('src');
       self.imageElement.src = self.currentMedia;
       self.link.setAttribute('href', self.currentMedia);
       if (self.imageElement.complete) {
@@ -81,7 +88,7 @@ function WidgetPreviewer(obj) {
   }
 
   self.close = function close() {
-    self.videoElement.src = '';
+    self.videoElement.removeAttribute('src');
     self.me.classList.add('away');
   }
 
@@ -102,6 +109,9 @@ function WidgetPreviewer(obj) {
     self.me.style.height = newH + 'px';
     self.me.style.marginTop = (-(newH + self.close_btn.offsetHeight) / 2) + 'px';
     self.me.style.marginLeft = (-newW / 2) + 'px';
+    if(self.me.classList.contains('z0r')){
+      self.videoElement.style.height = (160 / newH * 100 + 100) + '%'; 
+    }
   }
 
   self.imageElement.onerror = function onImgError() {
