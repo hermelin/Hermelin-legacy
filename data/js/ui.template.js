@@ -533,6 +533,10 @@ ui.Template = {
       direct_base: 'http://www.youtube.com/embed/',
       direct_tail: '?rel=0&autoplay=1&autohide=1&color=white&showinfo=1&theme=light&start='
     },
+    'vine.co': {
+      reg: new RegExp('(https?:\\/\\/vine\\.co\\/v\\/([a-zA-Z0-9_\\-]+))', 'i'),
+      direct_tail: '/embed/simple?audio=1'
+    },
     'raw': {
       reg: new RegExp('[a-zA-Z]+:\\/\\/.+\\/.+\\.(jpg|jpeg|jpe|png|gif)', 'i')
     }
@@ -1547,11 +1551,11 @@ ui.Template = {
   },
 
 
-  form_media: function form_media(href, src, direct_url) {
+  form_media: function form_media(href, src, direct_url, video) {
     if (direct_url != undefined) {
-      return '<a direct_url="' + direct_url + '" href="' + href + '" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
+      return '<a video="'+ !!video +'" direct_url="' + direct_url + '" href="' + href + '" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     } else {
-      return '<a href="' + href + '" target="_blank" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
+      return '<a video="'+ !!video +'" href="' + href + '" target="_blank" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     }
   },
 
@@ -1595,6 +1599,15 @@ ui.Template = {
                 ui.Template.form_media(
                 match[0], match[0], match[0]));
               break;
+            case 'vine.co':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0],
+                '',
+                match[0] + link_reg[pvd_name].direct_tail,
+                true)
+              );
+              break;
             case 'youtube.com':
               var seconds = 0;
               var time = match[3];
@@ -1612,7 +1625,8 @@ ui.Template = {
                 ui.Template.form_media(
                 match[0],
                 link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail,
-                link_reg[pvd_name].direct_base + match[2] + link_reg[pvd_name].direct_tail + seconds)
+                link_reg[pvd_name].direct_base + match[2] + link_reg[pvd_name].direct_tail + seconds,
+                true)
               );
               break;
             }
