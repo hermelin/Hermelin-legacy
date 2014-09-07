@@ -491,39 +491,44 @@ ui.Template = {
 
   preview_link_reg: {
     'img.ly': {
-      reg: new RegExp('http:\\/\\/img.ly\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/img\\.ly\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://img.ly/show/thumb/',
       direct_base: 'http://img.ly/show/full/'
     },
     'twitpic.com': {
-      reg: new RegExp('http:\\/\\/twitpic.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/twitpic\\.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://twitpic.com/show/thumb/',
       direct_base: 'http://twitpic.com/show/full/'
     },
     'twitgoo.com': {
-      reg: new RegExp('http:\\/\\/twitgoo.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/twitgoo\\.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://twitgoo.com/show/thumb/',
       direct_base: 'http://twitgoo.com/show/img/'
     },
     'yfrog.com': {
-      reg: new RegExp('http:\\/\\/yfrog.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/yfrog\\.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: '.th.jpg'
     },
     'moby.to': {
-      reg: new RegExp('http:\\/\\/moby.to\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/moby\\.to\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: ':thumbnail'
     },
     'instagr.am': {
-      reg: new RegExp('http:\\/\\/instagr.am\\/p\\/([a-zA-Z0-9_\\-]+)\\/?', 'i'),
-      tail: 'media?size=m',
+      reg: new RegExp('http:\\/\\/instagr\\.am\\/p\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      tail: '/media?size=m',
       direct_tail: 'media?size=l'
+    },
+    'instagram.com': {
+      reg: new RegExp('http:\\/\\/(?:i\\.)?instagram\\.com\\/p\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      tail: '/media?size=m',
+      direct_tail: '/embed/'
     },
     'plixi.com': {
       reg: new RegExp('http:\\/\\/plixi.com\\/p\\/([a-zA-Z0-9_\\-]+)', 'i'),
       base: 'http://api.plixi.com/api/tpapi.svc/imagefromurl?size=thumbnail&url='
     },
     'picplz.com': {
-      reg: new RegExp('http:\\/\\/picplz.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
+      reg: new RegExp('http:\\/\\/picplz\\.com\\/([a-zA-Z0-9_\\-]+)', 'i'),
       tail: '/thumb/'
     },
     'youtube.com': {
@@ -1598,6 +1603,15 @@ ui.Template = {
               html_arr.push(
                 ui.Template.form_media(
                 match[0], match[0], match[0]));
+              break;
+            case 'instagram.com':
+              html_arr.push(
+                ui.Template.form_media(
+                match[0],
+                match[0] + link_reg[pvd_name].tail,
+                match[0] + link_reg[pvd_name].direct_tail,
+                true)
+              );
               break;
             case 'vine.co':
               html_arr.push(

@@ -11,6 +11,7 @@ function WidgetPreviewer(obj) {
   self.close_btn = self.me.getElementsByClassName('close')[0];
   self.ytReg = new RegExp('^http\\:\\/\\/www\\.youtube\\.com\\/embed\\/', 'i');
   self.vineReg = ui.Template.preview_link_reg['vine.co'].reg;
+  self.instaReg = ui.Template.preview_link_reg['instagram.com'].reg;
 
   self.reset = function reset() {
     self.me.classList.add('reload');
@@ -25,10 +26,10 @@ function WidgetPreviewer(obj) {
     self.videoElement.style.height = null;
   }
 
-  self.reload = function reload(url) {
+  self.reload = function reload(url, video) {
     var before = self.currentMedia;
     self.currentMedia = url;
-    if (self.ytReg.test(url) || self.vineReg.test(url)) {
+    if (video) {
       self.me.classList.add('video');
       self.me.classList.remove('image');
       if (url !== before || self.me.classList.contains('away')) {
@@ -37,6 +38,9 @@ function WidgetPreviewer(obj) {
         if (self.ytReg.test(url)) {
           w = 640;
           h = 360;
+        } else if (self.instaReg.test(url)) {
+          w = 612;
+          h = 710;
         } else {
           w = 480;
           h = 480;
