@@ -21,7 +21,7 @@ ui.Template = {
 
   reg_is_rtl: new RegExp('[\u0600-\u06ff]|[\ufe70-\ufeff]|[\ufb50-\ufdff]|[\u0590-\u05ff]'),
 
-  tweet_t: '<li id="{%ID%}" tweet_id="{%TWEET_ID%}" class="card {%SCHEME%} {%FAV_CLASS%}" type="tweet"  retweet_id="{%RETWEET_ID%}" reply_id="{%REPLY_ID%}" in_thread="{%IN_THREAD%}" reply_name="{%REPLY_NAME%}" screen_name="{%SCREEN_NAME%}" retweetable="{%RETWEETABLE%}" deletable="{%DELETABLE%}" link="{%LINK%}" style="font-family: {%TWEET_FONT%};">\
+  tweet_t: '<li id="{%ID%}" tweet_id="{%TWEET_ID%}" class="card {%SCHEME%} {%FAV_CLASS%} {%RT_CLASS%}" type="tweet"  retweet_id="{%RETWEET_ID%}" reply_id="{%REPLY_ID%}" in_thread="{%IN_THREAD%}" reply_name="{%REPLY_NAME%}" screen_name="{%SCREEN_NAME%}" retweetable="{%RETWEETABLE%}" deletable="{%DELETABLE%}" link="{%LINK%}" style="font-family: {%TWEET_FONT%};">\
     <div class="tweet_color_label" style="background-color:{%COLOR_LABEL%}"></div>\
     <div class="tweet_selected_indicator"></div>\
     <div class="tweet_fav_indicator"></div>\
@@ -80,7 +80,7 @@ ui.Template = {
     <span class="shape_mask"></span>\
 </li>',
 
-  retweeted_by_t: '<li id="{%ID%}" tweet_id="{%TWEET_ID%}" class="card {%SCHEME%} {%FAV_CLASS%}" type="tweet"  retweet_id="{%RETWEET_ID%}" reply_id="{%REPLY_ID%}" reply_name="{%REPLY_NAME%}" screen_name="{%SCREEN_NAME%}" retweetable="{%RETWEETABLE%}" deletable="{%DELETABLE%}" style="font-family: {%TWEET_FONT%};">\
+  retweeted_by_t: '<li id="{%ID%}" tweet_id="{%TWEET_ID%}" class="card {%SCHEME%} {%FAV_CLASS%} {%RT_CLASS%}" type="tweet"  retweet_id="{%RETWEET_ID%}" reply_id="{%REPLY_ID%}" reply_name="{%REPLY_NAME%}" screen_name="{%SCREEN_NAME%}" retweetable="{%RETWEETABLE%}" deletable="{%DELETABLE%}" style="font-family: {%TWEET_FONT%};">\
     <div class="tweet_active_indicator"></div>\
     <div class="tweet_selected_indicator"></div>\
     <div class="deleted_mark"></div>\
@@ -589,6 +589,7 @@ ui.Template = {
       SHORT_TIMESTAMP: '',
       TIMESTAMP: '',
       FAV_CLASS: '',
+      RT_CLASS: '',
       DELETABLE: '',
       TWEET_FONT_SIZE: '',
       TWEET_FONT: '',
@@ -635,6 +636,7 @@ ui.Template = {
       SHORT_TIMESTAMP: '',
       TIMESTAMP: '',
       FAV_CLASS: '',
+      RT_CLASS: '',
       DELETABLE: '',
       TWEET_FONT_SIZE: '',
       TWEET_FONT: '',
@@ -944,6 +946,7 @@ ui.Template = {
     m.SHORT_TIMESTAMP = created_at_short_str;
     m.TIMESTAMP = created_at_str;
     m.FAV_CLASS = tweet_obj.favorited ? 'faved' : '';
+    m.RT_CLASS = tweet_obj.retweeted ? 'retweeted' : '';
     m.DELETABLE = scheme == 'me' ? 'true' : 'false';
     m.TWEET_FONT_SIZE = globals.tweet_font_size;
     m.TWEET_FONT = globals.tweet_font;
@@ -1043,6 +1046,7 @@ ui.Template = {
     m.SHORT_TIMESTAMP = created_at_short_str;
     m.TIMESTAMP = created_at_str;
     m.FAV_CLASS = tweet_obj.favorited ? 'faved' : '';
+    m.RT_CLASS = tweet_obj.retweeted ? 'retweeted' : '';
     m.DELETABLE = scheme == 'me' ? 'true' : 'false';
     m.TWEET_FONT_SIZE = globals.tweet_font_size;
     m.TWEET_FONT = globals.tweet_font;

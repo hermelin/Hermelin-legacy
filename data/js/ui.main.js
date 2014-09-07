@@ -713,6 +713,24 @@ ui.Main = {
     });
   },
 
+  tweet_id_action: function tweet_id_action(id, action) {
+    var tweets = [];
+
+    function pushNode(tweet) {
+      tweets.push(tweet);
+    }
+    for (view in ui.Main.views) {
+      var body = ui.Main.views[view].__body;
+      var nodes = body.querySelectorAll('[tweet_id="' + id + '"]');
+      var rtNodes = body.querySelectorAll('[retweet_id="' + id + '"]');
+      Array.prototype.forEach.call(nodes, pushNode);
+      Array.prototype.forEach.call(rtNodes, pushNode);
+    }
+    tweets.forEach(function (tweet) {
+      action(tweet);
+    });
+  },
+
   bind_tweet_text_action: function bind_tweet_text_action(id) {
     $(id).find('.who_href').click(function (event) {
       if (event.which == 1) {
@@ -781,21 +799,25 @@ ui.Main = {
   },
 
   on_retweet_click: function on_retweet_click(btn, li_id, event) {
-    var li = $(li_id);
-    var id = (li.attr('retweet_id') == '' || li.attr('retweet_id') == undefined) ? li.attr('tweet_id') : li.attr('retweet_id');
-    if (li.hasClass('retweeted')) {
-      var rt_id = li.attr('my_retweet_id')
+    var li = document.getElementById(li_id.substring(1));
+    var id = (li.getAttribute('retweet_id') === '' || li.getAttribute('retweet_id') === undefined) ? li.getAttribute('tweet_id') : li.getAttribute('retweet_id');
+    if (li.classList.contains('retweeted')) {
+      var rt_id = li.getAttribute('my_retweet_id')
       toast.set(_('undo_retweeting_dots')).show(-1);
       globals.twitterClient.destroy_status(rt_id, function (result) {
         toast.set(_('undo_successfully')).show();
-        li.removeClass('retweeted');
+        ui.Main.tweet_id_action(id, function (tweet) {
+          tweet.classList.remove('retweeted');
+        });
       });
     } else {
       toast.set(_('retweeting_dots')).show(-1);
       globals.twitterClient.retweet_status(id, function (result) {
         toast.set(_('retweet_successfully')).show();
-        li.attr('my_retweet_id', result.id_str);
-        li.addClass('retweeted');
+        ui.Main.tweet_id_action(id, function (tweet) {
+          tweet.setAttribute('my_retweet_id', result.id_str);
+          tweet.classList.add('retweeted');
+        });
       });
     }
   },
@@ -866,19 +888,24 @@ ui.Main = {
   },
 
   on_fav_click: function on_fav_click(btn, li_id, event) {
-    var li = $(li_id);
-    var id = (li.attr('retweet_id') == '' || li.attr('retweet_id') == undefined) ? li.attr('tweet_id') : li.attr('retweet_id');
-    if (li.hasClass('faved')) {
+    var li = document.getElementById(li_id.substring(1));
+    var id = (li.getAttribute('retweet_id') === '' || li.getAttribute('retweet_id') === undefined) ? li.getAttribute('tweet_id') : li.getAttribute('retweet_id');
+
+    if (li.classList.contains('faved')) {
       toast.set(_('un_favorite_this_tweet_dots')).show(-1);
       globals.twitterClient.destroy_favorite(id, function (result) {
         toast.set(_('successfully')).show();
-        li.removeClass('faved');
+        ui.Main.tweet_id_action(id, function (tweet) {
+          tweet.classList.remove('faved');
+        });
       });
     } else {
       toast.set(_('favorite_this_tweet_dots')).show(-1);
       globals.twitterClient.create_favorite(id, function (result) {
         toast.set(_('successfully')).show();
-        li.addClass('faved');
+        ui.Main.tweet_id_action(id, function (tweet) {
+          tweet.classList.add('faved');
+        });
       });
     }
   },
