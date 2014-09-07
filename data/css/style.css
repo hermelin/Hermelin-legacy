@@ -1899,14 +1899,14 @@ pre {
   display: block;
 }
 
-#previewer .image {
+#previewer.image .image, #previewer.youtube .youtube {
   display: block;
   margin: 0 auto;
   width: 100%;
   height: 100%;
 }
 
-#previewer.reload .image {
+#previewer.image.reload .image, #previewer.youtube .image, #previewer.youtube.reload .youtube, #previewer.image .youtube{
   display: none;
 }
 

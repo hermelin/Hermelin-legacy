@@ -5,9 +5,11 @@ function WidgetPreviewer(obj) {
   self.me = obj;
   self.currentMedia = null;
   self.imageElement = self.me.getElementsByClassName('image')[0];
+  self.youtubeElement = self.me.getElementsByClassName('youtube')[0];
   self.progress = self.me.getElementsByClassName('image_progress')[0];
   self.link = self.me.getElementsByClassName('image_wrapper')[0];
   self.close_btn = self.me.getElementsByClassName('close')[0];
+  self.ytReg = new RegExp('^http\\:\\/\\/www\\.youtube\\.com\\/embed\\/','i');
 
   self.reset = function reset() {
     self.me.classList.add('reload');
@@ -23,18 +25,34 @@ function WidgetPreviewer(obj) {
   self.reload = function reload(url) {
     var before = self.currentMedia;
     self.currentMedia = url;
-    self.imageElement.src = self.currentMedia;
-    self.link.setAttribute('href', self.currentMedia);
-    if (self.imageElement.complete) {
-      if (url !== before || self.me.classList.contains('away')) {
+    if (self.ytReg.test(url)) {
+      self.me.classList.add('youtube');
+      self.me.classList.remove('image');
+      if(url !== before || self.me.classList.contains('away')){
+        self.youtubeElement.src = url;
         self.reset();
         window.setTimeout(function () {
           self.me.classList.remove('reload');
-          self.resize();
+          self.resize(self.youtubeElement.width, self.youtubeElement.height);
         }, 1);
       }
     } else {
-      self.reset();
+      self.me.classList.add('image');
+      self.me.classList.remove('youtube');
+      self.youtubeElement.src = '';
+      self.imageElement.src = self.currentMedia;
+      self.link.setAttribute('href', self.currentMedia);
+      if (self.imageElement.complete) {
+        if (url !== before || self.me.classList.contains('away')) {
+          self.reset();
+          window.setTimeout(function () {
+            self.me.classList.remove('reload');
+            self.resize(self.imageElement.naturalWidth, self.imageElement.naturalHeight);
+          }, 1);
+        }
+      } else {
+        self.reset();
+      }
     }
   }
 
@@ -43,33 +61,33 @@ function WidgetPreviewer(obj) {
   }
 
   self.close = function close() {
+    self.youtubeElement.src = '';
     self.me.classList.add('away');
   }
 
   self.imageElement.onload = function onImgLoad() {
     self.me.classList.remove('reload');
-    self.resize();
+    self.resize(self.imageElement.naturalWidth, self.imageElement.naturalHeight);
   }
 
-  self.resize = function resize() {
-    var img = self.imageElement;
+  self.resize = function resize(w, h) {
     var scale = 1;
-    var xScale = ((0.85 * window.innerHeight) / img.naturalHeight);
-    var yScale = ((0.85 * window.innerWidth) / img.naturalWidth);
+    var xScale = ((0.85 * window.innerWidth) / w);
+    var yScale = ((0.85 * window.innerHeight) / h);
     scale = Math.min(scale, xScale);
     scale = Math.min(scale, yScale);
-    var w = scale * img.naturalWidth;
-    var h = scale * img.naturalHeight;
-    self.me.style.width = w + 'px';
-    self.me.style.height = h + self.close_btn.offsetHeight + 'px';
-    self.me.style.marginTop = (-(h + self.close_btn.offsetHeight) / 2) + 'px';
-    self.me.style.marginLeft = (-w / 2) + 'px';
+    var newW = scale * w;
+    var newH = scale * h;
+    self.me.style.width = newW + 'px';
+    self.me.style.height = newH + self.close_btn.offsetHeight + 'px';
+    self.me.style.marginTop = (-(newH + self.close_btn.offsetHeight) / 2) + 'px';
+    self.me.style.marginLeft = (-newW / 2) + 'px';
   }
 
   self.imageElement.onerror = function onImgError() {
     self.me.classList.add('error');
   }
-  
+
   self.imageElement.onabort = function onImgError() {
     self.me.classList.add('error');
   }

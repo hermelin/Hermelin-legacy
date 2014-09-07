@@ -527,9 +527,11 @@ ui.Template = {
       tail: '/thumb/'
     },
     'youtube.com': {
-      reg: new RegExp('https?:\\/\\/(www\\.)?(?:youtube\\.com\\/watch(?:\\?v\\=|\\?.*\\&v\\=|\\/v\\/)|youtu\\.be\\/)([A-Za-z0-9_\\-]+).*', 'i'),
+      reg: new RegExp('https?:\\/\\/(www\\.)?(?:youtube\\.com\\/watch(?:\\?v\\=|\\?.*\\&v\\=|\\/v\\/)|youtu\\.be\\/)([A-Za-z0-9_\\-]+).*?(?:(?:\\&|\\?)t=(([0-9]+(?:m|s))([0-9]+(?:m|s))?|(?:[0-9]+)))?.*', 'i'),
       base: 'http://img.youtube.com/vi/',
       tail: '/0.jpg',
+      direct_base: 'http://www.youtube.com/embed/',
+      direct_tail: '?rel=0&autoplay=1&autohide=1&color=white&showinfo=1&theme=light&start='
     },
     'raw': {
       reg: new RegExp('[a-zA-Z]+:\\/\\/.+\\/.+\\.(jpg|jpeg|jpe|png|gif)', 'i')
@@ -1594,9 +1596,24 @@ ui.Template = {
                 match[0], match[0], match[0]));
               break;
             case 'youtube.com':
+              var seconds = 0;
+              var time = match[3];
+              if(match[3]){
+                if(match[4]){
+                  seconds+= parseInt(match[4])*((match[4].slice(-1)==='m')?60:1);
+                  if(match[5]){
+                    seconds+= parseInt(match[5])*((match[5].slice(-1)==='m')?60:1);
+                  }
+                } else{
+                  seconds = parseInt(match[3]);
+                }
+              }
               html_arr.push(
                 ui.Template.form_media(
-                match[0], link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail));
+                match[0],
+                link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail,
+                link_reg[pvd_name].direct_base + match[2] + link_reg[pvd_name].direct_tail + seconds)
+              );
               break;
             }
           }
