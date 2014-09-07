@@ -1429,19 +1429,37 @@ ui.Template = {
   form_entities: function form_entities(obj) {
     var html = obj.text;
     var entities = [];
-    
+    var dm;
+
+    if (obj.recipient) {
+      dm = true;
+    }
+
+    if (dm && obj.entities && obj.entities.media) {
+      //filter out entities that exist twice
+      obj.entities.media.forEach(function (media) {
+        obj.entities.urls.forEach(function (url, i) {
+          if (url.indices && url.indices[0] === media.indices[0]) {
+            obj.entities.urls[i] = {}
+          }
+        });
+      });
+    }
+
     //collect all the entities
     if (obj.entities) {
       for (var prop in obj.entities) {
         if (obj.entities.hasOwnProperty(prop)) {
-          obj.entities[prop].forEach(function(entity){
-            entity.entityType = prop;
-            entities.push(entity);
+          obj.entities[prop].forEach(function (entity) {
+            if (!(prop === 'urls' && !entity.hasOwnProperty('url'))) {
+              entity.entityType = prop;
+              entities.push(entity);
+            }
           });
         }
       }
     }
-    
+
     //sort them after their firct indices
     entities.sort(function (a, b) {
       return a.indices[0] - b.indices[0];
@@ -1451,11 +1469,11 @@ ui.Template = {
     var previewEntities = [];
     var last = 0;
     var diff = 0;
-    entities.forEach(function(entity){
+    entities.forEach(function (entity) {
       var text_between = html.slice(last, diff + entity.indices[0]);
       textBlocks.push(ui.Template.convert_chars(text_between));
       last += text_between.length;
-      
+
 
       switch (entity.entityType) {
       case 'hashtags':
@@ -1475,11 +1493,12 @@ ui.Template = {
           entity.expanded_url + '" target="_blank">' +
           entity.display_url + '</a>');
         previewEntities.push(entity);
-        last += entity.expanded_url.length;
+        var url = dm ? entity.url : entity.expanded_url;
+        last += url.length;
         break;
       case 'user_mentions':
         textBlocks.push('<a class="who_href" href="#' +
-          entity.screen_name + '" title="'+
+          entity.screen_name + '" title="' +
           entity.name + '">@' +
           entity.screen_name + '</a>');
         last += entity.screen_name.length + 1;
@@ -1489,17 +1508,18 @@ ui.Template = {
           entity.expanded_url + '" target="_blank">' +
           entity.display_url + '</a>');
         previewEntities.push(entity);
-        last += entity.expanded_url.length;
+        var url = dm ? entity.url : entity.expanded_url;
+        last += url.length;
         break;
       default:
         console.error('Invalid entity type: ' + entity.entityType);
       }
       diff = last - entity.indices[1];
     });
-    
+
     textBlocks.push(ui.Template.convert_chars(html.slice(last, html.length)));
     html = textBlocks.join('');
-    
+
     var previewHtml = ui.Template.form_preview(previewEntities);
     if (conf.get_current_profile().preferences.filter_nsfw_media && obj.text.match(/nsfw/ig)) {
       previewHtml = ['<i>NSFW image hidden</i>'];
@@ -1516,7 +1536,7 @@ ui.Template = {
   // function, to do the modifications.
   form_text: function form_text(tweet) {
     //hermelin_log('form_text in', tweet.text);
-    var withEntity= ui.Template.form_entities(tweet.retweet_status||tweet);
+    var withEntity = ui.Template.form_entities(tweet.retweet_status || tweet);
     var text = withEntity.html;
     //text = text.replace(ui.Template.reg_list, '$1@<a class="list_href" href="#$2">$2</a>');
     /*text = text.replace(ui.Template.reg_link_g, function replace_url(url) {
@@ -1558,9 +1578,9 @@ ui.Template = {
 
   form_media: function form_media(href, src, direct_url, video) {
     if (direct_url != undefined) {
-      return '<a video="'+ !!video +'" direct_url="' + direct_url + '" href="' + href + '" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
+      return '<a video="' + !!video + '" direct_url="' + direct_url + '" href="' + href + '" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     } else {
-      return '<a video="'+ !!video +'" href="' + href + '" target="_blank" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
+      return '<a video="' + !!video + '" href="' + href + '" target="_blank" class="previewImg" style="background-image: url(\'' + src + '\');"></a>';
     }
   },
 
@@ -1578,69 +1598,69 @@ ui.Template = {
             case 'twitpic.com':
               html_arr.push(
                 ui.Template.form_media(
-                match[0], link_reg[pvd_name].base + match[1],
-                link_reg[pvd_name].direct_base + match[1]));
+                  match[0], link_reg[pvd_name].base + match[1],
+                  link_reg[pvd_name].direct_base + match[1]));
               break;
             case 'instagr.am':
               html_arr.push(
                 ui.Template.form_media(
-                match[0], match[0] + link_reg[pvd_name].tail,
-                match[0] + link_reg[pvd_name].direct_tail));
+                  match[0], match[0] + link_reg[pvd_name].tail,
+                  match[0] + link_reg[pvd_name].direct_tail));
               break;
             case 'yfrog.com':
             case 'moby.to':
             case 'picplz.com':
               html_arr.push(
                 ui.Template.form_media(
-                match[0], match[0] + link_reg[pvd_name].tail));
+                  match[0], match[0] + link_reg[pvd_name].tail));
               break;
             case 'plixi.com':
               html_arr.push(
                 ui.Template.form_media(
-                match[0], link_reg[pvd_name].base + match[0]));
+                  match[0], link_reg[pvd_name].base + match[0]));
               break;
             case 'raw':
               html_arr.push(
                 ui.Template.form_media(
-                match[0], match[0], match[0]));
+                  match[0], match[0], match[0]));
               break;
             case 'instagram.com':
               html_arr.push(
                 ui.Template.form_media(
-                match[0],
-                match[0] + link_reg[pvd_name].tail,
-                match[0] + link_reg[pvd_name].direct_tail,
-                true)
+                  match[0],
+                  match[0] + link_reg[pvd_name].tail,
+                  match[0] + link_reg[pvd_name].direct_tail,
+                  true)
               );
               break;
             case 'vine.co':
               html_arr.push(
                 ui.Template.form_media(
-                match[0],
-                '',
-                match[0] + link_reg[pvd_name].direct_tail,
-                true)
+                  match[0],
+                  '',
+                  match[0] + link_reg[pvd_name].direct_tail,
+                  true)
               );
               break;
             case 'youtube.com':
               var seconds = 0;
               var time = match[3];
-              if(match[3]){
-                if(match[4]){
-                  seconds+= parseInt(match[4])*((match[4].slice(-1)==='m')?60:1);
-                  if(match[5]){
-                    seconds+= parseInt(match[5])*((match[5].slice(-1)==='m')?60:1);
+              if (match[3]) {
+                if (match[4]) {
+                  seconds += parseInt(match[4]) * ((match[4].slice(-1) === 'm') ? 60 : 1);
+                  if (match[5]) {
+                    seconds += parseInt(match[5]) * ((match[5].slice(-1) === 'm') ? 60 : 1);
                   }
-                } else{
+                } else {
                   seconds = parseInt(match[3]);
                 }
               }
               html_arr.push(
                 ui.Template.form_media(
-                match[0],
-                link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail,
-                link_reg[pvd_name].direct_base + match[2] + link_reg[pvd_name].direct_tail + seconds,
-                true)
+                  match[0],
+                  link_reg[pvd_name].base + match[2] + link_reg[pvd_name].tail,
+                  link_reg[pvd_name].direct_base + match[2] + link_reg[pvd_name].direct_tail + seconds,
+                  true)
               );
               break;
             }
@@ -1650,9 +1670,9 @@ ui.Template = {
         // twitter official picture service
         html_arr.push(
           ui.Template.form_media(
-          entities[i].expanded_url,
-          entities[i].media_url_https + ':thumb',
-          entities[i].media_url_https + ':large'));
+            entities[i].expanded_url,
+            entities[i].media_url_https + ':thumb',
+            entities[i].media_url_https + ':large'));
       }
     }
     /*if (conf.get_current_profile().preferences.filter_nsfw_media && tweet.text.match(/nsfw/ig))
