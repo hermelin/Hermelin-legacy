@@ -1442,26 +1442,63 @@ ui.Template = {
       dm = true;
     }
 
+    var ignore = {
+      media: [],
+      urls: []
+    };
+
     if (dm && obj.entities && obj.entities.media) {
       //filter out entities that exist twice
+      //dms have an url as well as an media entity for an image
       obj.entities.media.forEach(function (media) {
-        obj.entities.urls.forEach(function (url, i) {
-          if (url.indices && url.indices[0] === media.indices[0]) {
-            obj.entities.urls[i] = {}
-          }
-        });
+        ignore.urls.push(media.expanded_url);
       });
     }
 
-    //collect all the entities
+    if (obj.extended_entities) {
+      for (var prop in obj.extended_entities) {
+        if (obj.extended_entities.hasOwnProperty(prop)) {
+          obj.extended_entities[prop].forEach(function (entity, i) {
+            entity.entityType = prop;
+            if (i === 0) {
+              //first entity in array
+              //make sure the normal media tag won't get shown
+              ignore.media.push(entity.expanded_url);
+              if (dm) {
+                ignore.urls.push(entity.expanded_url);
+              }
+            } else {
+              entity.extended = true;
+              //don't handle the first entity in an array of extended
+              //entities as an extended entity so the link gets shown once in the tweet
+            }
+            entities.push(entity);
+          });
+        }
+      }
+    }
+
+    //collect all the normal entities
     if (obj.entities) {
       for (var prop in obj.entities) {
         if (obj.entities.hasOwnProperty(prop)) {
           obj.entities[prop].forEach(function (entity) {
-            if (!(prop === 'urls' && !entity.hasOwnProperty('url'))) {
+
+            var ignored = false;
+
+            if (ignore[prop] && ignore[prop].length > 0) {
+              ignore[prop].forEach(function (ignored_url) {
+                if (entity.expanded_url === ignored_url) {
+                  ignored = true;
+                }
+              });
+            }
+
+            if (!ignored) {
               entity.entityType = prop;
               entities.push(entity);
             }
+
           });
         }
       }
@@ -1511,12 +1548,14 @@ ui.Template = {
         last += entity.screen_name.length + 1;
         break;
       case 'media':
-        textBlocks.push('<a href="' +
-          entity.expanded_url + '" target="_blank">' +
-          entity.display_url + '</a>');
+        if (!entity.extended) {
+          textBlocks.push('<a href="' +
+            entity.expanded_url + '" target="_blank">' +
+            entity.display_url + '</a>');
+          var url = dm ? entity.url : entity.expanded_url;
+          last += url.length;
+        }
         previewEntities.push(entity);
-        var url = dm ? entity.url : entity.expanded_url;
-        last += url.length;
         break;
       default:
         console.error('Invalid entity type: ' + entity.entityType);
