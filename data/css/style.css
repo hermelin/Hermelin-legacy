@@ -417,9 +417,13 @@ pre {
   padding: 0 10px;
 }
 #status_box.reply_mode .reply_status_info {
-  background:-webkit-gradient(linear, left top, left bottom, from(#f6dcb5), to(#f3c889));
-  color: #502805;
+  background-color: #5cb4dd;
+  font-style: italic;
+  color: #fff;
   display: block;
+}
+#status_box.reply_mode .reply_status_info .who{
+  font-weight: bold;
 }
 #status_box.dm_mode .dm_status_info {
   display: block;

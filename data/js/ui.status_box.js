@@ -574,7 +574,7 @@ ui.StatusBox = {
 
   set_reply_info: function set_reply_info(name, text) {
     $('#status_box .quote').text(text);
-    $('#status_box .who').text(name);
+    $('#status_box .who').text(name + ':');
   },
 
   set_dm_target: function set_dm_target(screen_name) {
