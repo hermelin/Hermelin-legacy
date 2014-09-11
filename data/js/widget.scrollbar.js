@@ -85,6 +85,7 @@
 
     Scrollbar.prototype.deactivate = function () {
       this.on_active = false;
+      root._active_scrollbar = null;
       return this.track.removeClass('active');
     };
 
