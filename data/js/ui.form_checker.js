@@ -80,7 +80,7 @@ ui.FormChecker = {
     if (typeof (file) != 'string') {
       filename = file.name;
     }
-    if (/.*(jpg|jpeg|png|gif)$/i.test(filename)) {
+    if (/\.(jpg|jpeg|png|gif)$/i.test(filename)) {
       ret = true;
     }
     return ret;

@@ -384,10 +384,6 @@ function init_dialogs() {
   globals.prefs_dialog.resize(600, 600);
   globals.prefs_dialog.create();
 
-  globals.imageuploader_dialog = new widget.Dialog('#imageuploader_dlg');
-  globals.imageuploader_dialog.resize(600, 600);
-  globals.imageuploader_dialog.create();
-
   globals.imagepreview_dialog = new widget.Dialog('#imagepreview_dlg');
   globals.imagepreview_dialog.resize(1800, 1800);
   globals.imagepreview_dialog.create();
@@ -433,7 +429,6 @@ function init_ui() {
   ui.KismetDlg.init();
   ui.ExtsDlg.init();
   ui.ErrorDlg.init();
-  ui.ImageUploader.init();
   ui.AboutDlg.init();
   ui.Finder.init();
   ui.ActionMenu.init();
@@ -732,9 +727,6 @@ function on_load_finish() {
       // is disabled for conflicting with HTML5 DND
       if (util.is_native_platform()) {
         $('#tbox_status').attr('placeholder', 'Share something new ...');
-        $('#imageuploader_dlg .drag_hint').hide();
-      } else {
-        $('#imageuploader_dlg .preview_hint').hide();
       }
       $(window).dequeue('_on_load_finish');
     });

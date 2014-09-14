@@ -225,6 +225,28 @@ function TwitterClient() {
 
     self.network.do_request('POST', url, params, headers, [['media', filename]], on_success, on_error);
   };
+  
+  self.post_media = function post_media(file, file_data, on_success, on_error){
+    var url = self.api_base.replace('api', 'upload') + 'media/upload.json';
+    var signed_params = self.oauth.form_signed_params(
+      url, self.oauth.access_token, 'POST', {},
+      true);
+    var params = {
+      'type': 'photo'
+    };
+    $.extend(params, signed_params);
+    var auth_str = 'OAuth oauth_consumer_key="' + signed_params.oauth_consumer_key + '"' + ', oauth_signature_method="' + signed_params.oauth_signature_method + '"' + ', oauth_token="' + signed_params.oauth_token + '"' + ', oauth_timestamp="' + signed_params.oauth_timestamp + '"' + ', oauth_nonce="' + signed_params.oauth_nonce + '"' + ', oauth_version="' + signed_params.oauth_version + '"' + ', oauth_signature="' + encodeURIComponent(signed_params.oauth_signature) + '"';
+    var headers = {
+      'Authorization': auth_str
+    };
+    
+    var form_data = self.network.encode_multipart_formdata(
+      params, file, 'media_data[]', file_data);
+    $.extend(headers, form_data[0]);
+
+    self.network.do_request('POST', url, signed_params, headers, form_data[1] // body
+    , on_success, on_error);
+  };
 
   self.retweet_status = function retweet_status(retweet_id, on_success) {
     var url = self.api_base + 'statuses/retweet/' + retweet_id + '.json';

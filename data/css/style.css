@@ -246,28 +246,28 @@ pre {
   padding: 5px 8px;
 }
 #status_image_preview_wrapper {
-  height: 160px;
-  width: 145px;
-  float: left;
-  padding-right: 24px;
-  box-sizing: border-box;
+  width: 100%;
+  box-sizing: content-box;
   display: none;
+  position: relative;
+  border-top: #ccc 1px solid;
 }
-#status_image_preview_wrapper .close_btn {
+.status_image_preview .close_btn {
   display: block;
   height: 24px;
   width: 24px;
   background-position: center;
-  float: right;
   position: relative;
-  left: 24px;
+  left: 50px;
 }
-#status_image_preview {
+.status_image_preview {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin-right: 24px;
 }
 #status_smiley {
   width: 100%;
@@ -303,9 +303,11 @@ pre {
   padding: 3px 6px;
 }
 #status_ctrl {
-  y padding: 5px 0;
+  padding: 5px 0;
+  clear: left;
   text-align: right;
   vertical-align: middle;
+  border-top: #ccc 1px solid;
 }
 #status_ctrl * {
   vertical-align:top;
@@ -1753,64 +1755,6 @@ pre {
 #kismet_color_list a {
   padding-left: 40px;
   text-decoration: none;
-}
-/*===== ImageUploader Dialog ================================*/
- #imageuploader_dlg {
-}
-#imageuploader_dlg .dialog_header {
-  height: 0px;
-  padding: 0;
-  border: none;
-}
-#imageuploader_dlg .dialog_body {
-  height: 500px;
-}
-#imageuploader_dlg .dialog_footer {
-  height: 30px;
-  padding: 10px;
-}
-#imageuploader_dlg .service_list {
-  list-style-type: none;
-  text-align: center;
-  font-size: 14px;
-}
-#imageuploader_dlg .service_list li {
-  display: inline-block;
-  margin: 0 5px;
-}
-#imageuploader_dlg .service {
-  display: inline-block;
-  padding: 5px;
-  text-decoration: none;
-  color: #333;
-}
-#imageuploader_dlg .service.selected {
-  background: #f2f2f2;
-}
-#imageuploader_dlg .service:hover {
-  background: #36c;
-  color: white;
-}
-#imageuploader_dlg .dragarea {
-  border: 4px #CCC dashed;
-  padding: 20px;
-  font-size: 20px;
-  min-height: 200px;
-  vertical-align: middle;
-  color: #888;
-  height: 250px;
-}
-#imageuploader_dlg .preview {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  margin-top: 20px;
-  height: 200px;
-}
-#imageuploader_dlg .message {
-  width: 95%;
-  height: 30px;
 }
 /*===== Previewer ================================*/
 #previewer {

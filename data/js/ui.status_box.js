@@ -22,12 +22,14 @@ ui.StatusBox = {
   isClosed: true,
 
   reg_fake_dots: null,
-  
+
   textNameComp: null,
-  
+
   dmNameComp: null,
-  
+
   hashtagComp: null,
+
+  images: [],
 
   last_sent_text: '',
 
@@ -35,13 +37,19 @@ ui.StatusBox = {
 
   get_status_len: function get_status_len(status_text) {
     var rep_url = function (url) {
-      if (url.length > 20) {
-        return '01234567890123456789';
+      if (url.length > 22) {
+        return '0123456789012345678901';
       } else {
         return url;
       }
     }
-    return status_text.replace(ui.Template.reg_link_g, rep_url).length
+    var length = status_text.replace(ui.Template.reg_link_g, rep_url).length;
+    if (ui.ImageUploader.service_name === 'twitter.com') {
+      length += (ui.StatusBox.images.length > 0) ? 22 : 0;
+    } else {
+      length += ui.StatusBox.images.length * 22;
+    }
+    return length;
   },
 
   // This inits all jquery events for the status update dialog box
@@ -62,17 +70,17 @@ ui.StatusBox = {
           toast.set('Using super powers to compress ...').show();
           globals.network.do_request('POST',
             'http://hotot.in/create.json', {
-            'text': status_text,
-            'name': globals.myself.screen_name,
-            'avatar': globals.myself.profile_image_url
-          }, {},
+              'text': status_text,
+              'name': globals.myself.screen_name,
+              'avatar': globals.myself.profile_image_url
+            }, {},
             null, function (result) {
-            if (result && result.text) {
-              ui.StatusBox.update_status(result.text);
-            }
-          }, function () {
-            toast.set('but I failed :( ...').show();
-          });
+              if (result && result.text) {
+                ui.StatusBox.update_status(result.text);
+              }
+            }, function () {
+              toast.set('but I failed :( ...').show();
+            });
         }
         return;
       }
@@ -115,8 +123,10 @@ ui.StatusBox = {
     toggle_mode.create();
 
     $('#btn_smiley').click(function () {
-      $('#tbox_status').hide();
-      $('#status_smiley').show();
+      //$('#tbox_status').hide();
+      $('#tbox_status').toggle();
+      $('#status_smiley').toggle();
+      //$('#status_smiley').show();
     });
 
     $('#status_smiley .close_btn').click(function () {
@@ -200,28 +210,47 @@ ui.StatusBox = {
     }).bind('dragend', function () {
       return false;
     }).bind('drop', function (ev) {
-      ui.StatusBox.file = ev.originalEvent.dataTransfer.files[0];
+      //ui.StatusBox.file = ev.originalEvent.dataTransfer.files[0];
+      var files = ev.originalEvent.dataTransfer.files;
+      //convert filelist to array
+      files = Array.prototype.slice.call(files);
 
-      if (!ui.FormChecker.test_file_image(ui.StatusBox.file)) {
-        toast.set(ui.FormChecker.ERR_STR_FILE_IS_NOT_IMAGE).show(3);
-        return false;
-      }
+      files.forEach(function (file, i) {
+        if (!ui.FormChecker.test_file_image(file)) {
+          /*toast.set(ui.FormChecker.ERR_STR_FILE_IS_NOT_IMAGE).show(3);
+          return false;*/
+          files.splice(i, 1);
+        }
+      });
 
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('#status_image_preview')
-          .css('background-image', 'url(' + e.target.result + ')');
-      }
-      reader.readAsDataURL(ui.StatusBox.file);
-      ui.StatusBox.change_mode(ui.StatusBox.MODE_IMG);
+      files.forEach(function (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+
+          var imgE = document.createElement('div');
+          imgE.classList.add('status_image_preview');
+          imgE.style.backgroundImage = 'url(' + e.target.result + ')';
+
+          var imgClose = document.createElement('a');
+          imgClose.classList.add('close_btn', 'ic_close');
+          imgClose.setAttribute('href', '#');
+          imgClose.onclick = ui.StatusBox.on_img_close_btn_clicked;
+
+          imgE.appendChild(imgClose);
+
+          ui.StatusBox.images.push({
+            'file': file,
+            'imgE': imgE
+            });
+          document.getElementById('status_image_preview_wrapper').appendChild(imgE);
+
+          ui.StatusBox.update_status_len();
+        }
+        reader.readAsDataURL(file);
+
+        ui.StatusBox.change_mode(ui.StatusBox.MODE_IMG);
+      });
       return false;
-    });
-
-    $('#status_image_preview_wrapper .close_btn').click(function () {
-      ui.StatusBox.file = null;
-      $('#status_image_preview').css('background-image', 'none');
-      $('#tbox_status').val('');
-      ui.StatusBox.change_mode(ui.StatusBox.MODE_TWEET);
     });
 
     $('#tbox_status_speech').bind('focus', function (event) {
@@ -260,7 +289,7 @@ ui.StatusBox = {
 
     // setup autocomplete for user names and hashtags
     var getScreenNames = function (word, cb) {
-      db.get_screen_names_starts_with(word.substring(0,1).search(/[@＠]/)===0?word.substring(1):word, function (tx, rs) {
+      db.get_screen_names_starts_with(word.substring(0, 1).search(/[@＠]/) === 0 ? word.substring(1) : word, function (tx, rs) {
         var result_list = []
         for (var i = 0, l = rs.rows.length; i < l; i += 1) {
           result_list.push('@' + rs.rows.item(i).screen_name)
@@ -268,23 +297,37 @@ ui.StatusBox = {
         cb(result_list);
       });
     };
-    
+
     var getHashtags = function (word, cb) {
       db.get_hashtags_starts_with(word.substring(1), function (tx, rs) {
         var result_list = []
         for (var i = 0, l = rs.rows.length; i < l; i += 1) {
-          result_list.push(word.substring(0,1) + rs.rows.item(i).hashtag)
+          result_list.push(word.substring(0, 1) + rs.rows.item(i).hashtag)
         }
         cb(result_list);
       });
     };
 
     ui.StatusBox.textNameComp = widget.autocomplete.connect(document.getElementById('tbox_status'), ui.Template.reg_user_name_chars, getScreenNames);
-    
+
     ui.StatusBox.hashtagComp = widget.autocomplete.connect(document.getElementById('tbox_status'), ui.Template.reg_hash_tag, getHashtags);
-    
+
     ui.StatusBox.dmNameComp = widget.autocomplete.connect(document.getElementById('tbox_dm_target'), new RegExp('[@＠]?[a-zA-Z0-9_]{1,20}'), getScreenNames);
 
+  },
+
+  on_img_close_btn_clicked: function on_img_close_btn_clicked(event) {
+    var that = this;
+    ui.StatusBox.images.forEach(function (image, i) {
+      if (image.imgE === that.parentElement) {
+        document.getElementById('status_image_preview_wrapper').removeChild(image.imgE);
+        ui.StatusBox.images.splice(i, 1);
+      }
+    });
+    if (ui.StatusBox.images.length === 0) {
+      $('.status_image_preview').css('background-image', 'none');
+      ui.StatusBox.change_mode(ui.StatusBox.MODE_TWEET);
+    }
   },
 
   resetSize: function resetSize() {
@@ -299,11 +342,11 @@ ui.StatusBox = {
       procs.push(function () {
         globals.network.do_request('GET',
           req_url, {}, {}, [], function (results) {
-          var text = $('#tbox_status').val();
-          text = text.replace(urls[i], results.data.url);
-          $('#tbox_status').val(text);
-          $(window).dequeue('_short_url');
-        }, function () {});
+            var text = $('#tbox_status').val();
+            text = text.replace(urls[i], results.data.url);
+            $('#tbox_status').val(text);
+            $(window).dequeue('_short_url');
+          }, function () {});
       });
     };
     var match = ui.Template.reg_link_g.exec($('#tbox_status').val());
@@ -336,6 +379,10 @@ ui.StatusBox = {
   },
 
   change_mode: function change_mode(mode) {
+    if (mode !== ui.StatusBox.MODE_IMG) {
+      ui.StatusBox.images = [];
+    }
+
     if (mode == ui.StatusBox.MODE_DM) {
       $('#status_box').removeClass('reply_mode').addClass('dm_mode');
       $('#tbox_dm_target').show();
@@ -345,13 +392,11 @@ ui.StatusBox = {
       $('#status_info').show();
       $('#tbox_dm_target').hide();
     } else if (mode == ui.StatusBox.MODE_IMG) {
-      $('#tbox_status_wrapper').css('margin-left', '145px');
       $('#status_image_preview_wrapper').show();
     } else {
       $('#status_box').removeClass('dm_mode').removeClass('reply_mode');
       $('#tbox_dm_target').hide();
       $('#status_info').hide();
-      $('#tbox_status_wrapper').css('margin-left', '0px');
       $('#status_image_preview_wrapper').hide();
     }
     ui.StatusBox.current_mode = mode;
@@ -412,7 +457,7 @@ ui.StatusBox = {
   update_status_cb: function update_status_cb(result) {
     toast.set(_('update_successfully')).show();
     ui.StatusBox.file = null;
-    $('#status_image_preview').css('background-image', 'none');
+    $('.status_image_preview').css('background-image', 'none');
     ui.Main.add_tweets(ui.Main.views['home'], [result], false, true);
     return this;
   },
@@ -442,9 +487,9 @@ ui.StatusBox = {
         toast.set(_('posting_dots')).show(-1);
         globals.twitterClient.new_direct_messages(
           message_text, null, name, ui.StatusBox.post_message_cb, function (xhr, textStatus, errorThrown) {
-          toast.set('Post failed! Saved as a draft.').show(3);
-          ui.StatusBox.save_draft(draft);
-        });
+            toast.set('Post failed! Saved as a draft.').show(3);
+            ui.StatusBox.save_draft(draft);
+          });
         ui.StatusBox.close();
       }
     }
@@ -473,14 +518,18 @@ ui.StatusBox = {
       break;
     }
     toast.set('Uploading ... ').show();
-    ui.ImageUploader.upload_image(
-      ui.ImageUploader.services[ui.ImageUploader.service_name].url, params, ui.StatusBox.file, ui.StatusBox.post_image_cb, function () {
-      toast.set('Failed!').show();
-      $('#status_image_preview').css('background-image', 'none');
-      $('#tbox_status').val('');
-      ui.StatusBox.file = null;
-      ui.StatusBox.change_mode(ui.StatusBox.MODE_TWEET);
-    });
+    if (ui.ImageUploader.service_name !== 'twitter.com') {
+      ui.ImageUploader.upload_image(
+        ui.ImageUploader.services[ui.ImageUploader.service_name].url, params, ui.StatusBox.images[0].file, ui.StatusBox.post_image_cb, function () {
+          toast.set('Failed!').show();
+          $('.status_image_preview').css('background-image', 'none');
+          $('#tbox_status').val('');
+          ui.StatusBox.file = null;
+          ui.StatusBox.change_mode(ui.StatusBox.MODE_TWEET);
+        });
+    } else {
+      
+    }
   },
 
   post_image_cb: function post_image_cb(result) {
@@ -560,7 +609,7 @@ ui.StatusBox = {
   reset: function reset() {
     ui.StatusBox.change_mode(ui.StatusBox.MODE_TWEET);
     $('#status_info').hide();
-    $('#status_image_preview').css('background-image', 'none');
+    $('.status_image_preview').css('background-image', 'none');
     $('#tbox_status').val('');
     ui.StatusBox.file = null;
     ui.StatusBox.reply_to_id = null;
