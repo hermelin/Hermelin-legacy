@@ -371,24 +371,20 @@ ui.Welcome = {
     conf.get_current_profile().order = Date.now();
     conf.save_prefs(conf.current_name);
 
-    setTimeout(function () {
-      document.getElementById('btn_my_profile').style.backgroundImage = 'url("' + globals.myself.profile_image_url + '")';
-    }, 100);
+    document.getElementById('btn_my_profile').style.backgroundImage = 'url("' + globals.myself.profile_image_url + '")';
     toast.set(_('authentication_ok')).show();
-    conf.load_prefs(conf.current_name, function () {
-      ui.Welcome.hide();
+    conf.load_prefs(conf.current_name, function () {    
       ui.Slider.resume_state();
       ui.Main.show();
-      globals.layout.open('north');
       kismet.load();
       var prefs = conf.get_current_profile().preferences;
       globals.readLaterServ.init(prefs.readlater_username, prefs.readlater_password);
       document.title = _('hermelin') + ' | ' + conf.current_name;
-
       hermelin_action('system/sign_in');
-      ui.Welcome.go.classList.remove('loading');
-      setTimeout(function () {
-        ui.Slider.slide_to('home');
+      ui.Slider.slide_to('home');
+      setTimeout(function(){
+        ui.Welcome.go.classList.remove('loading');
+        ui.Welcome.hide();
       }, 1000);
     });
   },
@@ -414,17 +410,23 @@ ui.Welcome = {
   },
 
   hide: function hide() {
-    util.fadeOut(this.me, {
-      noAnim: true
-    });
+    document.getElementById('bodyCover').style.display = 'block';
+    this.me.style.top = '-100%';
+    setTimeout(function(){
+      document.getElementById('bodyCover').style.display = 'none';
+    }, 600);
     return this;
   },
 
   show: function show() {
+    document.getElementById('bodyCover').style.display = 'block';
     var _this = this;
     conf.reload(function () {
-      util.fadeIn(_this.me);
+      _this.me.style.top = '0';
     });
+    setTimeout(function(){
+      document.getElementById('bodyCover').style.display = 'none';
+    }, 600);
     return this;
   }
 

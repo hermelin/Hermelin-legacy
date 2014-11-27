@@ -11,10 +11,9 @@
     <link id="theme" rel="stylesheet" href="theme/New Hope/style.css" type="text/css" media="screen" />
   </head>
   
-  <body style='background: transparent url(image/welcome_bg.jpg) no-repeat 0 0; background-size: cover;'>
+  <body>
     <!-- js -->
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.layout.js"></script>
     <script type="text/javascript" src="js/base64.js"></script>
     <script type="text/javascript" src="js/sha1.js"></script>
     <script type="text/javascript" src="js/lib.network.js"></script>
@@ -72,136 +71,89 @@
     <script async src="https://platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
     <!-- Main container -->
     <div id="container">
-      <section id="center">
-        <!-- welcome page -->
-        <div id="welcome_page" class="page">
-          <h1 data-i18n-text="hermelin">Hermelin</h1>
-          <div id="welcome_idicators">
-            <a id="btn_welcome_about" title="Help" href="#" data-i18n-text="help">Help</a>
-            <select id="sel_welcome_lang" class="combo dark" title="Select a language" style="height: 24px; line-height: 24px; width: 100px;" data-i18n-title="select_a_language">
-              <option value="auto" data-i18n-title="language">Language</option>
-              <option value="bg">Български</option>
-              <option value="bn">বাংলা</option>
-              <option value="ca">Català</option>
-              <option value="de">Deutsch</option>
-              <option value="el">ελληνικά</option>
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="it">Italian</option>
-              <option value="ja">日本語</option>
-              <option value="lv">Latviešu</option>
-              <option value="nl">Nederlands</option>
-              <option value="pl_PL">Polski</option>
-              <option value="pt_BR">Português(Brasil)</option>
-              <option value="ru">Русский</option>
-              <option value="uk">Українська</option>
-              <option value="zh_CAN">粤语</option>
-              <option value="zh_CLS">文言</option>
-              <option value="zh_CN">简体中文</option>
-              <option value="zh_TW">正體中文</option>
-            </select>
-          </div>
-          <div id="welcome_page_main">
-            <ul id="profile_avatar_list">
-              <li class="new_profile_item">
-                <a id="btn_new_profile_item" title="Create a new profile" href="default" idx="0" data-i18n-title="create_a_new_profile"></a>
-              </li>
-            </ul>
-            <h2 id="daily_hint" data-i18n-text="greeting">Greeting!</h2>
-            <div id="sign_in_block">
-              <div class="inner">
-                <a id="go" href="#"></a>
-                <div class="profile_title"></div>
-                <div id="service_page_twitter" class="service_tabs_page">
-                  <p style="font-style: italic;">
-                    <label id="access_token_status_hint" class="label" data-i18n-text="access_token_doesnt_exist">Access token doesn't exist.</label>
-                  </p>
-                  <p style="font-size: 10px; text-transform:uppercase">
-                    <a id="clear_token_btn" style="color:red; text-decoration:none;" title="Clear token" href="#" data-i18n-text="clear_token">clear token</a>
-                  </p>
-                </div>
-                <!--<div id="service_page_identica" class="service_tabs_page">
-                  <input id="tbox_basic_auth_username" class="entry" style="width: 120px;" type="text" value="" data-i18n-placeholder="username" placeholder="Username" />
-                  <input id="tbox_basic_auth_password" class="entry" style="width: 120px;" type="password" value="" data-i18n-placeholder="password" placeholder="Password" />
-                  <br/>
-                </div>-->
-                <div id="service_page_new" class="service_tabs_page">
-                  <ul id="service_chooser">
-                    <li>
-                      <a href="#twitter" title="Twitter" class="twitter selected">Twitter</a>
-                    </li>
-                    <!-- <li>
-                      <a href="#identica" title="Identi.ca" class="identica">Identi.ca</a>
-                    </li> -->
-                  </ul>
-                </div>
-              </div>
-              <!-- END of #sign_in_block .inner -->
-              <div style="clear:both"></div>
-              <div class="bottom">
-                <a id="btn_welcome_delete_profile" title="Delete this account" href="#" data-i18n-text="delete">Delete</a>
-                <a id="btn_welcome_prefs" title="Preferences" href="#" data-i18n-text="preferences">Preferences</a>
-              </div>
-            </div>
-            <!-- END of #sign_in_block -->
-          </div>
-          <!-- END of #welcome_page_main -->
-          <div id="welcome_page_loading">
-            <div class="inner">
-              <p>
-                <img src="image/ani_loading_bar.gif" />
-              </p>
-              <p data-i18n-text="loading_resources_hint">Loading Resources ...</p>
-            </div>
-          </div>
+      <!-- welcome page -->
+      <section id="welcome_page" class="page">
+        <h1 data-i18n-text="hermelin">Hermelin</h1>
+        <div id="welcome_idicators">
+          <a id="btn_welcome_about" title="Help" href="#" data-i18n-text="help">Help</a>
+          <select id="sel_welcome_lang" class="combo dark" title="Select a language" style="height: 24px; line-height: 24px; width: 100px;" data-i18n-title="select_a_language">
+            <option value="auto" data-i18n-title="language">Language</option>
+            <option value="bg">Български</option>
+            <option value="bn">বাংলা</option>
+            <option value="ca">Català</option>
+            <option value="de">Deutsch</option>
+            <option value="el">ελληνικά</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="it">Italian</option>
+            <option value="ja">日本語</option>
+            <option value="lv">Latviešu</option>
+            <option value="nl">Nederlands</option>
+            <option value="pl_PL">Polski</option>
+            <option value="pt_BR">Português(Brasil)</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="zh_CAN">粤语</option>
+            <option value="zh_CLS">文言</option>
+            <option value="zh_CN">简体中文</option>
+            <option value="zh_TW">正體中文</option>
+          </select>
         </div>
-        <!-- main layout -->
-        <div id="main_page" class="page">
-          <div id="main_page_slider"></div>
-          <div id="empty_view_hint">
-            <h2 data-i18n-text="hey">Hey!</h2>
-            <p data-i18n-text="you_dont_have_a_view">You don't have a view.</p>
-            <p data-i18n-text="you_should_surely_add_one_or_more_views_by_clicking_the_add_button_above">You should surely add one or more views by clicking the "Add" button above.</p>
-          </div>
-          <ul id="tweet_more_menu" class="hermelin_menu">
-            <li>
-              <a id="tweet_alt_retweet_btn" class="tweet_retweet tweet_more_menu_btn" title="Retweet this tweet" href="#" data-i18n-text="retweet">Retweet</a>
-            </li>
-            <li>
-              <a id="tweet_rt_btn" class="tweet_rt tweet_more_menu_btn" title="Quote this tweet" href="#" data-i18n-text="quote">Quote</a>
-            </li>
-            <li>
-              <a id="tweet_reply_all_btn" class="tweet_more_menu_btn" href="#" title="Reply All" data-i18n-text="reply_all">Reply All</a>
-            </li>
-            <li>
-              <a id="tweet_alt_reply_btn" class="tweet_reply tweet_more_menu_btn" title="Reply this tweet" href="#" data-i18n-text="reply">Reply</a>
-            </li>
-            <li>
-              <a id="tweet_dm_btn" class="tweet_more_menu_btn" href="#" title="Send Message to them" data-i18n-text="send_message">Send Message</a>
-            </li>
-            <li>
-              <a id="tweet_del_btn" class="tweet_more_menu_btn" href="#" title="Delete this tweet" data-i18n-text="delete">Delete</a>
-            </li>
-            <li class="separator">
-              <span></span>
-            </li>
-            <li>
-              <a id="tweet_set_color_btn" class="tweet_more_menu_btn" href="#" title="Set color label to the sender" data-i18n-text="label_with_color">Label with color</a>
-            </li>
-            <li>
-              <a id="tweet_filter_btn" class="tweet_more_menu_btn" href="#" title="Filter this tweet" data-i18n-text="filter_tweets_like_it">Filter tweets like it</a>
-            </li>
-            <li>
-              <a id="tweet_readlater_btn" class="tweet_more_menu_btn" href="#" title="Read Later" data-i18n-text="read_later">Read Later</a>
-            </li>
-            <li class="separator">
-              <span></span>
+        <div id="welcome_page_main">
+          <ul id="profile_avatar_list">
+            <li class="new_profile_item">
+              <a id="btn_new_profile_item" title="Create a new profile" href="default" idx="0" data-i18n-title="create_a_new_profile"></a>
             </li>
           </ul>
+          <h2 id="daily_hint" data-i18n-text="greeting">Greeting!</h2>
+          <div id="sign_in_block">
+            <div class="inner">
+              <a id="go" href="#"></a>
+              <div class="profile_title"></div>
+              <div id="service_page_twitter" class="service_tabs_page">
+                <p style="font-style: italic;">
+                  <label id="access_token_status_hint" class="label" data-i18n-text="access_token_doesnt_exist">Access token doesn't exist.</label>
+                </p>
+                <p style="font-size: 10px; text-transform:uppercase">
+                  <a id="clear_token_btn" style="color:red; text-decoration:none;" title="Clear token" href="#" data-i18n-text="clear_token">clear token</a>
+                </p>
+              </div>
+              <!--<div id="service_page_identica" class="service_tabs_page">
+                <input id="tbox_basic_auth_username" class="entry" style="width: 120px;" type="text" value="" data-i18n-placeholder="username" placeholder="Username" />
+                <input id="tbox_basic_auth_password" class="entry" style="width: 120px;" type="password" value="" data-i18n-placeholder="password" placeholder="Password" />
+                <br/>
+              </div>-->
+              <div id="service_page_new" class="service_tabs_page">
+                <ul id="service_chooser">
+                  <li>
+                    <a href="#twitter" title="Twitter" class="twitter selected">Twitter</a>
+                  </li>
+                  <!-- <li>
+                    <a href="#identica" title="Identi.ca" class="identica">Identi.ca</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+            <!-- END of #sign_in_block .inner -->
+            <div style="clear:both"></div>
+            <div class="bottom">
+              <a id="btn_welcome_delete_profile" title="Delete this account" href="#" data-i18n-text="delete">Delete</a>
+              <a id="btn_welcome_prefs" title="Preferences" href="#" data-i18n-text="preferences">Preferences</a>
+            </div>
+          </div>
+          <!-- END of #sign_in_block -->
+        </div>
+        <!-- END of #welcome_page_main -->
+        <div id="welcome_page_loading">
+          <div class="inner">
+            <p>
+              <img src="image/ani_loading_bar.gif" />
+            </p>
+            <p data-i18n-text="loading_resources_hint">Loading Resources ...</p>
+          </div>
         </div>
       </section>
-      <!-- center -->
       <section id="header">
         <div id="header_inner">
           <div id="indication">
@@ -353,8 +305,52 @@
           </ul>
         </div>
       </section>
-      <section id="bottom"></section>
-      <!-- bottom -->
+      <section id="body">
+        <!-- main layout -->
+        <div id="main_page" class="page">
+          <div id="main_page_slider"></div>
+          <div id="empty_view_hint">
+            <h2 data-i18n-text="hey">Hey!</h2>
+            <p data-i18n-text="you_dont_have_a_view">You don't have a view.</p>
+            <p data-i18n-text="you_should_surely_add_one_or_more_views_by_clicking_the_add_button_above">You should surely add one or more views by clicking the "Add" button above.</p>
+          </div>
+          <ul id="tweet_more_menu" class="hermelin_menu">
+            <li>
+              <a id="tweet_alt_retweet_btn" class="tweet_retweet tweet_more_menu_btn" title="Retweet this tweet" href="#" data-i18n-text="retweet">Retweet</a>
+            </li>
+            <li>
+              <a id="tweet_rt_btn" class="tweet_rt tweet_more_menu_btn" title="Quote this tweet" href="#" data-i18n-text="quote">Quote</a>
+            </li>
+            <li>
+              <a id="tweet_reply_all_btn" class="tweet_more_menu_btn" href="#" title="Reply All" data-i18n-text="reply_all">Reply All</a>
+            </li>
+            <li>
+              <a id="tweet_alt_reply_btn" class="tweet_reply tweet_more_menu_btn" title="Reply this tweet" href="#" data-i18n-text="reply">Reply</a>
+            </li>
+            <li>
+              <a id="tweet_dm_btn" class="tweet_more_menu_btn" href="#" title="Send Message to them" data-i18n-text="send_message">Send Message</a>
+            </li>
+            <li>
+              <a id="tweet_del_btn" class="tweet_more_menu_btn" href="#" title="Delete this tweet" data-i18n-text="delete">Delete</a>
+            </li>
+            <li class="separator">
+              <span></span>
+            </li>
+            <li>
+              <a id="tweet_set_color_btn" class="tweet_more_menu_btn" href="#" title="Set color label to the sender" data-i18n-text="label_with_color">Label with color</a>
+            </li>
+            <li>
+              <a id="tweet_filter_btn" class="tweet_more_menu_btn" href="#" title="Filter this tweet" data-i18n-text="filter_tweets_like_it">Filter tweets like it</a>
+            </li>
+            <li>
+              <a id="tweet_readlater_btn" class="tweet_more_menu_btn" href="#" title="Read Later" data-i18n-text="read_later">Read Later</a>
+            </li>
+            <li class="separator">
+              <span></span>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
     <!-- container -->
     <!-- The section below is the definition of the 'dialog' where you enter a new status. The scripts for this dialog are in data/js/ui.status_box.js -->

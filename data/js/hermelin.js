@@ -850,10 +850,6 @@ var globals = {
 };
 
 jQuery(function ($) {
-  globals.layout = $("#container").layout(layout_opts);
-  globals.layout.close("west");
-  globals.layout.close("south");
-
   document.onkeyup = function (event) {
     if (!ui.ActionMenu.is_hide) {
       return ui.ActionMenu.handle_keyup(event.keyCode);
@@ -894,7 +890,6 @@ jQuery(function ($) {
   });
 
   var on_resize = function () {
-    update_tweet_block_width();
     if (globals.load_flags) {
       if (globals.load_flags == 2) {
         conf.settings.size_w = $(window).width();
@@ -909,6 +904,7 @@ jQuery(function ($) {
         }
       }
     }
+    update_tweet_block_width();
   }
   var resize_timer = false;
   window.onresize = function () {

@@ -86,7 +86,7 @@ daemon = {
       }
     }
     if (step != 0) {
-      toast.set('Updated ' + step + ' page(s) on schedule.').show();
+      //toast.set('Updated ' + step + ' page(s) on schedule.').show();
     }
   },
 

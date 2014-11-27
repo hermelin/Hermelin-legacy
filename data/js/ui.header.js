@@ -40,14 +40,14 @@ ui.Header = {
     $('#btn_sign_out').click(function (event) {
       ui.Slider.save_state();
       conf.save_prefs(conf.current_name, function () {
-        for (var k in ui.Main.views) {
-          ui.Slider.remove(ui.Main.views[k].name, true);
-        }
-        globals.layout.close('north');
-        globals.layout.close('south');
-        ui.Main.hide();
         ui.Welcome.load_profiles_info();
         ui.Welcome.show();
+        setTimeout(function(){
+          for (var k in ui.Main.views) {
+            ui.Slider.remove(ui.Main.views[k].name, true);
+          }
+          ui.Main.hide();
+        }, 600);
         daemon.stop();
       });
     });
