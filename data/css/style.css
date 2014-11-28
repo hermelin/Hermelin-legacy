@@ -59,7 +59,7 @@ pre {
   left: 0;
   right: 0;
   top: 61px;
-  bottom: 0;
+  height: calc(100% - 61px);
   width: 100%;
 }
 /* ===== header ==============================*/
