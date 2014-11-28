@@ -403,7 +403,7 @@ ui.PeopleView = {
         // and display request box.
         toggle_btns.style.display = 'none';
         request_hint.style.display = 'block'
-        btn_request.attr('href', conf.get_current_profile().preferences.base_url + user_obj.screen_name);
+        btn_request.setAttribute('href', conf.get_current_profile().preferences.base_url + user_obj.screen_name);
         self.protected_user = true;
       } else {
         btn_follow.textContent = _('follow');
