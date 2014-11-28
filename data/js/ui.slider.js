@@ -366,13 +366,68 @@ ui.Slider = {
     btn.unbind();
     btn.remove();
   },
+  
+  update_indication: function update_indication_light() {
+    var currentIdx = ui.Slider.get_page_pos(ui.Slider.current);
+    var allIdx = ui.Slider.displayed.map(function(id){
+      return ui.Slider.get_page_pos(id);
+    });
+    var relative_Idx = currentIdx - allIdx[0];
+    //now we have the current idx (e.g. 2), all viewed ([1,2,3])
+    //and the current relative to all (1)
+    
+    //all and relevant page buttons
+    var all_btns = document.querySelectorAll('#indication .system_view .indicator_btn, #indication .custom_view .indicator_btn');
+    var rel_btns = Array.prototype.slice.call(all_btns, allIdx[0], allIdx[allIdx.length - 1] + 1);
+    
+    //indication light
+    var light = document.getElementById('indication_light');
+    
+    if (rel_btns.length === 0) {
+      light.style.display = 'none';
+    } else {
+      light.style.display = 'block';
+      
+      var light_left_end = rel_btns[0].parentNode.offsetLeft; //also the offset
+      var light_right_end = rel_btns[rel_btns.length - 1].parentNode.offsetLeft + rel_btns[rel_btns.length - 1].parentNode.offsetWidth;
+      var light_w = light_right_end - light_left_end;
+
+      light.style.left = light_left_end + 'px';
+      light.style.width = light_w + 'px';
+
+      var light_left_part = document.getElementById('indication_light_left');
+      var light_right_part = document.getElementById('indication_light_right');
+      var light_center_parent = rel_btns[relative_Idx].parentNode
+      var light_center = light_center_parent.offsetLeft + (light_center_parent.offsetWidth / 2);
+      var relative_light_center = light_center - light_left_end;
+      var light_left_part_w = relative_light_center;
+      var light_right_part_w = light_w - relative_light_center +1; //+1 to prevent animation tearing
+      light_left_part.style.width = light_left_part_w + 'px';
+      light_right_part.style.width = light_right_part_w + 'px';
+    }
+      
+    //indication button classes
+    Array.prototype.forEach.call(all_btns, function(btn){
+      btn.classList.remove('selected');
+      btn.classList.remove('current');
+    });
+    rel_btns.forEach(function(btn) {
+      btn.classList.add('selected');
+      btn.classList.remove('unread');
+    });
+    rel_btns[relative_Idx].classList.add('current');
+    
+    //unselect tweets
+    ui.Main.selected_tweet_id2 = null;
+    ui.Main.selected_tweet_id = null;
+  },
 
   slide_to: function slide_to(id) {
     /* = 3 columns as example = 
      * idx:         0   1   2   3   4   5
      * fixed_idx:   0   1   2   3   3   3
      * page_ofst:   0   0   1   2   3   3
-     * displayed:  012 012 123 234 345 335
+     * displayed:  012 012 123 234 345 345
      */
     var idx = ui.Slider.get_page_pos(id);
     if (idx == -1) {
@@ -381,11 +436,6 @@ ui.Slider = {
     var width = globals.tweet_block_width;
     var max_col_num = ui.Slider.tweet_blocks.length;
     ui.Slider.current = id;
-
-    /*   var page_offset =  idx;
-    ui.Slider._me.style.marginLeft = (-1 * (page_offset-1)) + 'px';
-    ui.Slider._me.style.width = 'auto';*/
-
 
     var fixed_idx = idx + ui.Slider.column_num < max_col_num ? idx : max_col_num - ui.Slider.column_num;
     var page_offset = (fixed_idx == idx && 0 <= fixed_idx - parseInt(ui.Slider.column_num / 2)) ? fixed_idx - parseInt(ui.Slider.column_num / 2) : fixed_idx;
@@ -418,62 +468,7 @@ ui.Slider = {
         view_title.children('.close_btn').show();
       }
     }
-
-    // change indicators style
-    var all_btns = document.getElementById('indication').getElementsByClassName('indicator_btn');
-
-    if (ui.Slider.displayed.length === 0) return;
-    var cur_sel = []
-    for (var i = 0, j = 0; i < all_btns.length; i++) {
-      if (all_btns[i].parentNode.getAttribute('name') === ui.Slider.displayed[j]) {
-        cur_sel[cur_sel.length] = all_btns[i]
-        j++;
-        if (j === ui.Slider.displayed - 1) {
-          break;
-        }
-      }
-    }
-    var light = document.getElementById('indication_light');
-
-    var leftlight = document.getElementById('indication_light_left');
-    var rightlight = document.getElementById('indication_light_right');
-
-    var lightoffset = cur_sel[0].parentNode.offsetLeft;
-    light.style.left = lightoffset + 'px';
-    var lightwidth = cur_sel[cur_sel.length - 1].parentNode.offsetLeft - cur_sel[0].parentNode.offsetLeft + cur_sel[cur_sel.length - 1].parentNode.offsetWidth
-    light.style.width = lightwidth + 'px';
-
-    // remove selected style from the pre ones
-
-    for (var i = 0; i < all_btns.length; i++) {
-      all_btns[i].classList.remove('selected');
-      all_btns[i].classList.remove('current');
-    }
-    // add selected style to displayed pages' indicator
-    for (var i = 0; i < cur_sel.length; i++) {
-      if (cur_sel[i].parentNode.getAttribute('name') === ui.Slider.current) {
-        //transition from transparency to blue to transparency that starts on the left side
-        //is blue at the middle point of the current tab. i build it out of 2 divs, because
-        //transitions don't support gradients atm (they should though :v).
-        //since this is not everytime 100 percent accurate while transitioning (sometimes you can see a 1 px gap)
-        //i added 1 px to one of the lengths (you can't really see it).
-        
-        //mPoint is the relative distance to the left side of the whole light
-        var mPoint = (cur_sel[i].parentNode.offsetLeft - lightoffset) + (cur_sel[i].parentNode.offsetWidth / 2);
-        leftlight.style.width = mPoint  + 'px';
-        rightlight.style.width = (lightwidth - mPoint + 1) + 'px';
-        cur_sel[i].classList.add('current');
-      }
-      cur_sel[i].classList.add('selected');
-      cur_sel[i].classList.remove('unread');
-    }
-
-    var selected = document.getElementById(ui.Main.selected_tweet_id2);
-    if (selected) {
-      selected.classList.remove('selected');
-    }
-    ui.Main.selected_tweet_id2 = null;
-    ui.Main.selected_tweet_id = null;
+    ui.Slider.update_indication();
   },
 
   get_page_pos: function get_page_pos(id) {
