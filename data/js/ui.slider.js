@@ -418,8 +418,11 @@ ui.Slider = {
     rel_btns[relative_Idx].classList.add('current');
     
     //unselect tweets
-    ui.Main.selected_tweet_id2 = null;
-    ui.Main.selected_tweet_id = null;
+    if(ui.Main.selected_tweet_id2){
+      document.getElementById(ui.Main.selected_tweet_id2).classList.remove('selected');
+      ui.Main.selected_tweet_id2 = null;
+      ui.Main.selected_tweet_id = null;
+    }
   },
 
   slide_to: function slide_to(id) {
