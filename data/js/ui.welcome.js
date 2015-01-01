@@ -382,10 +382,8 @@ ui.Welcome = {
       document.title = _('hermelin') + ' | ' + conf.current_name;
       hermelin_action('system/sign_in');
       ui.Slider.slide_to('home');
-      setTimeout(function(){
-        ui.Welcome.go.classList.remove('loading');
-        ui.Welcome.hide();
-      }, 1000);
+      ui.Welcome.go.classList.remove('loading');
+      ui.Welcome.hide();
     });
   },
 
@@ -410,23 +408,13 @@ ui.Welcome = {
   },
 
   hide: function hide() {
-    document.getElementById('bodyCover').style.display = 'block';
-    this.me.style.top = '-100%';
-    setTimeout(function(){
-      document.getElementById('bodyCover').style.display = 'none';
-    }, 600);
+    util.fadeOut(document.getElementById('welcome_page'));
     return this;
   },
 
   show: function show() {
-    document.getElementById('bodyCover').style.display = 'block';
-    var _this = this;
-    conf.reload(function () {
-      _this.me.style.top = '0';
-    });
-    setTimeout(function(){
-      document.getElementById('bodyCover').style.display = 'none';
-    }, 600);
+    util.fadeIn(document.getElementById('welcome_page'));
+    conf.reload(function () {});
     return this;
   }
 
