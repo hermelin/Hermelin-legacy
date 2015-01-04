@@ -450,6 +450,14 @@ function init_ui() {
 
 function init_hotkey() {
   hotkey.init();
+  keyboard.loadLayouts(function(){
+    keyboard.layouts.forEach(function(layout){
+      if(layout.name && layout.name === 'Hermelin Default'){
+        keyboard.useLayout(layout);
+      }
+    });
+  });
+  /*
   // Application
   // <Ctrl> + q to quit
   hotkey.register("<C-q>", "*", function () {
@@ -647,6 +655,7 @@ function init_hotkey() {
       document.body.style["-webkit-transform"] = 'rotateY(180deg)';
     }
   });
+  */
 }
 
 function overlay_variables(vars) {

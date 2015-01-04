@@ -1,0 +1,33 @@
+{
+  "navigation": {
+    "quit":                       "Quit",
+    "help_page":                  "?",
+    "timeline_reload":            "r",
+    "compose_tweet":              "c",
+    "slide_left":                 "h",
+    "slide_right":                "l",
+    "move_down":                  "j",
+    "move_up":                    "k",
+    "move_top":                   "gg",
+    "move_bottom":                "G",
+    "slide_home":                 "gh",
+    "slide_interactions":         "gi",
+    "slide_direct_messages":      "gd",
+    "slide_retweets":             "gr",
+    "slide_search":               "gs",
+    "open_tweet_finder":          "af",
+    "close_view":                 "tx"
+  },
+  "actions": {
+    "reply":                      "ar",
+    "reply_all":                  "aa",
+    "quote":                      "aq",
+    "fav_unfav":                  "as",
+    "retweet_unretweet":          "aR",
+    "delete_tweet":               "ad",
+    "send_message":               "am",
+    "open_user_profile":          "au",
+    "open_first_link":            "ao",
+    "fold_unfold_conversation":   "zc"
+  }
+}

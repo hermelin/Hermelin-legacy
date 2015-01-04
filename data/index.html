@@ -31,6 +31,7 @@
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/mochi.js"></script>
     <script type="text/javascript" src="js/hotkey.js"></script>
+    <script type="text/javascript" src="js/keyboard.js"></script>
     <script type="text/javascript" src="js/db.js"></script>
     <script type="text/javascript" src="js/conf.js"></script>
     <script type="text/javascript" src="js/i18n.js"></script>
@@ -480,7 +481,7 @@
       <div class="dialog_container">
         <div class="dialog_header"></div>
         <div id="prefs_dlg_body" class="dialog_body">
-          <div id='prefs_main' class="prefs_dlg_page dialog_page">
+          <div id="prefs_main" class="prefs_dlg_page dialog_page">
             <ul class="mochi_list">
               <li class="mochi_list_item">
                 <select id="sel_prefs_lang" class="mochi_combo widget" title="Select a language" data-i18n-title="select_a_language">
@@ -519,6 +520,12 @@
                 <a href="#prefs_appearance" class="trigger page_nav">
                   <span class="widget more"></span>
                   <label for="" class="label" data-i18n-text="appearance">Appearance Settings</label>
+                </a>
+              </li>
+              <li class="mochi_list_item with_trigger">
+                <a href="#prefs_keyboard" class="trigger page_nav">
+                  <span class="widget more"></span>
+                  <label for="" class="label" data-i18n-text="keyboard_prefs">Keyboard Settings</label>
                 </a>
               </li>
               <li class="mochi_list_item with_trigger">
@@ -585,6 +592,20 @@
                 <label class="label" for="sel_prefs_name" data-i18n-text="select_way_names">Way to show names</label>
               </li>
             </ul>
+          </div>
+          <div id="prefs_keyboard" class="prefs_dlg_page dialog_page">
+            <h3 data-i18n-text="load_keyboard_layout">Load a keyboard layout</h3>
+            <ul class="mochi_list">
+              <li class="mochi_list_item">
+                <select id="sel_keyboard_layout" class="mochi_combo widget" title="Select a keyboard layout" data-i18n-title="select_keyboard_layout">
+                  <option value="auto" data-i18n-text="keyboard_layout_hermelin">Hermelin default</option>
+                </select>
+                <label class="label" for="sel_keyboard_layout" data-i18n-text="select_keyboard_layout">Select a keyboard layout</label>
+              </li>
+            </ul>
+            <p>
+              <a id="btn_prefs_load_keyboard_layout" class="mochi_button blue" style="margin: 10px auto; display: block" data-i18n-text="load_keyboard_layout">Load keyboard layout</a>
+            </p>
           </div>
           <!-- END of prefs_design-->
           <div id="prefs_behavior" class="prefs_dlg_page dialog_page">
@@ -664,7 +685,7 @@
             </ul>
           </div>
           <!-- END of prefs_behavior-->
-          <div id='prefs_system' class="prefs_dlg_page dialog_page">
+          <div id="prefs_system" class="prefs_dlg_page dialog_page">
             <div class="dialog_block hint" data-i18n-text="globals_restart_hint">You MUST restart Hermelin for some changes below to take effect. And these options will affect ALL accounts</div>
             <ul class="mochi_list summon_list">
               <li class="mochi_list_item">
@@ -733,7 +754,7 @@
             </ul>
           </div>
           <!-- END of prefs_system-->
-          <div id='prefs_advanced' class="prefs_dlg_page dialog_page">
+          <div id="prefs_advanced" class="prefs_dlg_page dialog_page">
             <h3 data-i18n-text="animation">Animation</h3>
             <ul class="mochi_list">
               <li class="mochi_list_item">

@@ -8,7 +8,7 @@ hotkey = {
   altKey: 4,
 
   init: function init() {
-    $(document).bind("keypress keydown keyup", hotkey.crack);
+    document.addEventListener('keypress', hotkey.crack, true);
   },
 
   crack: function crack(event) {
@@ -26,7 +26,9 @@ hotkey = {
       var key = map.seq[map.pos];
       if (typeof key === "string") {
         var modkeys = key.substring(0, key.length - 1);
-        if (evt.ctrlKey !== (modkeys.indexOf("C") >= 0) || evt.altKey !== (modkeys.indexOf("A") >= 0) || key.charCodeAt(key.length - 1) !== evt.charCode) {
+        if (evt.ctrlKey !== (modkeys.indexOf("C") >= 0) ||
+            evt.altKey !== (modkeys.indexOf("A") >= 0) ||
+            evt.charCode !== key.substr(-1).charCodeAt(0)) {
           return false;
         }
       } else {
@@ -38,6 +40,9 @@ hotkey = {
           return false;
         }
       }
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      event.stopPropagation();
       return true;
     }
 
@@ -74,7 +79,7 @@ hotkey = {
           } else {
             map.pos++;
           }
-        } else {
+        } else if(event.keyCode !== 16 && event.keyCode !== 17 && event.keyCode !== 18){
           map.pos = 0;
         }
       }
@@ -87,7 +92,7 @@ hotkey = {
     }
   },
 
-  register: function register(keySeq, flags, callback) {
+  register: function register(name, keySeq, flags, callback) {
     // flags:
     //   "*": call callback function in any cases
     //   "i": call callback function, even typing text
@@ -110,7 +115,7 @@ hotkey = {
           if (p == -1) {
             return false;
           }
-          keyChar = keySeq.substring(i + 1, p).replace(/([AC])-/g, "$1");
+          keyChar = keySeq.substring(i + 1, p).replace(/([ACS]{1,3})-/g, "$1");
           i = p;
         }
         keys.push(keyChar);
@@ -127,18 +132,35 @@ hotkey = {
       } else {
         return false;
       }
-      flags = flags.replace(/P/g, "");
-      if (!/[UD]/.test(flags)) {
-        flags += "U";
+      flags = flags.replace(/[UD]/g, "");
+      if (flags.indexOf("P") < 0) {
+        flags += "P";
       }
     }
     hotkey.map.push({
       seq: keys,
       f: callback,
       pos: 0,
-      flags: flags
+      flags: flags,
+      name: name
     });
     return true;
+  },
+  
+  unregister: function unregister(name){
+    var index = -1;
+    hotkey.map.forEach(function(thismap, i){
+      if(thismap.name && thismap.name===name){
+        index = i;
+      }
+    });
+    if(index !== -1){
+      hotkey.map.splice(index, 1);
+    }
+  },
+  
+  clear: function clear(){
+    hotkey.map = [];
   },
 
   calculate: function calculate(keyCode, modkeys) {

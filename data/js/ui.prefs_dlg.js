@@ -57,6 +57,17 @@ ui.PrefsDlg = {
       $('#range_prefs_line_height_st').text(Number($(this).val()).toFixed(1));
       ui.PrefsDlg.update_font_preview();
     });
+    
+    $('#btn_prefs_load_keyboard_layout').click(function (event) {
+      var sel_layout = $('#sel_keyboard_layout').val();
+      if(sel_layout){
+        if(keyboard.useLayout(keyboard.layouts[parseInt(sel_layout)])){
+          toast.set('Successfully loaded layout from file').show();
+        } else{
+          toast.set('Invalid keyboard layout!').show();
+        }
+      }
+    });
 
     $('#chk_prefs_use_readlater_serv').click(function (event) {
       $('#tbox_prefs_readlater_username, #tbox_prefs_readlater_password, #sel_prefs_readlater_service').attr('disabled', !$(this).prop('checked'));
@@ -246,6 +257,19 @@ ui.PrefsDlg = {
     $('#range_prefs_line_height').val(prefs.line_height);
     $('#range_prefs_line_height_st').text(Number(prefs.line_height).toFixed(1));
     ui.PrefsDlg.update_font_preview();
+    
+    var layout_list = $('#sel_keyboard_layout').empty().attr('disabled', true);
+    $('<option/>').attr('value', 'more').text('...').appendTo(layout_list);
+    keyboard.loadLayouts(function(){
+      layout_list.empty();
+      if(keyboard.layouts.length > 0){
+        keyboard.layouts.forEach(function(layout, i){
+          $('<option/>').attr('value', i.toString()).text(layout.name).appendTo(layout_list);
+        });
+        layout_list.attr('disabled', false);
+      }
+    });
+    
     $('#chk_prefs_auto_longer_tweet')
       .attr('checked', prefs.auto_longer_tweet)
       .prop('checked', prefs.auto_longer_tweet);

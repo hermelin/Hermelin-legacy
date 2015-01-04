@@ -1,0 +1,63 @@
+//This is a sample keyboard layout
+//Every action can be called via a sequence of keyboard inputs
+//The string specifies this sequence. Each part of the sequence can be written
+//via the following notation:
+//
+//Simple ascii characters, e.g.: a
+//These are just your usual characters. Keep in mind that this is based on your
+//keyboard, so if you specifiy for Example A this usually means it only works
+//when you press Shift+a
+//
+//Due to bugs in webkit (or broken keyboard events in browsers in general) you
+//can't right now create combinations with alt or ctrl.
+//
+//Examples:
+//
+//Ohai!
+//Press Shift+o, then h, then a, then i, then !
+//
+//Copy
+//Press Shift+c, then o, then p, then y
+//
+//You don't need to specify every action, just leave the value empty or remove
+//the key.
+//
+//When you are done save the file somewhere in keyboard/ and specify the
+//name and the path of your layout in layouts.json.
+//Make sure that your JSON is valid!
+//
+//If you now start Hermelin your layout should appear in the keyboard options
+
+{
+  "navigation": {
+    "quit":                       "Quit",
+    "help_page":                  "?",
+    "timeline_reload":            "r",
+    "compose_tweet":              "p",
+    "slide_left":                 "h",
+    "slide_right":                "l",
+    "move_down":                  "j",
+    "move_up":                    "k",
+    "move_top":                   "gg",
+    "move_bottom":                "G",
+    "slide_home":                 "gh",
+    "slide_interactions":         "gi",
+    "slide_direct_messages":      "gd",
+    "slide_retweets":             "gr",
+    "slide_search":               "gs",
+    "open_tweet_finder":          "af",
+    "close_view":                 "tx"
+  },
+  "actions": {
+    "reply":                      "ar",
+    "reply_all":                  "aa",
+    "quote":                      "aq",
+    "fav_unfav":                  "as",
+    "retweet_unretweet":          "aR",
+    "delete_tweet":               "ad",
+    "send_message":               "am",
+    "open_user_profile":          "au",
+    "open_first_link":            "ao",
+    "fold_unfold_conversation":   "zc"
+  }
+}

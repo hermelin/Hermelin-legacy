@@ -6,8 +6,14 @@ util = {
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          if (success)
-            success(JSON.parse(xhr.responseText));
+          if (success){
+            try{
+              success(JSON.parse(xhr.responseText));
+            }
+            catch(e){
+              error(e);
+            }
+          }
         } else {
           if (error)
             error(xhr);
