@@ -491,6 +491,10 @@
     "message": "Keyboard",
     "description": "data/index.html"
   },
+  "keyboard_prefs": {
+    "message": "Keyboard Settings",
+    "description": "data/js/ui.prefs_dlg.js"
+  },
   "keyboard_shortcuts": {
     "message": "Keyboard Shortcuts",
     "description": "data/index.html"
@@ -558,6 +562,10 @@
   "lists_of_them": {
     "message": "Lists of them",
     "description": "data/js/ui.template.js"
+  },
+  "load_keyboard_layout": {
+    "message": "Load a keyboard layout",
+    "description": "data/js/ui.prefs_dlg.js"
   },
   "loading_dots": {
     "message": "Loading... ",

@@ -492,6 +492,10 @@
     "message": "Tastatur",
     "description": "data/index.html"
   },
+  "keyboard_prefs": {
+    "message": "Tastatur Einstellungen",
+    "description": "data/js/ui.prefs_dlg.js"
+  },
   "keyboard_shortcuts": {
     "message": "Tastenkombinationen",
     "description": "data/index.html"
@@ -559,6 +563,10 @@
   "lists_of_them": {
     "message": "Listen von @",
     "description": "data/js/ui.template.js"
+  },
+  "load_keyboard_layout": {
+    "message": "Tastaturlayout laden",
+    "description": "data/js/ui.prefs_dlg.js"
   },
   "loading_dots": {
     "message": "Lade ... ",
