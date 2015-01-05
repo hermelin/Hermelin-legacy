@@ -62,6 +62,7 @@ conf = {
       // Behaviors
       ,
       'auto_longer_tweet': true,
+      'keyboard_layout': '',
       'use_preload_conversation': false,
       'use_alt_retweet': false,
       'use_alt_reply': true,
@@ -121,6 +122,7 @@ conf = {
       // Behaviors
       ,
       'auto_longer_tweet': true,
+      'keyboard_layout': '',
       'use_preload_conversation': true,
       'use_alt_retweet': false,
       'use_alt_reply': true,
@@ -312,6 +314,10 @@ conf = {
     } else {
       $('.listview, .dialog_block p, .card').css('font-family', fonts[1]);
       globals.tweet_font = fonts[1];
+    }
+    //keyboard
+    if(prefs.keyboard_layout){
+      keyboard.useLayout(prefs.keyboard_layout, true);
     }
     // animation
     $.fx.off = !prefs.enable_animation;

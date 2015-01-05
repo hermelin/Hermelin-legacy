@@ -346,6 +346,9 @@ disabled:
 .dialog_body .mochi_entry.widget {
   width: 300px;
 }
+.dialog_body #prefs_keyboard .mochi_entry.widget {
+  width: 80px;
+}
 .dialog_footer {
   height: 59px;
   text-align: right;

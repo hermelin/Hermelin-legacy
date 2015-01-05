@@ -62,6 +62,11 @@ ui.PrefsDlg = {
       var sel_layout = $('#sel_keyboard_layout').val();
       if(sel_layout){
         if(keyboard.useLayout(keyboard.layouts[parseInt(sel_layout)])){
+          for(var layout_set in keyboard.layout_functions){
+            for (part in keyboard.layout_functions[layout_set]){
+              $('#keyboard_prefs_' + layout_set + '_' + part).val(hotkey.get(part));
+            }
+          }
           toast.set('Successfully loaded layout from file').show();
         } else{
           toast.set('Invalid keyboard layout!').show();
@@ -258,6 +263,21 @@ ui.PrefsDlg = {
     $('#range_prefs_line_height_st').text(Number(prefs.line_height).toFixed(1));
     ui.PrefsDlg.update_font_preview();
     
+    if(prefs.keyboard_layout){
+      keyboard.useLayout(prefs.keyboard_layout, true);
+    } else{
+      keyboard.layouts.forEach(function(layout){
+        if(layout.name && layout.name === 'Hermelin Default'){
+          keyboard.useLayout(layout);
+        }
+      });
+    }
+    for (var layout_set in keyboard.layout_functions) {
+      for (part in keyboard.layout_functions[layout_set]) {
+        $('#keyboard_prefs_' + layout_set + '_' + part).val(hotkey.get(part));
+      }
+    }
+    
     var layout_list = $('#sel_keyboard_layout').empty().attr('disabled', true);
     $('<option/>').attr('value', 'more').text('...').appendTo(layout_list);
     keyboard.loadLayouts(function(){
@@ -359,6 +379,19 @@ ui.PrefsDlg = {
       prefs.line_height = 1.4;
     }
     prefs.use_custom_font = $('#chk_use_custom_font').prop('checked');
+    
+    //keyboard
+    var layout = {};
+    for(var layout_set in keyboard.layout_functions){
+      layout[layout_set] = {};
+      for (var part in keyboard.layout_functions[layout_set]){
+        var newSeq = $('#keyboard_prefs_' + layout_set + '_' + part).val();
+        layout[layout_set][part] = newSeq;
+      }
+    }
+    
+    prefs.keyboard_layout = layout;
+    
     // behaviors
     prefs.auto_longer_tweet = $('#chk_prefs_auto_longer_tweet').prop('checked');
 

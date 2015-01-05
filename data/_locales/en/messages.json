@@ -491,6 +491,98 @@
     "message": "Keyboard",
     "description": "data/index.html"
   },
+  "keyboard_navigation": {
+    "message": "Navigation",
+    "description": "data/index.html"
+  },
+  "keyboard_navigation_quit": {
+    "message": "Quit Hermelin",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_help_page": {
+    "message": "Show help page",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_timeline_reload": {
+    "message": "Reload Timeline",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_compose_tweet": {
+    "message": "Compose new Tweet",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_left": {
+    "message": "Slide to previous column",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_right": {
+    "message": "Slide to next column",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_next": {
+    "message": "Select next Tweet",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_previous": {
+    "message": "Select previous Tweet",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_first": {
+    "message": "Select first Tweet in column",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_last": {
+    "message": "Select last Tweet in column",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_home": {
+    "message": "Slide to column 'Home'",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_mentions": {
+    "message": "Slide to column 'Mentions'",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_messages": {
+    "message": "Slide to column 'Messages'",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_retweets": {
+    "message": "Slide to column 'Retweets'",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_search": {
+    "message": "Slide to column 'Search'",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_open_tweet_finder": {
+    "message": "Open Tweet finder",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_close_column": {
+    "message": "Close column",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_fav_unfav": {
+    "message": "Favorite/Unfavorite",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_retweet_unretweet": {
+    "message": "Retweet/Unretweet",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_open_user_profile": {
+    "message": "Open user profile",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_open_first_link": {
+    "message": "Open first link",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_fold_unfold_conversation": {
+    "message": "Fold/Unfold conversation",
+    "description": "data/js/keyboard.js"
+  },
   "keyboard_prefs": {
     "message": "Keyboard Settings",
     "description": "data/js/ui.prefs_dlg.js"
@@ -1045,6 +1137,10 @@
   },
   "select_way_names": {
     "message": "Way to show names",
+    "description": "data/index.html"
+  },
+  "selected_tweet_actions": {
+    "message": "Selected Tweet actions",
     "description": "data/index.html"
   },
   "send_message": {

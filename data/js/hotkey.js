@@ -26,9 +26,9 @@ hotkey = {
       var key = map.seq[map.pos];
       if (typeof key === "string") {
         var modkeys = key.substring(0, key.length - 1);
-        if (evt.ctrlKey !== (modkeys.indexOf("C") >= 0) ||
-            evt.altKey !== (modkeys.indexOf("A") >= 0) ||
-            evt.charCode !== key.substr(-1).charCodeAt(0)) {
+        if (evt.charCode !== key.substr(-1).charCodeAt(0) ||
+            evt.ctrlKey !== (modkeys.indexOf("C") >= 0) ||
+            evt.altKey !== (modkeys.indexOf("A") >= 0)) {
           return false;
         }
       } else {
@@ -79,8 +79,12 @@ hotkey = {
           } else {
             map.pos++;
           }
-        } else if(event.keyCode !== 16 && event.keyCode !== 17 && event.keyCode !== 18){
+        } else {
+          var prev = map.pos;
           map.pos = 0;
+          if (prev > 0 && c && checkKey(map, event)) {
+            map.pos++;
+          }
         }
       }
     }
@@ -89,6 +93,9 @@ hotkey = {
       try {
         hotkey.map[mi].f();
       } catch (ex) {}
+      hotkey.map.forEach(function(map){
+        map.pos = 0;
+      });
     }
   },
 
@@ -157,6 +164,18 @@ hotkey = {
     if(index !== -1){
       hotkey.map.splice(index, 1);
     }
+  },
+  
+  get: function get(name){
+    var sequence = '';
+    hotkey.map.forEach(function(thismap){
+      if(thismap.name && thismap.name===name){
+        thismap.seq.forEach(function(seq){
+          sequence += seq.substr(-1);
+        });
+      }
+    });
+    return sequence;
   },
   
   clear: function clear(){

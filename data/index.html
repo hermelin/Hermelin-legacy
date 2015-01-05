@@ -31,7 +31,6 @@
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/mochi.js"></script>
     <script type="text/javascript" src="js/hotkey.js"></script>
-    <script type="text/javascript" src="js/keyboard.js"></script>
     <script type="text/javascript" src="js/db.js"></script>
     <script type="text/javascript" src="js/conf.js"></script>
     <script type="text/javascript" src="js/i18n.js"></script>
@@ -40,6 +39,7 @@
     <script type="text/javascript" src="js/notification.js"></script>
     <script type="text/javascript" src="js/readlater.js"></script>
     <script type="text/javascript" src="js/daemon.js"></script>
+    <script type="text/javascript" src="js/keyboard.js"></script>
     <script type="text/javascript" src="js/ui.header.js"></script>
     <script type="text/javascript" src="js/ui.slider.js"></script>
     <script type="text/javascript" src="js/ui.welcome.js"></script>
@@ -606,6 +606,119 @@
             <p>
               <a id="btn_prefs_load_keyboard_layout" class="mochi_button blue" style="margin: 10px auto; display: block" data-i18n-text="load_keyboard_layout">Load keyboard layout</a>
             </p>
+            <h3 data-i18n-text="navigation">Navigation</h3>
+            <ul class="mochi_list" id="prefs_keyboard_navigation">
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="Quit" id="keyboard_prefs_navigation_quit" title="keyboard_navigation_quit">
+                <label class="label" data-i18n-text="keyboard_navigation_quit">Quit Hermelin</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="?" id="keyboard_prefs_navigation_help_page" title="keyboard_navigation_help_page">
+                <label class="label" data-i18n-text="keyboard_navigation_help_page">Show help page</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="r" id="keyboard_prefs_navigation_timeline_reload" title="keyboard_navigation_timeline_reload">
+                <label class="label" data-i18n-text="keyboard_navigation_timeline_reload">Reload Timeline</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="c" id="keyboard_prefs_navigation_compose_tweet" title="keyboard_navigation_compose_tweet">
+                <label class="label" data-i18n-text="keyboard_navigation_compose_tweet">Compose new Tweet</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="h" id="keyboard_prefs_navigation_slide_left" title="keyboard_navigation_slide_left">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_left">Slide to previous column</label></li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="l" id="keyboard_prefs_navigation_slide_right" title="keyboard_navigation_slide_right">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_right">Slide to next column</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="k" id="keyboard_prefs_navigation_move_down" title="keyboard_navigation_select_next">
+                <label class="label" data-i18n-text="keyboard_navigation_select_next">Select next Tweet</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="j" id="keyboard_prefs_navigation_move_up" title="keyboard_navigation_select_previous">
+                <label class="label" data-i18n-text="keyboard_navigation_select_previous">Select previous Tweet</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gg" id="keyboard_prefs_navigation_move_top" title="keyboard_navigation_select_first">
+                <label class="label" data-i18n-text="keyboard_navigation_select_first">Select first Tweet in column</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="G" id="keyboard_prefs_navigation_move_bottom" title="keyboard_navigation_select_last">
+                <label class="label" data-i18n-text="keyboard_navigation_select_last">Select last Tweet in column</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gh" id="keyboard_prefs_navigation_slide_home" title="keyboard_navigation_slide_home">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_home">Slide to column 'Home'</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gi" id="keyboard_prefs_navigation_slide_interactions" title="keyboard_navigation_slide_mentions">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_mentions">Slide to column 'Mentions'</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gd" id="keyboard_prefs_navigation_slide_direct_messages" title="keyboard_navigation_slide_messages">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_messages">Slide to column 'Messages'</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gr" id="keyboard_prefs_navigation_slide_retweets" title="keyboard_navigation_slide_retweets">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_retweets">Slide to column 'Retweets'</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="gs" id="keyboard_prefs_navigation_slide_search" title="keyboard_navigation_slide_search">
+                <label class="label" data-i18n-text="keyboard_navigation_slide_search">Slide to column 'Search'</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="af" id="keyboard_prefs_navigation_open_tweet_finder" title="keyboard_navigation_open_tweet_finder">
+                <label class="label" data-i18n-text="keyboard_navigation_open_tweet_finder">Open Tweet finder</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="tx" id="keyboard_prefs_navigation_close_view" title="keyboard_navigation_close_column">
+                <label class="label" data-i18n-text="keyboard_navigation_close_column">Close column</label>
+              </li>
+            </ul>
+            <h3 data-i18n-text="selected_tweet_actions">Selected Tweet actions</h3>
+            <ul class="mochi_list" id="prefs_keyboard_actions">
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="ar" id="keyboard_prefs_actions_reply" title="reply">
+                <label class="label" data-i18n-text="reply">Reply</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="aa" id="keyboard_prefs_actions_reply_all" title="reply_all">
+                <label class="label" data-i18n-text="reply_all">Reply All</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="aq" id="keyboard_prefs_actions_quote" title="quote">
+                <label class="label" data-i18n-text="quote">Quote</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="as" id="keyboard_prefs_actions_fav_unfav" title="keyboard_action_fav_unfav">
+                <label class="label" data-i18n-text="keyboard_action_fav_unfav">Favorite/Unfavorite</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="aR" id="keyboard_prefs_actions_retweet_unretweet" title="keyboard_action_retweet_unretweet">
+                <label class="label" data-i18n-text="keyboard_action_retweet_unretweet">Retweet/Unretweet</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="ad" id="keyboard_prefs_actions_delete_tweet" title="delete">
+                <label class="label" data-i18n-text="delete">Delete</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="am" id="keyboard_prefs_actions_send_message" title="send_message">
+                <label class="label" data-i18n-text="send_message">Send Message</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="au" id="keyboard_prefs_actions_open_user_profile" title="keyboard_action_open_user_profile">
+                <label class="label" data-i18n-text="keyboard_action_open_user_profile">Open user profile</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="ao" id="keyboard_prefs_actions_open_first_link" title="keyboard_action_open_first_link">
+                <label class="label" data-i18n-text="keyboard_action_open_first_link">Open first link</label>
+              </li>
+              <li class="mochi_list_item">
+                <input type="text" class="mochi_entry widget" value="zc" id="keyboard_prefs_actions_fold_unfold_conversation" title="keyboard_action_fold_unfold_conversation">
+                <label class="label" data-i18n-text="keyboard_action_fold_unfold_conversation">Fold/Unfold conversation</label>
+              </li>
+            </ul>
           </div>
           <!-- END of prefs_design-->
           <div id="prefs_behavior" class="prefs_dlg_page dialog_page">

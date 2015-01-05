@@ -492,6 +492,98 @@
     "message": "Tastatur",
     "description": "data/index.html"
   },
+    "keyboard_navigation": {
+    "message": "Navigation",
+    "description": "data/index.html"
+  },
+  "keyboard_navigation_quit": {
+    "message": "Hermelin schließen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_help_page": {
+    "message": "Hilfe anzeigen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_timeline_reload": {
+    "message": "Timeline neu laden",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_compose_tweet": {
+    "message": "Tweet verfassen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_left": {
+    "message": "Zur vorigen Spalte wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_right": {
+    "message": "Zur nächsten Spalte wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_next": {
+    "message": "Nächsten Tweet auswählen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_previous": {
+    "message": "Vorigen Tweet auswählen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_first": {
+    "message": "Ersten Tweet in Spalte auswählen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_select_last": {
+    "message": "Letzten Tweet in Spalte auswählen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_home": {
+    "message": "Zu 'Meine Timeline' wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_mentions": {
+    "message": "Zu 'Erwähnungen' wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_messages": {
+    "message": "Zu 'Nachrichten' wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_retweets": {
+    "message": "Zu 'Retweets' wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_slide_search": {
+    "message": "Zu 'Suche' wechseln",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_open_tweet_finder": {
+    "message": "Tweetfinder öffnen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_navigation_close_column": {
+    "message": "Spalte schließen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_fav_unfav": {
+    "message": "Favorisieren/Entfavorisieren",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_retweet_unretweet": {
+    "message": "Retweeten/Unretweeten",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_open_user_profile": {
+    "message": "Benutzerprofil öffnen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_open_first_link": {
+    "message": "Ersten Link öffnen",
+    "description": "data/js/keyboard.js"
+  },
+  "keyboard_action_fold_unfold_conversation": {
+    "message": "Konversation zeigen/verbergen",
+    "description": "data/js/keyboard.js"
+  },
   "keyboard_prefs": {
     "message": "Tastatur Einstellungen",
     "description": "data/js/ui.prefs_dlg.js"
@@ -1046,6 +1138,10 @@
   },
   "select_way_names": {
     "message": "Art wie Namen angezeigt werden",
+    "description": "data/index.html"
+  },
+  "selected_tweet_actions": {
+    "message": "Aktionen für ausgewählten Tweet",
     "description": "data/index.html"
   },
   "send_message": {
