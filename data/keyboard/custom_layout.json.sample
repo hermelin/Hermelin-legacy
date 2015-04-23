@@ -1,3 +1,4 @@
+//change the keyboard actions and remove the ".sample" from the file name
 {
   "navigation": {
     "quit":                       "Quit",

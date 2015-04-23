@@ -452,13 +452,13 @@ function init_hotkey() {
   hotkey.init();
 
   // :)
-  hotkey.register("#@!^&", function () {
+  hotkey.register("#@!^&", "#@!^&", function () {
     var profileimages = document.getElementsByClassName('profile_img_wrapper');
     for (var i = 0; i < profileimages.length; i++) {
       profileimages[i].style.backgroundImage = 'url(image/ic48_profile_image.png)';
     }
   });
-  hotkey.register("MIRROR", "gm", function () {
+  hotkey.register("Mirror", "MIRROR", "gm", function () {
     if (document.body.style["-webkit-transform"] != 'none') {
       document.body.style["-webkit-transform"] = 'none';
     } else {
