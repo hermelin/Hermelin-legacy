@@ -1513,11 +1513,14 @@ ui.Template = {
     var previewEntities = [];
     var last = 0;
     var diff = 0;
+    var ustrHtml = util.UnicodeString(html);
+    //handling the string as a "unicode string", so twitter indices don't mess up
+    //the js strings (which have no actual support for UTF-32, used for emojis etc.)
     entities.forEach(function (entity) {
-      var text_between = html.slice(last, diff + entity.indices[0]);
-      textBlocks.push(ui.Template.convert_chars(text_between));
-      last += text_between.length;
+      var text_between = ustrHtml.slice(last, diff + entity.indices[0]);
+      textBlocks.push(twemoji.parse(ui.Template.convert_chars(text_between.toString())));
 
+      last += text_between.length;
 
       switch (entity.entityType) {
       case 'hashtags':
@@ -1563,7 +1566,7 @@ ui.Template = {
       diff = last - entity.indices[1];
     });
 
-    textBlocks.push(ui.Template.convert_chars(html.slice(last, html.length)));
+    textBlocks.push(twemoji.parse(ui.Template.convert_chars(ustrHtml.slice(last, html.length).toString())));
     html = textBlocks.join('');
 
     var previewHtml = ui.Template.form_preview(previewEntities);

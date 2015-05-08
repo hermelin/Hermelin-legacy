@@ -414,6 +414,9 @@ function init_ui() {
   kismet.init();
   notification.init();
   toast.init();
+  
+  twemoji.size = '16x16';
+  
   ui.Slider.init();
   ui.Template.init();
   ui.Header.init();
