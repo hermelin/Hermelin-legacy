@@ -1292,7 +1292,7 @@ ui.Template = {
       user_obj.profile_banner_url = 'https://abs.twimg.com/a/1396545424/img/t1/grey_header_web.jpg';
       vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + ');');
     } else {
-      vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + '/mobile_retina/' + ');');
+      vcard.setAttribute('style', 'background-image: url(' + user_obj.profile_banner_url + '/mobile_retina' + ');');
     }
     profile_img.setAttribute('href', user_obj.profile_image_url.replace('_normal', ''));
     profile_img.setAttribute('style', 'background-image: url(' + user_obj.profile_image_url.replace('_normal', '_bigger') + ');');
